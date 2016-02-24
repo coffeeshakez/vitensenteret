@@ -30,12 +30,12 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.cloudTabDefaultPage', {
+  .state('tabsController.fargelS', {
     url: '/page4',
     views: {
       'tab3': {
-        templateUrl: 'templates/cloudTabDefaultPage.html',
-        controller: 'cloudTabDefaultPageCtrl'
+        templateUrl: 'templates/fargelS.html',
+        controller: 'fargelSCtrl'
       }
     }
   })

@@ -8,7 +8,7 @@ angular.module('app.controllers', [])
 
 })
    
-.controller('cloudTabDefaultPageCtrl', function($scope) {
+.controller('fargelSCtrl', function($scope) {
 
 })
     
