@@ -1,3 +1,21 @@
-<ion-view title="Cart Tab Default Page">
-    <ion-content overflow-scroll="true" padding="true" class="has-header"></ion-content>
+<ion-view title="Minneleken">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div class="card">
+          <div class="item item-text-wrap">
+            Trykk på fargene i samme rekkefølge som de blinker!
+          </div>
+        </div>
+
+        <div class="row" >
+            <div class="col" ng-repeat="part in collectedParts">
+                <div class="card">
+                    <div class="item item-text-wrap">
+                        <img ng-src="part.image"/>
+                        <span ng-binding="part.name"></span>
+                        <ion-checkbox ng-model="part.collected"></ion-checkbox>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>

@@ -5,7 +5,9 @@ angular.module('app.controllers', [])
 })
    
 .controller('cartTabDefaultPageCtrl', function($scope) {
-
+    $scope.collectedParts = [
+        {name: "Hode", image: "hode.png", collected: false}
+    ]
 })
    
 .controller('fargelSCtrl', function($scope) {
