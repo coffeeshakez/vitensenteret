@@ -43,8 +43,10 @@ angular.module('app.example')
 
         if(isNear(r, desired.r, error_margin)  && isNear(g, desired.g, error_margin) && isNear(b, desired.b, error_margin)){
             $scope.variable = true;
+            return true;
         }else{
             $scope.variable = false;
+            return false;
         }
     }
 
