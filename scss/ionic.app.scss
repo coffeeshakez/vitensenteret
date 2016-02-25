@@ -15,12 +15,21 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+// Vitensenteret farger
+$viten-blue: #3E96DB !default;
+$viten-orange: #FF7231 !default;
+$viten-yellowgreen: #CFDE00 !default;
+$viten-green: #39C645 !default;
+$viten-gray: #A39A94 !default;
 
-$balanced:                   #CFDE00 !default;
-$energized:                  #FF7231 !default;
-$positive:                   #3E96DB !default;
 
-$base-background-color:      $positive !default;
+//Overskriv app-farger
+$positive:                   $viten-blue !default;
+$energized:                  $viten-orange !default;
+$balanced:                   $viten-yellowgreen !default;
+$stable:                     $viten-gray !default;
+
+$base-background-color:      $viten-blue !default;
 
 
 // The path for our ionicons font files, relative to the built CSS in www/css

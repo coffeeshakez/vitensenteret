@@ -8,9 +8,7 @@ angular.module('app.routes', [])
   // Each state's controller can be found in controllers.js
   $stateProvider
     
-  
-
-      .state('tabsController.vitensenteretKart', {
+  .state('index.vitensenteretKart', {
     url: '/page2',
     views: {
       'tab1': {
@@ -20,7 +18,7 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.cartTabDefaultPage', {
+  .state('index.cartTabDefaultPage', {
     url: '/page3',
     views: {
       'tab2': {
@@ -30,24 +28,24 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.fargelS', {
-    url: '/page4',
+  .state('index.example', {
+    url: "/example",
     views: {
-      'tab3': {
-        templateUrl: 'templates/fargelS.html',
-        controller: 'fargelSCtrl'
+      'example': {
+        templateUrl: "app/example/views/default.html",
+        controller: 'ExampleCtrl'
       }
-    }
+    },
+    data: {pageTitle: 'Example'}
   })
 
-  .state('tabsController', {
-    url: '/page1',
+  .state('index', {
+    url: '/index',
     templateUrl: 'templates/tabsController.html',
     abstract:true
   })
 
-$urlRouterProvider.otherwise('/page1/page2')
+$urlRouterProvider.otherwise('/index/example')
 
-  
 
 });
