@@ -39,13 +39,24 @@ angular.module('app.routes', [])
     data: {pageTitle: 'Example'}
   })
 
+  .state('index.main', {
+    url: "/main",
+    views: {
+      'main': {
+        templateUrl: "app/main/views/main.html",
+        controller: 'MainCtrl'
+      }
+    },
+    data: {pageTitle: 'Main view'}
+  })
+
   .state('index', {
     url: '/index',
     templateUrl: 'templates/tabsController.html',
     abstract:true
   })
 
-$urlRouterProvider.otherwise('/index/example')
+$urlRouterProvider.otherwise('/index/main')
 
 
 });
