@@ -1,4 +1,16 @@
 <ion-view title="Periodic">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
+
+        <div class="row flex-wrap" >
+            <div class="col-33" ng-repeat="part in buttons">
+                <div class="card">
+                    <div class="item item-text-wrap">
+                        <span>{{part.name}}</span>
+                        <ion-checkbox ng-model="part.collected"></ion-checkbox>
+                    </div>    
+                </div>
+            </div>
+        </div>
+
     </ion-content>
 </ion-view>

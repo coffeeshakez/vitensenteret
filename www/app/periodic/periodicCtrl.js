@@ -3,11 +3,16 @@ angular.module('app.periodic')
     $scope.variable = false;
     $scope.slider = {red: 100, green: 100, blue: 100}
 
-    $scope.exampleList = [
-        {name: "Hode", image: "hode.png", collected: false},
-        {name: "Skulder", image: "hode.png", collected: true},
-        {name: "Kne", image: "hode.png", collected: false},
-        {name: "Tå", image: "hode.png", collected: true},
+    $scope.buttons = [
+        {name: "O", image: "hode.png", collected: false},
+        {name: "O", image: "hode.png", collected: false},
+        {name: "O", image: "hode.png", collected: false},
+        {name: "O", image: "hode.png", collected: false},
+        {name: "O", image: "hode.png", collected: false},
+        {name: "O", image: "hode.png", collected: false},
+        {name: "O", image: "hode.png", collected: false},
+        {name: "O", image: "hode.png", collected: false},
+        {name: "O", image: "hode.png", collected: false},
     ]
 
     $scope.exampleFunc = function(r, g, b){
