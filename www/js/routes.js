@@ -29,15 +29,27 @@ angular.module('app.routes', [])
   })
 
   .state('index.example', {
-    url: "/example",
-    views: {
-      'example': {
-        templateUrl: "app/example/views/default.html",
-        controller: 'ExampleCtrl'
-      }
-    },
-    data: {pageTitle: 'Example'}
-  })
+      url: "/example",
+      views: {
+        'example': {
+          templateUrl: "app/example/views/default.html",
+          controller: 'ExampleCtrl'
+        }
+      },
+      data: {pageTitle: 'Example'}
+    })
+
+    .state('periodic', {
+        url: "/periodic",
+        views: {
+          'periodic': {
+            templateUrl: "app/example/views/periodic.html",
+            controller: 'periodicCtrl'
+          }
+        },
+        data: {pageTitle: 'Example'}
+      })
+
 
   .state('index', {
     url: '/index',

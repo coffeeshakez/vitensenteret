@@ -12,6 +12,7 @@ angular.module('app', [
   'app.services', 
   'app.directives',
   'app.example',
+  'app.periodic',
   //'app.myapp',
   ])
 
