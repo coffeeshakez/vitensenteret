@@ -24,6 +24,17 @@
             </ion-item>
         </form>
 
+        <div class="row flex-wrap" >
+            <div class="col-33" ng-repeat="part in buttons">
+                <div class="card">
+                    <div class="item item-text-wrap">
+                        <span>{{part.name}}</span>
+                        <ion-checkbox ng-model="part.collected"></ion-checkbox>
+                    </div>    
+                </div>
+            </div>
+        </div>
+
         <btn ng-disabled="!exampleFunc(slider.red, slider.green, slider.blue)" class="button button-balanced button-block">Lås opp</btn>
     </ion-content>
 </ion-view>

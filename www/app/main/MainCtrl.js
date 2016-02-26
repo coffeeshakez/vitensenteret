@@ -3,10 +3,17 @@ angular.module('app.main')
     $scope.variable = false;
     $scope.slider = {red: 100, green: 100, blue: 100}
 
-    $scope.exampleList = [
+    $scope.buttons = [
         {name: "Hode", image: "hode.png", collected: false},
         {name: "Skulder", image: "hode.png", collected: true},
         {name: "Kne", image: "hode.png", collected: false},
+
+        {name: "Tå", image: "hode.png", collected: true},
+        {name: "Tå", image: "hode.png", collected: true},
+        {name: "Tå", image: "hode.png", collected: true},
+
+        {name: "Tå", image: "hode.png", collected: true},
+        {name: "Tå", image: "hode.png", collected: true},
         {name: "Tå", image: "hode.png", collected: true},
     ]
 
