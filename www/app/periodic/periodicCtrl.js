@@ -1,5 +1,5 @@
-angular.module('app.example')
-.controller('ExampleCtrl', function($scope, $stateParams) {
+angular.module('app.periodic')
+.controller('periodicCtrl', function($scope, $stateParams) {
     $scope.variable = false;
     $scope.slider = {red: 100, green: 100, blue: 100}
 

@@ -39,15 +39,15 @@ angular.module('app.routes', [])
       data: {pageTitle: 'Example'}
     })
 
-    .state('periodic', {
+    .state('index.periodic', {
         url: "/periodic",
         views: {
           'periodic': {
-            templateUrl: "app/example/views/periodic.html",
+            templateUrl: "app/periodic/views/periodic.html",
             controller: 'periodicCtrl'
           }
         },
-        data: {pageTitle: 'Example'}
+        data: {pageTitle: 'Periodic'}
       })
 
 
