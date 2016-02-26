@@ -1,12 +1,18 @@
 <ion-view title="Periodic">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 
+        <div class="card">
+            <div class="item picture-container">
+                <img src="../../img/battery.jpg" class="picture">
+            </div>
+        </div>
+
+
         <div class="row flex-wrap" >
             <div class="col-33" ng-repeat="part in buttons">
                 <div class="card">
-                    <div class="item item-text-wrap">
+                    <div class="item item-text-wrap text-center">
                         <span>{{part.name}}</span>
-                        <ion-checkbox ng-model="part.collected"></ion-checkbox>
                     </div>    
                 </div>
             </div>

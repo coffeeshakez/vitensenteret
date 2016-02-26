@@ -9,3 +9,12 @@
 .flex-wrap .card{
     margin: 10px;
 }
+
+.text-center{
+	text-align: center;
+}
+
+img{
+	display: block;
+	margin:auto;
+}

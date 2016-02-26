@@ -88,14 +88,14 @@ angular.module('app.periodic')
 
     $scope.buttons = [
         {name: "O", image: "hode.png", collected: false},
-        {name: "O", image: "hode.png", collected: false},
-        {name: "O", image: "hode.png", collected: false},
-        {name: "O", image: "hode.png", collected: false},
-        {name: "O", image: "hode.png", collected: false},
-        {name: "O", image: "hode.png", collected: false},
-        {name: "O", image: "hode.png", collected: false},
-        {name: "O", image: "hode.png", collected: false},
-        {name: "O", image: "hode.png", collected: false},
+        {name: "Fe", image: "hode.png", collected: false},
+        {name: "Ag", image: "hode.png", collected: false},
+        {name: "Au", image: "hode.png", collected: false},
+        {name: "Cu", image: "hode.png", collected: false},
+        {name: "Li", image: "hode.png", collected: false},
+        {name: "H", image: "hode.png", collected: false},
+        {name: "C", image: "hode.png", collected: false},
+        {name: "N", image: "hode.png", collected: false},
     ]
 
     $scope.exampleFunc = function(r, g, b){
