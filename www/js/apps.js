@@ -1,5 +1,7 @@
 angular.module('app.example', [])
 
+angular.module('app.quiz', [])
+
 angular.module('app.example')
 .controller('ExampleCtrl', function($scope, $stateParams) {
     $scope.variable = false;
@@ -47,4 +49,21 @@ angular.module('app.example')
     },
     templateUrl: 'app/example/views/exampleDirective.html'
   };
+});
+
+/*angular.module('example')
+.factory( 'Example', [ 'Resource', function( $resource ) {
+    return $resource( 'companies/:id/', { id: '@id', page: '@page' } );
+}])
+*/
+
+angular.module('app.quiz')
+.controller('quizController', function($scope, $stateParams) {
+  
+     $scope.clientSideList = [
+    { text: "Backbone", value: "bb" },
+    { text: "Angular", value: "ng" },
+    { text: "Ember", value: "em" },
+    { text: "Knockout", value: "ko" }
+  ];
 });
