@@ -2,14 +2,14 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 
         <div class="card picture-container">
-                <img src="../../img/battery.jpg" class="picture">
+                <img id="periodPic" src="../../img/battery.jpg" class="picture">
         </div>
 
 
         <div class="row flex-wrap btnArea">
             <div class="col-33" ng-repeat="part in buttons">
                 <div class="btnContainer text-center">
-                    <button class="button button-balanced small_button">
+                    <button class="button button-balanced small_button" ng-click="submitAnswer(part)">
                         {{part.name}}
                     </button> 
                 </div>   

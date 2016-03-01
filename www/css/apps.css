@@ -30,7 +30,7 @@ img{
 }
 
 .btnArea{
-	height:80%;
+	height:60%;
 	margin-top:0px;
 }
 
@@ -47,7 +47,7 @@ img{
 
 .small_button{
 	position: relative;
-	min-height: 100px !important;
+	height: 100px !important;
 	width: 100px !important;
 	margin:auto !important;
 }

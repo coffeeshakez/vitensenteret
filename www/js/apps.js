@@ -87,32 +87,63 @@ angular.module('app.periodic')
     $scope.slider = {red: 100, green: 100, blue: 100}
 
     $scope.buttons = [
-        {name: "O", image: "hode.png", collected: false},
-        {name: "Fe", image: "hode.png", collected: false},
-        {name: "Ag", image: "hode.png", collected: false},
-        {name: "Au", image: "hode.png", collected: false},
-        {name: "Cu", image: "hode.png", collected: false},
-        {name: "Li", image: "hode.png", collected: false},
-        {name: "H", image: "hode.png", collected: false},
-        {name: "C", image: "hode.png", collected: false},
-        {name: "N", image: "hode.png", collected: false},
+        {name: "O", correct: false, index:0},
+        {name: "Fe", correct: false, index:1},
+        {name: "Ag", correct: false, index:2},
+        {name: "Au", correct: false, index:3},
+        {name: "Cu", correct: false, index:4},
+        {name: "Li", correct: true, index:5},
+        {name: "H", correct: false, index:6},
+        {name: "C", correct: false, index:7},
+        {name: "Pb", correct: false, index:8},
     ]
 
-    $scope.exampleFunc = function(r, g, b){
-        var desired = {r: 50, g: 50, b: 50};
-        var error_margin = 20;
+       $scope.visible = true;
 
-        if(isNear(r, desired.r, error_margin)  && isNear(g, desired.g, error_margin) && isNear(b, desired.b, error_margin)){
-            $scope.variable = true;
-            return true;
-        }else{
-            $scope.variable = false;
-            return false;
+    var correctCounter = 0;
+
+    // Array that contains the url of all images and indexes in button-array
+    var urlAndArray = [
+        {name:"gold", url: "../../img/gold.jpg", index:2},
+        {name:"battery", url: "../../img/battery.jpg", index:6},
+        {name:"diamond", url: "../../img/diamond.jpg", index:7},
+    ];
+
+    $scope.submitAnswer=function(answer){
+        if(checkCorrect(answer)==true){
+            correctCounter++;
+            alert(correctCounter);
+            var nextElement = urlAndArray.pop();
+            document.getElementById("periodPic").src = nextElement.url;
+            $scope.buttons[answer.index].correct=false;
+            $scope.buttons[nextElement.index].correct=true;
+        }
+
+        else{
+            alert(false)
+            urlAndArray.add(answer);
+            var nextElement = urlAndArray.pop();
+            document.getElementById("periodPic").src = nextElement.url;
+            $scope.buttons[answer.index].correct=false;
+            $scope.buttons[nextElement.index].correct=true;
         }
     }
 
-    function isNear(input, desired, error_margin){
-        return input >= desired - error_margin && input <= desired + error_margin;
+    function checkCorrect(answer){
+        if(answer.correct == true){
+            return(true);
+        }
+        else{
+            return (false);
+        }
     }
+
+
+
+    
+
+    
 });
+
+
 
