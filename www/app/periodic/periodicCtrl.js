@@ -38,7 +38,6 @@ angular.module('app.periodic')
             }
 
             else{
-                alert(urlAndArray.length);
                 var oldElement = nextElement;
                 urlAndArray.unshift(oldElement);
                 nextElement = urlAndArray.pop();
