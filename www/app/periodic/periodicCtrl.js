@@ -18,31 +18,37 @@ angular.module('app.periodic')
        $scope.visible = true;
 
     var correctCounter = 0;
+    var nextElement;
 
     // Array that contains the url of all images and indexes in button-array
     var urlAndArray = [
-        {name:"gold", url: "../../img/gold.jpg", index:2},
         {name:"battery", url: "../../img/battery.jpg", index:6},
+        {name:"gold", url: "../../img/gold.jpg", index:2},
         {name:"diamond", url: "../../img/diamond.jpg", index:7},
     ];
 
     $scope.submitAnswer=function(answer){
-        if(checkCorrect(answer)==true){
-            correctCounter++;
-            alert(correctCounter);
-            var nextElement = urlAndArray.pop();
-            document.getElementById("periodPic").src = nextElement.url;
-            $scope.buttons[answer.index].correct=false;
-            $scope.buttons[nextElement.index].correct=true;
-        }
+        if(urlAndArray.length!=0){
+            if(checkCorrect(answer)==true){
+                correctCounter++;
+                nextElement = urlAndArray.pop();
+                document.getElementById("periodPic").src = nextElement.url;
+                $scope.buttons[answer.index].correct=false;
+                $scope.buttons[nextElement.index].correct=true;
+            }
 
+            else{
+                alert(urlAndArray.length);
+                var oldElement = nextElement;
+                urlAndArray.unshift(oldElement);
+                nextElement = urlAndArray.pop();
+                document.getElementById("periodPic").src = nextElement.url;
+                $scope.buttons[answer.index].correct=false;
+                $scope.buttons[nextElement.index].correct=true;
+            }
+        }
         else{
-            alert(false)
-            urlAndArray.add(answer);
-            var nextElement = urlAndArray.pop();
-            document.getElementById("periodPic").src = nextElement.url;
-            $scope.buttons[answer.index].correct=false;
-            $scope.buttons[nextElement.index].correct=true;
+            alert("Du vant");
         }
     }
 
