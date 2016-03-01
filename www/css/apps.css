@@ -8,6 +8,7 @@
 
 .flex-wrap .card{
     margin: 10px;
+    margin-bottom: 0px;
 }
 
 .text-center{
@@ -17,4 +18,36 @@
 img{
 	display: block;
 	margin:auto;
+}
+
+.picture{
+	height: 100%;
+	width: auto;
+}
+
+.picture-container{
+	height:30%;
+}
+
+.btnArea{
+	height:80%;
+	margin-top:0px;
+}
+
+.btnCard{
+	height: 100px;
+	width: 100px;
+	vertical-align: middle;
+}
+
+.btnContainer{
+	height: 100%;
+	width:100%;
+}
+
+.small_button{
+	position: relative;
+	min-height: 100px !important;
+	width: 100px !important;
+	margin:auto !important;
 }
