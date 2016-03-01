@@ -9,7 +9,7 @@ angular.module('app.periodic')
         {name: "Ag", correct: false, index:2},
         {name: "Au", correct: false, index:3},
         {name: "Cu", correct: false, index:4},
-        {name: "Li", correct: true, index:5},
+        {name: "Li", correct: false, index:5},
         {name: "H", correct: false, index:6},
         {name: "C", correct: false, index:7},
         {name: "Pb", correct: false, index:8},
@@ -17,42 +17,46 @@ angular.module('app.periodic')
 
        $scope.visible = true;
 
-    var correctCounter = 0;
-    var nextElement;
+    var nextElement
 
     // Array that contains the url of all images and indexes in button-array
     var urlAndArray = [
-        {name:"battery", url: "../../img/battery.jpg", index:6},
-        {name:"gold", url: "../../img/gold.jpg", index:2},
+        {name:"battery", url: "../../img/battery.jpg", index:5},
+        {name:"gold", url: "../../img/gold.jpg", index:3},
         {name:"diamond", url: "../../img/diamond.jpg", index:7},
-    ];
+    ]; 
+
+    $scope.onInitialize=function(){
+        nextElement = urlAndArray[urlAndArray.length-1];
+        document.getElementById("periodPic").src = nextElement.url;
+        $scope.buttons[nextElement.index].correct=true;
+    }
 
     $scope.submitAnswer=function(answer){
-        if(urlAndArray.length!=0){
-            if(checkCorrect(answer)==true){
-                correctCounter++;
-                nextElement = urlAndArray.pop();
+
+            if(checkCorrect(answer)==true && urlAndArray.length==1){
+                alert("Du vant");
+            }
+            else if(checkCorrect(answer)==true){
+                $scope.buttons[nextElement.index].correct=false;
+                urlAndArray.pop();
+                nextElement = urlAndArray[urlAndArray.length-1];
                 document.getElementById("periodPic").src = nextElement.url;
-                $scope.buttons[answer.index].correct=false;
                 $scope.buttons[nextElement.index].correct=true;
             }
 
             else{
-                var oldElement = nextElement;
+                var oldElement = urlAndArray.pop();
                 urlAndArray.unshift(oldElement);
-                nextElement = urlAndArray.pop();
+                $scope.buttons[nextElement.index].correct=false;
+                nextElement = urlAndArray[urlAndArray.length-1];
                 document.getElementById("periodPic").src = nextElement.url;
-                $scope.buttons[answer.index].correct=false;
                 $scope.buttons[nextElement.index].correct=true;
             }
-        }
-        else{
-            alert("Du vant");
-        }
     }
 
     function checkCorrect(answer){
-        if(answer.correct == true){
+        if(answer.index == nextElement.index){
             return(true);
         }
         else{

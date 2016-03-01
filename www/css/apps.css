@@ -46,8 +46,20 @@ img{
 }
 
 .small_button{
+	background-color: #CFDE00;
+	border-radius: 2px;
+	border:0px;
+	
 	position: relative;
 	height: 100px !important;
 	width: 100px !important;
 	margin:auto !important;
+}
+
+.false:active{
+	background-color: #FF0000 !important;
+}
+
+.true:active{
+	background-color: #00FF00 !important;
 }
