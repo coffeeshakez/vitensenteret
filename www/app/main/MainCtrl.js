@@ -1,7 +1,7 @@
 angular.module('app.main')
 .controller('MainCtrl', function($scope, $stateParams) {
     $scope.variable = false;
-    $scope.slider = {red: 100, green: 100, blue: 100}
+    $scope.slider = {red: 100, green: 100, blue: 101}
 
     $scope.buttons = [
         {name: "Hode", image: "hode.png", collected: false},

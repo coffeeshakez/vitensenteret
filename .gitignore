@@ -1,5 +1,5 @@
 node_modules/*
 platforms/*
 .idea/*
-www/js/apps.js
+/www/js/apps.js
 
