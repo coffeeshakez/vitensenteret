@@ -7,9 +7,6 @@ body{
 }
 
 
-
-.example_style {
-    color: #000;
 .flex-wrap{
     flex-wrap: wrap;
 }
