@@ -5,16 +5,12 @@ angular.module('app.main')
 
     $scope.buttons = [
         {name: "Hode", image: "hode.png", collected: false},
-        {name: "Skulder", image: "hode.png", collected: true},
-        {name: "Kne", image: "hode.png", collected: false},
+        {name: "Armer", image: "hode.png", collected: true},
+        {name: "Bein", image: "hode.png", collected: false},
 
-        {name: "Tå", image: "hode.png", collected: true},
-        {name: "Tå", image: "hode.png", collected: true},
-        {name: "Tå", image: "hode.png", collected: true},
-
-        {name: "Tå", image: "hode.png", collected: true},
-        {name: "Tå", image: "hode.png", collected: true},
-        {name: "Tå", image: "hode.png", collected: true},
+        {name: "Hjerne", image: "hode.png", collected: true},
+        {name: "Overkropp", image: "hode.png", collected: true},
+        {name: "Hydraulikk", image: "hode.png", collected: true},
     ]
 
     $scope.exampleFunc = function(r, g, b){
