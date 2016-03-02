@@ -10,7 +10,7 @@
             <div class="col-33" ng-repeat="part in buttons">
                 <div class="text-center">
                     <!-- button button-balanced -->
-                    <button  class="small_button button button-balanced" ng-click="submitAnswer(part)">
+                    <button  class="small_button button button-balanced" ng-click="submitAnswer(part);  showPopup();">
                         {{part.name}}
                     </button> 
                 </div>   
