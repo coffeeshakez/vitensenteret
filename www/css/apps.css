@@ -9,6 +9,46 @@ body{
 
 
 
+.example_style {
+    color: #000;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.flex-wrap .card{
+    margin: 10px;
+    margin-bottom: 0px;
+}
+
+.text-center{
+	text-align: center;
+}
+
+img{
+	display: block;
+	margin:auto;
+}
+
+.picture{
+	height: 100%;
+	width: auto;
+}
+
+.picture-container{
+	height:30%;
+}
+
+.btnArea{
+	height:60%;
+	margin-top:0px;
+}
+.small_button{
+	position: relative;
+	height: 100px !important;
+	width: 100px !important;
+	margin:auto !important;
+}
 
 #norwegian{
     float: left;

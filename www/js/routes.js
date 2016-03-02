@@ -29,14 +29,37 @@ angular.module('app.routes', [])
   })
 
   .state('index.example', {
-    url: "/example",
+      url: "/example",
+      views: {
+        'example': {
+          templateUrl: "app/example/views/default.html",
+          controller: 'ExampleCtrl'
+        }
+      },
+      data: {pageTitle: 'Example'}
+    })
+
+    .state('index.periodic', {
+        url: "/periodic",
+        views: {
+          'periodic': {
+            templateUrl: "app/periodic/views/periodic.html",
+            controller: 'periodicCtrl'
+          }
+        },
+        data: {pageTitle: 'Periodic'}
+      })
+
+
+  .state('index.main', {
+    url: "/main",
     views: {
-      'example': {
-        templateUrl: "app/example/views/default.html",
-        controller: 'ExampleCtrl'
+      'main': {
+        templateUrl: "app/main/views/main.html",
+        controller: 'MainCtrl'
       }
     },
-    data: {pageTitle: 'Example'}
+    data: {pageTitle: 'Main view'}
   })
 
   .state('index.chooseLanguage', {
@@ -62,13 +85,24 @@ angular.module('app.routes', [])
   })
 
 
+   .state('index.quiz', {
+    url: "/quiz",
+    views: {
+      'quiz': {
+        templateUrl: "app/quiz/views/default.html",
+        controller: 'quizController'
+      }
+    },
+    data: {pageTitle: 'quiz'}
+  })
+
   .state('index', {
     url: '/index',
     templateUrl: 'templates/tabsController.html',
     abstract:true
   })
 
-$urlRouterProvider.otherwise('/index/welcomeScreen')
+$urlRouterProvider.otherwise('/index/main')
 
 
 });

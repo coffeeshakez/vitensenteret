@@ -14,6 +14,9 @@ angular.module('app', [
   'app.chooseLanguage',
   'app.welcomeScreen',
   'app.example',
+  'app.main',
+  'app.periodic',
+  'app.quiz',
   //'app.myapp',
   ])
 
