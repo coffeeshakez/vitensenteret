@@ -85,6 +85,17 @@ angular.module('app.routes', [])
   })
 
 
+   .state('index.quiz', {
+    url: "/quiz",
+    views: {
+      'quiz': {
+        templateUrl: "app/quiz/views/default.html",
+        controller: 'quizController'
+      }
+    },
+    data: {pageTitle: 'quiz'}
+  })
+
   .state('index', {
     url: '/index',
     templateUrl: 'templates/tabsController.html',

@@ -16,6 +16,7 @@ angular.module('app', [
   'app.example',
   'app.main',
   'app.periodic',
+  'app.quiz',
   //'app.myapp',
   ])
 
