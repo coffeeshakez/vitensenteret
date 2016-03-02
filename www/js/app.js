@@ -11,6 +11,8 @@ angular.module('app', [
   'app.routes', 
   'app.services', 
   'app.directives',
+  'app.chooseLanguage',
+  'app.welcomeScreen',
   'app.example',
   //'app.myapp',
   ])

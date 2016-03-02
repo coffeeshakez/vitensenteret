@@ -1,3 +1,33 @@
+@font-face {
+    font-family: Robotic;
+    src: url(../fonts/sf-transrobotics/TrueType/SFTransRobotics.ttf);
+}
+body{
+    font-family: Robotic;
+}
+
+
+
 .example_style {
     color: #000;
+}
+
+#norwegian{
+    float: left;
+}
+#english{
+    float: right;
+}
+#language{
+    color: #ffffff;
+
+}
+
+.texts{
+    color: white;
+}
+
+#centerdiv{
+    text-align: center;
+    margin: auto;
 }

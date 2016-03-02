@@ -39,13 +39,36 @@ angular.module('app.routes', [])
     data: {pageTitle: 'Example'}
   })
 
+  .state('index.chooseLanguage', {
+    url: "/chooseLanguage",
+    views: {
+      'chooseLanguage': {
+        templateUrl: "app/chooseLanguage/views/default.html",
+        controller: 'ChooseLanguageCtrl'
+      }
+    },
+    data: {pageTitle: 'ChooseLanguage'}
+  })
+
+  .state('index.welcomeScreen', {
+    url: "/welcomeScreen",
+    views: {
+      'example': {
+        templateUrl: "app/welcomeScreen/views/default.html",
+        controller: 'WelcomeCtrl'
+      }
+    },
+    data: {pageTitle: 'Welcome'}
+  })
+
+
   .state('index', {
     url: '/index',
     templateUrl: 'templates/tabsController.html',
     abstract:true
   })
 
-$urlRouterProvider.otherwise('/index/example')
+$urlRouterProvider.otherwise('/index/welcomeScreen')
 
 
 });
