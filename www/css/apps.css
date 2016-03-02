@@ -1,7 +1,3 @@
-.example_style {
-    color: #000;
-}
-
 .flex-wrap{
     flex-wrap: wrap;
 }
@@ -33,33 +29,9 @@ img{
 	height:60%;
 	margin-top:0px;
 }
-
-.btnCard{
-	height: 100px;
-	width: 100px;
-	vertical-align: middle;
-}
-
-.btnContainer{
-	height: 100%;
-	width:100%;
-}
-
-.small_button{
-	background-color: #CFDE00;
-	border-radius: 2px;
-	border:0px;
-	
+.small_button{	
 	position: relative;
 	height: 100px !important;
 	width: 100px !important;
 	margin:auto !important;
-}
-
-.false:active{
-	background-color: #FF0000 !important;
-}
-
-.true:active{
-	background-color: #00FF00 !important;
 }
