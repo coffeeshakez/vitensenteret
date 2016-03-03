@@ -39,7 +39,7 @@ angular.module('app.periodic')
         showPopup(isCorrect, answer);
 
             if(isCorrect == true && urlAndArray.length==1){
-                alert("Du vant");
+                Alert("Du Vant!");
             }
 
 
