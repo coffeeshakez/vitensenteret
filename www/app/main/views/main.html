@@ -1,23 +1,17 @@
 <ion-view title="Vitensenteret">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="list card">
-            <div class="item item-divider">Gjør et fuck!</div>
+            <div class="item item-divider">Din robot</div>
             <div class="item item-body">
-                <div>
-                    <p>Rød: {{slider.red}}</p>
-                    <p>Grønn: {{slider.green}}</p>
-                    <p>Blå: {{slider.blue}}</p>
-                    <p>Riktig?: {{variable}}
-                </div>
+                <img class="robot-img" src="/img/robot.png" />
             </div>
         </div>
 
         <div class="row flex-wrap" >
             <div class="col-33" ng-repeat="part in buttons">
-                <div class="card">
-                    <div class="item item-text-wrap">
+                <div class="card small">
+                    <div class="item item-text-wrap" ng-class="part.collected ? '' : 'item-dark'">
                         <span>{{part.name}}</span>
-                        <ion-checkbox ng-model="part.collected"></ion-checkbox>
                     </div>    
                 </div>
             </div>
