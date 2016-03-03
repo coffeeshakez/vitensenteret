@@ -15,8 +15,7 @@ angular.module('app.welcomeScreen', ["ionic"])
             scope: $scope,
             buttons: [
                 { text: 'Avbryt' },
-                {
-                    text: '<b>Kom i gang!</b>',
+                { text: '<b>Kom i gang!</b>',
                     type: 'button-positive',
                     onTap: function(e) {
 

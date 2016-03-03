@@ -1,15 +1,15 @@
 <ion-view title="quiz">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 
-        <div class="card">
+        <div class="card" id="qCard">
               <div class="item item-text-wrap" id="question">
                 {{ask.question}}
             </div>
         </div>
 
         <div class="list">
-        
-        <ion-radio ng-click="checkAnswer(item)" ng-repeat="item in ask.alternatives">
+          
+        <ion-radio ng-click="checkAnswer(item)" ng-repeat="item in ask.alternatives" id="alternatives">
             {{ item }}
        </ion-radio>
               

@@ -60,16 +60,40 @@ img{
 	margin:auto !important;
 }
 
+
+
+
+
+
+
+
+/* Welcome Screen - Start */
+
+.texts{ /*Also used by Choose Language*/
+    color: white;
+}
+
+#centerdiv{ /*Also used by Choose Language*/
+    text-align: center;
+    margin: auto;
+}
+
+/* Welcome Screen - End */
+
+/* Choose Language - Start */
+
+#language{
+    color: #ffffff;
+}
+
 #norwegian{
     float: left;
 }
 #english{
     float: right;
 }
-#language{
-    color: #ffffff;
 
-}
+/* Choose Language - End */
 
 .texts{
     color: white;
@@ -82,4 +106,9 @@ img{
 
 .robot-img{
   max-height: 200px;
+}
+
+#qCard{
+	text-align: center;
+
 }

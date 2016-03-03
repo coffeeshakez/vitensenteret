@@ -5,15 +5,19 @@ angular.module('app.quiz')
       $scope.questions = [
         {
           question: "Hvem oppfant revolveren",
-          alternatives: ["Bæsj", "tiss", "promp", "fiz"],
+          alternatives: ["Elisha H. Collier", "John Evans", "Samuel Colt", "George W. Bush"],
           correct: 0,
         },
 
         {
-          question: "Er du dum?",
-          aternatives: ["ja", "nei", "kanskje", "vet ikke"],
-          correct: 0,
-
+          question: "Hvor mange fylker er det i Norge?",
+          alternatives: ["37", "25", "19", "1000"],
+          correct: 2,
+        },
+        {
+          question: "Hvor mange kopper sukker må du ha med deg på månetur?",
+          alternatives: ["10", "20", "50", "100,2"],
+          correct: 3,
         }
       ];
 
@@ -28,8 +32,12 @@ angular.module('app.quiz')
     if(answer == $scope.ask.alternatives[$scope.ask.correct])
     {
       console.log("Riktig");
-      $scope.qNum ++;
-      document.getElementById("question").innerHTML = $scope.ask;
+
+      if($scope.qNum <= $scope.questions.length - 1)
+      {
+        $scope.qNum ++;
+        $scope.ask = $scope.questions[$scope.qNum];
+      }  
     }
   }
   
