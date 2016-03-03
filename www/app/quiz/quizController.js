@@ -12,11 +12,11 @@ angular.module('app.quiz')
         {
           question: "Hvor mange fylker er det i Norge?",
           alternatives: ["37", "25", "19", "1000"],
-          correct: 0,
+          correct: 2,
         },
         {
           question: "Hvor mange kopper sukker må du ha med deg på månetur?",
-          alternatives: ["10", "20,", "50", "100,2"],
+          alternatives: ["10", "20", "50", "100,2"],
           correct: 3,
         }
       ];
@@ -38,7 +38,6 @@ angular.module('app.quiz')
         $scope.qNum ++;
         $scope.ask = $scope.questions[$scope.qNum];
       }  
-
     }
   }
   
