@@ -6,6 +6,7 @@ body{
     font-family: Robotic;
 }
 
+
 .flex-wrap{
     flex-wrap: wrap;
 }
@@ -78,3 +79,18 @@ img{
 }
 
 /* Choose Language - End */
+
+.texts{
+    color: white;
+}
+
+#centerdiv{
+    text-align: center;
+    margin: auto;
+}
+
+#qCard{
+	text-align: center;
+
+
+}
