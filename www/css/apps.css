@@ -7,9 +7,6 @@ body{
 }
 
 
-
-.example_style {
-    color: #000;
 .flex-wrap{
     flex-wrap: wrap;
 }
@@ -66,4 +63,10 @@ img{
 #centerdiv{
     text-align: center;
     margin: auto;
+}
+
+#qCard{
+	text-align: center;
+	
+
 }
