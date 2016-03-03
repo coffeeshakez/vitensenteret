@@ -1,15 +1,27 @@
 @font-face {
-    font-family: Robotic;
-    src: url(../fonts/sf-transrobotics/TrueType/SFTransRobotics.ttf);
+  font-family: 'Seymour One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Seymour One'), local('SeymourOne'), url(https://fonts.gstatic.com/s/seymourone/v4/-D8Zpf17gNh35R70Dk_bcY4P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
+@font-face {
+  font-family: 'Short Stack';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Short Stack'), local('ShortStack'), url(https://fonts.gstatic.com/s/shortstack/v6/6Lbgh4PDdLpSiP41rQoGa44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
 body{
-    font-family: Robotic;
+    font-family: "Seymour One";
+    font-weight: 300;
 }
 
+.small {
+  font-family: 'Short Stack';
+}
 
-
-.example_style {
-    color: #000;
 .flex-wrap{
     flex-wrap: wrap;
 }
@@ -66,4 +78,8 @@ img{
 #centerdiv{
     text-align: center;
     margin: auto;
+}
+
+.robot-img{
+  max-height: 200px;
 }
