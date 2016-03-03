@@ -76,7 +76,7 @@ angular.module('app.routes', [])
   .state('index.welcomeScreen', {
     url: "/welcomeScreen",
     views: {
-      'example': {
+      'welcomeScreen': {
         templateUrl: "app/welcomeScreen/views/default.html",
         controller: 'WelcomeCtrl'
       }
