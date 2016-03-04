@@ -35,6 +35,33 @@ body{
 	text-align: center;
 }
 
+.giant-text{
+  font-size: 3em;
+  color: white;
+  text-align: center;
+  width: 100%;
+  vertical-align: middle;
+  height: 100%;
+  font-weight: 100;
+  font-family: "Seymour One";
+}
+
+h1.giant-text {
+  font-size: 3em;
+}
+
+h2.giant-text {
+  font-size: 2em;
+}
+
+h3.giant-text {
+  font-size: 1.5em;
+}
+
+h4.giant-text {
+  font-size: 1em;
+}
+
 img{
 	display: block;
 	margin:auto;
@@ -58,6 +85,17 @@ img{
 	height: 100px !important;
 	width: 100px !important;
 	margin:auto !important;
+}
+
+.vertical-wrapper {  
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 
@@ -110,5 +148,13 @@ img{
 
 #qCard{
 	text-align: center;
-
 }
+
+
+/* Main screen - start */
+
+.part-box{
+  height: 80px;
+}
+
+/* Main screen - end */
