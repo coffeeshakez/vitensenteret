@@ -172,7 +172,7 @@ img{
   position: absolute;
   right: 10%;
   bottom: 5%;
-  pointer-events: none;
+  /*pointer-events: none;*/
 }
 
 .part-not-collected{
@@ -185,6 +185,16 @@ img{
   display: block;
   margin-right: auto;
   margin-left: auto;
+}
+
+.part-robot .body-container .sprite.body{
+  left: -50%;
+  position: relative;
+}
+
+.part-robot .body-container{
+  left: 50%;
+  position: absolute;
 }
 
 .part-robot .part-not-collected {
@@ -242,7 +252,7 @@ img{
 }
 
 .sprite.arms.arms3 {
-  background: url('/img/robots.png') no-repeat -400px -206px;
+  background: url('/img/robots.png') no-repeat -403px -206px;
   width: 80px;
   height: 56px;
 }
