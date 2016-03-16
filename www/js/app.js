@@ -17,6 +17,7 @@ angular.module('app', [
   'app.main',
   'app.periodic',
   'app.quiz',
+  'app.memory',
   //'app.myapp',
   ])
 
