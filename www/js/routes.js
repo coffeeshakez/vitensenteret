@@ -113,7 +113,7 @@ angular.module('app.routes', [])
     abstract:true
   })
 
-$urlRouterProvider.otherwise('/index/memory')
+$urlRouterProvider.otherwise('/index/quiz')
 
 
 });

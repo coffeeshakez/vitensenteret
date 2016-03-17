@@ -138,3 +138,6 @@ img{
     background-color: #CFDE00;
     opacity: .5;
 }
+#startButton{
+    display: block;
+}
