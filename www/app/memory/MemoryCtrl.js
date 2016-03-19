@@ -14,16 +14,74 @@ angular.module('app.memory')
     }
     return game;
   }
+  function blink(button, time){
+    button.style.opacity = "1";
+    setTimeout(function(){
+      button.style.opacity = "0.5";
+    }, time)
+  }
+  function checkIfWon(click, game){
+    console.log("y");
+    var numbs = 0;
+    for(i=0;i<game.length;i++){
+      if (click[i] === game[i]){
+        numbs+=1;
+      }
+    }
+    if(numbs === game.length){
+      console.log("hdef")
+    }
+  };
+  function playGame() {
+    console.log("hello");
+    var clicked = [];
+    pinkButton.onclick = function () {
+      blink(pinkButton, 300);
+      clicked.push(1);
+      console.log(clicked);
+      if(clicked.length == gameList.length && checkIfWon(clicked, gameList)){
+        numberOfWins+=1
+      }
+    };
+    greenButton.onclick = function () {
+      blink(greenButton, 300);
+      clicked.push(2);
+      console.log(clicked);
+      if(clicked.length == gameList.length && checkIfWon(clicked, gameList)){
+        numberOfWins+=1
+      }
+    };
+    orangeButton.onclick = function () {
+      blink(orangeButton, 300);
+      clicked.push(3);
+      console.log(clicked);
+      if(clicked.length == gameList.length && checkIfWon(clicked, gameList)){
+        numberOfWins+=1
+      }
+    };
+    yellowButton.onclick = function () {
+      blink(yellowButton, 300);
+      clicked.push(4);
+      console.log(clicked);
+      if(clicked.length == gameList.length && checkIfWon(clicked, gameList)){
+        numberOfWins+=1
+      }
+    };
+
+  }
+
 
 
   $scope.startGame = function(){
     gameList = initGame((numberOfWins+1)*4);
+    console.log(typeof (gameList[0]));
     startButton.style.display = "none";
 
     var i = 0;
     var opa = setInterval(function(){
       console.log(gameList[i])
       if(i > gameList.length){
+        playGame();
         startButton.style.display = "block";
         clearInterval(opa);
       }
@@ -55,8 +113,9 @@ angular.module('app.memory')
         i+=1;
       }
     }, 1000)
-    numberOfWins+=1;
   };
+
+
 
 
 
