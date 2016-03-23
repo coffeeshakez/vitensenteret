@@ -6,11 +6,15 @@ angular.module('app.memory')
   var yellowButton = document.getElementById("memoryyellow");
   var orangeButton = document.getElementById("memoryorange");
   var startButton = document.getElementById("startButton");
+  var redoButton = document.getElementById("redoButton");
+  var hintButton = document.getElementById("hintButton");
+
 
   var numberOfWins = 0;
   var clickNumber = 0;
   var gameList = [];
   var clicked = [];
+  var numberOfLost = 0;
 
 
   function initGame(number){
@@ -69,8 +73,10 @@ angular.module('app.memory')
 
   function gameWon(){
     clickNumber = 0;
+    numberOfLost = 0;
     numberOfWins+=1;
-    startButton.style.display = "block"
+    startButton.style.display = "block";
+    hintButton.style.display = "none";
     deactivateButtons();
     $ionicPopup.show({
       title: "Du vant spill " + numberOfWins,
@@ -83,8 +89,9 @@ angular.module('app.memory')
 
   }
 
-  function checkIfWon(click, game){
-    if(!(click[clickNumber] === game[clickNumber])){
+  function checkIfWon(){
+    if(!(clicked[clickNumber] === gameList[clickNumber])){
+      deactivateButtons();
       clickNumber = 0;
       $ionicPopup.show({
         title: 'Du tapte',
@@ -93,34 +100,25 @@ angular.module('app.memory')
           { text: '<b>Start på nytt</b>',
             type: 'button-positive',
             onTap: function() {
-              startButton.style.display = "block"
+              redoButton.style.display = "block"
+              numberOfLost+=1;
             }
           }
         ]
       });
     }
-    if(click.length === game.length) {
+    if(clicked.length === gameList.length) {
       gameWon();
     }
   }
 
-
-
-
-  $scope.startGame = function(){
-    clickNumber = 0;
-    gameList = [];
-    clicked = [];
-    gameList = initGame((numberOfWins+1)*3);
-    startButton.style.display = "none";
+  function runGame(){
     var i = 0;
-    console.log(gameList);
-    console.log(clicked);
-    var opa = setInterval(function(){
-      console.log(gameList[i])
-      if(i > gameList.length){
+    var opacityChange = setInterval(function(){
+      if(i >= gameList.length){
         activateButtons();
-        clearInterval(opa);
+        console.log("Ready");
+        clearInterval(opacityChange);
       }
       else {
         if(gameList[i] === 1 ){
@@ -138,7 +136,47 @@ angular.module('app.memory')
         i+=1;
       }
     }, 1000)
+
+
+  }
+
+
+
+
+  $scope.startGame = function(){
+    clickNumber = 0;
+    clicked = [];
+    gameList = initGame((numberOfWins+1)*3);
+    startButton.style.display = "none";
+    runGame();
   };
+
+  $scope.redoGame = function(){
+    clickNumber = 0;
+    clicked = [];
+    redoButton.style.display = "none";
+    if(numberOfLost >=3){
+      hintButton.style.display = "block"
+    }
+    runGame();
+
+  }
+
+  $scope.getHint = function(){
+    if(gameList[clicked.length] === 1){
+      blink(pinkButton, 500);
+    }
+    else if(gameList[clicked.length] === 2){
+      blink(greenButton, 500);
+    }
+    else if(gameList[clicked.length] === 3){
+      blink(orangeButton, 500);
+    }
+    else if(gameList[clicked.length] === 4){
+      blink(yellowButton, 500);
+    }
+
+  }
 
 
 

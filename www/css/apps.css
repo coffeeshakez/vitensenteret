@@ -142,3 +142,10 @@ img{
 #startButton{
     display: block;
 }
+
+#redoButton{
+    display: none;
+}
+#hintButton{
+    display: none;
+}
