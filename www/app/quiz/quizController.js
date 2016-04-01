@@ -18,7 +18,13 @@ angular.module('app.quiz')
           question: "Hvor mange kopper sukker må du ha med deg på månetur?",
           alternatives: ["10", "20", "50", "100,2"],
           correct: 3,
-        }
+        },
+
+        {
+          question: "tiss, bæsj promp?",
+          alternatives: ["promp", "bæsj", "tiss"],
+          correct: 1,
+        },
       ];
 
   $scope.qNum = 0;
