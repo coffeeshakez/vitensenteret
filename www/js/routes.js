@@ -39,6 +39,17 @@ angular.module('app.routes', [])
     data: {pageTitle: 'Example'}
   })
 
+    .state('index.waterflow', {
+    url: "/waterflow",
+    views: {
+      'waterflow': {
+        templateUrl: "app/waterflow/views/default.html",
+        controller: 'waterflowControl'
+      }
+    },
+    data: {pageTitle: 'waterflow'}
+  })
+
   .state('index.main', {
     url: "/main",
     views: {
