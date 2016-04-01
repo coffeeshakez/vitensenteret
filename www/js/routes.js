@@ -39,6 +39,18 @@ angular.module('app.routes', [])
       data: {pageTitle: 'Example'}
     })
 
+    .state('index.sound', {
+        url: "/sound",
+        views: {
+          'sound': {
+            templateUrl: "app/sound/views/sound.html",
+            controller: 'soundCtrl'
+          }
+        },
+        data: {pageTitle: 'Sound'}
+      })
+
+
     .state('index.periodic', {
         url: "/periodic",
         views: {
@@ -49,6 +61,8 @@ angular.module('app.routes', [])
         },
         data: {pageTitle: 'Periodic'}
       })
+
+
 
 
   .state('index.main', {

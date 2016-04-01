@@ -1,0 +1,29 @@
+<ion-view title="Fargelås">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div class="list card">
+            <div class="item item-divider">Gjør et eksempel!</div>
+            <div class="item item-body">
+                <div>
+                    <p>Rød: {{slider.red}}</p>
+                    <p>Grønn: {{slider.green}}</p>
+                    <p>Blå: {{slider.blue}}</p>
+                    <p>Riktig?: {{variable}}
+                </div>
+            </div>
+        </div>
+
+        <form class="list">
+            <ion-item class="range range-assertive">Rød
+                <input ng-model="slider.red" type="range" value="50" min="0" max="100">
+            </ion-item>
+            <ion-item class="range range-balanced">Grønn
+                <input ng-model="slider.green" type="range" value="50" min="0" max="100">
+            </ion-item>
+            <ion-item class="range range-positive">Blå
+                <input ng-model="slider.blue" type="range" value="50" min="0" max="100">
+            </ion-item>
+        </form>
+
+        <btn ng-disabled="!exampleFunc(slider.red, slider.green, slider.blue)" class="button button-balanced button-block">Lås opp</btn>
+    </ion-content>
+</ion-view>
