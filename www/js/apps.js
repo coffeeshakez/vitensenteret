@@ -1,8 +1,71 @@
+angular.module('app.chooseLanguage', [])
+
 angular.module('app.example', [])
 
 angular.module('app.main', [])
 
+angular.module('app.periodic', [])
+/*
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise('/example')
+
+    $stateProvider
+    .state('example', {
+        abstract: true,
+        url: "/example",
+        parent: "index", //dont change thiss
+        templateUrl: "templates/content.html", //or this
+        data: {pageTitle: 'Example'}
+    })
+
+    .state('example.default', {
+        url: "/",
+        views: {
+          'example': {
+            templateUrl: "app/example/views/default.html",
+            controller: 'ExampleCtrl'
+          }
+        },
+        data: {pageTitle: 'Example'}
+}])
+
+*/
+angular.module('app.quiz', [])
+
 angular.module('app.waterflow', [])
+
+angular.module('app.welcomeScreen', [])
+
+angular.module('app.chooseLanguage')
+.controller('ChooseLanguageCtrl', function($scope, $stateParams) {
+    $scope.variable = false;
+    $scope.slider = {red: 100, green: 100, blue: 100}
+
+    $scope.exampleList = [
+        {name: "Hode", image: "hode.png", collected: false},
+        {name: "Skulder", image: "hode.png", collected: true},
+        {name: "Kne", image: "hode.png", collected: false},
+        {name: "Tå", image: "hode.png", collected: true},
+    ]
+
+    $scope.exampleFunc = function(r, g, b){
+        var desired = {r: 50, g: 50, b: 50};
+        var error_margin = 20;
+
+        if(isNear(r, desired.r, error_margin)  && isNear(g, desired.g, error_margin) && isNear(b, desired.b, error_margin)){
+            $scope.variable = true;
+            return true;
+        }else{
+            $scope.variable = false;
+            return false;
+        }
+    }
+
+    function isNear(input, desired, error_margin){
+        return input >= desired - error_margin && input <= desired + error_margin;
+    }
+});
 
 angular.module('app.example')
 .controller('ExampleCtrl', function($scope, $stateParams) {
@@ -55,40 +118,248 @@ angular.module('app.example')
 
 angular.module('app.main')
 .controller('MainCtrl', function($scope, $stateParams) {
+
+    $scope.parts = [
+        {name: "Hode", type: "head", variants: [1, 2, 3], variant: 3, collected: false},
+        {name: "Armer", type: "arms", variants: [1, 2, 3], variant: 1, collected: false},
+        {name: "Bein", type: "legs", variants: [1, 2, 3, 4], variant: 1, collected: false},
+        {name: "Overkropp", type: "body", variants: [1, 2], variant: 2, collected: true},
+    ];
+
+    $scope.collectedPartsCount = function(){
+        var count = 0;
+        angular.forEach($scope.parts, function(part){
+            count += part.collected ? 1 : 0;
+        });
+        return count; 
+    }
+    
+    $scope.partClasses = function(part){
+        var collected = part.collected ? 'part-collected' : 'part-not-collected';
+        var type = part.type;
+        var variant = type+part.variant;
+        return type + " " + variant + " " + collected;
+    }
+
+    $scope.partClick = function(part){
+        if (part.variant >= part.variants.length){
+            part.variant = part.variants[0];
+        }
+        else{
+            part.variant += 1;
+        }
+    }
+
+    $scope.partToggle = function(part){
+        part.collected ^= true;
+    }
+});
+
+
+/*angular.module('example')
+.factory( 'Example', [ 'Resource', function( $resource ) {
+    return $resource( 'companies/:id/', { id: '@id', page: '@page' } );
+}])
+*/
+angular.module('app.periodic')
+.controller('periodicCtrl', function($scope, $stateParams, $ionicPopup) {
     $scope.variable = false;
     $scope.slider = {red: 100, green: 100, blue: 100}
 
     $scope.buttons = [
-        {name: "Hode", image: "hode.png", collected: false},
-        {name: "Skulder", image: "hode.png", collected: true},
-        {name: "Kne", image: "hode.png", collected: false},
-
-        {name: "Tå", image: "hode.png", collected: true},
-        {name: "Tå", image: "hode.png", collected: true},
-        {name: "Tå", image: "hode.png", collected: true},
-
-        {name: "Tå", image: "hode.png", collected: true},
-        {name: "Tå", image: "hode.png", collected: true},
-        {name: "Tå", image: "hode.png", collected: true},
+        {name: "O", correct: false, index:0},
+        {name: "Fe", correct: false, index:1},
+        {name: "Ag", correct: false, index:2},
+        {name: "Au", correct: false, index:3},
+        {name: "Cu", correct: false, index:4},
+        {name: "Li", correct: false, index:5},
+        {name: "H", correct: false, index:6},
+        {name: "C", correct: false, index:7},
+        {name: "Pb", correct: false, index:8},
     ]
 
-    $scope.exampleFunc = function(r, g, b){
-        var desired = {r: 50, g: 50, b: 50};
-        var error_margin = 20;
+       $scope.visible = true;
 
-        if(isNear(r, desired.r, error_margin)  && isNear(g, desired.g, error_margin) && isNear(b, desired.b, error_margin)){
-            $scope.variable = true;
-            return true;
-        }else{
-            $scope.variable = false;
-            return false;
+    var nextElement
+
+    // Array that contains the url of all images and indexes in button-array
+    var urlAndArray = [
+        {name:"battery", url: "../../img/battery.jpg", index:5},
+        {name:"gold", url: "../../img/gold.jpg", index:3},
+        {name:"diamond", url: "../../img/diamond.jpg", index:7},
+    ]; 
+
+    $scope.onInitialize=function(){
+        nextElement = urlAndArray[urlAndArray.length-1];
+        document.getElementById("periodPic").src = nextElement.url;
+        $scope.buttons[nextElement.index].correct=true;
+    }
+
+    $scope.submitAnswer=function(answer){
+
+        var isCorrect = checkCorrect(answer);
+
+        showPopup(isCorrect, answer);
+
+            if(isCorrect == true && urlAndArray.length==1){
+                Alert("Du Vant!");
+            }
+
+
+            else if(isCorrect == true){
+                $scope.buttons[nextElement.index].correct=false;
+                urlAndArray.pop();
+                
+            }
+
+            else{
+                var oldElement = urlAndArray.pop();
+                urlAndArray.unshift(oldElement);
+                $scope.buttons[nextElement.index].correct=false;
+            }
+    }
+
+    function initNextElement(){
+        nextElement = urlAndArray[urlAndArray.length-1];
+        document.getElementById("periodPic").src = nextElement.url;
+        $scope.buttons[nextElement.index].correct=true;
+    }
+
+
+
+    function checkCorrect(answer){
+        if(answer.index == nextElement.index){
+            return(true);
+        }
+        else{
+            return (false);
         }
     }
 
-    function isNear(input, desired, error_margin){
-        return input >= desired - error_margin && input <= desired + error_margin;
-    }
+    function showPopup(isCorrect, answer)  {
+        $scope.data = {};
+
+        //var pop = {};
+
+        if(isCorrect==true){
+            var pop = {
+                title: "RIKTIG!", 
+                subTitle:"Du svarte " + tableOfElements[answer.index].name + " \n. Fyll inn tekst om grunnstoffet.",
+                scope: $scope,
+                buttons: [
+                    { text: 'Avbryt' },
+                    {
+                        text: '<b>Neste spørsmål!</b>',
+                        type: 'button-positive',
+                        onTap: function(e) {
+                            initNextElement();
+                        }
+                    }
+                ]
+            };
+        }
+
+         else{
+            var pop = {
+                title: 'FEIL!', 
+                subTitle:"Du svarte " + tableOfElements[answer.index].name + "\n. Fyll inn tekst om grunnstoffet.",
+                scope: $scope,
+                buttons: [
+                    { text: 'Avbryt' },
+                        {
+                            text: '<b>Neste spørsmål!</b>',
+                            type: 'button-positive',
+                            onTap: function(e) {
+                                initNextElement();
+                            }
+                        }
+                    ]
+                };
+            }
+       
+
+        var myPopup = $ionicPopup.show(pop);
+        
+
+        myPopup.then(function(res) {
+            console.log('Tapped!', res);
+        });
+
+
+    };
+
+
+
+    
+
+    
 });
+
+
+
+
+var tableOfElements = [
+	{name: "Oksygen", abbr: "O", description: "Oksygen, det puster man"},
+	{name: "Jern", abbr: "Fe", description: "Jern. Sånt lager didrik dildoene sine av."},
+	{name: "Sølv", abbr: "Ag", description: "Sølv. Første taper."},
+	{name: "Gull", abbr: "Au", description: "Ikke like gangstah som platina"},
+	{name: "Kobber", abbr: "Cu", description: "Fattigmannsmetall..."},
+	{name: "Litium", abbr: "Li", description: "WTF is dis?"},
+	{name: "Hydrogen", abbr: "H", description: "Bomber"},
+	{name: "Karbon", abbr: "C", description: "Diamanter"},
+	{name: "Bly", abbr: "Pb", description: "Ganstere peprer hverandre fulle av det på daglig basis"},
+];
+/*angular.module('example')
+.factory( 'Example', [ 'Resource', function( $resource ) {
+    return $resource( 'companies/:id/', { id: '@id', page: '@page' } );
+}])
+*/
+
+angular.module('app.quiz')
+.controller('quizController', function($scope, $stateParams) {
+
+
+      $scope.questions = [
+        {
+          question: "Hvem oppfant revolveren",
+          alternatives: ["Elisha H. Collier", "John Evans", "Samuel Colt", "George W. Bush"],
+          correct: 0,
+        },
+
+        {
+          question: "Hvor mange fylker er det i Norge?",
+          alternatives: ["37", "25", "19", "1000"],
+          correct: 2,
+        },
+        {
+          question: "Hvor mange kopper sukker må du ha med deg på månetur?",
+          alternatives: ["10", "20", "50", "100,2"],
+          correct: 3,
+        }
+      ];
+
+  $scope.qNum = 0;
+  $scope.ask = $scope.questions[$scope.qNum];
+  $scope.data = {
+    clientSide: 'ng'
+  };
+
+  $scope.checkAnswer = function(answer)
+  {
+    if(answer == $scope.ask.alternatives[$scope.ask.correct])
+    {
+      console.log("Riktig");
+
+      if($scope.qNum <= $scope.questions.length - 1)
+      {
+        $scope.qNum ++;
+        $scope.ask = $scope.questions[$scope.qNum];
+      }  
+    }
+  }
+  
+});
+
 
 
 angular.module('app.waterflow')
@@ -251,3 +522,37 @@ angular.module('app.waterflow')
     }
 });
 
+
+angular.module('app.welcomeScreen', ["ionic"])
+.controller('WelcomeCtrl', function($scope, $ionicPopup) {
+
+    $scope.showPopup = function() {
+        $scope.data = {};
+
+        // An elaborate, custom popup
+        var myPopup = $ionicPopup.show({
+            title: 'Informasjon',
+            subTitle:   "Hei, Rob og Otto her! " +
+                        "Vi ønsker å adoptere en robot og trenger derfor din hjelp. " +
+                        "Rundt omkring i utstillingen er det mange robotdeler, men de er dessverre låst inne." +
+                        "For å robotdelene fri må du løse diverse oppgaver og spill ved hjelp av smarttelefonen din og utstilling." +
+                        "Klarer du å lage den kuleste roboten?",
+            scope: $scope,
+            buttons: [
+                { text: 'Avbryt' },
+                { text: '<b>Kom i gang!</b>',
+                    type: 'button-positive',
+                    onTap: function(e) {
+
+                    }
+                }
+            ]
+        });
+
+        myPopup.then(function(res) {
+            console.log('Tapped!', res);
+        });
+
+    };
+
+});

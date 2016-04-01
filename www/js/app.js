@@ -11,9 +11,13 @@ angular.module('app', [
   'app.routes', 
   'app.services', 
   'app.directives',
+  'app.chooseLanguage',
+  'app.welcomeScreen',
   'app.example',
   'app.main',
   'app.waterflow',
+  'app.periodic',
+  'app.quiz',
   //'app.myapp',
   ])
 

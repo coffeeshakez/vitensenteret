@@ -29,15 +29,27 @@ angular.module('app.routes', [])
   })
 
   .state('index.example', {
-    url: "/example",
-    views: {
-      'example': {
-        templateUrl: "app/example/views/default.html",
-        controller: 'ExampleCtrl'
-      }
-    },
-    data: {pageTitle: 'Example'}
-  })
+      url: "/example",
+      views: {
+        'example': {
+          templateUrl: "app/example/views/default.html",
+          controller: 'ExampleCtrl'
+        }
+      },
+      data: {pageTitle: 'Example'}
+    })
+
+    .state('index.periodic', {
+        url: "/periodic",
+        views: {
+          'periodic': {
+            templateUrl: "app/periodic/views/periodic.html",
+            controller: 'periodicCtrl'
+          }
+        },
+        data: {pageTitle: 'Periodic'}
+      })
+
 
     .state('index.waterflow', {
     url: "/waterflow",
@@ -59,6 +71,40 @@ angular.module('app.routes', [])
       }
     },
     data: {pageTitle: 'Main view'}
+  })
+
+  .state('index.chooseLanguage', {
+    url: "/chooseLanguage",
+    views: {
+      'chooseLanguage': {
+        templateUrl: "app/chooseLanguage/views/default.html",
+        controller: 'ChooseLanguageCtrl'
+      }
+    },
+    data: {pageTitle: 'ChooseLanguage'}
+  })
+
+  .state('index.welcomeScreen', {
+    url: "/welcomeScreen",
+    views: {
+      'welcomeScreen': {
+        templateUrl: "app/welcomeScreen/views/default.html",
+        controller: 'WelcomeCtrl'
+      }
+    },
+    data: {pageTitle: 'Welcome'}
+  })
+
+
+   .state('index.quiz', {
+    url: "/quiz",
+    views: {
+      'quiz': {
+        templateUrl: "app/quiz/views/default.html",
+        controller: 'quizController'
+      }
+    },
+    data: {pageTitle: 'quiz'}
   })
 
   .state('index', {
