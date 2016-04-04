@@ -198,12 +198,14 @@ img{
 
 .memory-button{
     margin: 5px;
-    height: 170px;
+    height: 40% !important;
     width: 45%;
 }
 
 #memorybuttons{
-    margin-top: 15px;
+    margin-top: 2%;
+    height: 90%;
+    width: 80%;
     
 }
 
@@ -236,8 +238,12 @@ img{
 }
 #hintButton{
     display: none;
-    float: right;
+
 }
+.revdivs{
+    float: left;
+}
+
 
 .part-robot .part-not-collected {
   display: none;

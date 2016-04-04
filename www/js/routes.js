@@ -29,15 +29,26 @@ angular.module('app.routes', [])
   })
 
   .state('index.example', {
-      url: "/example",
-      views: {
-        'example': {
-          templateUrl: "app/example/views/default.html",
-          controller: 'ExampleCtrl'
-        }
-      },
-      data: {pageTitle: 'Example'}
-    })
+    url: "/example",
+    views: {
+      'example': {
+        templateUrl: "app/example/views/default.html",
+        controller: 'ExampleCtrl'
+      }
+    },
+    data: {pageTitle: 'Example'}
+  })
+
+  .state('index.reward', {
+    url: "/reward",
+    views: {
+      'reward': {
+        templateUrl: "app/reward/views/default.html",
+        controller: 'RewardCtrl'
+      }
+    },
+    data: {pageTitle: 'Reward'}
+  })
 
   .state('index.memory', {
       url: "/memory",

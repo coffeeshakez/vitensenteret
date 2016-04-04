@@ -86,7 +86,6 @@ angular.module('app.memory')
           type: "button-positive"}
       ]
     })
-
   }
 
   function checkIfWon(){
@@ -136,12 +135,7 @@ angular.module('app.memory')
         i+=1;
       }
     }, 1000)
-
-
   }
-
-
-
 
   $scope.startGame = function(){
     clickNumber = 0;
@@ -160,7 +154,7 @@ angular.module('app.memory')
       hintButton.style.display = "block"
     }
 
-  }
+  };
 
   $scope.getHint = function(){
     if(gameList[clicked.length] === 1){
@@ -177,9 +171,5 @@ angular.module('app.memory')
     }
 
   }
-
-
-
-
 
 });
