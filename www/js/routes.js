@@ -39,6 +39,17 @@ angular.module('app.routes', [])
       data: {pageTitle: 'Example'}
     })
 
+  .state('index.memory', {
+      url: "/memory",
+      views: {
+        'memory': {
+          templateUrl: "app/memory/views/default.html",
+          controller: 'MemoryCtrl'
+        }
+      },
+      data: {pageTitle: 'Memory game'}
+    })
+
     .state('index.periodic', {
         url: "/periodic",
         views: {
@@ -102,7 +113,7 @@ angular.module('app.routes', [])
     abstract:true
   })
 
-$urlRouterProvider.otherwise('/index/main')
+$urlRouterProvider.otherwise('/index/quiz')
 
 
 });
