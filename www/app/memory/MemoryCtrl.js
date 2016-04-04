@@ -155,10 +155,10 @@ angular.module('app.memory')
     clickNumber = 0;
     clicked = [];
     redoButton.style.display = "none";
+    runGame();
     if(numberOfLost >=3){
       hintButton.style.display = "block"
     }
-    runGame();
 
   }
 

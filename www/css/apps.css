@@ -148,4 +148,5 @@ img{
 }
 #hintButton{
     display: none;
+    float: right;
 }
