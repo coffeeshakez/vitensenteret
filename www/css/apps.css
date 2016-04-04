@@ -2,14 +2,14 @@
   font-family: 'Seymour One';
   font-style: normal;
   font-weight: 400;
-  src: local('Seymour One'), local('SeymourOne'), url(/fonts/seymore.woff2) format('woff2');
+  src: local('Seymour One'), local('SeymourOne'), url(../fonts/seymore.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 @font-face {
   font-family: 'Short Stack';
   font-style: normal;
   font-weight: 400;
-  src: local('Short Stack'), local('ShortStack'), url(/fonts/short.woff2) format('woff2');
+  src: local('Short Stack'), local('ShortStack'), url(../fonts/short.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
@@ -28,11 +28,37 @@ body{
 
 .flex-wrap .card{
     margin: 10px;
-    margin-bottom: 0px;
 }
 
 .text-center{
 	text-align: center;
+}
+
+.giant-text{
+  font-size: 3em;
+  color: white;
+  text-align: center;
+  width: 100%;
+  vertical-align: middle;
+  height: 100%;
+  font-weight: 100;
+  font-family: "Seymour One";
+}
+
+h1.giant-text {
+  font-size: 3em;
+}
+
+h2.giant-text {
+  font-size: 2em;
+}
+
+h3.giant-text {
+  font-size: 1.5em;
+}
+
+h4.giant-text {
+  font-size: 1em;
 }
 
 img{
@@ -58,6 +84,18 @@ img{
 	height: 100px !important;
 	width: 100px !important;
 	margin:auto !important;
+  font-size: 2.2em;
+}
+
+.vertical-wrapper {  
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 
@@ -105,8 +143,58 @@ img{
 
 #qCard{
 	text-align: center;
-
 }
+
+
+/* Main screen - start */
+
+.item-body .row {
+  padding: 0;
+  padding-bottom: 2px;
+}
+
+.center-margin{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.part-box{
+  height: 80px;
+  padding: 10px 0;
+}
+
+.over-check{
+  font-size: 2em;
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+  /*pointer-events: none;*/
+}
+
+.part-not-collected{
+  /*filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /></filter></svg>#filter');
+  */-webkit-filter: contrast(0) brightness(1.4);
+   /*       filter: grayscale(100%);*/
+}
+
+.part-robot{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.part-robot .body-container .sprite.body{
+  left: -50%;
+  position: relative;
+}
+
+.part-robot .body-container{
+  left: 50%;
+  position: absolute;
+}
+
+
+
 
 .memory-button{
     margin: 5px;
@@ -150,7 +238,96 @@ img{
 }
 #hintButton{
     display: none;
+
 }
 .revdivs{
     float: left;
 }
+
+
+.part-robot .part-not-collected {
+  display: none;
+}
+
+.sprite{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.sprite.head.head1 {
+  background: url('../img/robots.png') no-repeat -316px -30px;
+  width: 52px;
+  height: 38px;
+}
+
+.sprite.head.head2 {
+  background: url('../img/robots.png') no-repeat -376px -22px;
+  width: 52px;
+  height: 46px;
+}
+
+.sprite.head.head3 {
+  background: url('../img/robots.png') no-repeat -439px -14px;
+  width: 40px;
+  height: 54px;
+}
+
+
+.sprite.body.body1 {
+  background: url('../img/robots.png') no-repeat -513px -42px;
+  width: 55px;
+  height: 25px;
+}
+
+.sprite.body.body2 {
+  background: url('../img/robots.png') no-repeat -520px -126px;
+  width: 44px;
+  height: 39px;
+}
+
+
+.sprite.arms.arms1 {
+  background: url('../img/robots.png') no-repeat -312px -206px;
+  width: 80px;
+  height: 48px;
+}
+
+.sprite.arms.arms2 {
+  background: url('../img/robots.png') no-repeat -16px -206px;
+  width: 72px;
+  height: 72px;
+}
+
+.sprite.arms.arms3 {
+  background: url('../img/robots.png') no-repeat -403px -206px;
+  width: 80px;
+  height: 56px;
+}
+
+
+.sprite.legs.legs1 {
+  background: url('../img/robots.png') no-repeat -327px -327px;
+  width: 52px;
+  height: 45px;
+}
+
+.sprite.legs.legs2 {
+  background: url('../img/robots.png') no-repeat -393px -334px;
+  width: 42px;
+  height: 38px;
+}
+
+.sprite.legs.legs3 {
+  background: url('../img/robots.png') no-repeat -454px -323px;
+  width: 38px;
+  height: 54px;
+}
+
+.sprite.legs.legs4 {
+  background: url('../img/robots.png') no-repeat -512px -318px;
+  width: 40px;
+  height: 54px;
+}
+/* Main screen - end */
+
