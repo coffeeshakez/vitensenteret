@@ -1,8 +1,10 @@
 angular.module('app.reward')
-.controller('RewardCtrl', function($scope, $stateParams) {
+.controller('RewardCtrl', function($scope, $ionicHistory) {
+  var robotarmer = " robotarmer "
   $scope.onInitialize = function(){
-    document.getElementById("robotPart").innerHTML = "robotarmer";
-    document.getElementById("gameFinished").innerHTML = "minnespillet";
+    document.getElementById("robotPart").innerHTML = robotarmer + "&nbsp;";
+    document.getElementById("gameFinished").innerHTML = $ionicHistory.backTitle() +"&nbsp;";
+    console.log($ionicHistory.backTitle());
   }
 
 });

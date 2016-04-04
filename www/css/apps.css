@@ -151,3 +151,6 @@ img{
 #hintButton{
     display: none;
 }
+.revdivs{
+    float: left;
+}
