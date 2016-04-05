@@ -18,6 +18,8 @@ angular.module('app', [
   'app.periodic',
   'app.quiz',
   'app.sound',
+  
+
   //'app.myapp',
   ])
 
