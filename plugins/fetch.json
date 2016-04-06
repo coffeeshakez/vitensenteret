@@ -50,7 +50,7 @@
     "cordova-plugin-media": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-media"
+            "id": "cordova-plugin-media@~2.1.0"
         },
         "is_top_level": true,
         "variables": {}

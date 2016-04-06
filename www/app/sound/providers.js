@@ -1,5 +1,5 @@
 angular.module('app.sound')
-.directive('exampleDirective', function () {
+.directive('sound', function () {
   return {
     restrict: 'AE',
     scope: {
@@ -8,6 +8,6 @@ angular.module('app.sound')
     link: function(scope, elem, attrs){
       //do controller stuff here, like changing elements and getting data
     },
-    templateUrl: 'app/sound/views/exampleDirective.html'
+    templateUrl: 'app/sound/views/sound.html'
   };
 });
