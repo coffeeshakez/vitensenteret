@@ -1,1 +1,1 @@
-angular.module('app.main', [])
+angular.module('app.parts', [])

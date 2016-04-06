@@ -51,15 +51,26 @@ angular.module('app.routes', [])
       })
 
 
-  .state('index.main', {
-    url: "/main",
+  .state('index.parts', {
+    url: "/parts",
     views: {
-      'main': {
-        templateUrl: "app/main/views/main.html",
-        controller: 'MainCtrl'
+      'parts': {
+        templateUrl: "app/parts/views/parts.html",
+        controller: 'PartsCtrl'
       }
     },
-    data: {pageTitle: 'Main view'}
+    data: {pageTitle: 'My parts'}
+  })
+
+  .state('index.overview', {
+    url: "/overview",
+    views: {
+      'overview': {
+        templateUrl: "app/overview/views/overview.html",
+        controller: 'OverviewCtrl'
+      }
+    },
+    data: {pageTitle: 'Overview'}
   })
 
   .state('index.chooseLanguage', {
@@ -102,7 +113,7 @@ angular.module('app.routes', [])
     abstract:true
   })
 
-$urlRouterProvider.otherwise('/index/main')
+$urlRouterProvider.otherwise('/index/overview')
 
 
 });

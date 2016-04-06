@@ -1,5 +1,5 @@
-angular.module('app.main')
-.controller('MainCtrl', function($scope, $stateParams) {
+angular.module('app.overview')
+.controller('OverviewCtrl', function($scope, $stateParams) {
 
     $scope.parts = [
         {name: "Hode", type: "head", variants: [1, 2, 3], variant: 3, collected: false},
