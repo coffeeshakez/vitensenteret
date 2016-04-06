@@ -61,6 +61,8 @@ h4.giant-text {
   font-size: 1em;
 }
 
+/*Periodic end*/
+
 img{
 	display: block;
 	margin:auto;
@@ -87,6 +89,10 @@ img{
   font-size: 2.2em;
 }
 
+
+
+/*Periodic end*/
+
 .vertical-wrapper {  
   display: -webkit-box;
   display: -webkit-flex;
@@ -99,6 +105,16 @@ img{
 }
 
 
+
+/*sound - start*/
+
+#soundPlayBtn{
+  height: 200px !important;
+  font-size: 150px;
+  text-align: center;
+}
+
+/*sound - end*/
 
 
 

@@ -6,12 +6,8 @@ angular.module('app.sound')
     var sangen = document.getElementById("song");
 
     $scope.playImitate = function(){
-       
-       sangen.play();
-   }
 
-    $scope.pauseImitate = function(){
-       
-       sangen.pause();
+		sangen.currentTime = 0;
+        sangen.play();
    }
 });
