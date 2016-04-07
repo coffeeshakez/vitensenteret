@@ -1,7 +1,7 @@
 <ion-view title="Vitensenteret">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="row">
-            <div class="list card col-50">
+            <div class="list card col-100">
                 <div class="item item-divider">Vitenløypa</div>
             </div>
         </div>
@@ -9,10 +9,10 @@
         <div class="row flex-wrap" >
             <div class="col-33 center-margin" ng-repeat="minigame in minigames">
                 <div class="card small">
-                    <div class="item item-text-wrap part-box vertical-wrapper">
-                        <a href class="sprite" ng-class="partClasses(part)" ng-click="partClick(part)"></a>
-                        <i class="icon over-check" ng-class="part.collected ? 'ion-checkmark-round balanced' : 'ion-close-round'"></i>
-                    </div>    
+                    <div class="item minigames item-text-wrap part-box vertical-wrapper">
+                        <a href class="sprite icon minigame-icon" ng-class="minigameClasses(minigame)" ng-click="minigameClick(minigame)"></a>
+                        <i class="icon over-check" ng-class="minigame.collected ? 'ion-checkmark-round balanced' : 'ion-close-round'"></i>
+                    </div>
                 </div>
             </div>
         </div>
