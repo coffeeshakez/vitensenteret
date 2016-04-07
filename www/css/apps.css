@@ -109,10 +109,82 @@ img{
 /*sound - start*/
 
 #soundPlayBtn{
-  height: 200px !important;
-  font-size: 150px;
+  height: 15% !important;
+  font-size: 80px;
   text-align: center;
 }
+
+#soundView{
+  height: 60%;
+  position: relative;
+}
+
+#soundTestCorrect{
+  height: 10% !important;
+  font-size: 150%;
+}
+
+.soundPhoto{
+  width: 70%;
+  position: absolute;
+  top:20%;
+  left:15%;
+}
+
+.numberPicker{
+  width: 30px;
+}
+
+#triangleOne{
+  position: absolute;
+  top:9%;
+  left:45%;
+}
+
+#triangleTwo{
+  position: absolute;
+  top:80%;
+  left:15%;
+}
+
+#triangleThree{
+  position: absolute;
+  top:80%;
+  left:76%;
+}
+
+#pentaOne{
+  position: absolute;
+  top:40%;
+  left:15%;
+}
+
+#pentaTwo{
+  position: absolute;
+  top:40%;
+  left:15%;
+}
+
+#pentaThree{
+  position: absolute;
+  top:50%;
+  left:15%;
+}
+
+#pentaFour{
+  position: absolute;
+  top:40%;
+  left:50%;
+}
+
+#pentaFive{
+  position: absolute;
+  top:30%;
+  left:80%;
+}
+
+
+
 
 /*sound - end*/
 
