@@ -7,4 +7,21 @@ angular.module('app.reward')
     console.log($ionicHistory.backTitle());
   }
 
+  function getCorrectPart(){
+    switch ($ionicHistory.backTitle()) {
+      case Minnespillet:
+        break;
+      case quiz:
+        break;
+      case Periodic:
+        break;
+      case waterflow:
+        break;
+      case sound:
+        break;
+      case colorgame:
+        break;
+    }
+  }
+
 });
