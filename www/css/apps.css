@@ -108,9 +108,13 @@ img{
 
 /*sound - start*/
 
+select{
+   -webkit-appearance: none;
+}
+
 #soundPlayBtn{
   height: 15% !important;
-  font-size: 80px;
+  font-size: 30px;
   text-align: center;
 }
 
@@ -131,8 +135,10 @@ img{
   left:15%;
 }
 
-.numberPicker{
-  width: 30px;
+.numberSelector{
+  width: 25px;
+  padding-left: 5px;
+  font-size: 20px;
 }
 
 #triangleOne{

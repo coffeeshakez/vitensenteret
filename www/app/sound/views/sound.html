@@ -4,29 +4,29 @@
     <p class="texts text-align">Plasser rørene så de lager samme lyd som spilles av</p>
 
     <audio id="song">
-    	<source src="../../sound/teleport.wav" type="audio/wav">
+    	<source src="sound/teleport.wav" type="audio/wav">
     		Your browser does not support
     </audio>
 
-   <button id="soundPlayBtn" class="button ion-play button-block button-balanced" ng-click="playImitate()"> </button>
+   <button id="soundPlayBtn" class="button button-block button-balanced" ng-click="playImitate()"> Spill av lyden! </button>
 
    <div id = "soundView">
 
-   	<img src="../../img/triangle.svg" class = "soundPhoto">
+   	<img src=".img/triangle.svg" class = "soundPhoto">
 
-   	<select id="triangleOne">
+   	<select id="triangleOne" class="numberSelector">
       <option selected>1</option>
       <option >2</option>
       <option >3</option>
     </select>
 
-    <select id="triangleTwo">
+    <select id="triangleTwo" class="numberSelector">
       <option >1</option>
       <option selected>2</option>
       <option >3</option>
     </select>
 
-    <select id="triangleThree">
+    <select id="triangleThree" class="numberSelector">
       <option >1</option>
       <option >2</option>
       <option selected>3</option>
