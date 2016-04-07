@@ -1,16 +1,15 @@
 angular.module('app.overview')
-.controller('OverviewCtrl', function($scope, $state, $stateParams) {
+.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams) {
 
-    $scope.minigames = [
-        {name: "Quiz", game: "quiz", icon: "ion-help", collected: false},
-        {name: "Grunnstoffer", game: "periodic", icon: "ion-nuclear", collected: false},
-        {name: "Fargelås", game: "colors", icon: "ion-lock-combination", collected: false},
-        {name: "Melodi", game: "melody", icon: "ion-music-note", collected: false},
-        {name: "Flyt", game: "waterflow", icon: "ion-network", collected: false},
-        {name: "Minnespill", game: "memory", icon: "ion-load-b", collected: false},
-        {name: "Korteste vei", game: "shortest", icon: "ion-map", collected: false},
-
-    ];
+    $rootScope.minigames = {
+        "quiz":      {name: "Quiz", game: "quiz", icon: "ion-help", collected: false},
+        "periodic":  {name: "Grunnstoffer", game: "periodic", icon: "ion-nuclear", collected: false},
+        "colors":    {name: "Fargelås", game: "colors", icon: "ion-lock-combination", collected: false},
+        "melody":    {name: "Melodi", game: "melody", icon: "ion-music-note", collected: false},
+        "waterflow": {name: "Flyt", game: "waterflow", icon: "ion-network", collected: false},
+        "memory":    {name: "Minnespill", game: "memory", icon: "ion-load-b", collected: false},
+        "shortest":  {name: "Korteste vei", game: "shortest", icon: "ion-map", collected: false},
+    };
 
     $scope.collectedMinigamesCount = function(){
         var count = 0;
