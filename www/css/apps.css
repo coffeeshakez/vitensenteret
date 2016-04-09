@@ -202,12 +202,19 @@ img{
     width: 45%;
 }
 
-#memorybuttons{
+#memory-buttons{
     margin-top: 2%;
-    height: 90%;
-    width: 80%;
+    height: 80%;
+    width: 90%;
+    margin-bottom: 0px;
     
 }
+
+#memory-level-setter{
+    color: white;
+}
+
+
 
 #memorypink{
     background-color: #b24881;

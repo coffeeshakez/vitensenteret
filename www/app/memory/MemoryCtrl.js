@@ -1,5 +1,5 @@
 angular.module('app.memory')
-.controller('MemoryCtrl', function($scope, $stateParams, $ionicPopup) {
+.controller('MemoryCtrl', function($scope, $ionicPopup, $state) {
 
   var greenButton = document.getElementById("memorygreen");
   var pinkButton = document.getElementById("memorypink");
@@ -9,12 +9,38 @@ angular.module('app.memory')
   var redoButton = document.getElementById("redoButton");
   var hintButton = document.getElementById("hintButton");
 
-
   var numberOfWins = 0;
   var clickNumber = 0;
   var gameList = [];
   var clicked = [];
   var numberOfLost = 0;
+
+  var normalPopup = {
+    title: "Du klarte dette nivået",
+    scope: $scope,
+    buttons: [
+      { text: "<b>Neste nivå</b>",
+        type: "button-positive",
+        onTap: changeLevelNominater}
+    ]
+  };
+  var hasWonPopup = {
+    title: "Du klarte det siste nivået og har dermed vunnet dette spillet",
+    scope: $scope,
+    buttons: [
+      { text: "<b>Videre</b>",
+        type: "button-positive",
+        onTap: function(){
+            $state.go("index.reward");
+        }}
+    ]
+  };
+
+  function changeLevelNominater(){
+    console.log("yus");
+    document.getElementById("memory-level-setter").innerHTML = "Nivå &nbsp" + (numberOfWins+1) + "/3";
+  }
+
 
 
   function initGame(number){
@@ -71,6 +97,9 @@ angular.module('app.memory')
     greenButton.onclick = null;
   }
 
+
+
+
   function gameWon(){
     clickNumber = 0;
     numberOfLost = 0;
@@ -78,14 +107,12 @@ angular.module('app.memory')
     startButton.style.display = "block";
     hintButton.style.display = "none";
     deactivateButtons();
-    $ionicPopup.show({
-      title: "Du vant spill " + numberOfWins,
-      scope: $scope,
-      buttons: [
-        { text: "<b>Neste spill</b>",
-          type: "button-positive"}
-      ]
-    })
+    if(numberOfWins === 3){
+      $ionicPopup.show(hasWonPopup)
+    }
+    else{
+      $ionicPopup.show(normalPopup)
+    }
   }
 
   function checkIfWon(){
@@ -140,7 +167,7 @@ angular.module('app.memory')
   $scope.startGame = function(){
     clickNumber = 0;
     clicked = [];
-    gameList = initGame((numberOfWins+1)*3);
+    gameList = initGame((numberOfWins+3));
     startButton.style.display = "none";
     runGame();
   };
