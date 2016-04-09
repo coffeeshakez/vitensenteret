@@ -1,10 +1,10 @@
-<ion-view title="Lyd">
+<ion-view title="Lyd" data-ng-init="initSound()">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 
     <p class="texts text-align">Plasser rørene så de lager samme lyd som spilles av</p>
 
     <audio id="song">
-    	<source src="sound/teleport.wav" type="audio/wav">
+    	<source src="../../sound/teleport.wav" type="audio/wav">
     		Your browser does not support
     </audio>
 
@@ -12,34 +12,10 @@
 
    <div id = "soundView">
 
-   	<img src=".img/triangle.svg" class = "soundPhoto">
-
-   	<select id="triangleOne" class="numberSelector">
-      <option selected>1</option>
-      <option >2</option>
-      <option >3</option>
-    </select>
-
-    <select id="triangleTwo" class="numberSelector">
-      <option >1</option>
-      <option selected>2</option>
-      <option >3</option>
-    </select>
-
-    <select id="triangleThree" class="numberSelector">
-      <option >1</option>
-      <option >2</option>
-      <option selected>3</option>
-    </select>
-
-
-	</div>
-
-
    </div>
 
    
-   <button id="soundTestCorrect" class="button button-block button-balanced" ng-click="playImitate()"> Sjekk om det er riktig! </button>
+  // <button id="soundTestCorrect" class="button button-block button-balanced" ng-click="soundCheckCorrect()"> Sjekk om det er riktig! </button>
 
 
     </ion-content>
