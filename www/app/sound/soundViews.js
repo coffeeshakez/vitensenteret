@@ -68,7 +68,48 @@ var square = `<img src="../../img/square.svg" class = "soundPhoto">
         <option >4</option>
         <option >5</option>
     </select>`;
-    `;
 
+var pentagon = `<img src="../../img/square.svg" class = "soundPhoto">
 
-   	`;
+   	<select id="pentagonOne" class="numberSelector">
+        <option selected>1</option>
+        <option >2</option>
+        <option >3</option>
+        <option >4</option>
+        <option >5</option>
+    </select>
+
+    <select id="pentagonTwo" class="numberSelector">
+        <option >1</option>
+        <option selected>2</option>
+        <option >3</option>
+        <option >4</option>
+        <option >5</option>
+        
+        
+    </select>
+
+    <select id="pentagonThree" class="numberSelector">
+        <option >1</option>
+        <option >2</option>
+        <option selected>3</option>
+        <option >4</option>
+        <option >5</option>
+    </select>
+    
+     <select id="pentagonFour" class="numberSelector">
+        <option >1</option>
+        <option >2</option>
+        <option >3</option>
+        <option selected>4</option>
+        <option >5</option>
+    </select>
+    
+     <select id="pentagonFive" class="numberSelector">
+        <option >1</option>
+        <option >2</option>
+        <option >3</option>
+        <option >4</option>
+        <option selected>5</option>
+    </select>
+`;
