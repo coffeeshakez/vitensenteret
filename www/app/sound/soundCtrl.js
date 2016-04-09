@@ -5,7 +5,7 @@ angular.module('app.sound')
     // var media = new Audio(src);
     var sangen = document.getElementById("song");
     var viewInsert = document.getElementById("soundView");
-    var taskNumber = 0;
+    var taskNumber = 1;
 
     $scope.playImitate = function(){
 
@@ -18,13 +18,25 @@ angular.module('app.sound')
     };
     
     $scope.soundCheckCorrect = function () {
-        insertSquare();
+        if(taskNumber==1){
+            checkTriangle();
+        }
     }
 
     function insertTriangle(){
        viewInsert.innerHTML = triangle;
       //document.getElementById("soundTestCorrect").onClick = insertSquare();
    }
+
+    function checkTriangle(){
+        if(document.getElementById("triangleOne").value == 1){
+            if(document.getElementById("triangleTwo").value == 2) {
+                if(document.getElementById("triangleThree").value == 4){
+                    insertSquare();
+                }
+            }
+        }
+    }
 
     function insertSquare(){
         viewInsert.innerHTML = square;
