@@ -38,7 +38,25 @@ angular.module('app.sound')
         }
     }
 
+    function checkTriangle(){
+        if (document.getElementById("squareOne").value == 1){
+            if(document.getElementById("squareTwo").value == 2){
+                if(document.getElementById("squareThree").value == 3){
+                    if(document.getElementById("squareFour").value == 4){
+                        insertPentagon();
+                    }
+                }
+            }
+        }
+    }
+
+
+
     function insertSquare(){
         viewInsert.innerHTML = square;
+    }
+
+    function insertPentagon(){
+        viewInsert.innerHTML = pentagon;
     }
 });
