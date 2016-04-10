@@ -1,7 +1,11 @@
 var triangle =`
-    <div id="insertedView">
+    <div id = "alignDivCenter">
+    <div id = "ratioDiv">
+    <div id = "selectorContainer">
+    
     <img src="../../img/triangle.svg" class = "soundPhoto">
-    <form>
+     
+    
     <select id="triangleOne" class="numberSelector">
         <option value="1" selected>1</option>
         <option value="2">2</option>
@@ -27,20 +31,18 @@ var triangle =`
         <option value="4">4</option>
         <option value="5">5</option>
     </select>
-    
-    
-    
-    <!--<input type="number" id="triangleThree" max="5" min="1" value="1" class="numberSelector"/>-->
-    <!---->
-    </form>
+    </div>
+    </div>
     </div>
     `;
 
 
 var square = `
-     <div id="insertedView">
+   
      
     <img src="../../img/square.svg" class = "soundPhoto">
+    
+    <div id = "selectorContainer">
 
    	<select id="squareOne" class="numberSelector">
         <option selected>1</option>
@@ -76,7 +78,9 @@ var square = `
         <option >5</option>
     </select>
     
-    </div>`;
+    </div>
+    
+    `;
 
 var pentagon = `<img src="../../img/pentagon.svg" class = "soundPhoto">
 

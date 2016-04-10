@@ -19,6 +19,7 @@ angular.module('app.sound')
     
     $scope.soundCheckCorrect = function () {
         if(taskNumber==1){
+            
             checkTriangle();
         }
 
@@ -29,7 +30,6 @@ angular.module('app.sound')
 
     function insertTriangle(){
        viewInsert.innerHTML = triangle;
-      //document.getElementById("soundTestCorrect").onClick = insertSquare();
    }
 
     function checkTriangle(){
