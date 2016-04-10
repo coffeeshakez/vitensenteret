@@ -1,6 +1,6 @@
 angular.module('app.sound')
 .controller('soundCtrl', function($scope, $stateParams, $ionicPopup) {
-    
+
     // var src = "../../sound/Ready-Sangen.mp3";
     // var media = new Audio(src);
     var sangen = document.getElementById("song");
@@ -16,18 +16,17 @@ angular.module('app.sound')
     $scope.initSound = function () {
         initNext();
     };
-    
+
     $scope.soundCheckCorrect = function () {
         if(taskNumber==1){
-            
-            checkTriangle();
+           showPopup(checkTriangle()[0], checkTriangle()[1]);
         }
 
         else if(taskNumber==2){
-            checkSquare();
+            showPopup(checkSquare()[0], checkSquare()[1]);
         }
         else if (taskNumber == 3){
-            checkPentagon();
+            showPopup(checkPentagon()[0], checkPentagon()[1]);
         }
     }
 
@@ -43,21 +42,52 @@ angular.module('app.sound')
         else if (taskNumber == 3){
             insertPentagon();
         }
-        
-        
+
+
     }
 
-    function showPopup(bool){
+    function showPopup(bool, correctArray){
+        var feedback1 = "Dette var ikke helt riktig, du hadde rør";
+        var feedback2 = " på posisjon";
+        var feedback3 = "";
+        var feedback4 = " riktig";
+
+        for(var i=correctArray.length - 1; i>=0; i--){
+            if(feedback3.length == 2 && correctArray[i] == 1){
+                feedback3 = (i+1) +  " og " + feedback3;
+                feedback1+= "ene ";
+                feedback2+= "ene ";
+            }
+            else if(feedback3.length == 0 && correctArray[i] == 1){
+                feedback3 = " " + (i+1) + feedback3;
+            }
+
+            else if(correctArray[i] == 1) {
+                feedback3 = (i + 1) + ", " + feedback3;
+            }
+
+        }
+
+        if(feedback3.length == 0){
+            feedback1 = "Dette var ikke riktig. Du har dessverre ingen rør på riktig posisjon."
+            feedback2 = "";
+            feedback3 = "";
+            feedback4 = "";
+        }
+        else if(feedback3.length == 2){
+            feedback1 += "et "
+        }
+
         $scope.data = {};
 
         if (bool == true){
 
             var pop = {
                 title : "RIKTIG!",
-                subtitle: "Du svarte riktig!",
+                subTitle: "Du svarte riktig!",
                 scope: $scope,
                 buttons: [
-                { 
+                {
                     text: '<b>Neste oppgave</b>',
                     type: 'button-positive',
 
@@ -73,7 +103,7 @@ angular.module('app.sound')
         else{
             var pop = {
                 title: "FEIL",
-                subtitle: "Dette var ikke helt riktig",
+                subTitle:  feedback1 +  feedback2 + feedback3 + feedback4,
                 scope: $scope,
                 buttons:[
                 {
@@ -81,28 +111,28 @@ angular.module('app.sound')
                     type: 'button-positive',
 
                     onTap: function(){
-                        
+
 
                     }
 
                     }
-                ] 
+                ]
             }
 
         }
 
         var myPopup = $ionicPopup.show(pop);
-        
+
         myPopup.then(function(res) {
             console.log('Tapped!', res);
         });
     }
-    
+
 
     function insertTriangle(){
        viewInsert.innerHTML = triangle;
    }
-   
+
    function insertSquare(){
         viewInsert.innerHTML = square;
     }
@@ -112,46 +142,83 @@ angular.module('app.sound')
     }
 
     function checkTriangle(){
-        if(document.getElementById("triangleOne").value == 1){
-            if(document.getElementById("triangleTwo").value == 2) {
-                if(document.getElementById("triangleThree").value == 3){
-                    showPopup(true);
-                    return;
-                }
-            }
+        var rettArray = [0,0,0,0,0];
+        var antallRett = 0;
+        if(document.getElementById("triangleOne").value == 1) {
+            rettArray[0] = 1;
+            antallRett++;
         }
-        showPopup(false);
-        
+
+        if(document.getElementById("triangleTwo").value == 2) {
+            rettArray[1] = 1;
+            antallRett++;
+        }
+        if(document.getElementById("triangleThree").value == 3){
+            rettArray[2] = 1
+            antallRett++;
+        }
+        if (antallRett == 3){
+            return [true, rettArray];
+        }
+        return [false,rettArray];
+
     }
 
     function checkSquare(){
-        if (document.getElementById("squareOne").value == 1){
-            if(document.getElementById("squareTwo").value == 2){
-                if(document.getElementById("squareThree").value == 3){
-                    if(document.getElementById("squareFour").value == 4){
-                        showPopup(true);
-                        return;
-                    }
-                }
-            }
+        var rettArray = [0,0,0,0,0];
+        var antallRett =0;
+        if (document.getElementById("squareOne").value == 1) {
+            rettArray[0] = 1;
+            antallRett++;
         }
-        showPopup(false);
+        if (document.getElementById("squareTwo").value == 2) {
+            rettArray[1] = 1;
+            antallRett++;
+        }
+
+        if (document.getElementById("squareThree").value == 3) {
+            rettArray[2] = 1;
+            antallRett++;
+        }
+        if (document.getElementById("squareFour").value == 4) {
+            rettArray[3] = 1;
+            antallRett++;
+        }
+        if(antallRett ==4){
+            return [true, rettArray]
+        }
+
+        return [false, rettArray];
     }
 
     function checkPentagon(){
+        var rettArray = [0,0,0,0,0];
+        var antallRett =0;
         if(document.getElementById("pentagonOne").value == 1){
-            if(document.getElementById("pentagonTwo").value == 2){
-                if(document.getElementById("pentagonThree").value == 3){
-                    if(document.getElementById("pentagonFour").value == 4){
-                        if (document.getElementById("pentagonFive").value = 5) {
-                            console.log("yay");
-                            showPopup(true);
-                            return;
-                        }
-                    }
-                }
-            }
+            rettArray[0] = 1;
+            antallRett++;
         }
-        showPopup(false);
-    }   
+        if(document.getElementById("pentagonTwo").value == 2){
+            rettArray[1] = 1;
+            antallRett++;
+        }
+        if(document.getElementById("pentagonThree").value == 3){
+            rettArray[2] = 1;
+            antallRett++;
+        }
+        if(document.getElementById("pentagonFour").value == 4){
+            rettArray[3] = 1;
+            antallRett++;
+        }
+        if (document.getElementById("pentagonFive").value = 5) {
+            rettArray[4] = 1;
+            antallRett++;
+        }
+            // HER MÅ DET HÅNDTERES OM SPILLET ER FERDIG!!
+        if(antallRett ==5){
+            return [true, rettArray]
+        }
+
+        return [false, rettArray];
+    }
 });
