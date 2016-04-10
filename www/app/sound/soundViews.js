@@ -1,4 +1,6 @@
-var triangle =`<img src="../../img/triangle.svg" class = "soundPhoto">
+var triangle =`
+    <div id="insertedView">
+    <img src="../../img/triangle.svg" class = "soundPhoto">
     <form>
     <select id="triangleOne" class="numberSelector">
         <option value="1" selected>1</option>
@@ -30,10 +32,15 @@ var triangle =`<img src="../../img/triangle.svg" class = "soundPhoto">
     
     <!--<input type="number" id="triangleThree" max="5" min="1" value="1" class="numberSelector"/>-->
     <!---->
-    </form>`;
+    </form>
+    </div>
+    `;
 
 
-var square = `<img src="../../img/square.svg" class = "soundPhoto">
+var square = `
+     <div id="insertedView">
+     
+    <img src="../../img/square.svg" class = "soundPhoto">
 
    	<select id="squareOne" class="numberSelector">
         <option selected>1</option>
@@ -67,9 +74,11 @@ var square = `<img src="../../img/square.svg" class = "soundPhoto">
         <option selected>3</option>
         <option >4</option>
         <option >5</option>
-    </select>`;
+    </select>
+    
+    </div>`;
 
-var pentagon = `<img src="../../img/square.svg" class = "soundPhoto">
+var pentagon = `<img src="../../img/pentagon.svg" class = "soundPhoto">
 
    	<select id="pentagonOne" class="numberSelector">
         <option selected>1</option>

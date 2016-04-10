@@ -108,14 +108,6 @@ img{
 
 /*sound - start*/
 
-/*input[type=number]::-webkit-inner-spin-button,*/
-/*input[type=number]::-webkit-outer-spin-button {*/
-  /*-webkit-appearance: none;*/
-  /*-moz-appearance: none;*/
-  /*appearance: none;*/
-  /*margin: 0;*/
-/*}*/
-
 select{
    -webkit-appearance: none;
 }
@@ -124,6 +116,13 @@ select{
   height: 15% !important;
   font-size: 30px;
   text-align: center;
+}
+
+#insertedView{
+  background-color: red;
+  max-height:100%;
+  max-width: 80%;
+
 }
 
 #soundView{
@@ -137,10 +136,13 @@ select{
 }
 
 .soundPhoto{
-  width: 70%;
+
+
+  width: 80%;
   position: absolute;
   top:20%;
-  left:15%;
+  left:10%;
+
 }
 
 .numberSelector{
@@ -162,6 +164,30 @@ select{
 }
 
 #triangleThree{
+  position: absolute;
+  top:80%;
+  left:76%;
+}
+
+#squareOne{
+  position: absolute;
+  top:10%;
+  left:15%;
+}
+
+#squareTwo{
+  position: absolute;
+  top:10%;
+  left:85%;
+}
+
+#squareThree{
+  position: absolute;
+  top:90%;
+  left:15%;
+}
+
+#squareFour{
   position: absolute;
   top:80%;
   left:76%;

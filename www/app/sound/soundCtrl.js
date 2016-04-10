@@ -21,6 +21,10 @@ angular.module('app.sound')
         if(taskNumber==1){
             checkTriangle();
         }
+
+        else if(taskNumber==2){
+            checkSquare();
+        }
     }
 
     function insertTriangle(){
@@ -33,12 +37,13 @@ angular.module('app.sound')
             if(document.getElementById("triangleTwo").value == 2) {
                 if(document.getElementById("triangleThree").value == 4){
                     insertSquare();
+                    taskNumber++;
                 }
             }
         }
     }
 
-    function checkTriangle(){
+    function checkSquare(){
         if (document.getElementById("squareOne").value == 1){
             if(document.getElementById("squareTwo").value == 2){
                 if(document.getElementById("squareThree").value == 3){
