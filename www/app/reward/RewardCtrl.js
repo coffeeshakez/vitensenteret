@@ -1,48 +1,25 @@
 angular.module('app.reward')
-.controller('RewardCtrl', function($scope, $ionicHistory, $state) {
+.controller('RewardCtrl', function($scope, $state, $stateParams) {
 
-  $scope.$on('$ionicView.enter', getCorrectPart);
+  $scope.$on('$ionicView.enter', setUp);
   $scope.$on('$ionicView.leave', cleanUp);
+  $scope.robotPart;
+  $scope.gameFinished;
+  $scope.robotPartImage;
 
-  var cameFrom = $ionicHistory.backTitle();
-
-  function getCorrectPart(){
-    console.log("fachs");
-    console.log($ionicHistory.viewHistory());
-    switch ($ionicHistory.backTitle()) {
-      case "Minnespillet":
-          document.getElementById("gameFinished").innerHTML = "minnespillet &nbsp";
-          document.getElementById("robotPart").innerHTML = "venstre robotarm &nbsp";
-        break;
-      case "quiz":
-        document.getElementById("gameFinished").innerHTML = "quizen &nbsp";
-        document.getElementById("robotPart").innerHTML = "høyre robotarm &nbsp";
-        break;
-      case "Periodic":
-        document.getElementById("gameFinished").innerHTML = "periodesystemspillet &nbsp";
-        document.getElementById("robotPart").innerHTML = "venstre robotfot &nbsp";
-        break;
-      case "waterflow":
-        document.getElementById("gameFinished").innerHTML = "vannkraftspillet &nbsp";
-        document.getElementById("robotPart").innerHTML = "høyre robotfot &nbsp";
-        break;
-      case "sound":
-        document.getElementById("gameFinished").innerHTML = "lydspillet &nbsp";
-        document.getElementById("robotPart").innerHTML = "robotkroppen &nbsp";
-        break;
-      case "colorgame":
-        document.getElementById("gameFinished").innerHTML = "fargespillet &nbsp";
-        document.getElementById("robotPart").innerHTML = "robothodet &nbsp";
-        break;
-    }
-  }
   function cleanUp(){
-    console.log("fuchs")
+    $scope.robotPart = "";
+    $scope.gameFinished = "";
+    $scope.robotPartImage = "";
+  }
+
+  function setUp(){
+    $scope.gameFinished = $stateParams.game;
+    $scope.robotPart = $stateParams.part;
+    $scope.robotPartImage = $stateParams.sprite;
 
   }
 
-  $scope.backToRobot = function(){
-    $state.go("index.main", {}, {reload:true});
-  }
+
 
 });

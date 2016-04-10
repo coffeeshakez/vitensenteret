@@ -1,5 +1,5 @@
 angular.module('app.quiz')
-.controller('quizController', function($scope, $stateParams) {
+.controller('quizController', function($scope, $stateParams, $state) {
 
 
       $scope.questions = [

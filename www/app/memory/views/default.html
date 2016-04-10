@@ -1,11 +1,10 @@
-<ion-view title="Minnespillet" ng-init="onInitialize()">
+<ion-view title="Minnespillet">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="card small centerdiv" >
-            <h5>Trykk på knappene i riktig rekkefølge</h5>
+            <h5>Trykk på knappene i samme rekkefølge som de blinker</h5>
         </div>
         <div class="centerdiv" id="memory-buttons">
-            <button class="button memory-button" id="memorypink">
-            </button>
+            <button class="button memory-button" id="memorypink"></button>
 
             <button class="button memory-button" id="memorygreen">
             </button>
@@ -15,8 +14,8 @@
 
             <button class="button memory-button" id="memoryyellow">
             </button>
-            <div id="memory-level-setter">
-                Nivå 1/3
+            <div id="levelNumerator">
+                {{levelNumerator}}
             </div>
             <div>
                 <button class="button button-bar" id="startButton" ng-click="startGame()">Start</button>

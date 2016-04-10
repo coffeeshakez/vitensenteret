@@ -1,6 +1,7 @@
 angular.module('app.memory')
 .controller('MemoryCtrl', function($scope, $ionicPopup, $state) {
 
+
   var greenButton = document.getElementById("memorygreen");
   var pinkButton = document.getElementById("memorypink");
   var yellowButton = document.getElementById("memoryyellow");
@@ -15,13 +16,15 @@ angular.module('app.memory')
   var clicked = [];
   var numberOfLost = 0;
 
+  $scope.levelNumerator = "Nivå " + (numberOfWins+1) + "/3";
+
   var normalPopup = {
     title: "Du klarte dette nivået",
     scope: $scope,
     buttons: [
       { text: "<b>Neste nivå</b>",
         type: "button-positive",
-        onTap: changeLevelNominater}
+        onTap: changeLevelNumerator}
     ]
   };
   var hasWonPopup = {
@@ -31,14 +34,13 @@ angular.module('app.memory')
       { text: "<b>Videre</b>",
         type: "button-positive",
         onTap: function(){
-            $state.go("index.reward");
+            $state.go("index.reward", {"game": "minnespillet", "part": "venstre robotarm", "sprite": "sprite arm arm1"});
         }}
     ]
   };
 
-  function changeLevelNominater(){
-    console.log("yus");
-    document.getElementById("memory-level-setter").innerHTML = "Nivå &nbsp" + (numberOfWins+1) + "/3";
+  function changeLevelNumerator(){
+    $scope.levelNumerator = "Nivå " + (numberOfWins+1) + "/3";
   }
 
 
@@ -50,6 +52,9 @@ angular.module('app.memory')
     }
     return game;
   }
+
+
+
 
   function blink(button, time){
     button.style.opacity = "1";
@@ -143,7 +148,6 @@ angular.module('app.memory')
     var opacityChange = setInterval(function(){
       if(i >= gameList.length){
         activateButtons();
-        console.log("Ready");
         clearInterval(opacityChange);
       }
       else {
@@ -165,6 +169,7 @@ angular.module('app.memory')
   }
 
   $scope.startGame = function(){
+    $state.go("index.reward", {"game": "minnespillet", "part": "venstre robotarm", "sprite": "sprite arms arms1"});
     clickNumber = 0;
     clicked = [];
     gameList = initGame((numberOfWins+3));

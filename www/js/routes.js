@@ -40,7 +40,7 @@ angular.module('app.routes', [])
   })
 
   .state('index.reward', {
-    url: "/reward",
+    url: "/reward?game?part?sprite",
     views: {
       'reward': {
         templateUrl: "app/reward/views/default.html",

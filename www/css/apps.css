@@ -210,8 +210,8 @@ img{
     
 }
 
-#memory-level-setter{
-    color: white;
+#levelNumerator{
+    color: #ffffff;
 }
 
 
@@ -247,9 +247,7 @@ img{
     display: none;
 
 }
-.revdivs{
-    float: left;
-}
+
 
 
 .part-robot .part-not-collected {
@@ -311,6 +309,8 @@ img{
   width: 80px;
   height: 56px;
 }
+
+
 
 
 .sprite.legs.legs1 {
