@@ -61,6 +61,17 @@ angular.module('app.routes', [])
       data: {pageTitle: 'Memory game'}
     })
 
+  .state('index.shortest', {
+      url: "/shortest",
+      views: {
+        'shortest': {
+          templateUrl: "app/shortest/views/shortest.html",
+          controller: 'ShortestCtrl'
+        }
+      },
+      data: {pageTitle: 'Shortest'}
+    })
+    
     .state('index.periodic', {
         url: "/periodic",
         views: {
@@ -123,6 +134,8 @@ angular.module('app.routes', [])
     templateUrl: 'templates/tabsController.html',
     abstract:true
   })
+
+  
 
 $urlRouterProvider.otherwise('/index/quiz')
 
