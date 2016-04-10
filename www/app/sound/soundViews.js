@@ -19,9 +19,7 @@ var triangle =`
         <option selected>2</option>
         <option >3</option>
         <option >4</option>
-        <option >5</option>
-
-        
+        <option >5</option>        
     </select>
 
     <select id="triangleThree" class="numberSelector">
@@ -57,9 +55,7 @@ var square = `
         <option selected>2</option>
         <option >3</option>
         <option >4</option>
-        <option >5</option>
-        
-        
+        <option >5</option> 
     </select>
 
     <select id="squareThree" class="numberSelector">
@@ -73,8 +69,8 @@ var square = `
      <select id="squareFour" class="numberSelector">
         <option >1</option>
         <option >2</option>
-        <option selected>3</option>
-        <option >4</option>
+        <option >3</option>
+        <option selected>4</option>
         <option >5</option>
     </select>
     
@@ -97,9 +93,7 @@ var pentagon = `<img src="../../img/pentagon.svg" class = "soundPhoto">
         <option selected>2</option>
         <option >3</option>
         <option >4</option>
-        <option >5</option>
-        
-        
+        <option >5</option>   
     </select>
 
     <select id="pentagonThree" class="numberSelector">
