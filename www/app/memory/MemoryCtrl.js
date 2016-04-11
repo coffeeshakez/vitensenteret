@@ -169,7 +169,6 @@ angular.module('app.memory')
   }
 
   $scope.startGame = function(){
-    $state.go("index.reward", {"game": "minnespillet", "part": "venstre robotarm", "sprite": "sprite arms arms4"});
     clickNumber = 0;
     clicked = [];
     gameList = initGame((numberOfWins+3));
