@@ -1,5 +1,7 @@
 angular.module('app.chooseLanguage', [])
 
+angular.module('app.example', [])
+
 angular.module('app.memory', [])
 
 angular.module('app.overview', [])
@@ -40,8 +42,6 @@ angular.module('app.reward', [])
 angular.module('app.waterflow', [])
 
 angular.module('app.welcomeScreen', [])
-
-angular.module('app.example', [])
 
 angular.module('app.chooseLanguage')
 .controller('ChooseLanguageCtrl', function($scope, $state) {
