@@ -20,6 +20,10 @@ angular.module('app.reward')
 
   }
 
+  $scope.goToMain = function(){
+    $state.go("index.main");
+  }
+
 
 
 });

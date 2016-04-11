@@ -3,7 +3,11 @@
         <div class="card">
             <div>Du fullførte nettopp {{gameFinished}} og har dermed vunnet {{robotPart}} til din robot {{test}}</div>
         </div>
-        <div class="card {{robotPartImage}}">
+
+        <div class="{{robotPartImage}}" id="robotPartReward">
+        </div>
+        <div>
+            <button class="button button-bar button-balanced" id="continueFromReward" ng-click="goToMain()">Fortsett</button>
         </div>
 
     </ion-content>

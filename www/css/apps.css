@@ -247,6 +247,9 @@ img{
     display: none;
 
 }
+#continueFromReward{
+    display: block;
+}
 
 
 
@@ -310,6 +313,17 @@ img{
   height: 56px;
 }
 
+.sprite.arms.arms4 {
+    background: url('../img/robots.png') no-repeat -453px -206px;
+    width: 40px;
+    height: 56px;
+}
+.sprite.arms.arms5 {
+    background: url('../img/robots.png') no-repeat -353px -206px;
+    width: 40px;
+    height: 56px;
+}
+
 
 
 
@@ -337,4 +351,10 @@ img{
   height: 54px;
 }
 /* Main screen - end */
+
+#robotPartReward{
+    margin-top: 50%;
+    margin-bottom: 40%;
+
+}
 
