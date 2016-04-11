@@ -216,7 +216,7 @@ select{
 }
 
 .numberSelector{
-  width: 25px;
+  width: 26px;
   padding-left: 5px;
   font-size: 20px;
 }
@@ -225,7 +225,7 @@ select{
   alignment-adjust: middle;
   position: absolute;
   top:-35px;
-  left: 50%;
+  left: 87px;
 }
 
 #triangleTwo{
@@ -267,7 +267,7 @@ select{
 #pentaOne{
   position: absolute;
   top:-35px;
-  left:50%;
+  left:87px;
 }
 
 #pentaTwo{

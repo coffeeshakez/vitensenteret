@@ -1,5 +1,5 @@
 var triangle =`
-    <div id = "alignDivCenter">
+
     <div id = "ratioDiv">
     <div id = "selectorContainer">
     
@@ -31,13 +31,11 @@ var triangle =`
     </select>
     </div>
     </div>
-    </div>
     `;
 
 
 var square = `
    
-    <div id = "alignDivCenter">
     <div id = "ratioDiv">
     <div id = "selectorContainer">
      
@@ -78,13 +76,10 @@ var square = `
     
     </div>
     </div>
-    </div>
     
     `;
 
 var pentagon = `
- 
-    <div id = "alignDivCenter">
     <div id = "ratioDiv">
     <div id = "selectorContainer">
     
@@ -129,8 +124,7 @@ var pentagon = `
         <option >4</option>
         <option selected>5</option>
     </select>
-    
-    </div>
+ 
     </div>
     </div>
 `;

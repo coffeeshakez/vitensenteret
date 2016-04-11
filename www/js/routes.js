@@ -81,8 +81,7 @@ angular.module('app.routes', [])
         data: {pageTitle: 'Periodic'}
       })
       
-  .state('index.main', {
-    url: "/main",
+
   .state('index.map', {
     url: '/map',
     views: {
