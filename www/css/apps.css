@@ -41,6 +41,62 @@ body{
     margin: 10px;
 }
 
+
+.no-padding{
+	padding:0px;
+}
+.no-margin{
+	margin:0px;
+}
+.tube-grid{
+	padding:10px 2px 0px 2px;
+}
+
+.rot0{
+	-ms-transform: rotate(0); /* IE 9 */
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform: rotate(0);
+    transform-origin: 50% 50%;
+}
+.rot180{
+    -ms-transform: rotate(180); /* IE 9 */
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform: rotate(180);
+    transform-origin: 50% 50%;
+}
+.rot90{
+    -ms-transform: rotate(90); /* IE 9 */
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform: rotate(90);
+    transform-origin: 50% 50%;
+}
+.rot270{
+    -ms-transform: rotate(270); /* IE 9 */
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform: rotate(270);
+    transform-origin: 50% 50%;
+}
+
+#test-flow{
+    padding: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #FF7231;
+    font-family: Robotic;
+    color: #FFFFFF;
+    position: fixed;
+    bottom: -30%;
+    left: 15%;
+}
+
 .text-center{
 	text-align: center;
 }
@@ -375,4 +431,4 @@ img{
   opacity: 0.9;
 }
 
-/*  Overview screen - end */
+/*  Overview screen - end *//* Main screen - end */

@@ -1,0 +1,62 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+@font-face {
+    font-family: Robotic;
+    src: url(../fonts/sf-transrobotics/TrueType/SFTransRobotics.ttf);
+}
+
+body{
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;
+}
+.no-padding{
+    padding:0px;
+}
+.no-margin{
+    margin:0px;
+}
+#instruksjon{
+    padding: 10px 0px 10px 0px;
+    margin: auto;
+    width : 150px;
+    font-family: Robotic;
+    text-align: center;
+}
+
+.actionbar{
+    background-color: #FF7231;
+}
+.application-body{
+    /*background: url("../img/Vitenlogo_hvit_uten.png");*/
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: #3E96DB;
+}
+
+
+
+.flagbutton{
+    right: 5%;
+    height: 35px;
+    width: 35px;
+}
+
+.start_button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #FF7231;
+    font-family: Robotic;
+    color: #FFFFFF;
+    position: fixed;
+    bottom: 5%;
+    left: 15%;
+}
+#english_start_button{
+    font-size: 38px;
+}
+#norwegian_start_button{
+    font-size: 40px;
+}

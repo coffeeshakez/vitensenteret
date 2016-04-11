@@ -14,6 +14,7 @@ angular.module('app', [
   'app.chooseLanguage',
   'app.welcomeScreen',
   'app.example',
+  'app.waterflow',
   'app.parts',
   'app.overview',
   'app.periodic',
