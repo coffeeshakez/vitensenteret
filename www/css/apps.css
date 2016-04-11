@@ -12,14 +12,25 @@
   src: local('Short Stack'), local('ShortStack'), url(/fonts/short.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
+@font-face {
+  font-family: 'Comfortaa';
+  font-style: normal;
 
+  src: local('Comfortaa Bold'), local('Comfortaa-Bold'), url(https://fonts.gstatic.com/s/comfortaa/v7/fND5XPYKrF2tQDwwfWZJIxampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
 body{
-    font-family: "Seymour One";
+    font-family: "Comfortaa";
     font-weight: 300;
 }
 
 .small {
-  font-family: 'Short Stack';
+  font-family: 'Comfortaa';
+  font-weight: bold;
+}
+
+.hidden{
+  display: none;
 }
 
 .flex-wrap{
@@ -28,6 +39,62 @@ body{
 
 .flex-wrap .card{
     margin: 10px;
+}
+
+
+.no-padding{
+	padding:0px;
+}
+.no-margin{
+	margin:0px;
+}
+.tube-grid{
+	padding:10px 2px 0px 2px;
+}
+
+.rot0{
+	-ms-transform: rotate(0); /* IE 9 */
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform: rotate(0);
+    transform-origin: 50% 50%;
+}
+.rot180{
+    -ms-transform: rotate(180); /* IE 9 */
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform: rotate(180);
+    transform-origin: 50% 50%;
+}
+.rot90{
+    -ms-transform: rotate(90); /* IE 9 */
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform: rotate(90);
+    transform-origin: 50% 50%;
+}
+.rot270{
+    -ms-transform: rotate(270); /* IE 9 */
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform: rotate(270);
+    transform-origin: 50% 50%;
+}
+
+#test-flow{
+    padding: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #FF7231;
+    font-family: Robotic;
+    color: #FFFFFF;
+    position: fixed;
+    bottom: -30%;
+    left: 15%;
 }
 
 .text-center{
@@ -243,7 +310,7 @@ select{
     color: white;
 }
 
-#centerdiv{ /*Also used by Choose Language*/
+.centerdiv{ /*Also used by Choose Language*/
     text-align: center;
     margin: auto;
 }
@@ -267,11 +334,6 @@ select{
 
 .texts{
     color: white;
-}
-
-#centerdiv{
-    text-align: center;
-    margin: auto;
 }
 
 .robot-img{
@@ -329,6 +391,58 @@ select{
   left: 50%;
   position: absolute;
 }
+
+
+
+
+.memory-button{
+    margin: 5px;
+    height: 40% !important;
+    width: 45%;
+}
+
+#memorybuttons{
+    margin-top: 2%;
+    height: 90%;
+    width: 80%;
+
+}
+
+#memorypink{
+    background-color: #b24881;
+    opacity: .5;
+
+}
+
+#memorygreen{
+    background-color: #39C645;
+    opacity: .5;
+
+}
+#memoryorange{
+    background-color: #FF7231;
+    opacity: .5;
+
+}
+#memoryyellow{
+    background-color: #CFDE00;
+    opacity: .5;
+}
+#startButton{
+    display: block;
+}
+
+#redoButton{
+    display: none;
+}
+#hintButton{
+    display: none;
+
+}
+.revdivs{
+    float: left;
+}
+
 
 .part-robot .part-not-collected {
   display: none;
@@ -414,4 +528,39 @@ select{
   width: 40px;
   height: 54px;
 }
+/*Used for alternatives in the quiz*/
+.marginTop20{
+  margin-top: 10%;
+}
+
+#qCard{
+  text-align: center;
+  width: 100%;
+  height: 30%;
+  padding-top: 13%;
+  border:solid;
+  border-color: black;
+  border-width: 1px;
+}
+
+.textAllignCenter{
+  text-align: center;
+}
+
+
+
+
 /* Main screen - end */
+
+/* Overview screen - start */
+
+.minigame-icon{
+  font-size: 4em;
+}
+
+.minigames .over-check{
+  font-size: 1.5em;
+  opacity: 0.9;
+}
+
+/*  Overview screen - end *//* Main screen - end */
