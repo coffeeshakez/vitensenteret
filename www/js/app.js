@@ -16,8 +16,12 @@ angular.module('app', [
   'app.example',
   'app.main',
   'app.waterflow',
+  'app.parts',
+  'app.overview',
   'app.periodic',
   'app.quiz',
+  'app.memory',
+  'app.reward'
   //'app.myapp',
   ])
 
