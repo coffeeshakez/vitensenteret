@@ -10,7 +10,7 @@ angular.module('app.shortest').controller('ShortestCtrl', function($scope, $stat
     }
 
     // Model to JSON for demo purpose
-    $scope.$watch('models', function(model) {
-        $scope.modelAsJson = angular.toJson(model, true);
-    }, true);
+    // $scope.$watch('models', function(model) {
+    //     $scope.modelAsJson = angular.toJson(model, true);
+    // }, true);
 });

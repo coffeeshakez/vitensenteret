@@ -1,1 +1,1 @@
-angular.module('app.shortest', [])
+angular.module('app.shortest', 'ngDraggable', [])

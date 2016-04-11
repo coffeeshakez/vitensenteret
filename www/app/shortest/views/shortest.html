@@ -1,22 +1,14 @@
 <ion-view title="Korteste vei">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 
+
     <div class="card small centerdiv" >
         <h5>Finn korteste vei fra Oslo til Trondheim. Dra byene til riktig plassering.</h5>
     </div>
 
-        <ul dnd-list="list">
-
-            <li ng-repeat="item in lister"
-                dnd-draggable="item"
-                dnd-moved="lister.splice($index, 1)"
-                dnd-effect-allowed="move"
-                dnd-selected="models.selected = item"
-                ng-class="{'selected': models.selected === item}"
-            >
-                {{item.label}}
-            </li>
-        </ul>
+        <div ng-drag="true" ng-drag-data="{obj}" ng-drag-success="onDragComplete($data,$event)" ng-center-anchor="true">
+            Draggable div
+        </div>
 
     </ion-content>
 </ion-view>
