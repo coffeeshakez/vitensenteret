@@ -37,10 +37,12 @@ var triangle =`
 
 var square = `
    
+    <div id = "alignDivCenter">
+    <div id = "ratioDiv">
+    <div id = "selectorContainer">
      
     <img src="../../img/square.svg" class = "soundPhoto">
-    
-    <div id = "selectorContainer">
+   
 
    	<select id="squareOne" class="numberSelector">
         <option selected>1</option>
@@ -75,12 +77,20 @@ var square = `
     </select>
     
     </div>
+    </div>
+    </div>
     
     `;
 
-var pentagon = `<img src="../../img/pentagon.svg" class = "soundPhoto">
+var pentagon = `
+ 
+    <div id = "alignDivCenter">
+    <div id = "ratioDiv">
+    <div id = "selectorContainer">
+    
+    <img src="../../img/pentagon.svg" class = "soundPhoto">
 
-   	<select id="pentagonOne" class="numberSelector">
+   	<select id="pentaOne" class="numberSelector">
         <option selected>1</option>
         <option >2</option>
         <option >3</option>
@@ -88,7 +98,7 @@ var pentagon = `<img src="../../img/pentagon.svg" class = "soundPhoto">
         <option >5</option>
     </select>
 
-    <select id="pentagonTwo" class="numberSelector">
+    <select id="pentaTwo" class="numberSelector">
         <option >1</option>
         <option selected>2</option>
         <option >3</option>
@@ -96,7 +106,7 @@ var pentagon = `<img src="../../img/pentagon.svg" class = "soundPhoto">
         <option >5</option>   
     </select>
 
-    <select id="pentagonThree" class="numberSelector">
+    <select id="pentaThree" class="numberSelector">
         <option >1</option>
         <option >2</option>
         <option selected>3</option>
@@ -104,7 +114,7 @@ var pentagon = `<img src="../../img/pentagon.svg" class = "soundPhoto">
         <option >5</option>
     </select>
     
-     <select id="pentagonFour" class="numberSelector">
+     <select id="pentaFour" class="numberSelector">
         <option >1</option>
         <option >2</option>
         <option >3</option>
@@ -112,11 +122,15 @@ var pentagon = `<img src="../../img/pentagon.svg" class = "soundPhoto">
         <option >5</option>
     </select>
     
-     <select id="pentagonFive" class="numberSelector">
+     <select id="pentaFive" class="numberSelector">
         <option >1</option>
         <option >2</option>
         <option >3</option>
         <option >4</option>
         <option selected>5</option>
     </select>
+    
+    </div>
+    </div>
+    </div>
 `;
