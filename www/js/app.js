@@ -14,9 +14,12 @@ angular.module('app', [
   'app.chooseLanguage',
   'app.welcomeScreen',
   'app.example',
-  'app.main',
+  'app.parts',
+  'app.overview',
   'app.periodic',
   'app.quiz',
+  'app.memory',
+  'app.reward'
   //'app.myapp',
   ])
 

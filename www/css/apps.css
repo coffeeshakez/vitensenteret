@@ -15,7 +15,7 @@
 @font-face {
   font-family: 'Comfortaa';
   font-style: normal;
-  
+
   src: local('Comfortaa Bold'), local('Comfortaa-Bold'), url(https://fonts.gstatic.com/s/comfortaa/v7/fND5XPYKrF2tQDwwfWZJIxampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
@@ -27,6 +27,10 @@ body{
 .small {
   font-family: 'Comfortaa';
   font-weight: bold;
+}
+
+.hidden{
+  display: none;
 }
 
 .flex-wrap{
@@ -118,7 +122,7 @@ img{
     color: white;
 }
 
-#centerdiv{ /*Also used by Choose Language*/
+.centerdiv{ /*Also used by Choose Language*/
     text-align: center;
     margin: auto;
 }
@@ -142,11 +146,6 @@ img{
 
 .texts{
     color: white;
-}
-
-#centerdiv{
-    text-align: center;
-    margin: auto;
 }
 
 .robot-img{
@@ -204,6 +203,58 @@ img{
   left: 50%;
   position: absolute;
 }
+
+
+
+
+.memory-button{
+    margin: 5px;
+    height: 40% !important;
+    width: 45%;
+}
+
+#memorybuttons{
+    margin-top: 2%;
+    height: 90%;
+    width: 80%;
+
+}
+
+#memorypink{
+    background-color: #b24881;
+    opacity: .5;
+
+}
+
+#memorygreen{
+    background-color: #39C645;
+    opacity: .5;
+
+}
+#memoryorange{
+    background-color: #FF7231;
+    opacity: .5;
+
+}
+#memoryyellow{
+    background-color: #CFDE00;
+    opacity: .5;
+}
+#startButton{
+    display: block;
+}
+
+#redoButton{
+    display: none;
+}
+#hintButton{
+    display: none;
+
+}
+.revdivs{
+    float: left;
+}
+
 
 .part-robot .part-not-collected {
   display: none;
@@ -301,7 +352,7 @@ img{
   padding-top: 13%;
   border:solid;
   border-color: black;
-  border-width: 1px; 
+  border-width: 1px;
 }
 
 .textAllignCenter{
@@ -312,3 +363,16 @@ img{
 
 
 /* Main screen - end */
+
+/* Overview screen - start */
+
+.minigame-icon{
+  font-size: 4em;
+}
+
+.minigames .over-check{
+  font-size: 1.5em;
+  opacity: 0.9;
+}
+
+/*  Overview screen - end */
