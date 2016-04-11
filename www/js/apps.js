@@ -176,11 +176,9 @@ angular.module('app.periodic')
         {name: "H", correct: false, index:6},
         {name: "C", correct: false, index:7},
         {name: "Pb", correct: false, index:8},
-    ]
+    ];
 
        $scope.visible = true;
-
-    var nextElement
 
     // Array that contains the url of all images and indexes in button-array
     var urlAndArray = [
@@ -363,36 +361,49 @@ angular.module('app.quiz')
 
 
 angular.module('app.waterflow')
-.controller('waterflowControl', function($scope, $stateParams) {
+.controller('waterflowControl', function($scope, $ionicPopup) {
     var directions = {up:0, right:1, down:2, left:3};
     
     var tubeVariants = [];
     var UpDownTube = {
+        id:0,
         src: "img/tubeUpDown.png",
         inputDirection: directions.up,
         outputDirection: directions.down,
+        animationSprites: ["img/tubeUpDown.png", "img/tubeUpDownHalf.png", "img/tubeUpDownFULL.png"],
+        spriteCount: 3,
     };
     var UpRightTube= {
+        id:1,
         src: "img/tubeUpRight.png",
         inputDirection: directions.up,
         outputDirection: directions.right,
+        spriteCount: 1,
     };
     var UpLeftTube= {
+        id:2,
         src: "img/tubeUpLeft.png",
         inputDirection: directions.up,
         outputDirection: directions.left,
+        spriteCount: 1,
     };
 
     var startTube = {
+        id:3,
         src: "img/tube.jpg",
         outputDirection: directions.down,
+        spriteCount: 1,
     }
     var endTube = {
+        id:4,
         src: "img/tube.jpg",
         inputDirection: directions.up,
+        spriteCount: 1,
     }
     tubeVariants.push(UpDownTube, UpRightTube, UpLeftTube);
     
+
+
     //triggered by ng-click on image. Takes an image object
     $scope.rotateImage = function(image){                              
         image["rotation"] = (image["rotation"]+90)% 360;
@@ -401,9 +412,71 @@ angular.module('app.waterflow')
         image.classname="rot"+(image["rotation"]);
     };
 
-    //Triggered by ng-click on test flow button.
+    function reset(){
+        $scope.images = [];
+        $scope.loadImages();
+    }
+    function showPopup(result) {
+        $scope.data = {};
+
+
+        // An elaborate, custom popup
+        if(result === true){
+
+            //TODO: Add proper text to popups
+            var myPopup = $ionicPopup.show({
+                title: 'Informasjon',
+                subTitle:   "Yo du klarte det, gratulerre",
+                scope: $scope,
+                buttons: [
+                    {   text: 'Spill igjen',
+                        type: 'button-positive',
+                        onTap: function(e){
+                            reset();
+                        }
+                    },
+                    {   text: '<b>Videre!</b>',
+                        type: 'button-positive',
+                        onTap: function(e) {
+
+                        }
+                    }
+                ]
+            });
+        }else{
+            var myPopup = $ionicPopup.show({
+                title: 'The flow does not work',
+                subTitle:   "Try again?",
+                scope: $scope,
+                buttons: [
+                    {   text: 'Yes', 
+                        type: 'button-positive',
+                        onTap: function(e) {
+                            reset();
+                        }
+                    },
+                    { text: '<b>No!</b>',
+                        type: 'button-positive',
+                        onTap: function(e) {
+
+                        }
+                    }
+                ]
+            });
+        }  
+
+        myPopup.then(function(res) {
+            console.log('Tapped!', res);
+        });
+    };
+
+    var animationInterval = null;
+    var animationQue = []; 
     $scope.testFlow = function(){
+        animationQue = [];
+        animationInterval = null;
         var start= $scope.images[0][0];
+        console.log("running testFlow");
         for(var i = 0; i < columnCount; i++){
             for(var j = 0; j < rowCount; j++){
                 //connectedDirection represents the objects that so far are connected to start. We need this for all elements.
@@ -413,33 +486,58 @@ angular.module('app.waterflow')
 
         var iterationCount = 0;
         var currentElement = start;
+        var result = false;
         while(currentElement != false){
-
             //return true when arriving to destination
             if(currentElement["src"] === "img/tube.jpg" && currentElement != start && currentElement != false){
                 console.log("true");
-                return true;
+                result = true;
+                showPopup(result);
+                return result;
             }
 
             //get next element. The function nextElement will return false if there is no such thing
-            currentElement = nextElement(currentElement);
-            //insert animation logic on currentElement here
+            else{
+                currentElement = nextElement(currentElement);
+                //insert animation logic on currentElement here
 
 
-            //Infinate loop check was used for testing.
-            iterationCount+=1;
-            if(iterationCount > 100){
-                console.log("infinate loop reached");
-                return false;
+                animationQue.push({element:currentElement, status:'untreated'});
+                
+                //Infinate loop check was used for testing.
+                iterationCount+=1;
+                if(iterationCount > 100){
+                    console.log("infinate loop reached");
+                    result = false;
+                }
             }
-        }
         //The tube path does not lead to end node.
+        }
         console.log("While loop exited nextElement returned false");
-        return false;
+        showPopup(result);
+        return result;
     };
+
+    var animationInterval;
+    $scope.runAnimationQue = function(result){
+        while(animationQue){
+            animationInterval = setInterval(AnimationFrame(animationQue.shift()), 1000);
+        }
+        console.log("running animation que");
+    }
+
+    function AnimationFrame(tubeObject){
+        console.log("AnimationFrame");
+        tubeObject["animationStep"] += 1;
+        if(tubeObject["animationStep"] >= tubeObject["animationSprites"].length){
+            console.log(tubeObject);
+            return true;
+        }
+        tubeObject["src"] = tubeVariants[tubeObject["tubeID"]].animationSprites[tubeObject["animationStep"]];
+    }
+
     function nextElement(image){
         //log current image
-        console.log(image);
         //Its not that intuitive to use image["outputDirection"] and image["inputDirection"],
         //because the names do not represent the real output and input directions, and the difference between the two is not relevant to the code logic. 
         //The following line sets the real outputDirection to the direction that is not already connected to the flow-path (either image["inputDirection"] or image["outputDirection"]).
@@ -463,7 +561,7 @@ angular.module('app.waterflow')
         }
         //test if next element is undefined to avoid error in following code. 
         if(next === undefined){
-            console.log("Element is undefined, probbly because it was outside the boundaries of the array");
+            console.log("Element is undefined, probably because it was outside the boundaries of the array");
             return false;
         }
         //The element is pointing to something that is wrongly turned
@@ -491,13 +589,14 @@ angular.module('app.waterflow')
             $scope.images.push([]);
             for(var j = 0; j<rowCount; j++){
                 if(i == 0 && j == 0){
-                    $scope.images[i].push({idX: i, idY:j, rotation: 0, src:startTube.src, inputDirection: 0, outputDirection:startTube.outputDirection, connectedDirection:0,});
+                    $scope.images[i].push({tubeID: startTube.id, idX: i, idY:j, rotation: 0, src:startTube.src, inputDirection: 0, outputDirection:startTube.outputDirection, connectedDirection:0,});
                 }else if(i == 4 && j == 4){
-                    $scope.images[i].push({idX: i, idY:j, rotation: 0, src:endTube.src, outputDirection: 3, inputDirection:endTube.inputDirection, connectedDirection:-1,});
+                    $scope.images[i].push({tubeID: endTube.id, idX: i, idY:j, rotation: 0, src:endTube.src, outputDirection: 3, inputDirection:endTube.inputDirection, connectedDirection:-1,});
                 }
                 else{
                     var currentTube = pickRandomObjectProperty(tubeVariants);    
                     $scope.images[i].push({
+                    tubeID: currentTube.id,
                     idX: j, 
                     idY: i, 
                     rotation: 0, 
@@ -505,6 +604,8 @@ angular.module('app.waterflow')
                     inputDirection: currentTube.inputDirection, 
                     outputDirection: currentTube.outputDirection,
                     connectedDirection:-1,
+                    animationStep: 0,
+                    spriteCount: currentTube.spriteCount,
                     });
                 }
             }
@@ -519,6 +620,10 @@ angular.module('app.waterflow')
             }
         }
         return obj[result];
+    }
+
+    function generateBoard(){
+
     }
 });
 
