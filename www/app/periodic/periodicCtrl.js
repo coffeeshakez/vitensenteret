@@ -84,7 +84,7 @@ angular.module('app.periodic')
                 buttons: [
                     { text: 'Avbryt' },
                     {
-                        text: '<b>Neste spørsmål!</b>',
+                        text: '<b>Neste spørsmål</b>',
                         type: 'button-positive',
                         onTap: function(e) {
                             initNextElement();
@@ -102,7 +102,7 @@ angular.module('app.periodic')
                 buttons: [
                     { text: 'Avbryt' },
                         {
-                            text: '<b>Neste spørsmål!</b>',
+                            text: '<b>Neste spørsmål</b>',
                             type: 'button-positive',
                             onTap: function(e) {
                                 initNextElement();
