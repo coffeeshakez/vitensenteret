@@ -1,8 +1,10 @@
 angular.module('app.chooseLanguage', [])
 
-angular.module('app.example', [])
+angular.module('app.memory', [])
 
-angular.module('app.main', [])
+angular.module('app.overview', [])
+
+angular.module('app.parts', [])
 
 angular.module('app.periodic', [])
 /*
@@ -33,38 +35,22 @@ angular.module('app.periodic', [])
 */
 angular.module('app.quiz', [])
 
+angular.module('app.reward', [])
+
 angular.module('app.waterflow', [])
 
 angular.module('app.welcomeScreen', [])
 
+angular.module('app.example', [])
+
 angular.module('app.chooseLanguage')
-.controller('ChooseLanguageCtrl', function($scope, $stateParams) {
-    $scope.variable = false;
-    $scope.slider = {red: 100, green: 100, blue: 100}
+.controller('ChooseLanguageCtrl', function($scope, $state) {
 
-    $scope.exampleList = [
-        {name: "Hode", image: "hode.png", collected: false},
-        {name: "Skulder", image: "hode.png", collected: true},
-        {name: "Kne", image: "hode.png", collected: false},
-        {name: "Tå", image: "hode.png", collected: true},
-    ]
+    $scope.switchTo = function(){
+        $state.go("index.welcomeScreen");
 
-    $scope.exampleFunc = function(r, g, b){
-        var desired = {r: 50, g: 50, b: 50};
-        var error_margin = 20;
+    };
 
-        if(isNear(r, desired.r, error_margin)  && isNear(g, desired.g, error_margin) && isNear(b, desired.b, error_margin)){
-            $scope.variable = true;
-            return true;
-        }else{
-            $scope.variable = false;
-            return false;
-        }
-    }
-
-    function isNear(input, desired, error_margin){
-        return input >= desired - error_margin && input <= desired + error_margin;
-    }
 });
 
 angular.module('app.example')
@@ -116,8 +102,221 @@ angular.module('app.example')
   };
 });
 
-angular.module('app.main')
-.controller('MainCtrl', function($scope, $stateParams) {
+angular.module('app.memory')
+.controller('MemoryCtrl', function($scope, $stateParams, $ionicPopup) {
+
+  var greenButton = document.getElementById("memorygreen");
+  var pinkButton = document.getElementById("memorypink");
+  var yellowButton = document.getElementById("memoryyellow");
+  var orangeButton = document.getElementById("memoryorange");
+  var startButton = document.getElementById("startButton");
+  var redoButton = document.getElementById("redoButton");
+  var hintButton = document.getElementById("hintButton");
+
+
+  var numberOfWins = 0;
+  var clickNumber = 0;
+  var gameList = [];
+  var clicked = [];
+  var numberOfLost = 0;
+
+
+  function initGame(number){
+    var game = [];
+    for(i = 0; i<number; i++){
+      game.push(Math.floor(Math.random()*4)+1);
+    }
+    return game;
+  }
+
+  function blink(button, time){
+    button.style.opacity = "1";
+    setTimeout(function(){
+      button.style.opacity = "0.5";
+    }, time)
+  }
+
+  function activateButtons(){
+    clicked = [];
+    pinkButton.onclick = function () {
+      blink(pinkButton, 300);
+      clicked.push(1);
+      checkIfWon(clicked, gameList);
+      clickNumber+=1;
+    };
+    greenButton.onclick = function () {
+      blink(greenButton, 300);
+      clicked.push(2);
+      checkIfWon(clicked, gameList);
+      clickNumber+=1;
+
+    };
+    orangeButton.onclick = function () {
+      blink(orangeButton, 300);
+      clicked.push(3);
+      checkIfWon(clicked, gameList);
+      clickNumber+=1;
+
+    };
+    yellowButton.onclick = function () {
+      blink(yellowButton, 300);
+      clicked.push(4);
+      checkIfWon(clicked, gameList);
+      clickNumber+=1;
+
+    };
+
+  }
+
+  function deactivateButtons(){
+    yellowButton.onclick = null;
+    orangeButton.onclick = null;
+    pinkButton.onclick = null;
+    greenButton.onclick = null;
+  }
+
+  function gameWon(){
+    clickNumber = 0;
+    numberOfLost = 0;
+    numberOfWins+=1;
+    startButton.style.display = "block";
+    hintButton.style.display = "none";
+    deactivateButtons();
+    $ionicPopup.show({
+      title: "Du vant spill " + numberOfWins,
+      scope: $scope,
+      buttons: [
+        { text: "<b>Neste spill</b>",
+          type: "button-positive"}
+      ]
+    })
+  }
+
+  function checkIfWon(){
+    if(!(clicked[clickNumber] === gameList[clickNumber])){
+      deactivateButtons();
+      clickNumber = 0;
+      $ionicPopup.show({
+        title: 'Du tapte',
+        scope: $scope,
+        buttons: [
+          { text: '<b>Start på nytt</b>',
+            type: 'button-positive',
+            onTap: function() {
+              redoButton.style.display = "block"
+              numberOfLost+=1;
+            }
+          }
+        ]
+      });
+    }
+    if(clicked.length === gameList.length) {
+      gameWon();
+    }
+  }
+
+  function runGame(){
+    var i = 0;
+    var opacityChange = setInterval(function(){
+      if(i >= gameList.length){
+        activateButtons();
+        console.log("Ready");
+        clearInterval(opacityChange);
+      }
+      else {
+        if(gameList[i] === 1 ){
+          blink(pinkButton, 500)
+        }
+        else if(gameList[i] == 2){
+          blink(greenButton, 500)
+        }
+        else if(gameList[i] === 3){
+          blink(orangeButton, 500)
+        }
+        else if(gameList[i] === 4){
+          blink(yellowButton, 500)
+        }
+        i+=1;
+      }
+    }, 1000)
+  }
+
+  $scope.startGame = function(){
+    clickNumber = 0;
+    clicked = [];
+    gameList = initGame((numberOfWins+1)*3);
+    startButton.style.display = "none";
+    runGame();
+  };
+
+  $scope.redoGame = function(){
+    clickNumber = 0;
+    clicked = [];
+    redoButton.style.display = "none";
+    runGame();
+    if(numberOfLost >=3){
+      hintButton.style.display = "block"
+    }
+
+  };
+
+  $scope.getHint = function(){
+    if(gameList[clicked.length] === 1){
+      blink(pinkButton, 500);
+    }
+    else if(gameList[clicked.length] === 2){
+      blink(greenButton, 500);
+    }
+    else if(gameList[clicked.length] === 3){
+      blink(orangeButton, 500);
+    }
+    else if(gameList[clicked.length] === 4){
+      blink(yellowButton, 500);
+    }
+
+  }
+
+});
+
+angular.module('app.overview')
+.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams) {
+
+    $rootScope.minigames = {
+        "quiz":      {name: "Quiz", game: "quiz", icon: "ion-help", collected: false},
+        "periodic":  {name: "Grunnstoffer", game: "periodic", icon: "ion-nuclear", collected: false},
+        "colors":    {name: "Fargelås", game: "colors", icon: "ion-lock-combination", collected: false},
+        "melody":    {name: "Melodi", game: "melody", icon: "ion-music-note", collected: false},
+        "waterflow": {name: "Flyt", game: "waterflow", icon: "ion-network", collected: false},
+        "memory":    {name: "Minnespill", game: "memory", icon: "ion-load-b", collected: false},
+        "shortest":  {name: "Korteste vei", game: "shortest", icon: "ion-map", collected: false},
+    };
+
+    $scope.collectedMinigamesCount = function(){
+        var count = 0;
+        angular.forEach($scope.minigames, function(minigame){
+            count += minigame.collected ? 1 : 0;
+        });
+        return count; 
+    }
+    
+    $scope.minigameClasses = function(minigame){
+        var collected = minigame.collected ? 'part-collected' : 'part-not-collected';
+        var icon = minigame.icon;
+        return icon + " " + collected;
+    }
+
+    $scope.minigameClick = function(minigame){
+        $state.go("index."+minigame.game);
+    }
+
+    $scope.minigameToggle = function(minigame){
+        minigame.collected ^= true;
+    }
+});
+
+
+angular.module('app.parts')
+.controller('PartsCtrl', function($scope, $stateParams) {
 
     $scope.parts = [
         {name: "Hode", type: "head", variants: [1, 2, 3], variant: 3, collected: false},
@@ -314,12 +513,11 @@ var tableOfElements = [
 */
 
 angular.module('app.quiz')
-.controller('quizController', function($scope, $stateParams) {
-
+.controller('quizController', function($scope, $stateParams, $ionicPopup) {
 
       $scope.questions = [
         {
-          question: "Hvem oppfant revolveren",
+          question: "Hvem oppfant revolveren?",
           alternatives: ["Elisha H. Collier", "John Evans", "Samuel Colt", "George W. Bush"],
           correct: 0,
         },
@@ -329,15 +527,24 @@ angular.module('app.quiz')
           alternatives: ["37", "25", "19", "1000"],
           correct: 2,
         },
+
         {
           question: "Hvor mange kopper sukker må du ha med deg på månetur?",
           alternatives: ["10", "20", "50", "100,2"],
           correct: 3,
-        }
+        },
+
+        {
+         question: "test",
+          alternatives: ["fem", "ti", "tretti", "tjuefem"],
+          correct: 3,
+        },
       ];
 
+  $scope.totalQ = $scope.questions.length;
+  $scope.qLeft = $scope.questions;
   $scope.qNum = 0;
-  $scope.ask = $scope.questions[$scope.qNum];
+  $scope.ask = $scope.qLeft[$scope.qNum];
   $scope.data = {
     clientSide: 'ng'
   };
@@ -347,18 +554,65 @@ angular.module('app.quiz')
     if(answer == $scope.ask.alternatives[$scope.ask.correct])
     {
       console.log("Riktig");
+      var pop = preparePopup("Riktig", "Hurraa, du svarte riktig")
+      var myPopup = $ionicPopup.show(pop);
+    }
+    else{
+      var pop = preparePopup("Feil", "Dette var vel ikke helt riktig, vel?")
+      var myPopup = $ionicPopup.show(pop);
+    }
 
-      if($scope.qNum <= $scope.questions.length - 1)
+    myPopup.then(function(res) {
+         console.log('Tapped!', res);
+      });
+  }
+
+function preparePopup(title, subTitle)
+  {
+    var pop = 
+    {
+      title: title,
+      subTitle: subTitle,
+      scope: $scope,
+      buttons: 
+      [
+        { 
+          text: '<b>Neste spørsmål!</b>',
+          type: 'button-positive',
+          onTap: function(e){
+            askNextQuestion()
+          }
+        }
+      ]
+    }
+    return pop;
+  }
+function askNextQuestion(){
+
+  if($scope.qNum <= $scope.qLeft.length - 1)
       {
         $scope.qNum ++;
         $scope.ask = $scope.questions[$scope.qNum];
-      }  
-    }
-  }
-  
+      }
+      else
+      {
+          $scope.qNum = 0;
+          $scope.ask = $scope.qLeft[$scope.qNum]
+      }
+}
+
 });
 
+angular.module('app.reward')
+.controller('RewardCtrl', function($scope, $ionicHistory) {
+  var robotarmer = " robotarmer "
+  $scope.onInitialize = function(){
+    document.getElementById("robotPart").innerHTML = robotarmer + "&nbsp;";
+    document.getElementById("gameFinished").innerHTML = $ionicHistory.backTitle() +"&nbsp;";
+    console.log($ionicHistory.backTitle());
+  }
 
+});
 
 angular.module('app.waterflow')
 .controller('waterflowControl', function($scope, $ionicPopup) {
@@ -629,10 +883,9 @@ angular.module('app.waterflow')
 
 
 angular.module('app.welcomeScreen', ["ionic"])
-.controller('WelcomeCtrl', function($scope, $ionicPopup) {
+.controller('WelcomeCtrl', function($scope, $ionicPopup, $state) {
 
     $scope.showPopup = function() {
-        $scope.data = {};
 
         // An elaborate, custom popup
         var myPopup = $ionicPopup.show({
@@ -647,8 +900,8 @@ angular.module('app.welcomeScreen', ["ionic"])
                 { text: 'Avbryt' },
                 { text: '<b>Kom i gang!</b>',
                     type: 'button-positive',
-                    onTap: function(e) {
-
+                    onTap: function() {
+                        $state.go("index.main");
                     }
                 }
             ]

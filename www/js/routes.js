@@ -90,9 +90,6 @@ angular.module('app.routes', [])
     data: {pageTitle: 'waterflow'}
   })
 
-  .state('index.main', {
-    url: "/main",
-
   .state('index.parts', {
     url: "/parts",
     views: {
