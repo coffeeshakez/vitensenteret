@@ -18,6 +18,8 @@ angular.module('app', [
   'app.overview',
   'app.periodic',
   'app.quiz',
+  'app.memory',
+  'app.reward'
   //'app.myapp',
   ])
 

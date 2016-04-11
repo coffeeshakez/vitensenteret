@@ -115,7 +115,7 @@ img{
     color: white;
 }
 
-#centerdiv{ /*Also used by Choose Language*/
+.centerdiv{ /*Also used by Choose Language*/
     text-align: center;
     margin: auto;
 }
@@ -139,11 +139,6 @@ img{
 
 .texts{
     color: white;
-}
-
-#centerdiv{
-    text-align: center;
-    margin: auto;
 }
 
 .robot-img{
@@ -201,6 +196,58 @@ img{
   left: 50%;
   position: absolute;
 }
+
+
+
+
+.memory-button{
+    margin: 5px;
+    height: 40% !important;
+    width: 45%;
+}
+
+#memorybuttons{
+    margin-top: 2%;
+    height: 90%;
+    width: 80%;
+
+}
+
+#memorypink{
+    background-color: #b24881;
+    opacity: .5;
+
+}
+
+#memorygreen{
+    background-color: #39C645;
+    opacity: .5;
+
+}
+#memoryorange{
+    background-color: #FF7231;
+    opacity: .5;
+
+}
+#memoryyellow{
+    background-color: #CFDE00;
+    opacity: .5;
+}
+#startButton{
+    display: block;
+}
+
+#redoButton{
+    display: none;
+}
+#hintButton{
+    display: none;
+
+}
+.revdivs{
+    float: left;
+}
+
 
 .part-robot .part-not-collected {
   display: none;

@@ -36,16 +36,38 @@ angular.module('app.routes', [])
     data: {pageTitle: 'Quiz'}
   })
 
-  .state('index.periodic', {
-    url: "periodic",
+  .state('index.reward', {
+    url: "/reward",
     views: {
-      'periodic': {
-        templateUrl: "app/periodic/views/periodic.html",
-        controller: 'periodicCtrl'
+      'reward': {
+        templateUrl: "app/reward/views/default.html",
+        controller: 'RewardCtrl'
       }
     },
-    data: {pageTitle: 'Periodic'}
+    data: {pageTitle: 'Reward'}
   })
+
+  .state('index.memory', {
+      url: "/memory",
+      views: {
+        'memory': {
+          templateUrl: "app/memory/views/default.html",
+          controller: 'MemoryCtrl'
+        }
+      },
+      data: {pageTitle: 'Memory game'}
+    })
+
+    .state('index.periodic', {
+        url: "/periodic",
+        views: {
+          'periodic': {
+            templateUrl: "app/periodic/views/periodic.html",
+            controller: 'periodicCtrl'
+          }
+        },
+        data: {pageTitle: 'Periodic'}
+      })
 
   .state('index.map', {
     url: '/map',

@@ -1,5 +1,12 @@
 <ion-view title="Tabs Controller">
     <ion-tabs class="tabs-energized tabs-icon-top">
+        <ion-tab title="memory" icon="ion-person" href="#/index/memory">
+            <ion-nav-view name="memory"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="Reward" icon="ion-cube" href="#/index/reward">
+            <ion-nav-view name="reward"></ion-nav-view>
+        </ion-tab>
+
         <ion-tab title="Oversikt" icon="ion-cube" href="#/index/overview">
             <ion-nav-view name="overview"></ion-nav-view>
         </ion-tab>
@@ -27,6 +34,8 @@
         <ion-tab title="Quiz" icon="ion-ios-settings-strong" href="#/index/quiz" class="hidden">
             <ion-nav-view name="quiz"></ion-nav-view>
         </ion-tab>
+
+
 
     </ion-tabs>
 </ion-view>
