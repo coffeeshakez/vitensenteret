@@ -1,29 +1,16 @@
-angular.module('app.shortest')
-.controller('ShortestCtrl', function($scope, $stateParams) {
-    $scope.variable = false;
-    $scope.slider = {red: 100, green: 100, blue: 100}
+angular.module('app.shortest').controller('ShortestCtrl', function($scope, $stateParams) {
 
-    $scope.shortestList = [
-        {name: "Hode", image: "hode.png", collected: false},
-        {name: "Skulder", image: "hode.png", collected: true},
-        {name: "Kne", image: "hode.png", collected: false},
-        {name: "Tå", image: "hode.png", collected: true},
-    ]
+    $scope.models = {
+        selected: null,
+        lister: {"A": []}
+    };
 
-    $scope.shortestFunc = function(r, g, b){
-        var desired = {r: 50, g: 50, b: 50};
-        var error_margin = 20;
-
-        if(isNear(r, desired.r, error_margin)  && isNear(g, desired.g, error_margin) && isNear(b, desired.b, error_margin)){
-            $scope.variable = true;
-            return true;
-        }else{
-            $scope.variable = false;
-            return false;
-        }
+    for (var i = 1; i <= 3; ++i) {
+        $scope.models.lister.A.push({label: "Item A" + i});
     }
 
-    function isNear(input, desired, error_margin){
-        return input >= desired - error_margin && input <= desired + error_margin;
-    }
+    // Model to JSON for demo purpose
+    $scope.$watch('models', function(model) {
+        $scope.modelAsJson = angular.toJson(model, true);
+    }, true);
 });

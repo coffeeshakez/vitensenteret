@@ -4,40 +4,19 @@
     <div class="card small centerdiv" >
         <h5>Finn korteste vei fra Oslo til Trondheim. Dra byene til riktig plassering.</h5>
     </div>
-        
-        <div drag-container="model" mime-type="text/whatever">
-            <!-- Containter that is draggable -->
-            <p> TEST</p>
-        </div>
 
+        <ul dnd-list="list">
 
+            <li ng-repeat="item in lister"
+                dnd-draggable="item"
+                dnd-moved="lister.splice($index, 1)"
+                dnd-effect-allowed="move"
+                dnd-selected="models.selected = item"
+                ng-class="{'selected': models.selected === item}"
+            >
+                {{item.label}}
+            </li>
+        </ul>
 
-
-
-        <div class="list card">
-            <div class="item item-divider">Gjør et eksempel!</div>
-            <div class="item item-body">
-                <div>
-                    <p>Rød: {{slider.red}}</p>
-                    <p>Grønn: {{slider.green}}</p>
-                    <p>Blå: {{slider.blue}}</p>
-                    <p>Riktig?: {{variable}}
-                </div>
-            </div>
-        </div>
-
-        <form class="list">
-            <ion-item class="range range-assertive">Rød
-                <input ng-model="slider.red" type="range" value="50" min="0" max="100">
-            </ion-item>
-            <ion-item class="range range-balanced">Grønn
-                <input ng-model="slider.green" type="range" value="50" min="0" max="100">
-            </ion-item>
-            <ion-item class="range range-positive">Blå
-                <input ng-model="slider.blue" type="range" value="50" min="0" max="100">
-            </ion-item>
-        </form>
-
-        <btn ng-disabled="!shortestFunc(slider.red, slider.green, slider.blue)" class="button button-balanced button-block">Lås opp</btn>
     </ion-content>
 </ion-view>
