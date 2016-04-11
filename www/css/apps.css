@@ -2,14 +2,14 @@
   font-family: 'Seymour One';
   font-style: normal;
   font-weight: 400;
-  src: local('Seymour One'), local('SeymourOne'), url(../fonts/seymore.woff2) format('woff2');
+  src: local('Seymour One'), local('SeymourOne'), url(/fonts/seymore.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 @font-face {
   font-family: 'Short Stack';
   font-style: normal;
   font-weight: 400;
-  src: local('Short Stack'), local('ShortStack'), url(../fonts/short.woff2) format('woff2');
+  src: local('Short Stack'), local('ShortStack'), url(/fonts/short.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
@@ -20,6 +20,10 @@ body{
 
 .small {
   font-family: 'Short Stack';
+}
+
+.hidden{
+  display: none;
 }
 
 .flex-wrap{
@@ -206,7 +210,7 @@ img{
     margin-top: 2%;
     height: 90%;
     width: 80%;
-    
+
 }
 
 #memorypink{
@@ -256,78 +260,90 @@ img{
 }
 
 .sprite.head.head1 {
-  background: url('../img/robots.png') no-repeat -316px -30px;
+  background: url('/img/robots.png') no-repeat -316px -30px;
   width: 52px;
   height: 38px;
 }
 
 .sprite.head.head2 {
-  background: url('../img/robots.png') no-repeat -376px -22px;
+  background: url('/img/robots.png') no-repeat -376px -22px;
   width: 52px;
   height: 46px;
 }
 
 .sprite.head.head3 {
-  background: url('../img/robots.png') no-repeat -439px -14px;
+  background: url('/img/robots.png') no-repeat -439px -14px;
   width: 40px;
   height: 54px;
 }
 
 
 .sprite.body.body1 {
-  background: url('../img/robots.png') no-repeat -513px -42px;
+  background: url('/img/robots.png') no-repeat -513px -42px;
   width: 55px;
   height: 25px;
 }
 
 .sprite.body.body2 {
-  background: url('../img/robots.png') no-repeat -520px -126px;
+  background: url('/img/robots.png') no-repeat -520px -126px;
   width: 44px;
   height: 39px;
 }
 
 
 .sprite.arms.arms1 {
-  background: url('../img/robots.png') no-repeat -312px -206px;
+  background: url('/img/robots.png') no-repeat -312px -206px;
   width: 80px;
   height: 48px;
 }
 
 .sprite.arms.arms2 {
-  background: url('../img/robots.png') no-repeat -16px -206px;
+  background: url('/img/robots.png') no-repeat -16px -206px;
   width: 72px;
   height: 72px;
 }
 
 .sprite.arms.arms3 {
-  background: url('../img/robots.png') no-repeat -403px -206px;
+  background: url('/img/robots.png') no-repeat -403px -206px;
   width: 80px;
   height: 56px;
 }
 
 
 .sprite.legs.legs1 {
-  background: url('../img/robots.png') no-repeat -327px -327px;
+  background: url('/img/robots.png') no-repeat -327px -327px;
   width: 52px;
   height: 45px;
 }
 
 .sprite.legs.legs2 {
-  background: url('../img/robots.png') no-repeat -393px -334px;
+  background: url('/img/robots.png') no-repeat -393px -334px;
   width: 42px;
   height: 38px;
 }
 
 .sprite.legs.legs3 {
-  background: url('../img/robots.png') no-repeat -454px -323px;
+  background: url('/img/robots.png') no-repeat -454px -323px;
   width: 38px;
   height: 54px;
 }
 
 .sprite.legs.legs4 {
-  background: url('../img/robots.png') no-repeat -512px -318px;
+  background: url('/img/robots.png') no-repeat -512px -318px;
   width: 40px;
   height: 54px;
 }
 /* Main screen - end */
 
+/* Overview screen - start */
+
+.minigame-icon{
+  font-size: 4em;
+}
+
+.minigames .over-check{
+  font-size: 1.5em;
+  opacity: 0.9;
+}
+
+/*  Overview screen - end */
