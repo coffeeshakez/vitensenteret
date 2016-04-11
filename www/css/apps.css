@@ -563,4 +563,8 @@ select{
   opacity: 0.9;
 }
 
+.minigame-icon.part-collected {
+    color: slategrey;
+}
+
 /*  Overview screen - end *//* Main screen - end */

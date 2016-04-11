@@ -2,9 +2,9 @@ angular.module('app.overview')
 .controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams) {
 
     $rootScope.minigames = {
-        "quiz":      {name: "Quiz", game: "quiz", icon: "ion-help", collected: false},
-        "periodic":  {name: "Grunnstoffer", game: "periodic", icon: "ion-nuclear", collected: false},
-        "colors":    {name: "Fargelås", game: "colors", icon: "ion-lock-combination", collected: false},
+        "quiz":      {name: "Quiz", game: "quiz", icon: "ion-help", collected: true},
+        "periodic":  {name: "Grunnstoffer", game: "periodic", icon: "ion-nuclear", collected: true},
+        "colors":    {name: "Fargelås", game: "colors", icon: "ion-lock-combination", collected: true},
         "sound":    {name: "Melodi", game: "sound", icon: "ion-music-note", collected: false},
         "waterflow": {name: "Flyt", game: "waterflow", icon: "ion-network", collected: false},
         "memory":    {name: "Minnespill", game: "memory", icon: "ion-load-b", collected: false},
