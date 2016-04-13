@@ -13,11 +13,9 @@ angular.module('app.periodic')
         {name: "H", correct: false, index:6},
         {name: "C", correct: false, index:7},
         {name: "Pb", correct: false, index:8},
-    ]
+    ];
 
        $scope.visible = true;
-
-    var nextElement
 
     // Array that contains the url of all images and indexes in button-array
     var urlAndArray = [
@@ -84,9 +82,8 @@ angular.module('app.periodic')
                 subTitle:"Du svarte " + tableOfElements[answer.index].name + " \n. Fyll inn tekst om grunnstoffet.",
                 scope: $scope,
                 buttons: [
-                    { text: 'Avbryt' },
                     {
-                        text: '<b>Neste spørsmål!</b>',
+                        text: '<b>Neste spørsmål</b>',
                         type: 'button-positive',
                         onTap: function(e) {
                             initNextElement();
@@ -102,9 +99,8 @@ angular.module('app.periodic')
                 subTitle:"Du svarte " + tableOfElements[answer.index].name + "\n. Fyll inn tekst om grunnstoffet.",
                 scope: $scope,
                 buttons: [
-                    { text: 'Avbryt' },
                         {
-                            text: '<b>Neste spørsmål!</b>',
+                            text: '<b>Neste spørsmål</b>',
                             type: 'button-positive',
                             onTap: function(e) {
                                 initNextElement();
