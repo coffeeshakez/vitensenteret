@@ -447,7 +447,6 @@ angular.module('app.periodic')
                 subTitle:"Du svarte " + tableOfElements[answer.index].name + " \n. Fyll inn tekst om grunnstoffet.",
                 scope: $scope,
                 buttons: [
-                    { text: 'Avbryt' },
                     {
                         text: '<b>Neste spørsmål</b>',
                         type: 'button-positive',
@@ -465,7 +464,6 @@ angular.module('app.periodic')
                 subTitle:"Du svarte " + tableOfElements[answer.index].name + "\n. Fyll inn tekst om grunnstoffet.",
                 scope: $scope,
                 buttons: [
-                    { text: 'Avbryt' },
                         {
                             text: '<b>Neste spørsmål</b>',
                             type: 'button-positive',
@@ -523,87 +521,122 @@ angular.module('app.quiz')
           question: "Hvem oppfant revolveren?",
           alternatives: ["Elisha H. Collier", "John Evans", "Samuel Colt", "George W. Bush"],
           correct: 0,
+          answeredCorrectly: false,
         },
 
         {
           question: "Hvor mange fylker er det i Norge?",
           alternatives: ["37", "25", "19", "1000"],
           correct: 2,
+          answeredCorrectly: false,
         },
 
         {
           question: "Hvor mange kopper sukker må du ha med deg på månetur?",
-          alternatives: ["10", "20", "50", "100,2"],
+          alternatives: ["10", "20", "50", "100"],
           correct: 3,
+          answeredCorrectly: false,
         },
 
         {
-         question: "test",
-          alternatives: ["fem", "ti", "tretti", "tjuefem"],
-          correct: 3,
+         question: "Hvis du har 10 epler, og spiser 3 av de, hvor mange epler har du igjen?",
+          alternatives: ["Umulig", "7", "10", "Ingen av alternativene"],
+          correct: 1,
+          answeredCorrectly: false,
         },
       ];
 
   $scope.totalQ = $scope.questions.length;
-  $scope.qLeft = $scope.questions;
   $scope.qNum = 0;
-  $scope.ask = $scope.qLeft[$scope.qNum];
+  $scope.ask = $scope.questions[$scope.qNum];
+  $scope.qCount = true;
+  $scope.qCard = true;
+  $scope.qAlt = true;
+  $scope.finished = false;
+
   $scope.data = {
     clientSide: 'ng'
+
   };
 
   $scope.checkAnswer = function(answer)
   {
+
+
     if(answer == $scope.ask.alternatives[$scope.ask.correct])
     {
       console.log("Riktig");
-      var pop = preparePopup("Riktig", "Hurraa, du svarte riktig")
-      var myPopup = $ionicPopup.show(pop);
+      var pop = preparePopup("Riktig", "Hurra, du svarte riktig")
+      $scope.questions[$scope.qNum].answeredCorrectly = true;
+
     }
-    else{
+    else
+    {
       var pop = preparePopup("Feil", "Dette var vel ikke helt riktig, vel?")
-      var myPopup = $ionicPopup.show(pop);
     }
 
-    myPopup.then(function(res) {
-         console.log('Tapped!', res);
+    var myPopup = $ionicPopup.show(pop);
+    myPopup.then(function() {
+         console.log('Tapped!');
       });
   }
 
-function preparePopup(title, subTitle)
-  {
-    var pop = 
-    {
-      title: title,
-      subTitle: subTitle,
-      scope: $scope,
-      buttons: 
-      [
-        { 
-          text: '<b>Neste spørsmål!</b>',
-          type: 'button-positive',
-          onTap: function(e){
-            askNextQuestion()
-          }
-        }
-      ]
-    }
-    return pop;
-  }
-function askNextQuestion(){
+function isFinished(){
+  console.log("isfinished kjører");
+  for(key in $scope.questions){
+    var item = $scope.questions[key];
 
-  if($scope.qNum <= $scope.qLeft.length - 1)
+    console.log(item.answeredCorrectly);
+    if(!item.answeredCorrectly){
+      return false;
+    }
+  }
+  return true;
+}
+function preparePopup(title, subTitle) {
+  var pop =
+  {
+    title: title,
+    subTitle: subTitle,
+    scope: $scope,
+    buttons: [
       {
-        $scope.qNum ++;
-        $scope.ask = $scope.questions[$scope.qNum];
+        text: '<b>Neste spørsmål!</b>',
+        type: 'button-positive',
+        onTap: function (e) {
+            askNextQuestion();
+        }
       }
-      else
-      {
-          $scope.qNum = 0;
-          $scope.ask = $scope.qLeft[$scope.qNum]
-      }
+    ]
+  };
+  return pop;
 }
 
+function askNextQuestion(){
+
+  if(isFinished()){
+    showFinishedScreen();
+    return;
+  }
+  $scope.qNum ++;
+  if($scope.qNum > $scope.questions.length - 1){
+    $scope.qNum = 0;
+  }
+
+  if($scope.questions[$scope.qNum].answeredCorrectly ){
+    askNextQuestion();
+  }
+  else{
+    $scope.ask = $scope.questions[$scope.qNum];
+  }
+}
+
+function showFinishedScreen(){
+  $scope.qCount = false;
+  $scope.qCard = false;
+  $scope.qAlt = false;
+  $scope.finished = true;
+}
 });
 
 angular.module('app.reward')
