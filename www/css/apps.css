@@ -79,12 +79,28 @@ img{
 	height:60%;
 	margin-top:0px;
 }
+
+.btncont{
+  position: absolute;
+  height: 20%;
+  width: 30%;
+}
+
+.col-33{
+  width: 100% !important;
+}
+
+.shitButt{
+  width: 80%;
+  height: 80% !important;
+  padding-bottom: 5 px;
+}
+
 .small_button{
-	position: relative;
-	height: 100px !important;
-	width: 100px !important;
+	height: 80px !important;
+    max-height: 100%;
+	width: 80px !important;
 	margin:auto !important;
-  font-size: 2.2em;
 }
 
 .vertical-wrapper {  
