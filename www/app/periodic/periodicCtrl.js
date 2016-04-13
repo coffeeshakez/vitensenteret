@@ -13,11 +13,9 @@ angular.module('app.periodic')
         {name: "H", correct: false, index:6},
         {name: "C", correct: false, index:7},
         {name: "Pb", correct: false, index:8},
-    ]
+    ];
 
        $scope.visible = true;
-
-    var nextElement
 
     // Array that contains the url of all images and indexes in button-array
     var urlAndArray = [
