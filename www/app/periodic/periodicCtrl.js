@@ -82,7 +82,6 @@ angular.module('app.periodic')
                 subTitle:"Du svarte " + tableOfElements[answer.index].name + " \n. Fyll inn tekst om grunnstoffet.",
                 scope: $scope,
                 buttons: [
-                    { text: 'Avbryt' },
                     {
                         text: '<b>Neste spørsmål</b>',
                         type: 'button-positive',
@@ -100,7 +99,6 @@ angular.module('app.periodic')
                 subTitle:"Du svarte " + tableOfElements[answer.index].name + "\n. Fyll inn tekst om grunnstoffet.",
                 scope: $scope,
                 buttons: [
-                    { text: 'Avbryt' },
                         {
                             text: '<b>Neste spørsmål</b>',
                             type: 'button-positive',
