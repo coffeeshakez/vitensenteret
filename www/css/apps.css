@@ -345,7 +345,11 @@ select{
 }
 
 
-/* Main screen - start */
+/* Parts screen - start */
+
+.item-robot {
+  min-height: 175px;
+}
 
 .item-body .row {
   padding: 0;
@@ -595,6 +599,10 @@ select{
 .minigames .over-check{
   font-size: 1.5em;
   opacity: 0.9;
+}
+
+.minigame-icon.part-collected {
+    color: slategrey;
 }
 
 /*  Overview screen - end *//* Main screen - end */
