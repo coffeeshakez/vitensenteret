@@ -14,12 +14,20 @@ angular.module('app', [
   'app.chooseLanguage',
   'app.welcomeScreen',
   'app.example',
-  'app.main',
+  'app.waterflow',
+  'app.parts',
+  'app.overview',
   'app.periodic',
   'app.quiz',
   'app.memory',
   'app.reward',
+<<<<<<< HEAD
   'app.shortest',
+=======
+  'app.sound',
+  
+
+>>>>>>> c0b0a4ff7d7783f5cc6852c56110691220f1471c
   //'app.myapp',
   ])
 

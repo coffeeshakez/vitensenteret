@@ -1,0 +1,10 @@
+    <ion-view title="waterflow">
+    <ion-content ng-init="loadImages()" class="tube-grid">
+        <div class="row" ng-repeat="row in images">
+            <div class="col col-20 no-padding no-margin" ng-repeat="image in row">
+                <img src="{{image.src}}" title="{{image}}" ng-click="rotateImage(image)" width="100%" class="{{image.classname}}"/>
+            </div>  
+        </div>
+        <div id="test-flow" class="button" ng-click="testFlow();">Test flow</div>
+    </ion-content>
+</ion-view>s

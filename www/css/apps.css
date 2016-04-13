@@ -2,24 +2,35 @@
   font-family: 'Seymour One';
   font-style: normal;
   font-weight: 400;
-  src: local('Seymour One'), local('SeymourOne'), url(../fonts/seymore.woff2) format('woff2');
+  src: local('Seymour One'), local('SeymourOne'), url(/fonts/seymore.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 @font-face {
   font-family: 'Short Stack';
   font-style: normal;
   font-weight: 400;
-  src: local('Short Stack'), local('ShortStack'), url(../fonts/short.woff2) format('woff2');
+  src: local('Short Stack'), local('ShortStack'), url(/fonts/short.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
+@font-face {
+  font-family: 'Comfortaa';
+  font-style: normal;
 
+  src: local('Comfortaa Bold'), local('Comfortaa-Bold'), url(https://fonts.gstatic.com/s/comfortaa/v7/fND5XPYKrF2tQDwwfWZJIxampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
 body{
-    font-family: "Seymour One";
+    font-family: "Comfortaa";
     font-weight: 300;
 }
 
 .small {
-  font-family: 'Short Stack';
+  font-family: 'Comfortaa';
+  font-weight: bold;
+}
+
+.hidden{
+  display: none;
 }
 
 .flex-wrap{
@@ -28,6 +39,62 @@ body{
 
 .flex-wrap .card{
     margin: 10px;
+}
+
+
+.no-padding{
+	padding:0px;
+}
+.no-margin{
+	margin:0px;
+}
+.tube-grid{
+	padding:10px 2px 0px 2px;
+}
+
+.rot0{
+	-ms-transform: rotate(0); /* IE 9 */
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform: rotate(0);
+    transform-origin: 50% 50%;
+}
+.rot180{
+    -ms-transform: rotate(180); /* IE 9 */
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform: rotate(180);
+    transform-origin: 50% 50%;
+}
+.rot90{
+    -ms-transform: rotate(90); /* IE 9 */
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform: rotate(90);
+    transform-origin: 50% 50%;
+}
+.rot270{
+    -ms-transform: rotate(270); /* IE 9 */
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform: rotate(270);
+    transform-origin: 50% 50%;
+}
+
+#test-flow{
+    padding: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #FF7231;
+    font-family: Robotic;
+    color: #FFFFFF;
+    position: fixed;
+    bottom: -30%;
+    left: 15%;
 }
 
 .text-center{
@@ -61,6 +128,8 @@ h4.giant-text {
   font-size: 1em;
 }
 
+/*Periodic end*/
+
 img{
 	display: block;
 	margin:auto;
@@ -86,6 +155,10 @@ img{
 	margin:auto !important;
   font-size: 2.2em;
 }
+
+
+
+/*Periodic end*/
 
 .vertical-wrapper {  
   display: -webkit-box;
@@ -164,6 +237,132 @@ img{
 }
 
 /* Shortest Path - end*/
+
+/*sound - start*/
+
+select{
+   -webkit-appearance: none;
+}
+
+#soundPlayBtn{
+  height: 15% !important;
+  font-size: 30px;
+  text-align: center;
+}
+
+#soundView{
+  width: 100%;
+  height: 60%;
+  position: relative;;
+}
+
+#soundTestCorrect{
+  height: 10%;
+  font-size: 150%;
+}
+
+#selectorContainer {
+  position: relative;
+  right: 50%;
+  max-height: 50%;
+}
+
+#ratioDiv{
+  top: 40px;
+  position: absolute;
+  left:50%;
+}
+
+.soundPhoto{
+  height: 200px;
+  width: 200px;
+  position: relative;
+
+}
+
+.numberSelector{
+  width: 26px;
+  padding-left: 5px;
+  font-size: 20px;
+}
+
+#triangleOne{
+  alignment-adjust: middle;
+  position: absolute;
+  top:-35px;
+  left: 87px;
+}
+
+#triangleTwo{
+  position: absolute;
+  bottom:-35px;
+  left:-35px;
+}
+
+#triangleThree{
+  position: absolute;
+  bottom: -35px;
+  right: -35px;
+}
+
+#squareOne{
+  position: absolute;
+  top:-35px;
+  left:-35px;
+}
+
+#squareTwo{
+  position: absolute;
+  top:-35px;
+  right:-35px;
+}
+
+#squareThree{
+  position: absolute;
+  bottom:-35px;
+  left:-35px;
+}
+
+#squareFour{
+  position: absolute;
+  bottom:-35px;
+  right:-35px;
+}
+
+#pentaOne{
+  position: absolute;
+  top:-35px;
+  left:87px;
+}
+
+#pentaTwo{
+  position: absolute;
+  top:25%;
+  right:-35px;
+}
+
+#pentaThree{
+  position: absolute;
+  bottom: -35px;
+  right: 0;
+}
+
+#pentaFour{
+  position: absolute;
+  bottom: -35px;
+  left: 0;
+}
+
+#pentaFive{
+  position: absolute;
+  top:25%;
+  left:-35px;
+}
+
+
+
+
+/*sound - end*/
 
 
 
@@ -271,7 +470,7 @@ img{
     margin-top: 2%;
     height: 90%;
     width: 80%;
-    
+
 }
 
 #memorypink{
@@ -321,78 +520,112 @@ img{
 }
 
 .sprite.head.head1 {
-  background: url('../img/robots.png') no-repeat -316px -30px;
+  background: url('/img/robots.png') no-repeat -316px -30px;
   width: 52px;
   height: 38px;
 }
 
 .sprite.head.head2 {
-  background: url('../img/robots.png') no-repeat -376px -22px;
+  background: url('/img/robots.png') no-repeat -376px -22px;
   width: 52px;
   height: 46px;
 }
 
 .sprite.head.head3 {
-  background: url('../img/robots.png') no-repeat -439px -14px;
+  background: url('/img/robots.png') no-repeat -439px -14px;
   width: 40px;
   height: 54px;
 }
 
 
 .sprite.body.body1 {
-  background: url('../img/robots.png') no-repeat -513px -42px;
+  background: url('/img/robots.png') no-repeat -513px -42px;
   width: 55px;
   height: 25px;
 }
 
 .sprite.body.body2 {
-  background: url('../img/robots.png') no-repeat -520px -126px;
+  background: url('/img/robots.png') no-repeat -520px -126px;
   width: 44px;
   height: 39px;
 }
 
 
 .sprite.arms.arms1 {
-  background: url('../img/robots.png') no-repeat -312px -206px;
+  background: url('/img/robots.png') no-repeat -312px -206px;
   width: 80px;
   height: 48px;
 }
 
 .sprite.arms.arms2 {
-  background: url('../img/robots.png') no-repeat -16px -206px;
+  background: url('/img/robots.png') no-repeat -16px -206px;
   width: 72px;
   height: 72px;
 }
 
 .sprite.arms.arms3 {
-  background: url('../img/robots.png') no-repeat -403px -206px;
+  background: url('/img/robots.png') no-repeat -403px -206px;
   width: 80px;
   height: 56px;
 }
 
 
 .sprite.legs.legs1 {
-  background: url('../img/robots.png') no-repeat -327px -327px;
+  background: url('/img/robots.png') no-repeat -327px -327px;
   width: 52px;
   height: 45px;
 }
 
 .sprite.legs.legs2 {
-  background: url('../img/robots.png') no-repeat -393px -334px;
+  background: url('/img/robots.png') no-repeat -393px -334px;
   width: 42px;
   height: 38px;
 }
 
 .sprite.legs.legs3 {
-  background: url('../img/robots.png') no-repeat -454px -323px;
+  background: url('/img/robots.png') no-repeat -454px -323px;
   width: 38px;
   height: 54px;
 }
 
 .sprite.legs.legs4 {
-  background: url('../img/robots.png') no-repeat -512px -318px;
+  background: url('/img/robots.png') no-repeat -512px -318px;
   width: 40px;
   height: 54px;
 }
+/*Used for alternatives in the quiz*/
+.marginTop20{
+  margin-top: 10%;
+}
+
+#qCard{
+  text-align: center;
+  width: 100%;
+  height: 30%;
+  padding-top: 13%;
+  border:solid;
+  border-color: black;
+  border-width: 1px;
+}
+
+.textAllignCenter{
+  text-align: center;
+}
+
+
+
+
 /* Main screen - end */
 
+/* Overview screen - start */
+
+.minigame-icon{
+  font-size: 4em;
+}
+
+.minigames .over-check{
+  font-size: 1.5em;
+  opacity: 0.9;
+}
+
+/*  Overview screen - end *//* Main screen - end */

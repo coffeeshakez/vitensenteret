@@ -1,17 +1,22 @@
 <ion-view title="quiz">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 
+    <h4 class="textAllignCenter" style="color:white">Spørsmål {{ qNum + 1 }} av {{ totalQ }}</h4>
+
         <div class="card" id="qCard">
-              <div class="item item-text-wrap" id="question">
+            <div class="item item-text-wrap" id="question">
                 {{ask.question}}
             </div>
         </div>
 
         <div class="list">
           
-        <ion-radio ng-click="checkAnswer(item)" ng-repeat="item in ask.alternatives" id="alternatives">
-            {{ item }}
-       </ion-radio>
+          <button class="button button-block button-balanced"
+               ng-click="checkAnswer(item)" 
+               ng-repeat="item in ask.alternatives" 
+               icon="none"> 
+               {{ item }} 
+          </button>
               
     </ion-content>
     
