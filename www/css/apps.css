@@ -2,21 +2,21 @@
   font-family: 'Seymour One';
   font-style: normal;
   font-weight: 400;
-  src: local('Seymour One'), local('SeymourOne'), url(/fonts/seymore.woff2) format('woff2');
+  src: local('Seymour One'), local('SeymourOne'), url(../fonts/seymore.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 @font-face {
   font-family: 'Short Stack';
   font-style: normal;
   font-weight: 400;
-  src: local('Short Stack'), local('ShortStack'), url(/fonts/short.woff2) format('woff2');
+  src: local('Short Stack'), local('ShortStack'), url(../fonts/short.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 @font-face {
   font-family: 'Comfortaa';
   font-style: normal;
 
-  src: local('Comfortaa Bold'), local('Comfortaa-Bold'), url(https://fonts.gstatic.com/s/comfortaa/v7/fND5XPYKrF2tQDwwfWZJIxampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+  src: local('Comfortaa Bold'), local('Comfortaa-Bold'), url(../fonts/Comfortaa.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 body{
@@ -345,7 +345,11 @@ select{
 }
 
 
-/* Main screen - start */
+/* Parts screen - start */
+
+.item-robot {
+  min-height: 175px;
+}
 
 .item-body .row {
   padding: 0;
@@ -595,6 +599,10 @@ select{
 .minigames .over-check{
   font-size: 1.5em;
   opacity: 0.9;
+}
+
+.minigame-icon.part-collected {
+    color: slategrey;
 }
 
 /*  Overview screen - end *//* Main screen - end */
