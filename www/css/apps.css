@@ -197,6 +197,7 @@ img{
 
 
 .memory-button{
+    transition: opacity 0.2s ease-in-out;
     margin: 5px;
     height: 40% !important;
     width: 45%;
@@ -216,35 +217,41 @@ img{
 
 
 
-#memorypink{
+.memory-button.pink{
     background-color: #b24881;
     opacity: .5;
 
 }
 
-#memorygreen{
+.memory-button.green{
     background-color: #39C645;
     opacity: .5;
 
 }
-#memoryorange{
+.memory-button.orange{
     background-color: #FF7231;
     opacity: .5;
 
 }
-#memoryyellow{
+.memory-button.yellow{
     background-color: #CFDE00;
     opacity: .5;
 }
+
+.memory-button.active{
+    opacity: 1;
+}
+
+
 #startButton{
     display: block;
 }
 
 #redoButton{
-    display: none;
+    display: block;
 }
 #hintButton{
-    display: none;
+    display: block;
 
 }
 #continueFromReward{

@@ -4,23 +4,14 @@
             <h5>Trykk på knappene i samme rekkefølge som de blinker</h5>
         </div>
         <div class="centerdiv" id="memory-buttons">
-            <button class="button memory-button" id="memorypink"></button>
-
-            <button class="button memory-button" id="memorygreen">
-            </button>
-
-            <button class="button memory-button" id="memoryorange">
-            </button>
-
-            <button class="button memory-button" id="memoryyellow">
-            </button>
+            <button class="button memory-button" id="memorypink" ng-click="clickMemoryButton(button)" ng-repeat="button in buttons" ng-class="[button.class, {active: button.active}]"></button>
             <div id="levelNumerator">
                 {{levelNumerator}}
             </div>
             <div>
-                <button class="button button-bar button-balanced" id="startButton" ng-click="startGame()">Start</button>
-                <button class="button button-bar button-balanced" id="redoButton" ng-click="redoGame()">Prøv på nytt</button>
-                <button class="button button-bar button-balanced" id="hintButton" ng-click="getHint()">Hint</button>
+                <button class="button button-bar button-balanced" id="startButton" ng-click="startGame()" ng-hide="gameStarted">Start</button>
+                <button class="button button-bar button-balanced" id="redoButton" ng-click="redoGame()" ng-hide="gameLost">Prøv på nytt</button>
+                <button class="button button-bar button-balanced" id="hintButton" ng-click="getHint()" ng-hide="gameFailedThreeTimes">Hint</button>
             </div>
         </div>
 
