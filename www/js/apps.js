@@ -45,16 +45,6 @@ angular.module('app.waterflow', [])
 
 angular.module('app.welcomeScreen', [])
 
-angular.module('app.chooseLanguage')
-.controller('ChooseLanguageCtrl', function($scope, $state) {
-
-    $scope.switchTo = function(){
-        $state.go("index.welcomeScreen");
-
-    };
-
-});
-
 angular.module('app.example')
 .controller('ExampleCtrl', function($scope, $stateParams) {
     $scope.variable = false;
@@ -102,6 +92,16 @@ angular.module('app.example')
     },
     templateUrl: 'app/example/views/exampleDirective.html'
   };
+});
+
+angular.module('app.chooseLanguage')
+.controller('ChooseLanguageCtrl', function($scope, $state) {
+
+    $scope.switchTo = function(){
+        $state.go("index.welcomeScreen");
+
+    };
+
 });
 
 angular.module('app.memory')
@@ -632,7 +632,7 @@ angular.module('app.sound')
 });
 
 angular.module('app.sound')
-.controller('soundCtrl', function($scope, $stateParams, $ionicPopup) {
+.controller('soundCtrl', function($scope, $stateParams, $ionicPopup, $state) {
 
     // var src = "../../sound/Ready-Sangen.mp3";
     // var media = new Audio(src);
@@ -680,60 +680,83 @@ angular.module('app.sound')
     }
 
     function showPopup(bool, correctArray){
-        var feedback1 = "Dette var ikke helt riktig, du hadde rør";
-        var feedback2 = " på posisjon";
-        var feedback3 = "";
-        var feedback4 = " riktig";
 
-        for(var i=correctArray.length - 1; i>=0; i--){
-            if(feedback3.length == 2 && correctArray[i] == 1){
-                feedback3 = (i+1) +  " og " + feedback3;
-                feedback1+= "ene ";
-                feedback2+= "ene ";
-            }
-            else if(feedback3.length == 0 && correctArray[i] == 1){
-                feedback3 = " " + (i+1) + feedback3;
-            }
 
-            else if(correctArray[i] == 1) {
-                feedback3 = (i + 1) + ", " + feedback3;
-            }
 
-        }
-
-        if(feedback3.length == 0){
-            feedback1 = "Dette var ikke riktig. Du har dessverre ingen rør på riktig posisjon."
-            feedback2 = "";
-            feedback3 = "";
-            feedback4 = "";
-        }
-        else if(feedback3.length == 2){
-            feedback1 += "et "
-        }
 
         $scope.data = {};
 
         if (bool == true){
+            if(taskNumber==3) {
+                var pop = {
+                    title: "RIKTIG!",
+                    subTitle: "Du svarte riktig!",
+                    scope: $scope,
+                    buttons: [
+                        {
+                            text: '<b>Ta i mot din premie!</b>',
+                            type: 'button-positive',
 
-            var pop = {
-                title : "RIKTIG!",
-                subTitle: "Du svarte riktig!",
-                scope: $scope,
-                buttons: [
-                {
-                    text: '<b>Neste oppgave</b>',
-                    type: 'button-positive',
+                            onTap: function () {
+                                $state.go("index.reward", {"game": "lydimitasjonsspillet", "part": "venstre robotarm", "sprite": "sprite arms arms4"});
+                            }
 
-                    onTap: function(){
-                        initNext();
-                    }
-
+                        }
+                    ]
                 }
-                ]
+            }
+
+            else {
+                var pop = {
+                    title: "RIKTIG!",
+                    subTitle: "Du svarte riktig!",
+                    scope: $scope,
+                    buttons: [
+                        {
+                            text: '<b>Neste oppgave</b>',
+                            type: 'button-positive',
+
+                            onTap: function () {
+                                initNext();
+                            }
+
+                        }
+                    ]
+                }
             }
         }
 
         else{
+            var feedback1 = "Dette var ikke helt riktig, du hadde rør";
+            var feedback2 = " på posisjon";
+            var feedback3 = "";
+            var feedback4 = " riktig";
+
+            for(var i=correctArray.length - 1; i>=0; i--){
+                if(feedback3.length == 2 && correctArray[i] == 1){
+                    feedback3 = (i+1) +  " og " + feedback3;
+                    feedback1+= "ene ";
+                    feedback2+= "ene ";
+                }
+                else if(feedback3.length == 0 && correctArray[i] == 1){
+                    feedback3 = " " + (i+1) + feedback3;
+                }
+
+                else if(correctArray[i] == 1) {
+                    feedback3 = (i + 1) + ", " + feedback3;
+                }
+
+            }
+
+            if(feedback3.length == 0){
+                feedback1 = "Dette var ikke riktig. Du har dessverre ingen rør på riktig posisjon."
+                feedback2 = "";
+                feedback3 = "";
+                feedback4 = "";
+            }
+            else if(feedback3.length == 2){
+                feedback1 += "et "
+            }
             var pop = {
                 title: "FEIL",
                 subTitle:  feedback1 +  feedback2 + feedback3 + feedback4,
@@ -827,28 +850,28 @@ angular.module('app.sound')
     function checkPentagon(){
         var rettArray = [0,0,0,0,0];
         var antallRett =0;
-        if(document.getElementById("pentagonOne").value == 1){
+        if(document.getElementById("pentaOne").value == 1){
             rettArray[0] = 1;
             antallRett++;
         }
-        if(document.getElementById("pentagonTwo").value == 2){
+        if(document.getElementById("pentaTwo").value == 2){
             rettArray[1] = 1;
             antallRett++;
         }
-        if(document.getElementById("pentagonThree").value == 3){
+        if(document.getElementById("pentaThree").value == 3){
             rettArray[2] = 1;
             antallRett++;
         }
-        if(document.getElementById("pentagonFour").value == 4){
+        if(document.getElementById("pentaFour").value == 4){
             rettArray[3] = 1;
             antallRett++;
         }
-        if (document.getElementById("pentagonFive").value = 5) {
+        if (document.getElementById("pentaFive").value = 5) {
             rettArray[4] = 1;
             antallRett++;
         }
             // HER MÅ DET HÅNDTERES OM SPILLET ER FERDIG!!
-        if(antallRett ==5){
+        if(antallRett == 5){
             return [true, rettArray]
         }
 
