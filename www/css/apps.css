@@ -160,7 +160,7 @@ img{
 
 /*Periodic end*/
 
-.vertical-wrapper {  
+.vertical-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -400,52 +400,67 @@ select{
 
 
 .memory-button{
+    transition: opacity 0.2s ease-in-out;
     margin: 5px;
     height: 40% !important;
     width: 45%;
 }
 
-#memorybuttons{
+#memory-buttons{
     margin-top: 2%;
-    height: 90%;
-    width: 80%;
-
+    height: 80%;
+    width: 95%;
+    margin-bottom: 0px;
+    
 }
 
-#memorypink{
+#levelNumerator{
+    color: #ffffff;
+}
+
+
+
+.memory-button.pink{
     background-color: #b24881;
     opacity: .5;
 
 }
 
-#memorygreen{
+.memory-button.green{
     background-color: #39C645;
     opacity: .5;
 
 }
-#memoryorange{
+.memory-button.orange{
     background-color: #FF7231;
     opacity: .5;
 
 }
-#memoryyellow{
+.memory-button.yellow{
     background-color: #CFDE00;
     opacity: .5;
 }
+
+.memory-button.active{
+    opacity: 1;
+}
+
+
 #startButton{
     display: block;
 }
 
 #redoButton{
-    display: none;
+    display: block;
 }
 #hintButton{
-    display: none;
+    display: block;
 
 }
-.revdivs{
-    float: left;
+#continueFromReward{
+    display: block;
 }
+
 
 
 .part-robot .part-not-collected {
@@ -508,6 +523,19 @@ select{
   height: 56px;
 }
 
+.sprite.arms.arms4 {
+    background: url('../img/robots.png') no-repeat -453px -206px;
+    width: 40px;
+    height: 56px;
+}
+.sprite.arms.arms5 {
+    background: url('../img/robots.png') no-repeat -353px -206px;
+    width: 40px;
+    height: 56px;
+}
+
+
+
 
 .sprite.legs.legs1 {
   background: url('/img/robots.png') no-repeat -327px -327px;
@@ -555,6 +583,12 @@ select{
 
 
 /* Main screen - end */
+
+#robotPartReward{
+    margin-top: 50%;
+    margin-bottom: 40%;
+
+}
 
 /* Overview screen - start */
 
