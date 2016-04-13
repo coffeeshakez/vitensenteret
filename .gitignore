@@ -2,4 +2,6 @@ node_modules/*
 platforms/*
 .idea/*
 /www/js/apps.js
+debug.log
+
 
