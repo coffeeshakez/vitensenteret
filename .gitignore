@@ -3,4 +3,5 @@ bower_components/*
 platforms/*
 .idea/*
 /www/js/apps.js
+plugins/*
 
