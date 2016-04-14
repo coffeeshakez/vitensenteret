@@ -1,5 +1,5 @@
 angular.module('app.memory')
-.controller('MemoryCtrl', function($scope, $ionicPopup, $state, $timeout, $interval) {
+.controller('MemoryCtrl', function($scope, $rootScope, $ionicPopup, $state, $timeout, $interval) {
 
   var numberOfWins = 0;
   var clickNumber = 0;
@@ -24,7 +24,7 @@ angular.module('app.memory')
       { text: "<b>Videre</b>",
         type: "button-positive",
         onTap: function(){
-          $state.go("index.reward", {"game": "minnespillet", "part": "venstre robotarm", "sprite": "sprite arms arms4"});
+          $rootScope.winGame("memory");
         }}
     ]
   };

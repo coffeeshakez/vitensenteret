@@ -1,5 +1,5 @@
 angular.module('app.quiz')
-.controller('quizController', function($scope, $stateParams, $ionicPopup) {
+.controller('quizController', function($scope, $rootScope, $stateParams, $ionicPopup) {
 
       $scope.questions = [
         {
@@ -100,7 +100,7 @@ function preparePopup(title, subTitle) {
 function askNextQuestion(){
 
   if(isFinished()){
-    showFinishedScreen();
+    $rootScope.winGame("quiz");
     return;
   }
   $scope.qNum ++;
