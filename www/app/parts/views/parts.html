@@ -6,22 +6,22 @@
                 <div class="item item-body item-robot">
                     <div class="row">
                         <div class="col-100 part-robot"><!-- head -->
-                            <a class="sprite" ng-class="partClasses(parts[0])"></a>
+                            <a class="sprite" ng-class="partClasses(parts['head'])"></a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-100 part-robot">
                             <!-- body -->
-                            <div ng-class="parts[1].collected? 'body-container' : ''">
-                                <a class="sprite" ng-class="partClasses(parts[3])"></a>
+                            <div ng-class="parts['arms'].collected? 'body-container' : ''">
+                                <a class="sprite" ng-class="partClasses(parts['body'])"></a>
                             </div>
                             <!-- arms -->
-                            <a class="sprite" ng-class="partClasses(parts[1])"></a>
+                            <a class="sprite" ng-class="partClasses(parts['arms'])"></a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-100 part-robot"><!-- legs -->
-                            <a class="sprite" ng-class="partClasses(parts[2])"></a>
+                            <a class="sprite" ng-class="partClasses(parts['legs'])"></a>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                         Du har samlet
                     </h3>
                     <h1 class="giant-text">
-                        {{collectedPartsCount()}}/{{parts.length}}
+                        {{collectedPartsCount()}}/{{getLength(parts)}}
                     </h1>
                     <h2 class="giant-text">
                         deler
@@ -52,6 +52,6 @@
             </div>
         </div>
 
-        <btn ng-disabled="(parts | filter:{collected:true}).length != parts.length" class="button button-balanced button-block">Generer din robot</btn>
+        <btn ng-disabled="collectedPartsCount() != parts.length" class="button button-balanced button-block">Generer din robot</btn>
     </ion-content>
 </ion-view>

@@ -1,5 +1,5 @@
 angular.module('app.sound')
-.controller('soundCtrl', function($scope, $stateParams, $ionicPopup, $state) {
+.controller('soundCtrl', function($scope, $rootScope, $stateParams, $ionicPopup, $state) {
 
     // var src = "../../sound/Ready-Sangen.mp3";
     // var media = new Audio(src);
@@ -65,7 +65,8 @@ angular.module('app.sound')
                             type: 'button-positive',
 
                             onTap: function () {
-                                $state.go("index.reward", {"game": "lydimitasjonsspillet", "part": "venstre robotarm", "sprite": "sprite arms arms4"});
+                                $rootScope.winGame("sound");
+                                return;
                             }
 
                         }
