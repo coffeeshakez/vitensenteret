@@ -7,9 +7,9 @@ angular.module('app.colors')
     $scope.locks = [
         {r: 100, g: 0, b: 0, completed: false},
         {r: 0, g: 100, b: 0, completed: false},
-        /*{r: 0, g: 0, b: 100, completed: false},
+        {r: 0, g: 0, b: 100, completed: false},
         {r: 0, g: 70, b: 70, completed: false},
-        {r: 80, g: 50, b: 20, completed: false},*/
+        {r: 80, g: 50, b: 20, completed: false},
     ]
     $scope.cur = 0;
 
