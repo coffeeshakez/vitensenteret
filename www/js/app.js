@@ -22,6 +22,7 @@ angular.module('app', [
   'app.memory',
   'app.reward',
   'app.sound',
+  'app.colors',
   
 
   //'app.myapp',

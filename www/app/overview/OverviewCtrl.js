@@ -5,10 +5,10 @@ angular.module('app.overview')
         "quiz":      {name: "Quiz", game: "quiz", icon: "ion-help", collected: true},
         "periodic":  {name: "Grunnstoffer", game: "periodic", icon: "ion-nuclear", collected: true},
         "colors":    {name: "Fargelås", game: "colors", icon: "ion-lock-combination", collected: true},
-        "sound":    {name: "Melodi", game: "sound", icon: "ion-music-note", collected: false},
-        "waterflow": {name: "Flyt", game: "waterflow", icon: "ion-network", collected: false},
-        "memory":    {name: "Minnespill", game: "memory", icon: "ion-load-b", collected: false},
-        "shortest":  {name: "Korteste vei", game: "shortest", icon: "ion-map", collected: false},
+        "sound":     {name: "Melodi", game: "sound", icon: "ion-music-note", collected: false},
+        "waterflow": {name: "Vannkobling", game: "waterflow", icon: "ion-waterdrop", collected: false},
+        "memory":    {name: "Minnespillet", game: "memory", icon: "ion-load-b", collected: false},
+        "shortest":  {name: "Korteste veien", game: "shortest", icon: "ion-map", collected: false},
 
     };
 
