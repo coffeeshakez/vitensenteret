@@ -5,7 +5,7 @@ angular.module('app.controllers', [])
 })
    
 .controller('cartTabDefaultPageCtrl', function($scope) {
-
+    
 })
    
 .controller('fargelSCtrl', function($scope) {
