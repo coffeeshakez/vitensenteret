@@ -297,7 +297,7 @@ angular.module('app.waterflow')
 
 
 
-        // prints paste-ready board
+        // prints code for creating board
         // for(var i = 0; i < columnCount; i++) {
         //     for(var j = 0; j<rowCount; j++){
         //         console.log(
@@ -316,7 +316,6 @@ angular.module('app.waterflow')
         //     }
         // }
     }
-
     function loader (element){
         element["src"] = tubeVariants[element["tubeID"]].src;
         $scope.images[element["idY"]].push(element);
@@ -331,9 +330,7 @@ angular.module('app.waterflow')
         }
         return obj[result];
     }
-
     function generateBoard(){
-
     }
 });
 
