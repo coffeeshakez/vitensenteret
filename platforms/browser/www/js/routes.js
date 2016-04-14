@@ -8,7 +8,9 @@ angular.module('app.routes', [])
   // Each state's controller can be found in controllers.js
   $stateProvider
     
-  .state('index.vitensenteretKart', {
+  
+
+      .state('tabsController.vitensenteretKart', {
     url: '/page2',
     views: {
       'tab1': {
@@ -18,7 +20,7 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('index.cartTabDefaultPage', {
+  .state('tabsController.cartTabDefaultPage', {
     url: '/page3',
     views: {
       'tab2': {
@@ -28,81 +30,24 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('index.example', {
-      url: "/example",
-      views: {
-        'example': {
-          templateUrl: "app/example/views/default.html",
-          controller: 'ExampleCtrl'
-        }
-      },
-      data: {pageTitle: 'Example'}
-    })
-
-    .state('index.periodic', {
-        url: "/periodic",
-        views: {
-          'periodic': {
-            templateUrl: "app/periodic/views/periodic.html",
-            controller: 'periodicCtrl'
-          }
-        },
-        data: {pageTitle: 'Periodic'}
-      })
-
-
-  .state('index.main', {
-    url: "/main",
+  .state('tabsController.fargelS', {
+    url: '/page4',
     views: {
-      'main': {
-        templateUrl: "app/main/views/main.html",
-        controller: 'MainCtrl'
+      'tab3': {
+        templateUrl: 'templates/fargelS.html',
+        controller: 'fargelSCtrl'
       }
-    },
-    data: {pageTitle: 'Main view'}
+    }
   })
 
-  .state('index.chooseLanguage', {
-    url: "/chooseLanguage",
-    views: {
-      'chooseLanguage': {
-        templateUrl: "app/chooseLanguage/views/default.html",
-        controller: 'ChooseLanguageCtrl'
-      }
-    },
-    data: {pageTitle: 'ChooseLanguage'}
-  })
-
-  .state('index.welcomeScreen', {
-    url: "/welcomeScreen",
-    views: {
-      'welcomeScreen': {
-        templateUrl: "app/welcomeScreen/views/default.html",
-        controller: 'WelcomeCtrl'
-      }
-    },
-    data: {pageTitle: 'Welcome'}
-  })
-
-
-   .state('index.quiz', {
-    url: "/quiz",
-    views: {
-      'quiz': {
-        templateUrl: "app/quiz/views/default.html",
-        controller: 'quizController'
-      }
-    },
-    data: {pageTitle: 'quiz'}
-  })
-
-  .state('index', {
-    url: '/index',
+  .state('tabsController', {
+    url: '/page1',
     templateUrl: 'templates/tabsController.html',
     abstract:true
   })
 
-$urlRouterProvider.otherwise('/index/main')
+$urlRouterProvider.otherwise('/page1/page2')
 
+  
 
 });

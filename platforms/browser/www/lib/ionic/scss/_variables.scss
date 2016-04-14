@@ -20,10 +20,8 @@ $font-family-sans-serif:          "Helvetica Neue", "Roboto", "Segoe UI", sans-s
 $font-family-light-sans-serif:    "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
 $font-family-serif:               serif !default;
 $font-family-monospace:           monospace !default;
-$font-family-big:                 "Seymour One", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
-$font-family-small:               "Short Stack", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
 
-$font-family-base:                $font-family-small !default;
+$font-family-base:                $font-family-sans-serif !default;
 $font-size-base:                  14px !default;
 $font-size-large:                 18px !default;
 $font-size-small:                 11px !default;
@@ -33,7 +31,7 @@ $line-height-computed:            floor($font-size-base * $line-height-base) !de
 $line-height-large:               1.33 !default;
 $line-height-small:               1.5 !default;
 
-$headings-font-family:            $font-family-big !default;
+$headings-font-family:            $font-family-base !default;
 $headings-font-weight:            500 !default;
 $headings-line-height:            1.2 !default;
 
