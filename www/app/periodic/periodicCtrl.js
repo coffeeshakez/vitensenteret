@@ -1,5 +1,5 @@
-angular.module('app.periodic')
-.controller('periodicCtrl', function($scope, $stateParams, $ionicPopup) {
+angular.module('app.periodic').
+controller('periodicCtrl', function($scope, $stateParams, $ionicPopup) {
     $scope.variable = false;
     $scope.slider = {red: 100, green: 100, blue: 100}
 

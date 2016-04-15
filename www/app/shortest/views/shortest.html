@@ -2,11 +2,17 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 
 
-        <div class="card small centerdiv" >
-            <h5>Finn korteste vei fra Oslo til Trondheim. Dra byene til riktig plassering.</h5>
+    <div class="card small centerdiv" >
+        <h5>Finn korteste vei fra Oslo til Trondheim. Dra byene til riktig plassering.</h5>
+    </div>
+
+        <div id="shortestListDiv">
+
+            <ul ng-sortable id="shortestList">
+                <li ng-repeat="city in cities">{{city.name}}</li>
+            </ul>
+
         </div>
-
-
 
     </ion-content>
 </ion-view>

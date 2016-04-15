@@ -6,7 +6,8 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('app', [
-  'ionic', 
+  'ionic',
+  'as-sortable',
   'app.controllers', 
   'app.routes', 
   'app.services', 
@@ -21,13 +22,9 @@ angular.module('app', [
   'app.quiz',
   'app.memory',
   'app.reward',
-<<<<<<< HEAD
   'app.shortest',
-=======
   'app.sound',
-  
-
->>>>>>> c0b0a4ff7d7783f5cc6852c56110691220f1471c
+    
   //'app.myapp',
   ])
 

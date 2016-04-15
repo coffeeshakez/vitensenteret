@@ -1,1 +1,1 @@
-angular.module('app.shortest', ['sortable'])
+angular.module('app.shortest', [])

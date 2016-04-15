@@ -58,7 +58,6 @@ angular.module('app.routes', [])
       data: {pageTitle: 'Memory game'}
     })
 
-<<<<<<< HEAD
   .state('index.shortest', {
       url: "/shortest",
       views: {
@@ -69,8 +68,7 @@ angular.module('app.routes', [])
       },
       data: {pageTitle: 'Shortest'}
     })
-    
-=======
+
     .state('index.sound', {
         url: "/sound",
         views: {
@@ -82,8 +80,6 @@ angular.module('app.routes', [])
         data: {pageTitle: 'Sound'}
       })
 
-
->>>>>>> c0b0a4ff7d7783f5cc6852c56110691220f1471c
     .state('index.periodic', {
         url: "/periodic",
         views: {
@@ -160,31 +156,10 @@ angular.module('app.routes', [])
       },
       data: {pageTitle: 'Example'}
     })
-
-<<<<<<< HEAD
-   .state('index.quiz', {
-    url: "/quiz",
-    views: {
-      'quiz': {
-        templateUrl: "app/quiz/views/default.html",
-        controller: 'quizController'
-      }
-    },
-    data: {pageTitle: 'quiz'}
-  })
-
-  .state('index', {
-    url: '/index',
-    templateUrl: 'templates/tabsController.html',
-    abstract:true
-  })
-
+  
   
 
-$urlRouterProvider.otherwise('/index/quiz')
-=======
-$urlRouterProvider.otherwise('/index/overview')
->>>>>>> c0b0a4ff7d7783f5cc6852c56110691220f1471c
+$urlRouterProvider.otherwise('/index/shortest')
 
 
 });

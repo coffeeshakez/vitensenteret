@@ -4,5 +4,8 @@
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.2.4"
   },
-  "directory": "www/bower_components"
+  "directory": "www/bower_components",
+  "dependencies": {
+    "Sortable": "^1.4.2"
+  }
 }
