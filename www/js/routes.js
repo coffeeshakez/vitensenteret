@@ -47,6 +47,17 @@ angular.module('app.routes', [])
     data: {pageTitle: 'Reward'}
   })
 
+  .state('index.colors', {
+    url: "/colors",
+    views: {
+      'colors': {
+        templateUrl: "app/colors/views/default.html",
+        controller: 'ColorsCtrl'
+      }
+    },
+    data: {pageTitle: 'Colors'}
+  })
+
   .state('index.memory', {
       url: "/memory",
       views: {

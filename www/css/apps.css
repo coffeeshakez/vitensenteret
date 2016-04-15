@@ -2,21 +2,21 @@
   font-family: 'Seymour One';
   font-style: normal;
   font-weight: 400;
-  src: local('Seymour One'), local('SeymourOne'), url(/fonts/seymore.woff2) format('woff2');
+  src: local('Seymour One'), local('SeymourOne'), url(../fonts/seymore.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 @font-face {
   font-family: 'Short Stack';
   font-style: normal;
   font-weight: 400;
-  src: local('Short Stack'), local('ShortStack'), url(/fonts/short.woff2) format('woff2');
+  src: local('Short Stack'), local('ShortStack'), url(../fonts/short.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 @font-face {
   font-family: 'Comfortaa';
   font-style: normal;
 
-  src: local('Comfortaa Bold'), local('Comfortaa-Bold'), url(https://fonts.gstatic.com/s/comfortaa/v7/fND5XPYKrF2tQDwwfWZJIxampu5_7CjHW5spxoeN3Vs.woff2) format('woff2');
+  src: local('Comfortaa Bold'), local('Comfortaa-Bold'), url(../fonts/Comfortaa.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 body{
@@ -492,7 +492,11 @@ select{
 }
 
 
-/* Main screen - start */
+/* Parts screen - start */
+
+.item-robot {
+  min-height: 175px;
+}
 
 .item-body .row {
   padding: 0;
@@ -730,8 +734,11 @@ select{
 #robotPartReward{
     margin-top: 50%;
     margin-bottom: 40%;
-
+    animation: reward 1s;
+    transform: scale(3) rotate(720deg);
 }
+
+@keyframes reward {from { transform: scale(0) rotate(0deg);} to { transform: scale(3) rotate(720deg);}}
 
 /* Overview screen - start */
 
@@ -744,4 +751,46 @@ select{
   opacity: 0.9;
 }
 
+.minigame-icon.part-collected {
+    color: slategrey;
+}
+
 /*  Overview screen - end *//* Main screen - end */
+/* Color lock start*/
+.lock-card{
+  background-color: #555;
+}
+
+.lock-card .item, .lock-card .list {
+  border: none !important;
+  background-color: transparent;
+}
+
+.lock-sliders {
+  margin: auto 5%;
+}
+
+.lock-color {
+  min-height: 80px;
+  height: 50%;
+  min-width: 100px;
+  width: 50%;
+  margin: 20px auto 5px;
+  background-color: rgba(193, 193, 193, 0.2);
+  border-radius: 3px;
+  border: 3px rgba(0,0,0,0.4) solid;
+}
+
+.mini-locks {
+    text-align: center;
+}
+
+.mini-locks .lock-color {
+    width: 20px;
+    min-width: 5px;
+    min-height: 20px;
+    margin: 0 5px;
+    display: inline-flex;
+    border-style: dashed;
+}
+/*color lock end*/
