@@ -1,5 +1,5 @@
 angular.module('app.reward')
-.controller('RewardCtrl', function($scope, $state, $stateParams) {
+.controller('RewardCtrl', function($scope, $rootScope, $state, $stateParams) {
 
   $scope.$on('$ionicView.enter', setUp);
   $scope.$on('$ionicView.leave', cleanUp);
@@ -14,9 +14,10 @@ angular.module('app.reward')
   }
 
   function setUp(){
+    var part = $stateParams.part;
     $scope.gameFinished = $stateParams.game;
-    $scope.robotPart = $stateParams.part;
-    $scope.robotPartImage = $stateParams.sprite;
+    $scope.robotPart = $rootScope.parts[part].desc;
+    $scope.robotPartImage = "sprite " + part + " " +  part + $rootScope.parts[part].variant;
 
   }
 
