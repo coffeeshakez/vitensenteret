@@ -22,11 +22,10 @@ $viten-yellowgreen: #CFDE00 !default;
 $viten-green: #39C645 !default;
 $viten-gray: #A39A94 !default;
 
-
 //Overskriv app-farger
 $positive:                   $viten-blue !default;
 $energized:                  $viten-orange !default;
-$balanced:                   $viten-yellowgreen !default;
+$balanced:                   $viten-green !default;
 $stable:                     $viten-gray !default;
 
 $base-background-color:      $viten-blue !default;
@@ -35,6 +34,26 @@ $base-background-color:      $viten-blue !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+$font-family-sans-serif:          "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
+$font-family-light-sans-serif:    "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
+$font-family-serif:               serif !default;
+$font-family-monospace:           monospace !default;
+$font-family-big:                 "Comfortaa", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
+$font-family-small:               "Comfortaa", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
+
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.button {
+    border-width: 1px;
+    border-color: black !important; 
+    border-radius: 5px;
+    font-weight:bold;
+}
+
+ .card{
+ 	border-width: 1px;
+    border-color: black !important; 
+    
+ }

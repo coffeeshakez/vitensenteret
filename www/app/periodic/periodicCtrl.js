@@ -1,5 +1,5 @@
 angular.module('app.periodic')
-.controller('periodicCtrl', function($scope, $stateParams, $ionicPopup) {
+.controller('periodicCtrl', function($scope, $rootScope, $stateParams, $ionicPopup) {
     $scope.variable = false;
     $scope.slider = {red: 100, green: 100, blue: 100}
 
@@ -13,11 +13,9 @@ angular.module('app.periodic')
         {name: "H", correct: false, index:6},
         {name: "C", correct: false, index:7},
         {name: "Pb", correct: false, index:8},
-    ]
+    ];
 
        $scope.visible = true;
-
-    var nextElement
 
     // Array that contains the url of all images and indexes in button-array
     var urlAndArray = [
@@ -38,22 +36,17 @@ angular.module('app.periodic')
 
         showPopup(isCorrect, answer);
 
-            if(isCorrect == true && urlAndArray.length==1){
-                Alert("Du Vant!");
-            }
+        if(isCorrect == true){
+            $scope.buttons[nextElement.index].correct=false;
+            urlAndArray.pop();
+            
+        }
 
-
-            else if(isCorrect == true){
-                $scope.buttons[nextElement.index].correct=false;
-                urlAndArray.pop();
-                
-            }
-
-            else{
-                var oldElement = urlAndArray.pop();
-                urlAndArray.unshift(oldElement);
-                $scope.buttons[nextElement.index].correct=false;
-            }
+        else{
+            var oldElement = urlAndArray.pop();
+            urlAndArray.unshift(oldElement);
+            $scope.buttons[nextElement.index].correct=false;
+        }
     }
 
     function initNextElement(){
@@ -84,11 +77,14 @@ angular.module('app.periodic')
                 subTitle:"Du svarte " + tableOfElements[answer.index].name + " \n. Fyll inn tekst om grunnstoffet.",
                 scope: $scope,
                 buttons: [
-                    { text: 'Avbryt' },
                     {
-                        text: '<b>Neste spørsmål!</b>',
+                        text: '<b>Neste spørsmål</b>',
                         type: 'button-positive',
                         onTap: function(e) {
+                            if(isCorrect == true && urlAndArray.length==0){
+                                $rootScope.winGame("periodic");
+                                return;
+                            }
                             initNextElement();
                         }
                     }
@@ -102,9 +98,8 @@ angular.module('app.periodic')
                 subTitle:"Du svarte " + tableOfElements[answer.index].name + "\n. Fyll inn tekst om grunnstoffet.",
                 scope: $scope,
                 buttons: [
-                    { text: 'Avbryt' },
                         {
-                            text: '<b>Neste spørsmål!</b>',
+                            text: '<b>Neste spørsmål</b>',
                             type: 'button-positive',
                             onTap: function(e) {
                                 initNextElement();

@@ -1,31 +1,54 @@
 <ion-view title="Tabs Controller">
     <ion-tabs class="tabs-energized tabs-icon-top">
-        <ion-tab title="Mine Robotdeler" icon="ion-cube" href="#/index/page3">
-            <ion-nav-view name="tab2"></ion-nav-view>
+        <ion-tab title="memory" icon="ion-person" href="#/index/memory" class="hidden">
+            <ion-nav-view name="memory"></ion-nav-view>
+        </ion-tab>
+        
+        <ion-tab title="sound" icon="ion-cube" href="#/index/sound" class="hidden">
+            <ion-nav-view name="sound"></ion-nav-view>
         </ion-tab>
 
-        <ion-tab title="Kart" icon="ion-location" href="#/index/page2">
-            <ion-nav-view name="tab1"></ion-nav-view>
+        <ion-tab title="Reward" icon="ion-cube" href="#/index/reward" class="hidden">
+            <ion-nav-view name="reward"></ion-nav-view>
         </ion-tab>
 
-        <ion-tab title="Main" icon="ion-ionic" href="#/index/main">
-            <ion-nav-view name="main"></ion-nav-view>
+        <ion-tab title="Oversikt" icon="ion-cube" href="#/index/overview">
+            <ion-nav-view name="overview"></ion-nav-view>
         </ion-tab>
 
-         <ion-tab title="Periodic" icon="ion-ios-settings-strong" href="#/index/periodic">
+        <ion-tab title="Kart" icon="ion-location" href="#/index/map">
+            <ion-nav-view name="map"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Min robot" icon="ion-hammer" href="#/index/parts">
+            <ion-nav-view name="parts"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="waterflow" icon="ion-ionic" href="#/index/waterflow" class="hidden">
+            <ion-nav-view name="waterflow"></ion-nav-view>
+        </ion-tab>
+        
+        <ion-tab title="colors" icon="ion-ionic" href="#/index/colors" class="hidden">
+            <ion-nav-view name="colors"></ion-nav-view>
+        </ion-tab>
+
+         <ion-tab title="Periodic" icon="ion-ios-settings-strong" href="#/index/periodic" class="hidden">
             <ion-nav-view name="periodic"></ion-nav-view>
         </ion-tab>
 
-        <ion-tab title="Welcome" icon="ion-ios-body" href="#/index/welcomeScreen">
+        <ion-tab title="Welcome" icon="ion-ios-body" href="#/index/welcomeScreen" class="hidden">
             <ion-nav-view name="welcomeScreen"></ion-nav-view>
         </ion-tab>
 
-        <ion-tab title="ChooseLang" icon="ion-android-walk" href="#/index/chooseLanguage">
+        <ion-tab title="ChooseLang" icon="ion-android-walk" href="#/index/chooseLanguage" class="hidden">
             <ion-nav-view name="chooseLanguage"></ion-nav-view>
+        </ion-tab>
 
-        <ion-tab title="quiz" icon="ion-ios-settings-strong" href="#/index/quiz">
+        <ion-tab title="Quiz" icon="ion-ios-settings-strong" href="#/index/quiz" class="hidden">
             <ion-nav-view name="quiz"></ion-nav-view>
         </ion-tab>
+
+
 
     </ion-tabs>
 </ion-view>

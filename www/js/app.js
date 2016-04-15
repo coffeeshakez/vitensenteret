@@ -14,9 +14,17 @@ angular.module('app', [
   'app.chooseLanguage',
   'app.welcomeScreen',
   'app.example',
-  'app.main',
+  'app.waterflow',
+  'app.parts',
+  'app.overview',
   'app.periodic',
   'app.quiz',
+  'app.memory',
+  'app.reward',
+  'app.sound',
+  'app.colors',
+  
+
   //'app.myapp',
   ])
 
