@@ -451,6 +451,10 @@ select{
 
 }
 
+#shortestList>.chosen{
+    background-color: red;
+}
+
 #shortestList>li{
     background-color: #39C645 ;
     border-style: solid;
