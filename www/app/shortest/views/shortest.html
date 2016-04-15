@@ -1,4 +1,4 @@
-<ion-view title="Korteste vei">
+<ion-view title="Korteste vei" data-ng-init="createSortable()">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 
 
@@ -6,16 +6,14 @@
         <h5>Finn korteste vei fra Oslo til Trondheim. Dra byene til riktig plassering.</h5>
     </div>
 
-        <div id="shortestListDiv">
+        <div id="shortestListDiv" class = "text-center">
 
-            <!--<ul ng-sortable id="shortestList">-->
-                <!--<li ng-repeat="city in cities">{{city.name}}</li>-->
-            <!--</ul>-->
-
-            <ul id = "shortestList">
-                <li>EN</li>
-                <li>TO</li>
-                <li>TRE</li>
+            <ul id ="shortestListContainer">
+                <li class="safeCity">Første byen</li>
+                <ul id = "shortestList">
+                <li ng-repeat="city in cities">{{city.name}}</li>
+                </ul>
+                <li class="safeCity">Siste byen</li>
             </ul>
 
         </div>

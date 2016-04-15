@@ -11,7 +11,14 @@ controller('ShortestCtrl', function($scope, $stateParams) {
         {name: "Tromsø",  index:6},
     ]
 
-    var el = document.getElementById('shortestList');
-    var sortable = Sortable.create(el);
+
+
+    var sortable;
+    var el;
+
+    $scope.createSortable = function(){
+        el = document.getElementById('shortestList');
+        sortable = Sortable.create(el);
+    }
 
 });

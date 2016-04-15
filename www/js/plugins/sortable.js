@@ -205,7 +205,7 @@
             chosenClass: 'sortable-chosen',
             ignore: 'a, img',
             filter: null,
-            animation: 0,
+            animation: 150,
             setData: function (dataTransfer, dragEl) {
                 dataTransfer.setData('Text', dragEl.textContent);
             },
@@ -511,7 +511,7 @@
                 _css(ghostEl, 'left', rect.left - parseInt(css.marginLeft, 10));
                 _css(ghostEl, 'width', rect.width);
                 _css(ghostEl, 'height', rect.height);
-                _css(ghostEl, 'opacity', '0.8');
+                _css(ghostEl, 'opacity', '0');
                 _css(ghostEl, 'position', 'fixed');
                 _css(ghostEl, 'zIndex', '100000');
                 _css(ghostEl, 'pointerEvents', 'none');

@@ -442,7 +442,7 @@ select{
 #shortestListDiv{
     position:absolute;
     width: 80%;
-    height: 60%;
+    height: 80%;
     left:10%;
 }
 
@@ -451,21 +451,31 @@ select{
 
 }
 
-#shortestList>.chosen{
-    background-color: red;
-}
-
-#shortestList>li{
+#shortestListDiv>ul>li, #shortestListDiv>ul>ul>li{
+    position: relative;
     background-color: #39C645 ;
     border-style: solid;
     border-radius: 15px;
     border-color: black;
     border-width: 2px;
-    height:20%;
+    max-height:13.8%;
     padding-top: 3%;
     margin-bottom: 0.5%;
 }
 
+#shortestListContainer{
+    position: relative;
+    height: 80%;
+}
+
+.safeCity{
+    background-color: #396445 !important;
+}
+
+.sortable-chosen{
+    position: relative;
+    background-color: #399645 !important;
+}
 
 /*Shortes path -end*/
 /* Choose Language - Start */
