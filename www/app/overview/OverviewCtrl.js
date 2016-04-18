@@ -1,7 +1,26 @@
 angular.module('app.overview')
-.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams) {
+.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService) {
 
-    $rootScope.minigames = {
+    var minigamesLocal = localStorageService.get('minigames');
+    var partsLocal = localStorageService.get('parts');
+    var languageLocal = localStorageService.get('language');
+
+    if(!languageLocal){
+        $state.go("index.chooseLanguage");
+    }else{
+        $rootScope.language = languageLocal;
+        console.log("Stored language is: "+$rootScope.language);
+    }
+
+    $scope.$watch('minigames', function () {
+      localStorageService.set('minigames', $scope.minigames);
+    }, true);
+
+    $scope.$watch('parts', function () {
+      localStorageService.set('parts', $scope.parts);
+    }, true);
+
+    $rootScope.minigames = minigamesLocal || {
         "quiz":      {name: "Quiz",           game: "quiz",      icon: "ion-help",              part: "head",   collected: false},
         "periodic":  {name: "Grunnstoffer",   game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false},
         "colors":    {name: "Fargelås",       game: "colors",    icon: "ion-lock-combination",  part: "head",   collected: false},
@@ -12,7 +31,7 @@ angular.module('app.overview')
 
     };
 
-    $rootScope.parts = {
+    $rootScope.parts = partsLocal || {
         "head": {name: "Hode",  desc: "et hode",  type: "head", variants: [1, 2, 3],      variant: 3, collected: false},
         "arms":  {name: "Armer", desc: "to armer", type: "arms", variants: [1, 2, 3],      variant: 1, collected: false},
         "legs":  {name: "Bein",  desc: "bein",     type: "legs", variants: [1, 2, 3, 4],   variant: 1, collected: false},
@@ -26,6 +45,12 @@ angular.module('app.overview')
         wonGame.collected = true;
         $state.go("index.reward", {"game": wonGame.name, "part": wonGame.part});
         return true;
+    }
+
+    $rootScope.resetGame = function(){
+        localStorageService.clearAll();
+        console.log("Cleared local-storage");
+        document.location = ".";
     }
 
     $scope.collectedMinigamesCount = function(){
