@@ -1,5 +1,5 @@
 angular.module('app.welcomeScreen', ["ionic"])
-.controller('WelcomeCtrl', function($scope, $ionicPopup, $state) {
+.controller('WelcomeCtrl', function($scope, $ionicPopup, $state){
 
     $scope.showPopup = function() {
 
@@ -17,7 +17,7 @@ angular.module('app.welcomeScreen', ["ionic"])
                 { text: '<b>Kom i gang!</b>',
                     type: 'button-positive',
                     onTap: function() {
-                        $state.go("index.main");
+                        $state.go("index.overview");
                     }
                 }
             ]
