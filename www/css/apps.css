@@ -148,6 +148,7 @@ img{
 	height:60%;
 	margin-top:0px;
 }
+
 .small_button{
 	position: relative;
 	height: 100px !important;
@@ -155,8 +156,6 @@ img{
 	margin:auto !important;
   font-size: 2.2em;
 }
-
-
 
 /*Periodic end*/
 
@@ -442,30 +441,33 @@ select{
 #shortestListDiv{
     position:absolute;
     width: 80%;
-    height: 80%;
+    height: 50%;
     left:10%;
 }
 
 #shortestList{
-    height: 100%;
+    height: 80%;
 
 }
 
-#shortestListDiv>ul>li, #shortestListDiv>ul>ul>li{
+#shortestListContainer{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+
+.shortestCity, .safeCity{
     position: relative;
-    background-color: #39C645 ;
+    background-color: #39C645;
     border-style: solid;
     border-radius: 15px;
     border-color: black;
     border-width: 2px;
-    max-height:13.8%;
-    padding-top: 3%;
+    /*padding-top: 3%;*/
+    /*padding-bottom: 3%;*/
     margin-bottom: 0.5%;
-}
-
-#shortestListContainer{
-    position: relative;
-    height: 80%;
+    height: 13.3%;
 }
 
 .safeCity{
@@ -572,7 +574,7 @@ select{
     height: 80%;
     width: 95%;
     margin-bottom: 0px;
-    
+
 }
 
 #levelNumerator{
