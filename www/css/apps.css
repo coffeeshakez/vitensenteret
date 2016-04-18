@@ -474,51 +474,51 @@ select{
 }
 
 .sprite.head.head1 {
-  background: url('/img/robots.png') no-repeat -316px -30px;
+  background: url('../img/robots.png') no-repeat -316px -30px;
   width: 52px;
   height: 38px;
 }
 
 .sprite.head.head2 {
-  background: url('/img/robots.png') no-repeat -376px -22px;
+  background: url('../img/robots.png') no-repeat -376px -22px;
   width: 52px;
   height: 46px;
 }
 
 .sprite.head.head3 {
-  background: url('/img/robots.png') no-repeat -439px -14px;
+  background: url('../img/robots.png') no-repeat -439px -14px;
   width: 40px;
   height: 54px;
 }
 
 
 .sprite.body.body1 {
-  background: url('/img/robots.png') no-repeat -513px -42px;
+  background: url('../img/robots.png') no-repeat -513px -42px;
   width: 55px;
   height: 25px;
 }
 
 .sprite.body.body2 {
-  background: url('/img/robots.png') no-repeat -520px -126px;
+  background: url('../img/robots.png') no-repeat -520px -126px;
   width: 44px;
   height: 39px;
 }
 
 
 .sprite.arms.arms1 {
-  background: url('/img/robots.png') no-repeat -312px -206px;
+  background: url('../img/robots.png') no-repeat -312px -206px;
   width: 80px;
   height: 48px;
 }
 
 .sprite.arms.arms2 {
-  background: url('/img/robots.png') no-repeat -16px -206px;
+  background: url('../img/robots.png') no-repeat -16px -206px;
   width: 72px;
   height: 72px;
 }
 
 .sprite.arms.arms3 {
-  background: url('/img/robots.png') no-repeat -403px -206px;
+  background: url('../img/robots.png') no-repeat -403px -206px;
   width: 80px;
   height: 56px;
 }
@@ -538,25 +538,25 @@ select{
 
 
 .sprite.legs.legs1 {
-  background: url('/img/robots.png') no-repeat -327px -327px;
+  background: url('../img/robots.png') no-repeat -327px -327px;
   width: 52px;
   height: 45px;
 }
 
 .sprite.legs.legs2 {
-  background: url('/img/robots.png') no-repeat -393px -334px;
+  background: url('../img/robots.png') no-repeat -393px -334px;
   width: 42px;
   height: 38px;
 }
 
 .sprite.legs.legs3 {
-  background: url('/img/robots.png') no-repeat -454px -323px;
+  background: url('../img/robots.png') no-repeat -454px -323px;
   width: 38px;
   height: 54px;
 }
 
 .sprite.legs.legs4 {
-  background: url('/img/robots.png') no-repeat -512px -318px;
+  background: url('../img/robots.png') no-repeat -512px -318px;
   width: 40px;
   height: 54px;
 }
