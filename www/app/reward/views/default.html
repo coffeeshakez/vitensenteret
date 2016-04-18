@@ -1,15 +1,16 @@
-<ion-view title="reward" ng-init="onInitialize()">
+<ion-view title="reward" >
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <div class="card">
-            <h4>Gratulerer!</h4>
+        <div class="list card">
+            <div class="item item-body">
+                Du fullførte nettopp {{gameFinished}} og har dermed vunnet {{robotPart}} til din robot! {{test}}
+            </div>
         </div>
-        <div class="card">
-            <div class="revdivs">Du fullførte nettopp &nbsp;</div>
-            <div class="revdivs" id="gameFinished"></div>
-            <div class="revdivs">og har dermed vunnet &nbsp;</div>
-            <div class="revdivs" id="robotPart"></div>
-            <div class="revdivs"> til din robot.</div>
+
+        <div class="{{robotPartImage}}" id="robotPartReward">
         </div>
-        <div class="card"></div>
+        <div>
+            <button class="button button-bar button-balanced" id="continueFromReward" ng-click="goToMain()">Fortsett</button>
+        </div>
+
     </ion-content>
 </ion-view>

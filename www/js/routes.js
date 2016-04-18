@@ -37,7 +37,7 @@ angular.module('app.routes', [])
   })
 
   .state('index.reward', {
-    url: "/reward",
+    url: "/reward?game?part?sprite",
     views: {
       'reward': {
         templateUrl: "app/reward/views/default.html",
@@ -45,6 +45,17 @@ angular.module('app.routes', [])
       }
     },
     data: {pageTitle: 'Reward'}
+  })
+
+  .state('index.colors', {
+    url: "/colors",
+    views: {
+      'colors': {
+        templateUrl: "app/colors/views/default.html",
+        controller: 'ColorsCtrl'
+      }
+    },
+    data: {pageTitle: 'Colors'}
   })
 
   .state('index.memory', {
@@ -58,6 +69,18 @@ angular.module('app.routes', [])
       data: {pageTitle: 'Memory game'}
     })
 
+    .state('index.sound', {
+        url: "/sound",
+        views: {
+          'sound': {
+            templateUrl: "app/sound/views/sound.html",
+            controller: 'soundCtrl'
+          }
+        },
+        data: {pageTitle: 'Sound'}
+      })
+
+
     .state('index.periodic', {
         url: "/periodic",
         views: {
@@ -68,6 +91,7 @@ angular.module('app.routes', [])
         },
         data: {pageTitle: 'Periodic'}
       })
+      
 
   .state('index.map', {
     url: '/map',

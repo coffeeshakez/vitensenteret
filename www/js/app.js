@@ -20,7 +20,11 @@ angular.module('app', [
   'app.periodic',
   'app.quiz',
   'app.memory',
-  'app.reward'
+  'app.reward',
+  'app.sound',
+  'app.colors',
+  
+
   //'app.myapp',
   ])
 

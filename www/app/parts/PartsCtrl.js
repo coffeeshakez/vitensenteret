@@ -1,26 +1,27 @@
 angular.module('app.parts')
-.controller('PartsCtrl', function($scope, $stateParams) {
-
-    $scope.parts = [
-        {name: "Hode", type: "head", variants: [1, 2, 3], variant: 3, collected: false},
-        {name: "Armer", type: "arms", variants: [1, 2, 3], variant: 1, collected: false},
-        {name: "Bein", type: "legs", variants: [1, 2, 3, 4], variant: 1, collected: false},
-        {name: "Overkropp", type: "body", variants: [1, 2], variant: 2, collected: true},
-    ];
+.controller('PartsCtrl', function($scope, $rootScope, $stateParams) {
 
     $scope.collectedPartsCount = function(){
         var count = 0;
-        angular.forEach($scope.parts, function(part){
-            count += part.collected ? 1 : 0;
+        angular.forEach($rootScope.parts, function(part){
+            if(part)
+                count += part.collected ? 1 : 0;
         });
         return count; 
     }
+
+    $scope.getLength = function(obj) {
+        return Object.keys(obj).length;
+    }
     
     $scope.partClasses = function(part){
-        var collected = part.collected ? 'part-collected' : 'part-not-collected';
-        var type = part.type;
-        var variant = type+part.variant;
-        return type + " " + variant + " " + collected;
+        if(part){
+            var collected = part.collected ? 'part-collected' : 'part-not-collected';
+            var type = part.type;
+            var variant = type+part.variant;
+            return type + " " + variant + " " + collected;
+        }
+        return "";
     }
 
     $scope.partClick = function(part){

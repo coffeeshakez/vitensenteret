@@ -1,5 +1,5 @@
 angular.module('app.waterflow')
-.controller('waterflowControl', function($scope, $ionicPopup){
+.controller('waterflowControl', function($scope, $rootScope, $ionicPopup) {
     var directions = {up:0, right:1, down:2, left:3};
     
     var tubeVariants = [];
@@ -81,7 +81,8 @@ angular.module('app.waterflow')
                     {   text: '<b>Videre!</b>',
                         type: 'button-positive',
                         onTap: function(e) {
-
+                            $rootScope.winGame("waterflow");
+                            return;
                         }
                     }
                 ]
