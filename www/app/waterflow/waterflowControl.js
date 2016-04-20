@@ -16,6 +16,7 @@ angular.module('app.waterflow')
         src: "img/tubeUpRight.png",
         inputDirection: directions.up,
         outputDirection: directions.right,
+        animationSprites: ["img/tubeUpRight.png"],
         spriteCount: 1,
     };
     var UpLeftTube= {
@@ -23,6 +24,7 @@ angular.module('app.waterflow')
         src: "img/tubeUpLeft.png",
         inputDirection: directions.up,
         outputDirection: directions.left,
+        animationSprites: ["img/tubeUpLeft.png"],
         spriteCount: 1,
     };
 
@@ -30,15 +32,18 @@ angular.module('app.waterflow')
         id:3,
         src: "img/tube.jpg",
         outputDirection: directions.down,
+        animationSprites: ["img/tube.jpg"],
         spriteCount: 1,
     }
     var endTube = {
         id:4,
         src: "img/tube.jpg",
         inputDirection: directions.up,
+        animationSprites: ["img/tube.jpg"],
         spriteCount: 1,
     }
-    tubeVariants.push(UpDownTube, UpRightTube, UpLeftTube);
+    //remove start and endtube if you want randomized map
+    tubeVariants.push(UpDownTube, UpRightTube, UpLeftTube, startTube, endTube);
     
 
 
@@ -76,7 +81,7 @@ angular.module('app.waterflow')
                     {   text: '<b>Videre!</b>',
                         type: 'button-positive',
                         onTap: function(e) {
-                            $rootScope.winGame("water");
+                            $rootScope.winGame("waterflow");
                             return;
                         }
                     }
@@ -157,25 +162,33 @@ angular.module('app.waterflow')
         return result;
     };
 
-    var animationInterval;
+  
     $scope.runAnimationQue = function(result){
-        while(animationQue){
-            animationInterval = setInterval(AnimationFrame(animationQue.shift()), 1000);
-        }
         console.log("running animation que");
+        var currentElement;
+        for(var i = 0; i < animationQue.length; i++){
+            currentElement = animationQue[i];
+            AnimationFrame(currentElement)
+        }
     }
 
-    function AnimationFrame(tubeObject){
-        console.log("AnimationFrame");
-        tubeObject["animationStep"] += 1;
-        if(tubeObject["animationStep"] >= tubeObject["animationSprites"].length){
-            console.log(tubeObject);
-            return true;
+
+    var animationInterval;
+    function AnimationFrame(currentElement){
+        var tubeObject = currentElement["element"]
+        console.log(tubeObject);
+        while(true){
+            tubeObject["animationStep"] += 1;
+            tubeObject["src"] = tubeVariants[tubeObject["tubeID"]].animationSprites[tubeObject["animationStep"]];
+            if(tubeObject["animationStep"] == tubeObject["animationSprites"].length){
+                currentElement["status"] = "treated";
+                break;
+            }
         }
-        tubeObject["src"] = tubeVariants[tubeObject["tubeID"]].animationSprites[tubeObject["animationStep"]];
     }
 
     function nextElement(image){
+        console.log(image);
         //log current image
         //Its not that intuitive to use image["outputDirection"] and image["inputDirection"],
         //because the names do not represent the real output and input directions, and the difference between the two is not relevant to the code logic. 
@@ -224,31 +237,89 @@ angular.module('app.waterflow')
     var columnCount = 5;
     $scope.images = []; 
     $scope.loadImages = function() {
+
+        // prints randomized board
+        // for(var i = 0; i < columnCount; i++) {
+        //     $scope.images.push([]);
+        //     for(var j = 0; j<rowCount; j++){
+        //         if(i == 0 && j == 0){
+        //             loader({tubeID: startTube.id, idX: i, idY:j, rotation: 0, src:startTube.src, inputDirection: 0, outputDirection:startTube.outputDirection, connectedDirection:0,});
+        //         }else if(i == 4 && j == 4){
+        //             loader({tubeID: endTube.id, idX: i, idY:j, rotation: 0, src:endTube.src, outputDirection: 3, inputDirection:endTube.inputDirection, connectedDirection:-1,});
+        //         }
+        //         else{
+        //             var currentTube = pickRandomObjectProperty(tubeVariants);    
+        //             loader({
+        //             tubeID: currentTube.id,
+        //             idX: j, 
+        //             idY: i, 
+        //             rotation: 0, 
+        //             src: currentTube.src, 
+        //             inputDirection: currentTube.inputDirection, 
+        //             outputDirection: currentTube.outputDirection,
+        //             connectedDirection:-1,
+        //             animationStep: 0,
+        //             spriteCount: currentTube.spriteCount,
+        //             });
+
+                    
+        //         }
+        //     }
+        // }
         for(var i = 0; i < columnCount; i++) {
             $scope.images.push([]);
-            for(var j = 0; j<rowCount; j++){
-                if(i == 0 && j == 0){
-                    $scope.images[i].push({tubeID: startTube.id, idX: i, idY:j, rotation: 0, src:startTube.src, inputDirection: 0, outputDirection:startTube.outputDirection, connectedDirection:0,});
-                }else if(i == 4 && j == 4){
-                    $scope.images[i].push({tubeID: endTube.id, idX: i, idY:j, rotation: 0, src:endTube.src, outputDirection: 3, inputDirection:endTube.inputDirection, connectedDirection:-1,});
-                }
-                else{
-                    var currentTube = pickRandomObjectProperty(tubeVariants);    
-                    $scope.images[i].push({
-                    tubeID: currentTube.id,
-                    idX: j, 
-                    idY: i, 
-                    rotation: 0, 
-                    src: currentTube.src, 
-                    inputDirection: currentTube.inputDirection, 
-                    outputDirection: currentTube.outputDirection,
-                    connectedDirection:-1,
-                    animationStep: 0,
-                    spriteCount: currentTube.spriteCount,
-                    });
-                }
-            }
         }
+        loader({tubeID: 3,idX: 0,idY: 0,rotation: 0,src: "img/tube.jpg",inputDirection: 0,outputDirection: 2,connectedDirection: 0,animationStep: undefined,spriteCount: undefined,});
+        loader({tubeID: 0,idX: 1,idY: 0,rotation: 0,src: "img/tubeUpDown.png", inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 1,idX: 2,idY: 0,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 3,idY: 0,rotation: 0,src: "img/tubeUpDown.png", inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 1,idX: 4,idY: 0,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 0,idY: 1,rotation: 0,src: "img/tubeUpRight.png ",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 2,idX: 1,idY: 1,rotation: 0,src: "img/tubeUpLeft.png" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 2,idY: 1,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 2,idX: 3,idY: 1,rotation: 0,src: "img/tubeUpLeft.png" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 2,idX: 4,idY: 1,rotation: 0,src: "img/tubeUpLeft.png" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 0,idY: 2,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 1,idY: 2,rotation: 0,src: "img/tubeUpDown.png" ,inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 1,idX: 2,idY: 2,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 2,idX: 3,idY: 2,rotation: 0,src: "img/tubeUpLeft.png" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 4,idY: 2,rotation: 0,src: "img/tubeUpDown.png" ,inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 1,idX: 0,idY: 3,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 2,idX: 1,idY: 3,rotation: 0,src: "img/tubeUpLeft.png" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 2,idY: 3,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 3,idY: 3,rotation: 0,src: "img/tubeUpDown.png" ,inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 0,idX: 4,idY: 3,rotation: 0,src: "img/tubeUpDown.png" ,inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 0,idX: 0,idY: 4,rotation: 0,src: "img/tubeUpDown.png" ,inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 1,idX: 1,idY: 4,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 2,idX: 2,idY: 4,rotation: 0,src: "img/tubeUpLeft.png" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 3,idY: 4,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube.jpg" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
+
+
+
+
+        // prints code for creating board
+        // for(var i = 0; i < columnCount; i++) {
+        //     for(var j = 0; j<rowCount; j++){
+        //         console.log(
+        //         "loader({tubeID: "+ $scope.images[i][j]["tubeID"]+ ","+
+        //         "idX: "+ $scope.images[i][j]["idX"]+","+
+        //         "idY: "+ $scope.images[i][j]["idY"]+","+
+        //         "rotation: "+ $scope.images[i][j]["rotation"]+","+
+        //         "src: "+ $scope.images[i][j]["src"]+","+
+        //         "inputDirection: "+ $scope.images[i][j]["inputDirection"]+","+
+        //         "outputDirection: "+ $scope.images[i][j]["outputDirection"]+","+
+        //         "connectedDirection: "+ $scope.images[i][j]["connectedDirection"]+","+
+        //         "animationStep: "+ $scope.images[i][j]["animationStep"]+","+
+        //         "spriteCount: "+ $scope.images[i][j]["spriteCount"]+","+
+        //         "});"
+        //         );
+        //     }
+        // }
+    }
+    function loader (element){
+        element["src"] = tubeVariants[element["tubeID"]].src;
+        $scope.images[element["idY"]].push(element);
     }
     function pickRandomObjectProperty(obj){
         var result;
@@ -260,9 +331,7 @@ angular.module('app.waterflow')
         }
         return obj[result];
     }
-
     function generateBoard(){
-
     }
 });
 

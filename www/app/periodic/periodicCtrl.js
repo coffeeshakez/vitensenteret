@@ -19,15 +19,14 @@ angular.module('app.periodic')
 
     // Array that contains the url of all images and indexes in button-array
     var urlAndArray = [
-        {name:"battery", url: "../../img/battery.jpg", index:5},
-        {name:"gold", url: "../../img/gold.jpg", index:3},
-        {name:"diamond", url: "../../img/diamond.jpg", index:7},
+        {name:"battery", url: "./img/battery.jpg", index:5},
+        {name:"gold", url: "./img/gold.jpg", index:3},
+        {name:"diamond", url: "./img/diamond.jpg", index:7},
     ]; 
 
     $scope.onInitialize=function(){
-        nextElement = urlAndArray[urlAndArray.length-1];
-        document.getElementById("periodPic").src = nextElement.url;
-        $scope.buttons[nextElement.index].correct=true;
+        $scope.nextElement = urlAndArray[urlAndArray.length-1];
+        $scope.buttons[$scope.nextElement.index].correct=true;
     }
 
     $scope.submitAnswer=function(answer){
@@ -50,8 +49,7 @@ angular.module('app.periodic')
     }
 
     function initNextElement(){
-        nextElement = urlAndArray[urlAndArray.length-1];
-        document.getElementById("periodPic").src = nextElement.url;
+        $scope.nextElement = urlAndArray[urlAndArray.length-1];
         $scope.buttons[nextElement.index].correct=true;
     }
 
