@@ -3,7 +3,7 @@ var triangle =`
     <div id = "ratioDiv">
     <div id = "selectorContainer">
     
-    <img src="../../img/triangle.svg" class = "soundPhoto">
+    <img src="./img/triangle.svg" class = "soundPhoto">
      
     
     <select id="triangleOne" class="numberSelector">
@@ -39,7 +39,7 @@ var square = `
     <div id = "ratioDiv">
     <div id = "selectorContainer">
      
-    <img src="../../img/square.svg" class = "soundPhoto">
+    <img src="../img/square.svg" class = "soundPhoto">
    
 
    	<select id="squareOne" class="numberSelector">
@@ -83,7 +83,7 @@ var pentagon = `
     <div id = "ratioDiv">
     <div id = "selectorContainer">
     
-    <img src="../../img/pentagon.svg" class = "soundPhoto">
+    <img src="./img/pentagon.svg" class = "soundPhoto">
 
    	<select id="pentaOne" class="numberSelector">
         <option selected>1</option>

@@ -1,8 +1,28 @@
 angular.module('app.chooseLanguage')
-.controller('ChooseLanguageCtrl', function($scope, $state) {
+.controller('ChooseLanguageCtrl', function($scope, $state, $rootScope, localStorageService) {
 
-    $scope.switchTo = function(){
-        $state.go("index.welcomeScreen");
+    var languageLocal = localStorageService.get('language');
+
+    $scope.$watch('language', function () {
+      localStorageService.set('language', $rootScope.language);
+    }, true);
+
+    if(languageLocal)
+        $rootScope.language = languageLocal;
+
+    $scope.switchTo = function(lang){
+        var first = false;
+        if(!languageLocal){
+            first = true;
+        }
+        $rootScope.language = lang;
+        console.log("Changed language to: "+$rootScope.language);
+        if(first){
+            $state.go("index.welcomeScreen");
+        }
+        else {
+            $state.go("index.overview");
+        }
 
     };
 
