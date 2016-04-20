@@ -1,17 +1,17 @@
-<ion-view title="Vitensenteret">
+<ion-view title="RobOtto">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="row">
             <div class="card col-100">
                 <div class="item item-divider">Bygg RobOtto!</div>
-                <div class="ttem item-body">Finn alle delene til å lage barnet til Rob og Otto</div>
+                <div class="ttem item-body">Utforsk vitensenteret, løs gåter og finn robotdeler til å bygge din helt egen robot!</div>
             </div>
         </div>
 
         <div class="row flex-wrap" >
             <div class="col-33 center-margin" ng-repeat="minigame in minigames">
-                <div class="card small">
+                <div class="card small" ng-click="minigameStart(minigame)">
                     <div class="item minigames item-text-wrap part-box vertical-wrapper">
-                        <a href class="sprite icon minigame-icon" ng-class="minigameClasses(minigame)" ng-click="minigameClick(minigame)"></a>
+                        <a href class="sprite icon minigame-icon" ng-class="minigameClasses(minigame)"></a>
                         <i class="icon over-check" ng-class="minigame.collected ? 'ion-checkmark-round balanced' : 'hidden'"></i>
                     </div>
                     <div class="text-center minigame-name">

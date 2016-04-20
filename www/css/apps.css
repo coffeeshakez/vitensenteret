@@ -609,9 +609,14 @@ select{
 
 /* Main screen - end */
 
+.popup {
+  border-radius: 3px;
+  background-color: white;
+}
+
 #robotPartReward{
-    margin-top: 50%;
-    margin-bottom: 40%;
+    margin-top: 18vh;
+    margin-bottom: 18vh;
     animation: reward 1s;
     transform: scale(3) rotate(720deg);
 }
@@ -640,6 +645,13 @@ select{
 
 .item.minigames {
   height: auto;
+}
+
+.popup-title {
+  font-size: 3vmax;
+}
+.popup-sub-title {
+  font-size: 2.5vmax;
 }
 
 /*  Overview screen - end *//* Main screen - end */
