@@ -2,21 +2,23 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 
 
-    <div class="card small centerdiv" >
-        <h5>Finn korteste vei fra Oslo til Trondheim. Dra byene til riktig plassering.</h5>
+    <div id="shortestCard" class="card small centerdiv" >
+        <h5>Finn korteste vei fra Oslo til Trondheim.<br> Dra byene til riktig plassering.</h5>
     </div>
 
-        <div id="shortestListDiv" class = "text-center">
+    <div id="shortestListDiv" class = "text-center">
 
-            <ul id ="shortestListContainer">
-                <li class="safeCity">Første byen</li>
-                <ul id = "shortestList">
-                <li class="shortestCity" ng-repeat="city in cities">{{city.name}}</li>
-                </ul>
-                <li class="safeCity">Siste byen</li>
+        <div id ="shortestListContainer">
+            <div class="safeCity">Første byen</div>
+            <ul id = "shortestList">
+            <li class="shortestCity" ng-repeat="city in cities">{{city.name}}</li>
             </ul>
-
+            <div class="safeCity">Siste byen</div>
         </div>
+    </div>
+
+    <button id="shortestTestCorrect" class="button button-block button-balanced" ng-click="soundCheckCorrect()"> Sjekk om det er riktig! </button>
+
 
     </ion-content>
 </ion-view>
