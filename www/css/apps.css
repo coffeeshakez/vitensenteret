@@ -308,31 +308,23 @@ select{
 
 /*Shortest path -start*/
 
-#shortestCard{
-    height:10%
-}
-
-#shortestListDiv{
-    position:absolute;
-    width: 80%;
-    height: 70%;
-    left:10%;
-    min-height:250px;
-}
-
 #shortestList{
-    height: 80%;
+    margin-left:auto;
+    margin-right:auto;
+    width: 80%;
+    left:10%;
 }
 
 #shortestListContainer{
-    /*position: absolute;*/
     top:5px;
-    height: 80%;
+    height: 100%;
     width: 100%;
     min-height: 300px !important;
 }
 
-
+.shortestCity{
+    height: 6vh;
+}
 .shortestCity, .safeCity{
     background-color: #39C645;
     border-style: solid;
@@ -340,12 +332,15 @@ select{
     border-color: black;
     border-width: 2px;
     margin-top: 4px;
-    height: 13%;
-    min-height: 15px;
+    min-height: 30px;
 }
 
 .safeCity {
+    margin-left: auto;
+    margin-right:auto;
     background-color: #396445 !important;
+    width: 80%;
+    height:10%;
 }
 
 .sortable-chosen{
@@ -353,15 +348,13 @@ select{
     background-color: #399645 !important;
 }
 
-<<<<<<< HEAD
+
 #shortestTestCorrect{
     height: 10%;
     font-size: 150%;
 }
 
 /*Shortes path -end*/
-=======
->>>>>>> de1d7093dcc3a671f492f7d974955646380dff7f
 /* Choose Language - Start */
 
 #language{
