@@ -42,6 +42,15 @@ body{
     margin: 10px;
 }
 
+.col-100 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
 
 .no-padding{
 	padding:0px;
@@ -149,12 +158,28 @@ img{
 	height:60%;
 	margin-top:0px;
 }
+
+.btncont{
+  position: absolute;
+  height: 20%;
+  width: 30%;
+}
+
+.col-33{
+  width: 100% !important;
+}
+
+.shitButt{
+  width: 80%;
+  height: 80% !important;
+  padding-bottom: 5 px;
+}
+
 .small_button{
-	position: relative;
-	height: 100px !important;
-	width: 100px !important;
+	height: 80px !important;
+    max-height: 100%;
+	width: 80px !important;
 	margin:auto !important;
-  font-size: 2.2em;
 }
 
 
@@ -475,51 +500,51 @@ select{
 }
 
 .sprite.head.head1 {
-  background: url('/img/robots.png') no-repeat -316px -30px;
+  background: url('../img/robots.png') no-repeat -316px -30px;
   width: 52px;
   height: 38px;
 }
 
 .sprite.head.head2 {
-  background: url('/img/robots.png') no-repeat -376px -22px;
+  background: url('../img/robots.png') no-repeat -376px -22px;
   width: 52px;
   height: 46px;
 }
 
 .sprite.head.head3 {
-  background: url('/img/robots.png') no-repeat -439px -14px;
+  background: url('../img/robots.png') no-repeat -439px -14px;
   width: 40px;
   height: 54px;
 }
 
 
 .sprite.body.body1 {
-  background: url('/img/robots.png') no-repeat -513px -42px;
+  background: url('../img/robots.png') no-repeat -513px -42px;
   width: 55px;
   height: 25px;
 }
 
 .sprite.body.body2 {
-  background: url('/img/robots.png') no-repeat -520px -126px;
+  background: url('../img/robots.png') no-repeat -520px -126px;
   width: 44px;
   height: 39px;
 }
 
 
 .sprite.arms.arms1 {
-  background: url('/img/robots.png') no-repeat -312px -206px;
+  background: url('../img/robots.png') no-repeat -312px -206px;
   width: 80px;
   height: 48px;
 }
 
 .sprite.arms.arms2 {
-  background: url('/img/robots.png') no-repeat -16px -206px;
+  background: url('../img/robots.png') no-repeat -16px -206px;
   width: 72px;
   height: 72px;
 }
 
 .sprite.arms.arms3 {
-  background: url('/img/robots.png') no-repeat -403px -206px;
+  background: url('../img/robots.png') no-repeat -403px -206px;
   width: 80px;
   height: 56px;
 }
@@ -539,25 +564,25 @@ select{
 
 
 .sprite.legs.legs1 {
-  background: url('/img/robots.png') no-repeat -327px -327px;
+  background: url('../img/robots.png') no-repeat -327px -327px;
   width: 52px;
   height: 45px;
 }
 
 .sprite.legs.legs2 {
-  background: url('/img/robots.png') no-repeat -393px -334px;
+  background: url('../img/robots.png') no-repeat -393px -334px;
   width: 42px;
   height: 38px;
 }
 
 .sprite.legs.legs3 {
-  background: url('/img/robots.png') no-repeat -454px -323px;
+  background: url('../img/robots.png') no-repeat -454px -323px;
   width: 38px;
   height: 54px;
 }
 
 .sprite.legs.legs4 {
-  background: url('/img/robots.png') no-repeat -512px -318px;
+  background: url('../img/robots.png') no-repeat -512px -318px;
   width: 40px;
   height: 54px;
 }
@@ -585,9 +610,14 @@ select{
 
 /* Main screen - end */
 
+.popup {
+  border-radius: 3px;
+  background-color: white;
+}
+
 #robotPartReward{
-    margin-top: 50%;
-    margin-bottom: 40%;
+    margin-top: 18vh;
+    margin-bottom: 18vh;
     animation: reward 1s;
     transform: scale(3) rotate(720deg);
 }
@@ -596,8 +626,8 @@ select{
 
 /* Overview screen - start */
 
-.minigame-icon{
-  font-size: 4em;
+.minigame-icon {
+  font-size: 13vmin;
 }
 
 .minigames .over-check{
@@ -607,6 +637,22 @@ select{
 
 .minigame-icon.part-collected {
     color: slategrey;
+}
+
+.minigame-name {
+    font-size: 3.4vmin;
+    height: auto;
+}
+
+.item.minigames {
+  height: auto;
+}
+
+.popup-title {
+  font-size: 3vmax;
+}
+.popup-sub-title {
+  font-size: 2.5vmax;
 }
 
 /*  Overview screen - end *//* Main screen - end */
@@ -630,9 +676,16 @@ select{
   min-width: 100px;
   width: 50%;
   margin: 20px auto 5px;
-  background-color: rgba(193, 193, 193, 0.2);
   border-radius: 3px;
   border: 3px rgba(0,0,0,0.4) solid;
+}
+
+.mini-lock {
+  width: 20px;
+  min-width: 5px;
+  min-height: 20px;
+  margin: 0 3px;
+  border-style: dashed;
 }
 
 .mini-locks {
