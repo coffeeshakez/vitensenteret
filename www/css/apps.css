@@ -41,6 +41,15 @@ body{
     margin: 10px;
 }
 
+.col-100 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
 
 .no-padding{
 	padding:0px;
@@ -600,9 +609,14 @@ select{
 
 /* Main screen - end */
 
+.popup {
+  border-radius: 3px;
+  background-color: white;
+}
+
 #robotPartReward{
-    margin-top: 50%;
-    margin-bottom: 40%;
+    margin-top: 18vh;
+    margin-bottom: 18vh;
     animation: reward 1s;
     transform: scale(3) rotate(720deg);
 }
@@ -611,8 +625,8 @@ select{
 
 /* Overview screen - start */
 
-.minigame-icon{
-  font-size: 4em;
+.minigame-icon {
+  font-size: 13vmin;
 }
 
 .minigames .over-check{
@@ -622,6 +636,22 @@ select{
 
 .minigame-icon.part-collected {
     color: slategrey;
+}
+
+.minigame-name {
+    font-size: 3.4vmin;
+    height: auto;
+}
+
+.item.minigames {
+  height: auto;
+}
+
+.popup-title {
+  font-size: 3vmax;
+}
+.popup-sub-title {
+  font-size: 2.5vmax;
 }
 
 /*  Overview screen - end *//* Main screen - end */
@@ -645,9 +675,16 @@ select{
   min-width: 100px;
   width: 50%;
   margin: 20px auto 5px;
-  background-color: rgba(193, 193, 193, 0.2);
   border-radius: 3px;
   border: 3px rgba(0,0,0,0.4) solid;
+}
+
+.mini-lock {
+  width: 20px;
+  min-width: 5px;
+  min-height: 20px;
+  margin: 0 3px;
+  border-style: dashed;
 }
 
 .mini-locks {
