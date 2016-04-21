@@ -1,6 +1,6 @@
 angular.module('app.colors')
 .controller('ColorsCtrl', function($scope, $state, $rootScope, $stateParams) {
-    var error_margin = 10;
+    var error_margin = 20;
     $scope.isCorrect = false;
 
     $scope.slider = {red: 100, green: 100, blue: 100}

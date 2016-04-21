@@ -170,7 +170,7 @@ angular.module('app.routes', [])
   
   
 
-$urlRouterProvider.otherwise('/index/shortest')
+$urlRouterProvider.otherwise('/index/overview');
 
 
 });

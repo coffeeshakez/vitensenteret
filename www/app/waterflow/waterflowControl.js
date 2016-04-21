@@ -8,7 +8,7 @@ angular.module('app.waterflow')
         src: "img/tubeUpDown.png",
         inputDirection: directions.up,
         outputDirection: directions.down,
-        animationSprites: ["img/tubeUpDown.png", "img/tubeUpDownHalf.png", "img/tubeUpDownFULL.png"],
+        animationSprites: ["img/tubeUpDown.png"],
         spriteCount: 3,
     };
     var UpRightTube= {
@@ -30,25 +30,28 @@ angular.module('app.waterflow')
 
     var startTube = {
         id:3,
-        src: "img/tube.jpg",
+        src: "img/tube_start.png",
         outputDirection: directions.down,
-        animationSprites: ["img/tube.jpg"],
+        animationSprites: ["img/tube_start.png"],
         spriteCount: 1,
     }
     var endTube = {
         id:4,
-        src: "img/tube.jpg",
+        src: "img/tube_end.png",
         inputDirection: directions.up,
-        animationSprites: ["img/tube.jpg"],
+        animationSprites: ["img/tube_end.png"],
         spriteCount: 1,
     }
-    //remove start and endtube if you want randomized map
+    //remove start and endtube if you want randomized map //, startTube, endTube
     tubeVariants.push(UpDownTube, UpRightTube, UpLeftTube, startTube, endTube);
     
 
 
     //triggered by ng-click on image. Takes an image object
-    $scope.rotateImage = function(image){                              
+    $scope.rotateImage = function(image){
+        if(image["src"] === "img/tube_end.png" || image["src"] === "img/tube_start.png"){
+            return;
+        }                              
         image["rotation"] = (image["rotation"]+90)% 360;
         image["outputDirection"] = (image["outputDirection"]+1)%4;
         image["inputDirection"] = (image["inputDirection"]+1)%4;
@@ -59,52 +62,65 @@ angular.module('app.waterflow')
         $scope.images = [];
         $scope.loadImages();
     }
+
+
+    var numberOfWins = 0;
     function showPopup(result) {
         $scope.data = {};
 
-
         // An elaborate, custom popup
         if(result === true){
+            numberOfWins+=1;
+
 
             //TODO: Add proper text to popups
-            var myPopup = $ionicPopup.show({
-                title: 'Informasjon',
-                subTitle:   "Yo du klarte det, gratulerre",
-                scope: $scope,
-                buttons: [
-                    {   text: 'Spill igjen',
-                        type: 'button-positive',
-                        onTap: function(e){
-                            reset();
+            if(numberOfWins >= 3){
+                var myPopup = $ionicPopup.show({
+                    title: 'Gratulerer!',
+                    subTitle:   "Du har fullført spillet",
+                    scope: $scope,
+                    buttons: [
+                        {   text: '<b>Videre!</b>',
+                            type: 'button-positive',
+                            onTap: function(e) {
+                                numberOfWins = 0;
+                                reset();
+                                $rootScope.winGame("waterflow");
+                                return;
+                            }
                         }
-                    },
-                    {   text: '<b>Videre!</b>',
-                        type: 'button-positive',
-                        onTap: function(e) {
-                            $rootScope.winGame("waterflow");
-                            return;
-                        }
-                    }
-                ]
-            });
+                    ]
+                });
+            }
+            else{
+                var myPopup = $ionicPopup.show({
+                    title: 'Gratulerer!',
+                    subTitle:  "Du klarte dette nivået!",
+                    scope: $scope,
+                    buttons: [
+                        {   text: 'Neste nivå',
+                            type: 'button-positive',
+                            onTap: function(e){
+                                reset();
+                            }
+                        },
+                    ]
+                });
+            }
+
+
         }else{
             var myPopup = $ionicPopup.show({
-                title: 'The flow does not work',
-                subTitle:   "Try again?",
+                title: 'Vann-stien fungerer ikke',
+                subTitle:   "Prøv igjen",
                 scope: $scope,
                 buttons: [
-                    {   text: 'Yes', 
+                    {   text: 'Ok', 
                         type: 'button-positive',
                         onTap: function(e) {
-                            reset();
+                            
                         }
                     },
-                    { text: '<b>No!</b>',
-                        type: 'button-positive',
-                        onTap: function(e) {
-
-                        }
-                    }
                 ]
             });
         }  
@@ -133,7 +149,7 @@ angular.module('app.waterflow')
         var result = false;
         while(currentElement != false){
             //return true when arriving to destination
-            if(currentElement["src"] === "img/tube.jpg" && currentElement != start && currentElement != false){
+            if(currentElement["src"] === "img/tube_end.png" && currentElement != start && currentElement != false){
                 console.log("true");
                 result = true;
                 showPopup(result);
@@ -144,10 +160,7 @@ angular.module('app.waterflow')
             else{
                 currentElement = nextElement(currentElement);
                 //insert animation logic on currentElement here
-
-
-                animationQue.push({element:currentElement, status:'untreated'});
-                
+                animationQue.push(currentElement);
                 //Infinate loop check was used for testing.
                 iterationCount+=1;
                 if(iterationCount > 100){
@@ -163,29 +176,13 @@ angular.module('app.waterflow')
     };
 
   
-    $scope.runAnimationQue = function(result){
-        console.log("running animation que");
-        var currentElement;
-        for(var i = 0; i < animationQue.length; i++){
-            currentElement = animationQue[i];
-            AnimationFrame(currentElement)
-        }
+
+    $scope.levelNumerator = "Nivå " + (numberOfWins+1) + "/3";
+    function changeLevelNumerator(){
+        $scope.levelNumerator = "Nivå " + (numberOfWins+1) + "/3";
     }
 
 
-    var animationInterval;
-    function AnimationFrame(currentElement){
-        var tubeObject = currentElement["element"]
-        console.log(tubeObject);
-        while(true){
-            tubeObject["animationStep"] += 1;
-            tubeObject["src"] = tubeVariants[tubeObject["tubeID"]].animationSprites[tubeObject["animationStep"]];
-            if(tubeObject["animationStep"] == tubeObject["animationSprites"].length){
-                currentElement["status"] = "treated";
-                break;
-            }
-        }
-    }
 
     function nextElement(image){
         console.log(image);
@@ -237,8 +234,7 @@ angular.module('app.waterflow')
     var columnCount = 5;
     $scope.images = []; 
     $scope.loadImages = function() {
-
-        // prints randomized board
+        //creates andomized board
         // for(var i = 0; i < columnCount; i++) {
         //     $scope.images.push([]);
         //     for(var j = 0; j<rowCount; j++){
@@ -265,11 +261,42 @@ angular.module('app.waterflow')
                     
         //         }
         //     }
-        // }
+        //  }
         for(var i = 0; i < columnCount; i++) {
-            $scope.images.push([]);
+             $scope.images.push([]);
         }
-        loader({tubeID: 3,idX: 0,idY: 0,rotation: 0,src: "img/tube.jpg",inputDirection: 0,outputDirection: 2,connectedDirection: 0,animationStep: undefined,spriteCount: undefined,});
+
+        if(numberOfWins === 0)
+           loadLevelOne();
+        else if(numberOfWins === 1){
+           loadLevelTwo();
+        }
+        else if(numberOfWins === 2){
+           loadLevelThree();
+        }
+      // // prints code for board
+        // for(var i = 0; i < columnCount; i++) {
+        //     for(var j = 0; j<rowCount; j++){
+        //         console.log(
+        //         "loader({tubeID: "+ $scope.images[i][j]["tubeID"]+ ","+
+        //         "idX: "+ $scope.images[i][j]["idX"]+","+
+        //         "idY: "+ $scope.images[i][j]["idY"]+","+
+        //         "rotation: "+ $scope.images[i][j]["rotation"]+","+
+        //         "src: "+ $scope.images[i][j]["src"]+","+
+        //         "inputDirection: "+ $scope.images[i][j]["inputDirection"]+","+
+        //         "outputDirection: "+ $scope.images[i][j]["outputDirection"]+","+
+        //         "connectedDirection: "+ $scope.images[i][j]["connectedDirection"]+","+
+        //         "animationStep: "+ $scope.images[i][j]["animationStep"]+","+
+        //         "spriteCount: "+ $scope.images[i][j]["spriteCount"]+","+
+        //         "});"
+        //         );
+        //     }
+        // }
+    }
+
+    function loadLevelOne(){
+        changeLevelNumerator();
+        loader({tubeID: 3,idX: 0,idY: 0,rotation: 0,src: "img/tube_start.png",inputDirection: 0,outputDirection: 2,connectedDirection: 0,animationStep: undefined,spriteCount: undefined,});
         loader({tubeID: 0,idX: 1,idY: 0,rotation: 0,src: "img/tubeUpDown.png", inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
         loader({tubeID: 1,idX: 2,idY: 0,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 0,idX: 3,idY: 0,rotation: 0,src: "img/tubeUpDown.png", inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
@@ -293,32 +320,68 @@ angular.module('app.waterflow')
         loader({tubeID: 1,idX: 1,idY: 4,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 2,idX: 2,idY: 4,rotation: 0,src: "img/tubeUpLeft.png" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 1,idX: 3,idY: 4,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
-        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube.jpg" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
+        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube_end.png" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
+    }
+    function loadLevelTwo(){
+        changeLevelNumerator();
+        loader({tubeID: 3,idX: 0,idY: 0,rotation: 0,src: "img/tube_start.png",inputDirection: 0,outputDirection: 2,connectedDirection: 0,animationStep: undefined,spriteCount: undefined,});
+        loader({tubeID: 1,idX: 1,idY: 0,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 2,idY: 0,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 2,idX: 3,idY: 0,rotation: 0,src: "img/tubeUpLeft.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 4,idY: 0,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 0,idY: 1,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 2,idX: 1,idY: 1,rotation: 0,src: "img/tubeUpLeft.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 2,idX: 2,idY: 1,rotation: 0,src: "img/tubeUpLeft.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 3,idY: 1,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 2,idX: 4,idY: 1,rotation: 0,src: "img/tubeUpLeft.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 0,idY: 2,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 0,idX: 1,idY: 2,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 2,idX: 2,idY: 2,rotation: 0,src: "img/tubeUpLeft.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 3,idY: 2,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 1,idX: 4,idY: 2,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 0,idY: 3,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 1,idY: 3,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 2,idY: 3,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 3,idY: 3,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 1,idX: 4,idY: 3,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 0,idY: 4,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 1,idY: 4,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 2,idY: 4,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 3,idY: 4,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube_end.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
+    }
+    function loadLevelThree(){
 
-
-
-
-        // prints code for creating board
-        // for(var i = 0; i < columnCount; i++) {
-        //     for(var j = 0; j<rowCount; j++){
-        //         console.log(
-        //         "loader({tubeID: "+ $scope.images[i][j]["tubeID"]+ ","+
-        //         "idX: "+ $scope.images[i][j]["idX"]+","+
-        //         "idY: "+ $scope.images[i][j]["idY"]+","+
-        //         "rotation: "+ $scope.images[i][j]["rotation"]+","+
-        //         "src: "+ $scope.images[i][j]["src"]+","+
-        //         "inputDirection: "+ $scope.images[i][j]["inputDirection"]+","+
-        //         "outputDirection: "+ $scope.images[i][j]["outputDirection"]+","+
-        //         "connectedDirection: "+ $scope.images[i][j]["connectedDirection"]+","+
-        //         "animationStep: "+ $scope.images[i][j]["animationStep"]+","+
-        //         "spriteCount: "+ $scope.images[i][j]["spriteCount"]+","+
-        //         "});"
-        //         );
-        //     }
-        // }
+        loader({tubeID: 3,idX: 0,idY: 0,rotation: 0,src: "img/tube_start.png",inputDirection: 0,outputDirection: 2,connectedDirection: 0,animationStep: undefined,spriteCount: undefined,});
+        loader({tubeID: 1,idX: 1,idY: 0,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 2,idY: 0,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 1,idX: 3,idY: 0,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 4,idY: 0,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 0,idY: 1,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 2,idX: 1,idY: 1,rotation: 0,src: "img/tubeUpLeft.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 2,idX: 2,idY: 1,rotation: 0,src: "img/tubeUpLeft.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 3,idY: 1,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 0,idX: 4,idY: 1,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 1,idX: 0,idY: 2,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 2,idX: 1,idY: 2,rotation: 0,src: "img/tubeUpLeft.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 2,idX: 2,idY: 2,rotation: 0,src: "img/tubeUpLeft.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 3,idY: 2,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 4,idY: 2,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 0,idX: 0,idY: 3,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 1,idX: 1,idY: 3,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 2,idY: 3,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 3,idY: 3,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 0,idX: 4,idY: 3,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 0,idX: 0,idY: 4,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
+        loader({tubeID: 2,idX: 1,idY: 4,rotation: 0,src: "img/tubeUpLeft.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 2,idY: 4,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 1,idX: 3,idY: 4,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
+        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube_end.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
+        changeLevelNumerator();
     }
     function loader (element){
-        element["src"] = tubeVariants[element["tubeID"]].src;
+        //if(!element["src"] === "img/tube_.png")
+            element["src"] = tubeVariants[element["tubeID"]].src;
         $scope.images[element["idY"]].push(element);
     }
     function pickRandomObjectProperty(obj){

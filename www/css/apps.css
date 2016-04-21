@@ -24,6 +24,7 @@ body{
     font-weight: 300;
 }
 
+
 .small {
   font-family: 'Comfortaa';
   font-weight: bold;
@@ -50,6 +51,15 @@ body{
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+}
+.col-100 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
 }
 
 .no-padding{
@@ -159,12 +169,27 @@ img{
 	margin-top:0px;
 }
 
+.btncont{
+  position: absolute;
+  height: 20%;
+  width: 30%;
+}
+
+.col-33{
+  width: 100% !important;
+}
+
+.shitButt{
+  width: 80%;
+  height: 80% !important;
+  padding-bottom: 5 px;
+}
+
 .small_button{
-	position: relative;
 	height: 80px !important;
+  max-height: 100%;
 	width: 80px !important;
 	margin:auto !important;
-  font-size: 2.2em;
 }
 
 /*Periodic end*/
@@ -218,74 +243,74 @@ select{
   font-size: 20px;
 }
 
-#triangleOne{
+#triangle-0{
   alignment-adjust: middle;
   position: absolute;
   top:-35px;
   left: 87px;
 }
 
-#triangleTwo{
+#triangle-1{
   position: absolute;
   bottom:-35px;
   left:-35px;
 }
 
-#triangleThree{
+#triangle-2{
   position: absolute;
   bottom: -35px;
   right: -35px;
 }
 
-#squareOne{
+#square-0{
   position: absolute;
   top:-35px;
   left:-35px;
 }
 
-#squareTwo{
+#square-1{
   position: absolute;
   top:-35px;
   right:-35px;
 }
 
-#squareThree{
+#square-2{
   position: absolute;
   bottom:-35px;
   left:-35px;
 }
 
-#squareFour{
+#square-3{
   position: absolute;
   bottom:-35px;
   right:-35px;
 }
 
-#pentaOne{
+#penta-0{
   position: absolute;
   top:-35px;
   left:87px;
 }
 
-#pentaTwo{
+#penta-1{
   position: absolute;
   top:25%;
   right:-35px;
 }
 
-#pentaThree{
+#penta-2{
   position: absolute;
   bottom: -35px;
   right: 0;
 }
 
-#pentaFour{
+#penta-3{
   position: absolute;
   bottom: -35px;
   left: 0;
 }
 
-#pentaFive{
+#penta-5{
   position: absolute;
   top:25%;
   left:-35px;
@@ -618,9 +643,14 @@ select{
 
 /* Main screen - end */
 
+.popup {
+  border-radius: 3px;
+  background-color: white;
+}
+
 #robotPartReward{
-    margin-top: 50%;
-    margin-bottom: 40%;
+    margin-top: 18vh;
+    margin-bottom: 18vh;
     animation: reward 1s;
     transform: scale(3) rotate(720deg);
 }
@@ -629,8 +659,8 @@ select{
 
 /* Overview screen - start */
 
-.minigame-icon{
-  font-size: 4em;
+.minigame-icon {
+  font-size: 13vmin;
 }
 
 .minigames .over-check{
@@ -640,6 +670,22 @@ select{
 
 .minigame-icon.part-collected {
     color: slategrey;
+}
+
+.minigame-name {
+    font-size: 3.4vmin;
+    height: auto;
+}
+
+.item.minigames {
+  height: auto;
+}
+
+.popup-title {
+  font-size: 3vmax;
+}
+.popup-sub-title {
+  font-size: 2.5vmax;
 }
 
 /*  Overview screen - end *//* Main screen - end */
@@ -663,13 +709,30 @@ select{
   min-width: 100px;
   width: 50%;
   margin: 20px auto 5px;
-  background-color: rgba(193, 193, 193, 0.2);
   border-radius: 3px;
   border: 3px rgba(0,0,0,0.4) solid;
 }
 
+.mini-lock {
+  width: 20px;
+  min-width: 5px;
+  min-height: 20px;
+  margin: 0 3px;
+  border-style: dashed;
+}
+
 .mini-locks {
     text-align: center;
+}
+
+.customPadding{
+  padding-top:15px;
+
+}
+
+.hover-image:hover{
+  border-radius: 10px;
+  background-color: rgba(32,32,32, 0.6) ;
 }
 
 .mini-locks .lock-color {

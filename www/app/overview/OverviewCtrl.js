@@ -1,5 +1,5 @@
 angular.module('app.overview')
-.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService) {
+.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService, $ionicPopup) {
 
     var minigamesLocal = localStorageService.get('minigames');
     var partsLocal = localStorageService.get('parts');
@@ -21,13 +21,13 @@ angular.module('app.overview')
     }, true);
 
     $rootScope.minigames = minigamesLocal || {
-        "quiz":      {name: "Quiz",           game: "quiz",      icon: "ion-help",              part: "head",   collected: false},
-        "periodic":  {name: "Grunnstoffer",   game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false},
-        "colors":    {name: "Fargelås",       game: "colors",    icon: "ion-lock-combination",  part: "head",   collected: false},
-        "sound":     {name: "Melodispillet",  game: "sound",     icon: "ion-music-note",        part: "head",   collected: false},
-        "waterflow": {name: "Vannkobling",    game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false},
-        "memory":    {name: "Minnespillet",   game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false},
-        "shortest":  {name: "Korteste veien", game: "shortest",  icon: "ion-map",               part: "legs",   collected: false},
+        "quiz":      {name: "Quiz",           game: "quiz",      icon: "ion-help",              part: "head",   collected: false, story: "En liten Europa-måneboer lurer på hvordan Jordas historie er. Kan du hjelpe den?"},
+        "periodic":  {name: "Grunnstoffer",   game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false, story: "En gal vitenskapsmann prøver å lage en tidsmaskin, men vet ikke hvordan han skal lage ingrediensene. Kan du hjelpe?"},
+        "colors":    {name: "Fargelås",       game: "colors",    icon: "ion-lock-combination",  part: "head",   collected: false, story: "Du finner en låst kiste med en rar kombinasjonslås som har forskjellige farger. Klarer du å låse den opp?"},
+        "sound":     {name: "Melodispillet",  game: "sound",     icon: "ion-music-note",        part: "head",   collected: false, story: "En liten fugl har mistet moren sin. Kan du hjelpe den å svare på moren sin fuglesang?"},
+        "waterflow": {name: "Vannkobling",    game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "Det spruter vann i alle retninger ut av vannkraftverket. Kan du få rørene på plass så det genererer strøm igjen?"},
+        "memory":    {name: "Minnespillet",   game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false, story: "Du møter på et glemskt orakel som har mistet hukommelsen. Kan du hjelpe det å huske kombinasjonen til orakel-skipet sitt?"},
+        "shortest":  {name: "Korteste veien", game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "Du møter på en handelsmann som skal reise landet rundt. Kan du hjelpe han finne den korteste veien?"},
 
     };
 
@@ -50,7 +50,7 @@ angular.module('app.overview')
     $rootScope.resetGame = function(){
         localStorageService.clearAll();
         console.log("Cleared local-storage");
-        document.location = ".";
+        document.location = "index.html";
     }
 
     $scope.collectedMinigamesCount = function(){
@@ -67,11 +67,29 @@ angular.module('app.overview')
         return icon + " " + collected;
     }
 
-    $scope.minigameClick = function(minigame){
-        $state.go("index."+minigame.game);
+    $scope.minigameStart = function(minigame){
+        var popup = gamePopup(minigame);
+        var myPopup = $ionicPopup.show(popup);
     }
 
     $scope.minigameToggle = function(minigame){
         minigame.collected ^= true;
+    }
+
+    function gamePopup(minigame) {
+      return {
+        title: minigame.name,
+        subTitle: minigame.story,
+        scope: $scope,
+        buttons: [
+          {
+            text: '<b>Start!</b>',
+            type: 'button-positive',
+            onTap: function (e) {
+                $state.go("index."+minigame.game);
+            }
+          }
+        ]
+      };
     }
 });

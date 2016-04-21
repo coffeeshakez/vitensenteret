@@ -13,13 +13,19 @@
                     <span class="lock-color" ng-repeat="color in displayLocks" style="background-color: {{printColor(color)}};"></span>
                 </div>
                 <form class="list lock-sliders">
-                    <ion-item class="range range-assertive">
-                        <input ng-model="slider.red" type="range" value="50" min="0" max="100">
-                    </ion-item>
+
+                    <div class="">
+                        <ion-item class="range range-assertive">
+                            <span class="mini-lock lock-color assertive-bg"></span>
+                            <input ng-model="slider.red" type="range" value="50" min="0" max="100">
+                        </ion-item>
+                    </div>
                     <ion-item class="range range-balanced">
+                        <span class="mini-lock lock-color balanced-bg"></span>
                         <input ng-model="slider.green" type="range" value="50" min="0" max="100">
                     </ion-item>
                     <ion-item class="range range-positive">
+                        <span class="mini-lock lock-color positive-bg"></span>
                         <input ng-model="slider.blue" type="range" value="50" min="0" max="100">
                     </ion-item>
                 </form>
