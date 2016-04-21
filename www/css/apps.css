@@ -24,6 +24,7 @@ body{
     font-weight: 300;
 }
 
+
 .small {
   font-family: 'Comfortaa';
   font-weight: bold;
@@ -689,6 +690,16 @@ select{
 
 .mini-locks {
     text-align: center;
+}
+
+.customPadding{
+  padding-top:15px;
+
+}
+
+.hover-image:hover{
+  border-radius: 10px;
+  background-color: rgba(32,32,32, 0.6) ;
 }
 
 .mini-locks .lock-color {
