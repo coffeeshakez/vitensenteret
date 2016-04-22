@@ -1,0 +1,12 @@
+<ion-view title="Map">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div class="map-container">
+            <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false"
+            zooming="true" min-zoom="{{zoomMin}}" style="width: 100%; height: 100%"
+            delegate-handle="scrollHandle{{$index}}" on-scroll="updateSlideStatus(activeSlide)" on-release="updateSlideStatus(activeSlide)">
+                <div class="image map"></div>
+            </ion-scroll>
+
+        </div>
+    </ion-content>
+</ion-view>

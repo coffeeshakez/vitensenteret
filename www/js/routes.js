@@ -25,6 +25,17 @@ angular.module('app.routes', [])
     data: {pageTitle: 'Overview'}
   })
 
+  .state('index.map', {
+    url: "/map",
+    views: {
+      'map': {
+        templateUrl: "app/map/views/map.html",
+        controller: 'MapCtrl'
+      }
+    },
+    data: {pageTitle: 'Overview'}
+  })
+
   .state('index.quiz', {
     url: "/quiz",
     views: {
@@ -91,17 +102,6 @@ angular.module('app.routes', [])
         },
         data: {pageTitle: 'Periodic'}
       })
-      
-
-  .state('index.map', {
-    url: '/map',
-    views: {
-      'map': {
-        templateUrl: 'templates/vitensenteretKart.html',
-        controller: 'vitensenteretKartCtrl'
-      }
-    }
-  })
 
     .state('index.waterflow', {
     url: "/waterflow",
