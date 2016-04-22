@@ -154,6 +154,20 @@ img{
 	height:30%;
 }
 
+.map-container {
+  background-color: white;
+  border-radius: 3px;
+}
+
+.map{
+  height: 80vh;
+  width: 100%;
+  background-image: url("../img/map.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center, center;
+}
+
 .btnArea{
 	height:60%;
 	margin-top:0px;
