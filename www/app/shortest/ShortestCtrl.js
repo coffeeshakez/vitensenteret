@@ -1,15 +1,15 @@
 angular.module('app.shortest').
-controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup) {
+controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootScope) {
 
     $scope.cities = [
-        {name: "Copenhagen",index:0},
-        {name: "Háborg",index:1},
-        {name: "Erdfurt", index:2},
-        {name: "Dresen", index:3},
-        {name: "Strasborg", index:4},
-        {name: "Paris", index:5},
-        {name: "Londen",  iinndex:6},
-        {name: "Brußel",  index:7},
+        {name: "Londen",  index:1},
+        {name: "Brußel",  index:0},
+        {name: "Paris", index:2},
+        {name: "Strasborg", index:3},
+        {name: "Dresen", index:4},
+        {name: "Erdfurt", index:5},
+        {name: "Háborg",index:6},
+        {name: "Copenhagen",index:7},
     ]
 
 
@@ -23,21 +23,39 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup) {
     }
 
     $scope.shortestCheckCorrect = function (){
-        showPopup();
+        var numberOfCorrect = 0;
         console.log(sortable);
+        var listElements = el.getElementsByTagName("li");
+        for(var i=0;i<listElements.length; i++){
+            if(listElements[i].value == i){
+                listElements[i].style.backgroundColor= "#39C645";
+                numberOfCorrect++;
+            }
+            else{
+                listElements[i].style.backgroundColor= "#990000";
+            }
+        }
+
+        if(numberOfCorrect==listElements.length){
+            showPopup();
+        }
+
     }
+
+
 
     function showPopup(){
         var pop =
         {
-            title: "Yawlaw",
-            subTitle: "Dette funker vettu",
+            title: "Gratulerer",
+            subTitle: "Du har funnet kortste vei fra Amsterdam til Trondheim",
             scope: $scope,
             buttons: [
                 {
                     text: '<b>Trykk på meg!</b>',
                     type: 'button-positive',
                     onTap: function () {
+                        $rootScope.winGame("shortest");
                     }
                 }
             ]
