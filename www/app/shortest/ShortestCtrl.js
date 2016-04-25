@@ -13,7 +13,7 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootSco
     ]
 
 
-    function winShit(){
+    function winning(){
         $rootScope.winGame("shortest");
     }
     var sortable;
@@ -57,7 +57,7 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootSco
                     text: '<b>Trykk på meg!</b>',
                     type: 'button-positive',
                     onTap: function () {
-                        winShit();
+                        winning();
                     }
                 }
             ]
