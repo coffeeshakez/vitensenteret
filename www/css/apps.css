@@ -429,11 +429,9 @@ select{
   position: absolute;
 }
 
-
-
-
 .memory-button{
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out, box-shadow 0.1s ease-in-out;
+    border-color: rgba(0, 0, 0, 0.18) !important;
     margin: 5px;
     height: 40% !important;
     width: 45%;
@@ -474,6 +472,21 @@ select{
     opacity: .5;
 }
 
+
+
+.memory-button.pink.active{
+    box-shadow: #b24881 0px 0px 37px;
+}
+.memory-button.green.active{
+    box-shadow: #39C645 0px 0px 37px;
+
+}
+.memory-button.orange.active{
+    box-shadow: #FF7231 0px 0px 37px;
+}
+.memory-button.yellow.active{
+    box-shadow: #CFDE00 0px 0px 37px;
+}
 .memory-button.active{
     opacity: 1;
 }
