@@ -33,7 +33,7 @@ pentaTwo
         },
     };
 
-    $scope.currentStage = $scope.stages["triangle"];
+
 
 
     $scope.playImitate = function(){
@@ -60,6 +60,16 @@ pentaTwo
     }
 
     function initNext(){
+        if(taskNumber==0){
+            $scope.currentStage = $scope.stages["triangle"];
+        }
+        else if(taskNumber==1){
+            $scope.currentStage = $scope.stages["square"];
+        }
+        else if(taskNumber==2){
+            $scope.currentStage = $scope.stages["penta"];
+        }
+
         taskNumber++;
 
     }
@@ -173,16 +183,16 @@ pentaTwo
     function checkTriangle(){
         var rettArray = [0,0,0,0,0];
         var antallRett = 0;
-        if(document.getElementById("triangleOne").value == 1) {
+        if(document.getElementById("triangle-0").value == 1) {
             rettArray[0] = 1;
             antallRett++;
         }
 
-        if(document.getElementById("triangleTwo").value == 2) {
+        if(document.getElementById("triangle-1").value == 2) {
             rettArray[1] = 1;
             antallRett++;
         }
-        if(document.getElementById("triangleThree").value == 3){
+        if(document.getElementById("triangle-2").value == 3){
             rettArray[2] = 1
             antallRett++;
         }
@@ -196,20 +206,20 @@ pentaTwo
     function checkSquare(){
         var rettArray = [0,0,0,0,0];
         var antallRett =0;
-        if (document.getElementById("squareOne").value == 1) {
+        if (document.getElementById("square-0").value == 1) {
             rettArray[0] = 1;
             antallRett++;
         }
-        if (document.getElementById("squareTwo").value == 2) {
+        if (document.getElementById("square-1").value == 2) {
             rettArray[1] = 1;
             antallRett++;
         }
 
-        if (document.getElementById("squareThree").value == 3) {
+        if (document.getElementById("square-2").value == 3) {
             rettArray[2] = 1;
             antallRett++;
         }
-        if (document.getElementById("squareFour").value == 4) {
+        if (document.getElementById("square-3").value == 4) {
             rettArray[3] = 1;
             antallRett++;
         }
@@ -223,23 +233,23 @@ pentaTwo
     function checkPentagon(){
         var rettArray = [0,0,0,0,0];
         var antallRett =0;
-        if(document.getElementById("pentaOne").value == 1){
+        if(document.getElementById("penta-0").value == 1){
             rettArray[0] = 1;
             antallRett++;
         }
-        if(document.getElementById("pentaTwo").value == 2){
+        if(document.getElementById("penta-1").value == 2){
             rettArray[1] = 1;
             antallRett++;
         }
-        if(document.getElementById("pentaThree").value == 3){
+        if(document.getElementById("penta-2").value == 3){
             rettArray[2] = 1;
             antallRett++;
         }
-        if(document.getElementById("pentaFour").value == 4){
+        if(document.getElementById("penta-3").value == 4){
             rettArray[3] = 1;
             antallRett++;
         }
-        if (document.getElementById("pentaFive").value = 5) {
+        if (document.getElementById("penta-4").value = 5) {
             rettArray[4] = 1;
             antallRett++;
         }
