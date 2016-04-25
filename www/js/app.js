@@ -8,6 +8,7 @@
 angular.module('app', [
   'ionic',
   'LocalStorageModule',
+  'pascalprecht.translate',
   'app.controllers', 
   'app.routes', 
   'app.services', 
@@ -29,6 +30,25 @@ angular.module('app', [
 
   //'app.myapp',
   ])
+
+.config(function ($translateProvider) {
+  $translateProvider.useStaticFilesLoader({
+      prefix: 'translations/',
+      suffix: '.json'
+  });
+
+  $translateProvider.registerAvailableLanguageKeys(['en', 'no'], {
+      'en-US': 'en',
+      'en-UK': 'en',
+      'no-nb': 'no',
+      'no-nn': 'no'
+  });
+
+  $translateProvider.fallbackLanguage('en');
+  $translateProvider.useSanitizeValueStrategy(null);
+  $translateProvider.preferredLanguage('en');
+})
+
 .config(['localStorageServiceProvider', function(localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('viten');
 }])

@@ -436,9 +436,6 @@ select{
   position: absolute;
 }
 
-
-
-
 .memory-button{
     transition: opacity 0.2s ease-in-out, box-shadow 0.1s ease-in-out;
     border-color: rgba(0, 0, 0, 0.18) !important;
