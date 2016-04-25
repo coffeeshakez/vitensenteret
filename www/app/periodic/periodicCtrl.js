@@ -1,7 +1,5 @@
 angular.module('app.periodic')
 .controller('periodicCtrl', function($scope, $rootScope, $stateParams, $ionicPopup) {
-    $scope.variable = false;
-    $scope.slider = {red: 100, green: 100, blue: 100}
 
     $scope.buttons = [
         {name: "O", correct: false, index:0},
@@ -36,7 +34,7 @@ angular.module('app.periodic')
         showPopup(isCorrect, answer);
 
         if(isCorrect == true){
-            $scope.buttons[nextElement.index].correct=false;
+            $scope.buttons[$scope.nextElement.index].correct=false;
             urlAndArray.pop();
             
         }
@@ -44,19 +42,19 @@ angular.module('app.periodic')
         else{
             var oldElement = urlAndArray.pop();
             urlAndArray.unshift(oldElement);
-            $scope.buttons[nextElement.index].correct=false;
+            $scope.buttons[$scope.nextElement.index].correct=false;
         }
     }
 
     function initNextElement(){
         $scope.nextElement = urlAndArray[urlAndArray.length-1];
-        $scope.buttons[nextElement.index].correct=true;
+        $scope.buttons[$scope.nextElement.index].correct=true;
     }
 
 
 
     function checkCorrect(answer){
-        if(answer.index == nextElement.index){
+        if(answer.index == $scope.nextElement.index){
             return(true);
         }
         else{

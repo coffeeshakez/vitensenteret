@@ -50,7 +50,7 @@ angular.module('app.overview')
     $rootScope.resetGame = function(){
         localStorageService.clearAll();
         console.log("Cleared local-storage");
-        document.location = ".";
+        document.location = "index.html";
     }
 
     $scope.collectedMinigamesCount = function(){
@@ -87,6 +87,13 @@ angular.module('app.overview')
             type: 'button-positive',
             onTap: function (e) {
                 $state.go("index."+minigame.game);
+            }
+          },
+          {
+            text: '<b>Avbryt</b>',
+            type: 'button-positive',
+            onTap: function (e) {
+                return false;
             }
           }
         ]

@@ -1,7 +1,6 @@
 angular.module('app.waterflow')
 .controller('waterflowControl', function($scope, $rootScope, $ionicPopup) {
-    var directions = {up:0, right:1, down:2, left:3};
-    
+    var directions = {up:0, right:1, down:2, left:3};    
     var tubeVariants = [];
     var UpDownTube = {
         id:0,
@@ -30,16 +29,16 @@ angular.module('app.waterflow')
 
     var startTube = {
         id:3,
-        src: "img/tube.jpg",
+        src: "img/tube_start.png",
         outputDirection: directions.down,
-        animationSprites: ["img/tube.jpg"],
+        animationSprites: ["img/tube_start.png"],
         spriteCount: 1,
     }
     var endTube = {
         id:4,
-        src: "img/tube.jpg",
+        src: "img/tube_end.png",
         inputDirection: directions.up,
-        animationSprites: ["img/tube.jpg"],
+        animationSprites: ["img/tube_end.png"],
         spriteCount: 1,
     }
     //remove start and endtube if you want randomized map //, startTube, endTube
@@ -49,7 +48,7 @@ angular.module('app.waterflow')
 
     //triggered by ng-click on image. Takes an image object
     $scope.rotateImage = function(image){
-        if(image["src"] === "img/tube.jpg"){
+        if(image["src"] === "img/tube_end.png" || image["src"] === "img/tube_start.png"){
             return;
         }                              
         image["rotation"] = (image["rotation"]+90)% 360;
@@ -149,7 +148,7 @@ angular.module('app.waterflow')
         var result = false;
         while(currentElement != false){
             //return true when arriving to destination
-            if(currentElement["src"] === "img/tube.jpg" && currentElement != start && currentElement != false){
+            if(currentElement["src"] === "img/tube_end.png" && currentElement != start && currentElement != false){
                 console.log("true");
                 result = true;
                 showPopup(result);
@@ -173,7 +172,7 @@ angular.module('app.waterflow')
         console.log("While loop exited nextElement returned false");
         showPopup(result);
         return result;
-    };
+    }
 
   
 
@@ -226,7 +225,8 @@ angular.module('app.waterflow')
         //set the connectedDirection so that the nextElement is connected to the path.
         next["connectedDirection"] = opposite(outputDirection);
         return next;
-    };
+    }
+
     opposite = function(int){
         return int >= 2 ? int-2 : int+2;
     }
@@ -266,8 +266,9 @@ angular.module('app.waterflow')
              $scope.images.push([]);
         }
 
-        if(numberOfWins === 0)
+        if(numberOfWins === 0){
            loadLevelOne();
+        }
         else if(numberOfWins === 1){
            loadLevelTwo();
         }
@@ -296,7 +297,7 @@ angular.module('app.waterflow')
 
     function loadLevelOne(){
         changeLevelNumerator();
-        loader({tubeID: 3,idX: 0,idY: 0,rotation: 0,src: "img/tube.jpg",inputDirection: 0,outputDirection: 2,connectedDirection: 0,animationStep: undefined,spriteCount: undefined,});
+        loader({tubeID: 3,idX: 0,idY: 0,rotation: 0,src: "img/tube_start.png",inputDirection: 0,outputDirection: 2,connectedDirection: 0,animationStep: undefined,spriteCount: undefined,});
         loader({tubeID: 0,idX: 1,idY: 0,rotation: 0,src: "img/tubeUpDown.png", inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
         loader({tubeID: 1,idX: 2,idY: 0,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 0,idX: 3,idY: 0,rotation: 0,src: "img/tubeUpDown.png", inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
@@ -320,11 +321,11 @@ angular.module('app.waterflow')
         loader({tubeID: 1,idX: 1,idY: 4,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 2,idX: 2,idY: 4,rotation: 0,src: "img/tubeUpLeft.png" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 1,idX: 3,idY: 4,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
-        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube.jpg" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
+        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube_end.jpg" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
     }
     function loadLevelTwo(){
         changeLevelNumerator();
-        loader({tubeID: 3,idX: 0,idY: 0,rotation: 0,src: "img/tube.jpg",inputDirection: 0,outputDirection: 2,connectedDirection: 0,animationStep: undefined,spriteCount: undefined,});
+        loader({tubeID: 3,idX: 0,idY: 0,rotation: 0,src: "img/tube_start.png",inputDirection: 0,outputDirection: 2,connectedDirection: 0,animationStep: undefined,spriteCount: undefined,});
         loader({tubeID: 1,idX: 1,idY: 0,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 0,idX: 2,idY: 0,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
         loader({tubeID: 2,idX: 3,idY: 0,rotation: 0,src: "img/tubeUpLeft.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
@@ -348,11 +349,11 @@ angular.module('app.waterflow')
         loader({tubeID: 1,idX: 1,idY: 4,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 1,idX: 2,idY: 4,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 0,idX: 3,idY: 4,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
-        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube.jpg",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
+        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube_end.jpg" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
     }
     function loadLevelThree(){
 
-        loader({tubeID: 3,idX: 0,idY: 0,rotation: 0,src: "img/tube.jpg",inputDirection: 0,outputDirection: 2,connectedDirection: 0,animationStep: undefined,spriteCount: undefined,});
+        loader({tubeID: 3,idX: 0,idY: 0,rotation: 0,src: "img/tube_start.png",inputDirection: 0,outputDirection: 2,connectedDirection: 0,animationStep: undefined,spriteCount: undefined,});
         loader({tubeID: 1,idX: 1,idY: 0,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 0,idX: 2,idY: 0,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
         loader({tubeID: 1,idX: 3,idY: 0,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
@@ -376,12 +377,12 @@ angular.module('app.waterflow')
         loader({tubeID: 2,idX: 1,idY: 4,rotation: 0,src: "img/tubeUpLeft.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 1,idX: 2,idY: 4,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 1,idX: 3,idY: 4,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
-        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube.jpg",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
+        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube_end.jpg",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined, spriteCount: undefined,});
         changeLevelNumerator();
     }
     function loader (element){
-        //if(!element["src"] === "img/tube.jpg")
-            element["src"] = tubeVariants[element["tubeID"]].src;
+        //if(!element["src"] === "img/tube_.png")
+        element["src"] = tubeVariants[element["tubeID"]].src;
         $scope.images[element["idY"]].push(element);
     }
     function pickRandomObjectProperty(obj){
@@ -394,7 +395,6 @@ angular.module('app.waterflow')
         }
         return obj[result];
     }
-    function generateBoard(){
-    }
 });
+
 

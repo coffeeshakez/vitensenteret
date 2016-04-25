@@ -24,6 +24,7 @@ angular.module('app', [
   'app.reward',
   'app.sound',
   'app.colors',
+  'app.map',
   
 
   //'app.myapp',
