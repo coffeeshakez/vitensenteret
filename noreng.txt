@@ -1,0 +1,79 @@
+Choose Language-module:
+
+Velg språk
+Choose language
+
+Velg språk
+Choose language
+
+Oversikt
+Overview
+
+Kart
+Map
+
+Min robot
+My robot
+
+Norsk
+English
+
+Velkommen
+Welcome
+
+Trykk på oss
+Push us
+
+Informasjon
+Information
+
+Hei, Rob og Otto her! Vi ønsker å adoptere en robot og trenger din hjelp til dette. Rund omkring i  utstillingen er det mange robotdeler, men de er dessverre låst inne. For å frigjøre robotdelene måde løse diverse oppgaver og spill ved hjelp av smarttelefonen din og utstillingen. Klarer du lage den kuleste roboten?
+
+Avbryt
+Cancel
+
+Kom i gang!
+Get started
+
+Vitensenteret
+Trondheim Science Centre
+
+Bygg RobOtto!
+Build RobOtto!
+
+Finn alle delene til å lage barnet til Rob og Otto.
+Find all the parts needed to make Rob and Ottos baby.
+
+Quiz
+Quiz
+
+Grunnstoffer
+Table of Elements
+
+Fargelås
+Colorlock
+
+Melodispillet
+Melody game
+
+Vannkobling
+Water connection
+
+Minnespillet
+Simon says
+
+Korteste veien
+Shortest path
+
+Din robot
+Your robot
+
+Du har samlet x/x deler
+You have collected x/x parts
+
+Generer din robot.
+Generate your robot.
+
+Slett din robot og start spillet på nytt
+Delete your robot and start over
+
