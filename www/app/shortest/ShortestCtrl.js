@@ -2,13 +2,14 @@ angular.module('app.shortest').
 controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup) {
 
     $scope.cities = [
-        {name: "Oslo",index:0},
-        {name: "Bergen",index:1},
-        {name: "Trondheim", index:2},
-        {name: "Hønefoss", index:3},
-        {name: "Drammen", index:4},
-        {name: "Bodø",  index:5},
-        {name: "Tromsø",  index:6},
+        {name: "Copenhagen",index:0},
+        {name: "Háborg",index:1},
+        {name: "Erdfurt", index:2},
+        {name: "Dresen", index:3},
+        {name: "Strasborg", index:4},
+        {name: "Paris", index:5},
+        {name: "Londen",  iinndex:6},
+        {name: "Brußel",  index:7},
     ]
 
 
