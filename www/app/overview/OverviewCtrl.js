@@ -88,6 +88,13 @@ angular.module('app.overview')
             onTap: function (e) {
                 $state.go("index."+minigame.game);
             }
+          },
+          {
+            text: '<b>Avbryt</b>',
+            type: 'button-positive',
+            onTap: function (e) {
+                return false;
+            }
           }
         ]
       };

@@ -164,6 +164,20 @@ img{
 	height:30%;
 }
 
+.map-container {
+  background-color: white;
+  border-radius: 3px;
+}
+
+.map{
+  height: 80vh;
+  width: 100%;
+  background-image: url("../img/map.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center, center;
+}
+
 .btnArea{
 	height:60%;
 	margin-top:0px;
@@ -467,7 +481,8 @@ select{
 
 
 .memory-button{
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out, box-shadow 0.1s ease-in-out;
+    border-color: rgba(0, 0, 0, 0.18) !important;
     margin: 5px;
     height: 40% !important;
     width: 45%;
@@ -508,6 +523,21 @@ select{
     opacity: .5;
 }
 
+
+
+.memory-button.pink.active{
+    box-shadow: #b24881 0px 0px 37px;
+}
+.memory-button.green.active{
+    box-shadow: #39C645 0px 0px 37px;
+
+}
+.memory-button.orange.active{
+    box-shadow: #FF7231 0px 0px 37px;
+}
+.memory-button.yellow.active{
+    box-shadow: #CFDE00 0px 0px 37px;
+}
 .memory-button.active{
     opacity: 1;
 }

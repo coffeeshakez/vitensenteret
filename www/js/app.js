@@ -25,6 +25,7 @@ angular.module('app', [
   'app.shortest',
   'app.sound',
   'app.colors',
+  'app.map',
   
 
   //'app.myapp',
