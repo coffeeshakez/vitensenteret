@@ -24,6 +24,7 @@ body{
     font-weight: 300;
 }
 
+
 .small {
   font-family: 'Comfortaa';
   font-weight: bold;
@@ -245,74 +246,74 @@ select{
   font-size: 20px;
 }
 
-#triangleOne{
+#triangle-0{
   alignment-adjust: middle;
   position: absolute;
   top:-35px;
   left: 87px;
 }
 
-#triangleTwo{
+#triangle-1{
   position: absolute;
   bottom:-35px;
   left:-35px;
 }
 
-#triangleThree{
+#triangle-2{
   position: absolute;
   bottom: -35px;
   right: -35px;
 }
 
-#squareOne{
+#square-0{
   position: absolute;
   top:-35px;
   left:-35px;
 }
 
-#squareTwo{
+#square-1{
   position: absolute;
   top:-35px;
   right:-35px;
 }
 
-#squareThree{
+#square-2{
   position: absolute;
   bottom:-35px;
   left:-35px;
 }
 
-#squareFour{
+#square-3{
   position: absolute;
   bottom:-35px;
   right:-35px;
 }
 
-#pentaOne{
+#penta-0{
   position: absolute;
   top:-35px;
   left:87px;
 }
 
-#pentaTwo{
+#penta-1{
   position: absolute;
   top:25%;
   right:-35px;
 }
 
-#pentaThree{
+#penta-2{
   position: absolute;
   bottom: -35px;
   right: 0;
 }
 
-#pentaFour{
+#penta-3{
   position: absolute;
   bottom: -35px;
   left: 0;
 }
 
-#pentaFive{
+#penta-5{
   position: absolute;
   top:25%;
   left:-35px;
@@ -727,6 +728,16 @@ select{
 
 .mini-locks {
     text-align: center;
+}
+
+.customPadding{
+  padding-top:15px;
+
+}
+
+.hover-image:hover{
+  border-radius: 10px;
+  background-color: rgba(32,32,32, 0.6) ;
 }
 
 .mini-locks .lock-color {

@@ -50,7 +50,7 @@ angular.module('app.overview')
     $rootScope.resetGame = function(){
         localStorageService.clearAll();
         console.log("Cleared local-storage");
-        document.location = ".";
+        document.location = "index.html";
     }
 
     $scope.collectedMinigamesCount = function(){

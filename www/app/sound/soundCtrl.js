@@ -7,6 +7,35 @@ angular.module('app.sound')
     var viewInsert = document.getElementById("soundView");
     var taskNumber = 0;
 
+/*
+triangle-1
+squareTwo
+pentaTwo
+*/
+    $scope.stages = {
+        "triangle": {
+            image: "./img/triangle.svg",
+            id: "triangle",
+            size: [0,1,2],
+            sound: "./sound/teleport.wav",
+        },
+        "square": {
+            image: "./img/square.svg",
+            id: "square",
+            size: [0,1,2,3],
+            sound: "./sound/teleport.wav",
+        },
+        "penta": {
+            image: "./img/pentagon.svg",
+            id: "penta",
+            size: [0,1,2,3,4],
+            sound: "./sound/teleport.wav",
+        },
+    };
+
+    $scope.currentStage = $scope.stages["triangle"];
+
+
     $scope.playImitate = function(){
 
 		sangen.currentTime = 0;
@@ -32,17 +61,6 @@ angular.module('app.sound')
 
     function initNext(){
         taskNumber++;
-         if(taskNumber==1){
-            insertTriangle();
-        }
-
-        else if(taskNumber==2){
-            insertSquare();
-        }
-        else if (taskNumber == 3){
-            insertPentagon();
-        }
-
 
     }
 
@@ -150,19 +168,6 @@ angular.module('app.sound')
         myPopup.then(function(res) {
             console.log('Tapped!', res);
         });
-    }
-
-
-    function insertTriangle(){
-       viewInsert.innerHTML = triangle;
-   }
-
-   function insertSquare(){
-        viewInsert.innerHTML = square;
-    }
-
-    function insertPentagon(){
-        viewInsert.innerHTML = pentagon;
     }
 
     function checkTriangle(){

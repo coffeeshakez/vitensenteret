@@ -167,10 +167,6 @@ angular.module('app.routes', [])
       },
       data: {pageTitle: 'Example'}
     })
-  
-  
-
 $urlRouterProvider.otherwise('/index/overview')
-
-
+  
 });
