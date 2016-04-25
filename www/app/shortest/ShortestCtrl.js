@@ -1,5 +1,5 @@
 angular.module('app.shortest').
-controller('ShortestCtrl', function($scope, $stateParams) {
+controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup) {
 
     $scope.cities = [
         {name: "Oslo",index:0},
@@ -19,6 +19,35 @@ controller('ShortestCtrl', function($scope, $stateParams) {
     $scope.createSortable = function(){
         el = document.getElementById('shortestList');
         sortable = Sortable.create(el);
+    }
+
+    $scope.shortestCheckCorrect = function (){
+        showPopup();
+        console.log(sortable);
+    }
+
+    function showPopup(){
+        var pop =
+        {
+            title: "Yawlaw",
+            subTitle: "Dette funker vettu",
+            scope: $scope,
+            buttons: [
+                {
+                    text: '<b>Trykk på meg!</b>',
+                    type: 'button-positive',
+                    onTap: function () {
+                    }
+                }
+            ]
+        };
+
+        var myPopup = $ionicPopup.show(pop);
+
+
+        myPopup.then(function(res) {
+            console.log('Tapped!', res);
+        });
     }
 
 });

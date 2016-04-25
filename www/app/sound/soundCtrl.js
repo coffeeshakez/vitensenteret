@@ -183,6 +183,7 @@ pentaTwo
     function checkTriangle(){
         var rettArray = [0,0,0,0,0];
         var antallRett = 0;
+        console.log($scope);
         if(document.getElementById("triangle-0").value == 1) {
             rettArray[0] = 1;
             antallRett++;

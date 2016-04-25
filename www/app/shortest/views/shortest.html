@@ -11,13 +11,13 @@
         <div id ="shortestListContainer">
             <div class="safeCity">Første byen</div>
             <ul id = "shortestList">
-            <li class="shortestCity" ng-repeat="city in cities">{{city.name}}</li>
+            <li class="shortestCity" ng-repeat="city in cities" value={{city.index}}>{{city.name}}</li>
             </ul>
             <div class="safeCity">Siste byen</div>
         </div>
     </div>
 
-    <button id="shortestTestCorrect" class="button button-block button-balanced" ng-click="soundCheckCorrect()"> Sjekk om det er riktig! </button>
+    <button id="shortestTestCorrect" class="button button-block button-balanced" ng-click="shortestCheckCorrect()"> Sjekk om det er riktig! </button>
 
 
     </ion-content>
