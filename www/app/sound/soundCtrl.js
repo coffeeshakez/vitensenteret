@@ -33,6 +33,20 @@ pentaTwo
         },
     };
 
+    $scope.filterCondition={
+        operator: 'eq'
+    }
+
+    $scope.operators = [
+        {value:1 , selected:'neq'},
+        {value:2 , selected:'neq'},
+        {value:3 , selected:'neq'},
+        {value:4 , selected:'neq'},
+        {value:5 , selected:'neq'}
+    ];
+
+
+
 
 
 
@@ -44,7 +58,7 @@ pentaTwo
 
     $scope.initSound = function () {
         initNext();
-    };
+
 
     $scope.soundCheckCorrect = function () {
         if(taskNumber==1){
@@ -261,4 +275,7 @@ pentaTwo
 
         return [false, rettArray];
     }
+
+
+    };
 });

@@ -15,7 +15,7 @@
         <div id='selectorContainer'>
             <img class='soundPhoto' ng-src='{{currentStage.image}}'> 
             <select class='numberSelector'  id='{{currentStage.id}}-{{$index}}' ng-repeat="edge in currentStage.size">
-                <option value='{{option}}' ng-repeat="option in [1,2,3,4,5]">{{option}}</option>
+                <option value='{{option}}'  ng-repeat="option in [1,2,3,4,5]">{{option}}</option>
             </select> 
         </div>
     </div>

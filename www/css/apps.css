@@ -193,18 +193,10 @@ img{
   width: 100% !important;
 }
 
-.shitButt{
+.small_button{
   width: 80%;
   height: 80% !important;
   padding-bottom: 5 px;
-}
-
-.small_button{
-	position: relative;
-	height: 80px !important;
-	width: 80px !important;
-    max-height: 100%;
-  font-size: 2.2em;
 }
 
 
@@ -218,8 +210,8 @@ select{
 }
 
 #soundPlayBtn{
-  height: 15% !important;
-  font-size: 30px;
+  height: 10% !important;
+  font-size: 200%;
   text-align: center;
 }
 
@@ -350,6 +342,7 @@ select{
 
 /*Shortest path -start*/
 
+
 #shortestList{
     margin-left:auto;
     margin-right:auto;
@@ -365,7 +358,7 @@ select{
 }
 
 .shortestCity{
-    height: 6vh;
+    height: 5.5vh;
     background-color:#990000;
 }
 .shortestCity, .safeCity{
@@ -396,6 +389,11 @@ select{
 #shortestTestCorrect{
     height: 10%;
     font-size: 150%;
+
+}
+#shortestListDiv{
+    background-color:red;
+
 }
 
 /*Shortes path -end*/
