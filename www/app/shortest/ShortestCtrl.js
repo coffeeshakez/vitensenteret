@@ -13,7 +13,7 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootSco
     ]
 
 
-    function winShit(){
+    function winner(){
         $rootScope.winGame("shortest");
     }
     var sortable;
