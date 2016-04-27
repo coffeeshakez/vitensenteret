@@ -486,6 +486,10 @@ select{
   cursor: pointer;
 }
 
+.part-list {
+  zoom: 0.7;
+}
+
 .changePart.left{
   text-align: left;
   left: 0;
