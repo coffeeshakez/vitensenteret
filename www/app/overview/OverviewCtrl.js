@@ -28,7 +28,6 @@ angular.module('app.overview')
         $scope.translations = translations;
     });
 
-
     
     $scope.$watch('minigames', function () {
       localStorageService.set('minigames', $scope.minigames);
@@ -37,6 +36,7 @@ angular.module('app.overview')
     $scope.$watch('parts', function () {
       localStorageService.set('parts', $scope.parts);
     }, true);
+
 
     $rootScope.minigames = minigamesLocal || {
         "quiz":      {name: "OVERVIEW_QUIZ_BUTTON",           game: "quiz",      icon: "ion-help",              part: "head",   collected: false, story: "En liten Europa-måneboer lurer på hvordan Jordas historie er. Kan du hjelpe den?"},

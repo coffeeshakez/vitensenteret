@@ -46,7 +46,6 @@ angular.module('app', [
 
   $translateProvider.fallbackLanguage('en');
   $translateProvider.useSanitizeValueStrategy(null);
-  $translateProvider.preferredLanguage('en');
 })
 
 .config(['localStorageServiceProvider', function(localStorageServiceProvider){
