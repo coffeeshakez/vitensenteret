@@ -36,7 +36,10 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootSco
         }
 
         if(numberOfCorrect==listElements.length){
-            showPopup();
+            showPopup(true);
+        }
+        else if(numberOfCorrect!=listElements.length){
+            showPopup(false)
         }
 
     }
@@ -47,22 +50,40 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootSco
 
 
 
-    function showPopup(){
-        var pop =
-        {
-            title: "Gratulerer",
-            subTitle: "Du har funnet kortste vei fra Amsterdam til Trondheim",
-            scope: $scope,
-            buttons: [
-                {
-                    text: '<b>Trykk på meg!</b>',
-                    type: 'button-positive',
-                    onTap: function () {
-                        winning();
+    function showPopup(bool){
+        if(bool ==true) {
+            var pop =
+            {
+                title: "Gratulerer",
+                subTitle: "Du har funnet kortste vei fra Amsterdam til Trondheim",
+                scope: $scope,
+                buttons: [
+                    {
+                        text: '<b>Ta i mot din premie!</b>',
+                        type: 'button-positive',
+                        onTap: function () {
+                            winning();
+                        }
                     }
-                }
-            ]
-        };
+                ]
+            };
+        }
+        else if(bool == false){
+            var pop =
+            {
+                title: "Feil",
+                subTitle: "Du har dessverre ikke alle byene i riktig rekkefølge. De grønne står på riktig plass, men de røde er plassert feil",
+                scope: $scope,
+                buttons: [
+                    {
+                        text: '<b>Prøv igjen</b>',
+                        type: 'button-positive',
+                        onTap: function () {
+                        }
+                    }
+                ]
+            };
+        }
 
         var myPopup = $ionicPopup.show(pop);
 
