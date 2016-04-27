@@ -354,7 +354,6 @@ select{
 }
 
 #verticalNumbers>div{
-    background-color: blue;
     height: 6.3vh;
     min-height:35px;
 }
