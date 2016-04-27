@@ -13,6 +13,9 @@ angular.module('app.overview')
         console.log("Stored language is: "+$rootScope.language);
     }
 
+    $translate.preferredLanguage($rootScope.language);
+    $translate.use($rootScope.language);
+
     $translate(["OVERVIEW_QUIZ_BUTTON",
     "OVERVIEW_ELEMENTS_BUTTON",
     "OVERVIEW_COLOR_BUTTON",
@@ -25,8 +28,7 @@ angular.module('app.overview')
         $scope.translations = translations;
     });
 
-    $translate.preferredLanguage($rootScope.language);
-    $translate.use($rootScope.language);
+
     
     $scope.$watch('minigames', function () {
       localStorageService.set('minigames', $scope.minigames);
