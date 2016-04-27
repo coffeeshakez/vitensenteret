@@ -148,11 +148,21 @@ h4.giant-text {
   font-size: 1em;
 }
 
-/*Periodic end*/
+/*Periodic start*/
 
 img{
 	display: block;
 	margin:auto;
+}
+
+#shitcontainer{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: -webkit-flex; /* NEW */
+    display: flex;
+    -webkit-flex-wrap: wrap; /* NEW */
+    flex-wrap: wrap;
 }
 
 .picture{

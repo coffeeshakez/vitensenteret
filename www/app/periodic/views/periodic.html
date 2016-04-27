@@ -5,7 +5,8 @@
             <img id="periodPic" ng-src="{{nextElement.url}}" class="picture">
         </div>
 
-        <div class="row flex-wrap btnArea">
+        <div id = "shitcontainer" class="row  btnArea">
+            <!--class = flex-wrap-->
             <div class="col-33" ng-repeat="part in buttons">
                 <div class="text-center btncont" >
                     <button  class="small_button button button-balanced" ng-click="submitAnswer(part)">
