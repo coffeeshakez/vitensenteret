@@ -7,36 +7,88 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-    
-  .state('index.vitensenteretKart', {
-    url: '/page2',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/vitensenteretKart.html',
-        controller: 'vitensenteretKartCtrl'
-      }
-    }
+
+  .state('index', {
+    url: '/index',
+    templateUrl: 'templates/tabsController.html',
+    abstract:true
   })
 
-  .state('index.cartTabDefaultPage', {
-    url: '/page3',
+  .state('index.overview', {
+    url: "/overview",
     views: {
-      'tab2': {
-        templateUrl: 'templates/cartTabDefaultPage.html',
-        controller: 'cartTabDefaultPageCtrl'
+      'overview': {
+        templateUrl: "app/overview/views/overview.html",
+        controller: 'OverviewCtrl'
       }
-    }
+    },
+    data: {pageTitle: 'Overview'}
   })
 
-  .state('index.example', {
-      url: "/example",
+  .state('index.map', {
+    url: "/map",
+    views: {
+      'map': {
+        templateUrl: "app/map/views/map.html",
+        controller: 'MapCtrl'
+      }
+    },
+    data: {pageTitle: 'Overview'}
+  })
+
+  .state('index.quiz', {
+    url: "/quiz",
+    views: {
+      'quiz': {
+        templateUrl: "app/quiz/views/default.html",
+        controller: 'quizController'
+      }
+    },
+    data: {pageTitle: 'Quiz'}
+  })
+
+  .state('index.reward', {
+    url: "/reward?game?part?sprite",
+    views: {
+      'reward': {
+        templateUrl: "app/reward/views/default.html",
+        controller: 'RewardCtrl'
+      }
+    },
+    data: {pageTitle: 'Reward'}
+  })
+
+  .state('index.colors', {
+    url: "/colors",
+    views: {
+      'colors': {
+        templateUrl: "app/colors/views/default.html",
+        controller: 'ColorsCtrl'
+      }
+    },
+    data: {pageTitle: 'Colors'}
+  })
+
+  .state('index.memory', {
+      url: "/memory",
       views: {
-        'example': {
-          templateUrl: "app/example/views/default.html",
-          controller: 'ExampleCtrl'
+        'memory': {
+          templateUrl: "app/memory/views/default.html",
+          controller: 'MemoryCtrl'
         }
       },
-      data: {pageTitle: 'Example'}
+      data: {pageTitle: 'Memory game'}
+    })
+
+  .state('index.shortest', {
+      url: "/shortest",
+      views: {
+        'shortest': {
+          templateUrl: "app/shortest/views/shortest.html",
+          controller: 'ShortestCtrl'
+        }
+      },
+      data: {pageTitle: 'Shortest'}
     })
 
     .state('index.sound', {
@@ -50,7 +102,6 @@ angular.module('app.routes', [])
         data: {pageTitle: 'Sound'}
       })
 
-
     .state('index.periodic', {
         url: "/periodic",
         views: {
@@ -62,18 +113,26 @@ angular.module('app.routes', [])
         data: {pageTitle: 'Periodic'}
       })
 
-
-
-
-  .state('index.main', {
-    url: "/main",
+    .state('index.waterflow', {
+    url: "/waterflow",
     views: {
-      'main': {
-        templateUrl: "app/main/views/main.html",
-        controller: 'MainCtrl'
+      'waterflow': {
+        templateUrl: "app/waterflow/views/default.html",
+        controller: 'waterflowControl'
       }
     },
-    data: {pageTitle: 'Main view'}
+    data: {pageTitle: 'waterflow'}
+  })
+
+  .state('index.parts', {
+    url: "/parts",
+    views: {
+      'parts': {
+        templateUrl: "app/parts/views/parts.html",
+        controller: 'PartsCtrl'
+      }
+    },
+    data: {pageTitle: 'My parts'}
   })
 
   .state('index.chooseLanguage', {
@@ -98,25 +157,16 @@ angular.module('app.routes', [])
     data: {pageTitle: 'Welcome'}
   })
 
-
-   .state('index.quiz', {
-    url: "/quiz",
-    views: {
-      'quiz': {
-        templateUrl: "app/quiz/views/default.html",
-        controller: 'quizController'
-      }
-    },
-    data: {pageTitle: 'quiz'}
-  })
-
-  .state('index', {
-    url: '/index',
-    templateUrl: 'templates/tabsController.html',
-    abstract:true
-  })
-
-$urlRouterProvider.otherwise('/index/main')
-
-
+  .state('index.example', {
+      url: "/example",
+      views: {
+        'example': {
+          templateUrl: "app/example/views/default.html",
+          controller: 'ExampleCtrl'
+        }
+      },
+      data: {pageTitle: 'Example'}
+    })
+$urlRouterProvider.otherwise('/index/overview')
+  
 });

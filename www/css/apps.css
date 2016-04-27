@@ -42,6 +42,16 @@ body{
     margin: 10px;
 }
 
+.vertical-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
 .col-100 {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
@@ -183,35 +193,15 @@ img{
   width: 100% !important;
 }
 
-.shitButt{
+.small_button{
   width: 80%;
   height: 80% !important;
   padding-bottom: 5 px;
 }
 
-.small_button{
-	height: 80px !important;
-    max-height: 100%;
-	width: 80px !important;
-	margin:auto !important;
-}
-
 
 
 /*Periodic end*/
-
-.vertical-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-
 
 /*sound - start*/
 
@@ -220,14 +210,15 @@ select{
 }
 
 #soundPlayBtn{
-  height: 15% !important;
-  font-size: 30px;
+  height: 10% !important;
+  font-size: 200%;
   text-align: center;
 }
 
 #soundView{
   width: 100%;
   height: 60%;
+    min-height:280px;
   position: relative;;
 }
 
@@ -261,88 +252,80 @@ select{
   font-size: 20px;
 }
 
-#triangleOne{
+#triangle-0{
   alignment-adjust: middle;
   position: absolute;
   top:-35px;
   left: 87px;
 }
 
-#triangleTwo{
+#triangle-1{
   position: absolute;
   bottom:-35px;
   left:-35px;
 }
 
-#triangleThree{
+#triangle-2{
   position: absolute;
   bottom: -35px;
   right: -35px;
 }
 
-#squareOne{
+#square-0{
   position: absolute;
   top:-35px;
   left:-35px;
 }
 
-#squareTwo{
+#square-1{
   position: absolute;
   top:-35px;
   right:-35px;
 }
 
-#squareThree{
+#square-2{
   position: absolute;
   bottom:-35px;
   left:-35px;
 }
 
-#squareFour{
+#square-3{
   position: absolute;
   bottom:-35px;
   right:-35px;
 }
 
-#pentaOne{
+#penta-0{
   position: absolute;
   top:-35px;
   left:87px;
 }
 
-#pentaTwo{
+#penta-1{
   position: absolute;
   top:25%;
   right:-35px;
 }
 
-#pentaThree{
+#penta-2{
   position: absolute;
   bottom: -35px;
   right: 0;
 }
 
-#pentaFour{
+#penta-3{
   position: absolute;
   bottom: -35px;
   left: 0;
 }
 
-#pentaFive{
+#penta-4{
   position: absolute;
   top:25%;
   left:-35px;
 }
 
-
-
-
 /*sound - end*/
-
-
-
-
-
 
 /* Welcome Screen - Start */
 
@@ -357,6 +340,82 @@ select{
 
 /* Welcome Screen - End */
 
+/*Shortest path -start*/
+
+#verticalNumbers{
+    float:left;
+    color: white;
+    position: absolute;
+    width: 9%;
+    height:49vh;
+    min-height:275px;
+    margin:auto:
+    font-size: 200%;
+}
+
+#verticalNumbers>div{
+    height: 6.3vh;
+    min-height:35px;
+}
+
+#shortestListDiv{
+    height:75%;
+    min-height:335px;
+}
+
+
+
+#shortestList{
+    margin-left:auto;
+    margin-right:auto;
+    width: 80%;
+    left:10%;
+}
+
+#shortestListContainer{
+    top:5px;
+    height: 100;
+    width: 100%;
+    min-height: 300px !important;
+}
+
+.shortestCity{
+    height: 5.5vh;
+    background-color:#990000;
+}
+.shortestCity, .safeCity{
+    /*background-color: #39C645;*/
+    border-style: solid;
+    border-radius: 15px;
+    border-color: black;
+    border-width: 2px;
+    margin-top: 4px;
+    min-height: 30px;
+    color:white;
+}
+
+.safeCity {
+    margin-left: auto;
+    margin-right:auto;
+    background-color: #396445 !important;
+    width: 80%;
+    height:10%;
+}
+
+.sortable-chosen{
+    position: relative;
+    background-color: #399645 !important;
+}
+
+
+#shortestTestCorrect{
+    height: 10%;
+    font-size: 150%;
+    margin-top:10px;
+
+}
+
+/*Shortes path -end*/
 /* Choose Language - Start */
 
 #language{
@@ -455,7 +514,6 @@ select{
 
 
 
-
 .memory-button{
     transition: opacity 0.2s ease-in-out, box-shadow 0.1s ease-in-out;
     border-color: rgba(0, 0, 0, 0.18) !important;
@@ -469,7 +527,7 @@ select{
     height: 80%;
     width: 95%;
     margin-bottom: 0px;
-    
+
 }
 
 #levelNumerator{
@@ -606,9 +664,6 @@ select{
     width: 40px;
     height: 56px;
 }
-
-
-
 
 .sprite.legs.legs1 {
   background: url('../img/robots.png') no-repeat -327px -327px;
@@ -756,5 +811,11 @@ select{
     margin: 0 5px;
     display: inline-flex;
     border-style: dashed;
+}
+
+.waterflowButton{
+    margin:auto;
+    height: 80%;
+    width: 95%;
 }
 /*color lock end*/
