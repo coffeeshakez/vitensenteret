@@ -9,7 +9,7 @@
     "WELCOME_POPUP_CANCEL": "Avbryt",
     "WELCOME_POPUP_CONTINUE": "Kom i gang!",
     "OVERVIEW_MAINCARD_TITLE": "Bygg Rob og Otto sin nye venn",
-    "OVERVIEW_MAINCARD_TEXT": "Utforsk vitensenteret, løs gåter og finn robotdeler til å bygge Rob og Ottos nye venn!"
+    "OVERVIEW_MAINCARD_TEXT": "Utforsk vitensenteret, løs gåter og finn robotdeler til å bygge Rob og Ottos nye venn!",
     "OVERVIEW_QUIZ_BUTTON": "Quiz",
     "OVERVIEW_ELEMENTS_BUTTON": "Grunnstoffer",
     "OVERVIEW_COLOR_BUTTON": "Fargelås",
@@ -30,9 +30,5 @@
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS": "Du har samlet ",
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO": " deler",
     "YOUR_ROBOT_GENERATE_BUTTON": "Generer din robot",
-    "YOU_ROBOT_DELETE_ROBOT_BUTTON": "Slett din robot og start spillet på nytt",
-    
-
-
-    
+    "YOU_ROBOT_DELETE_ROBOT_BUTTON": "Slett din robot og start spillet på nytt"
 }
