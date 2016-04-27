@@ -15,7 +15,7 @@
     "OVERVIEW_ELEMENTS_BUTTON": "Elements",
     "OVERVIEW_COLOR_BUTTON": "Color lock",
     "OVERVIEW_MELODY_BUTTON": "Melody game",
-    "OVERVIEW_WATER_BUTTON": "Water connection",
+    "OVERVIEW_WATER_BUTTON": "Pipes",
     "OVERVIEW_SIMON_SAYS_BUTTON": "Simon says",
     "OVERVIEW_SHORTEST_PATH_BUTTON": "Shortest path",
     "OVERVIEW_POPUP_START_BUTTON": "Start",
@@ -31,6 +31,6 @@
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS": "You have collected  ",
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO": " parts",
     "YOUR_ROBOT_GENERATE_BUTTON": "Generate your robot",
-    "YOU_ROBOT_DELETE_ROBOT_BUTTON": "Delete your robot and start over again"
+    "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Delete your robot and start over again"
 
 }
