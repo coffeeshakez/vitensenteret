@@ -45,10 +45,11 @@
             <div class="col-33 center-margin" ng-repeat="part in parts">
                 <div class="card small">
                     <div class="item item-text-wrap part-box vertical-wrapper">
-                        <a href class="sprite" ng-class="partClasses(part)" ng-click="partClick(part)">
+                        <a href class="sprite" ng-class="partClasses(part)">
                             <h1 class="giant-text" ng-show="!part.collected">?</h1>
                         </a>
-                        <i class="icon over-check" ng-click="partToggle(part)" ng-class="part.collected ? 'ion-checkmark-round balanced' : 'ion-close-round'"></i>
+                        <i class="icon ion-chevron-left changePart left" ng-show="part.collected" ng-click="partClick(part, 1)"></i>
+                        <i class="icon ion-chevron-right changePart" ng-show="part.collected" ng-click="partClick(part, -1)"></i>
                     </div>    
                 </div>
             </div>

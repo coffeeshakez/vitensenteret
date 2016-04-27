@@ -30,12 +30,15 @@ angular.module('app.parts')
         return "";
     }
 
-    $scope.partClick = function(part){
+    $scope.partClick = function(part, dir){
         if (part.variant >= part.variants.length){
             part.variant = part.variants[0];
         }
+        else if (part.variant <= 0){
+            part.variant = part.variants[0];
+        }
         else{
-            part.variant += 1;
+            part.variant += dir;
         }
     }
 
