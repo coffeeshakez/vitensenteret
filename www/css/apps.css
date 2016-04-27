@@ -740,4 +740,10 @@ select{
     display: inline-flex;
     border-style: dashed;
 }
+
+.waterflowButton{
+    margin:auto;
+    height: 80%;
+    width: 95%;
+}
 /*color lock end*/
