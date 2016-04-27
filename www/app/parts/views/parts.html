@@ -41,9 +41,9 @@
             </div>
         </div>
 
-        <div class="row flex-wrap" >
+        <div class="row flexyWrap" >
             <div class="col-33 center-margin" ng-repeat="part in parts">
-                <div class="card small">
+                <div class="card small overviewCard">
                     <div class="item item-text-wrap part-box vertical-wrapper">
                         <a href class="sprite" ng-class="partClasses(part)" ng-click="partClick(part)"></a>
                         <i class="icon over-check" ng-click="partToggle(part)" ng-class="part.collected ? 'ion-checkmark-round balanced' : 'ion-close-round'"></i>
