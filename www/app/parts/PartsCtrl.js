@@ -16,10 +16,16 @@ angular.module('app.parts')
     
     $scope.partClasses = function(part){
         if(part){
-            var collected = part.collected ? 'part-collected' : 'part-not-collected';
-            var type = part.type;
-            var variant = type+part.variant;
-            return type + " " + variant + " " + collected;
+            if(part.collected){
+                var collected = 'part-collected';
+                var type = part.type;
+                var variant = type+part.variant;
+                return type + " " + variant + " " + collected;
+            }
+            else {
+                return 'part-not-collected';
+            }
+            
         }
         return "";
     }
