@@ -24,7 +24,14 @@ angular.module('app.overview')
     "OVERVIEW_SIMON_SAYS_BUTTON",
     "OVERVIEW_SHORTEST_PATH_BUTTON",
     "OVERVIEW_POPUP_START_BUTTON",
-    "OVERVIEW_POPUP_CANCEL_BUTTON"]).then(function(translations){
+    "OVERVIEW_POPUP_CANCEL_BUTTON",
+    "QUIZ_INTRO_POPUP",
+    "ELEMENTS_INTRO_POPUP",
+    "COLOR_INTRO_POPUP",
+    "MELODY_INTRO_POPUP",
+    "WATER_INTRO_POPUP",
+    "SIMON_SAYS_INTRO_POPUP",
+    "SHORTEST_PATH_INTRO_POPUP"]).then(function(translations){
         $scope.translations = translations;
     });
 
@@ -39,13 +46,13 @@ angular.module('app.overview')
 
 
     $rootScope.minigames = minigamesLocal || {
-        "quiz":      {name: "OVERVIEW_QUIZ_BUTTON",           game: "quiz",      icon: "ion-help",              part: "head",   collected: false, story: "En liten Europa-måneboer lurer på hvordan Jordas historie er. Kan du hjelpe den?"},
-        "periodic":  {name: "OVERVIEW_ELEMENTS_BUTTON",   game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false, story: "En gal vitenskapsmann prøver å lage en tidsmaskin, men vet ikke hvordan han skal lage ingrediensene. Kan du hjelpe?"},
-        "colors":    {name: "OVERVIEW_COLOR_BUTTON",       game: "colors",    icon: "ion-lock-combination",  part: "head",   collected: false, story: "Du finner en låst kiste med en rar kombinasjonslås som har forskjellige farger. Klarer du å låse den opp?"},
-        "sound":     {name: "OVERVIEW_MELODY_BUTTON",  game: "sound",     icon: "ion-music-note",        part: "head",   collected: false, story: "En liten fugl har mistet moren sin. Kan du hjelpe den å svare på moren sin fuglesang?"},
-        "waterflow": {name: "OVERVIEW_WATER_BUTTON",    game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "Det spruter vann i alle retninger ut av vannkraftverket. Kan du få rørene på plass så det genererer strøm igjen?"},
-        "memory":    {name: "OVERVIEW_SIMON_SAYS_BUTTON",   game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false, story: "Du møter på et glemskt orakel som har mistet hukommelsen. Kan du hjelpe det å huske kombinasjonen til orakel-skipet sitt?"},
-        "shortest":  {name: "OVERVIEW_SHORTEST_PATH_BUTTON", game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "Du møter på en handelsmann som skal reise landet rundt. Kan du hjelpe han finne den korteste veien?"},
+        "quiz":      {name: "OVERVIEW_QUIZ_BUTTON",           game: "quiz",      icon: "ion-help",              part: "head",   collected: false, story: "QUIZ_INTRO_POPUP"},
+        "periodic":  {name: "OVERVIEW_ELEMENTS_BUTTON",   game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false, story: "ELEMENTS_INTRO_POPUP"},
+        "colors":    {name: "OVERVIEW_COLOR_BUTTON",       game: "colors",    icon: "ion-lock-combination",  part: "head",   collected: false, story: "COLOR_INTRO_POPUP"},
+        "sound":     {name: "OVERVIEW_MELODY_BUTTON",  game: "sound",     icon: "ion-music-note",        part: "head",   collected: false, story: "MELODY_INTRO_POPUP"},
+        "waterflow": {name: "OVERVIEW_WATER_BUTTON",    game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "WATER_INTRO_POPUP"},
+        "memory":    {name: "OVERVIEW_SIMON_SAYS_BUTTON",   game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false, story: "SIMON_SAYS_INTRO_POPUP"},
+        "shortest":  {name: "OVERVIEW_SHORTEST_PATH_BUTTON", game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP"},
 
     };
 
@@ -96,8 +103,8 @@ angular.module('app.overview')
 
     function gamePopup(minigame) {
       return {
-        title: minigame.name,
-        subTitle: minigame.story,
+        title: $scope.translations[minigame.name],
+        subTitle: $scope.translations[minigame.story],
         scope: $scope,
         buttons: [
           {
