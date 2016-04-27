@@ -1,5 +1,5 @@
 angular.module('app.overview')
-.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService, $ionicPopup) {
+.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService, $ionicPopup, $translate) {
 
     var minigamesLocal = localStorageService.get('minigames');
     var partsLocal = localStorageService.get('parts');
@@ -12,6 +12,9 @@ angular.module('app.overview')
         console.log("Stored language is: "+$rootScope.language);
     }
 
+    $translate.preferredLanguage($rootScope.language);
+    $translate.use($rootScope.language);
+    
     $scope.$watch('minigames', function () {
       localStorageService.set('minigames', $scope.minigames);
     }, true);

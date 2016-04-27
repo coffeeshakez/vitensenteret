@@ -17,6 +17,7 @@ angular.module('app.chooseLanguage')
         }
         $rootScope.language = lang;
         $translate.preferredLanguage(lang);
+        $translate.use(lang);
 
         $translate('APP_NAME').then(function (headline) {
             console.log("Translated: "+headline)
