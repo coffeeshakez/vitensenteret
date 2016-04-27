@@ -342,6 +342,29 @@ select{
 
 /*Shortest path -start*/
 
+#verticalNumbers{
+    float:left;
+    color: white;
+    position: absolute;
+    width: 9%;
+    height:49vh;
+    min-height:275px;
+    margin:auto:
+    font-size: 200%;
+}
+
+#verticalNumbers>div{
+    background-color: blue;
+    height: 6.3vh;
+    min-height:35px;
+}
+
+#shortestListDiv{
+    height:75%;
+    min-height:335px;
+}
+
+
 
 #shortestList{
     margin-left:auto;
@@ -352,7 +375,7 @@ select{
 
 #shortestListContainer{
     top:5px;
-    height: 100%;
+    height: 100;
     width: 100%;
     min-height: 300px !important;
 }
@@ -389,6 +412,7 @@ select{
 #shortestTestCorrect{
     height: 10%;
     font-size: 150%;
+    margin-top:10px;
 
 }
 
