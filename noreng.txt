@@ -1,0 +1,119 @@
+Oversikt
+Overview
+
+Kart
+Map
+
+Min robot
+My robot
+
+Velkommen
+Welcome
+
+Trykk på oss
+Push us
+
+Informasjon
+Information
+
+Er du klar for et eventyr? Rob og Otto har samlet robotdeler for å bygge en ny venn. Dessverre har noen slemminger stjålet disse robotdelene. Ta turen gjennom utstillingen og vinn robotdelene tilbake, slik at du kan bygge en ny robotvenn til Rob og Otto.
+Are you ready for an adventure? Rob and Otto have been collecting robot parts to build a new friend. Sadly some bad guys have stolen these robot parts. Take a tour through the exhibition and win the robot parts back, so that you can build a new friend for Rob and Otto.
+
+Avbryt
+Cancel
+
+Kom i gang!
+Get started!
+
+Bygg Rob og Ottos nye venn.
+Build Rob and Ottos new friend.
+
+Utforsk vitensenteret, løs gåter og finn robotdeler til å bygge Rob og Ottos nye venn.
+Explore Trondheim Science Centre, solve riddles and find robot parts to build Rob and Ottos new friend.
+
+Quiz
+Quiz
+
+En liten Europa-måneboer lurer på hvordan jordens historie er. Kun du hjelpe den?
+A little Europa-moon citizen wants to learn about the history of the earth. Can you help it?
+
+Grunnstoffer
+Table of Elements
+
+En gal vitenskapsmann prøver å lage en tidsmaskin, men vet ikke hvordan han skal lage ingrediensene. Kan du hjelpe han?
+A crazy scientist is trying to make a time machine, but he does not know how to make the ingredients. Can you help him?
+
+Fargelås
+Color lock
+
+Du finner en låst kiste med en rar kombinasjonslås som har forskjellige farger. Klarer du å låse den opp?
+You find a locked chest with a strange combination lock with different colors. Can you unlock the chest?
+
+Melodispillet
+Melody game
+
+En liten fulg har mistet moren sin. Kan du hjelpe den å svare på moren sin fuglesang?
+A little bird has lost its mother. Can you help it to answer its mothers bird song?
+
+Vannkobling
+Water connection
+
+Det spruter vann i alle retninger ut av vannkraftverket. Kan du få rørene på plass igjen så det genererer strøm igjen?
+Water is splashing i all directions out of the hydropower plant. Can you reconnect the pipes so that power is generated again?
+
+Minnespillet
+Simon says
+
+Du møter på et glemsk orakel som har mistet hukommelsen sin. Kan du hjelpe henne med å huske kombinasjonen til orakel-skapet hennes?
+You meet an oracal who has lost her memory. Can you help her to remember the combinationto her oracle locker?
+
+Korteste veien
+Shortest path
+
+Du møter på en handelsmann som skal reise gjennom hele Europa. Kan du hjelpe han med å finne den korteste veien?
+You meet a travelling salesman who is going to travel through Europe. Can you help him find the shortest way?
+
+Din robot
+Your robot
+
+Du har samlet x/x deler
+You have collected x/x parts
+
+Generer din robot.
+Generate your robot.
+
+Slett din robot og start spillet på nytt
+Delete your robot and start over
+
+Trykk på knappene i samme rekkefølge som de blinker i.
+Push the buttons in the same order as they blink.
+
+Nivå x/x
+level x/x
+
+Start
+Start
+
+Du tapte
+You lost
+
+Start på nytt
+Restart
+
+Prøv på nytt
+Try again
+
+Hint
+Hint
+
+Du klarte dette nivået
+You beat this level
+
+Neste nivå
+Next level
+
+Du klarte det siste nivået og har dermed vunnet dette spillet.
+You beat the last level and won this game.
+
+Videre
+Continue

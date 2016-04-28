@@ -422,13 +422,6 @@ select{
     color: #ffffff;
 }
 
-#norwegian{
-    float: left;
-}
-#english{
-    float: right;
-}
-
 /* Choose Language - End */
 
 .texts{
@@ -473,10 +466,31 @@ select{
   /*pointer-events: none;*/
 }
 
+.changePart {
+  font-size: 1.3em;
+  position: absolute;
+  text-align: right;
+  padding: calc(50% - 14px) 8px;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.part-list {
+  zoom: 0.7;
+}
+
+.changePart.left{
+  text-align: left;
+  left: 0;
+}
+
 .part-not-collected{
-  /*filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /></filter></svg>#filter');
-  */-webkit-filter: contrast(0) brightness(1.4);
-   /*       filter: grayscale(100%);*/
+  -webkit-filter: contrast(0) brightness(1.4);
+  text-decoration: none;
 }
 
 .part-robot{
@@ -494,8 +508,6 @@ select{
   left: 50%;
   position: absolute;
 }
-
-
 
 .memory-button{
     transition: opacity 0.2s ease-in-out, box-shadow 0.1s ease-in-out;
