@@ -1,7 +1,6 @@
 angular.module('app.waterflow')
 .controller('waterflowControl', function($scope, $rootScope, $ionicPopup) {
-    var directions = {up:0, right:1, down:2, left:3};
-    
+    var directions = {up:0, right:1, down:2, left:3};    
     var tubeVariants = [];
     var UpDownTube = {
         id:0,
@@ -42,14 +41,19 @@ angular.module('app.waterflow')
         animationSprites: ["img/tube_end.png"],
         spriteCount: 1,
     }
+
+
+    /*
+        Set createNewBoards to true to create randomized boards. This is useful as the copy-paste date will be shown with console.log
+        The copy-paste data can then be pasted directly into the loadLevelOne, loadLevelTwo and loadLevelThree functions 
+    */
+    var createNewBoards = false;
     //remove start and endtube if you want randomized map //, startTube, endTube
     tubeVariants.push(UpDownTube, UpRightTube, UpLeftTube, startTube, endTube);
-    
-
 
     //triggered by ng-click on image. Takes an image object
     $scope.rotateImage = function(image){
-        if(image["src"] === "img/tube_end.png" || image["src"] === "img/tube_start.png"){
+        if(image["src"] === endTube.src || image["src"] === startTube.src){
             return;
         }                              
         image["rotation"] = (image["rotation"]+90)% 360;
@@ -57,6 +61,19 @@ angular.module('app.waterflow')
         image["inputDirection"] = (image["inputDirection"]+1)%4;
         image.classname="rot"+(image["rotation"]);
     };
+
+
+    var rand;
+    setRotation = function(image){
+        if(image["src"] === endTube.src || image["src"] === startTube.src){
+            return;
+        }
+        rand = Math.floor((Math.random() * 4));
+        image["rotation"] = (image["rotation"]+rand*90)% 360;
+        image["outputDirection"] = (image["outputDirection"]+rand)%4;
+        image["inputDirection"] = (image["inputDirection"]+rand)%4;
+        image.classname="rot"+(image["rotation"]);
+    }
 
     function reset(){
         $scope.images = [];
@@ -111,14 +128,15 @@ angular.module('app.waterflow')
 
         }else{
             var myPopup = $ionicPopup.show({
-                title: 'Vann-stien fungerer ikke',
-                subTitle:   "Prøv igjen",
+                title: createNewBoards ? "Copy-paste is in the console log":'Vann-stien fungerer ikke',
+                subTitle:  createNewBoards ? "Generer nytt board": "Prøv igjen",
                 scope: $scope,
                 buttons: [
                     {   text: 'Ok', 
                         type: 'button-positive',
                         onTap: function(e) {
-                            
+                            if(createNewBoards)
+                                reset();
                         }
                     },
                 ]
@@ -133,8 +151,6 @@ angular.module('app.waterflow')
     var animationInterval = null;
     var animationQue = []; 
     $scope.testFlow = function(){
-        animationQue = [];
-        animationInterval = null;
         var start= $scope.images[0][0];
         console.log("running testFlow");
         for(var i = 0; i < columnCount; i++){
@@ -149,7 +165,7 @@ angular.module('app.waterflow')
         var result = false;
         while(currentElement != false){
             //return true when arriving to destination
-            if(currentElement["src"] === "img/tube_end.png" && currentElement != start && currentElement != false){
+            if(currentElement["src"] === endTube.src && currentElement != start && currentElement != false){
                 console.log("true");
                 result = true;
                 showPopup(result);
@@ -173,7 +189,7 @@ angular.module('app.waterflow')
         console.log("While loop exited nextElement returned false");
         showPopup(result);
         return result;
-    };
+    }
 
   
 
@@ -226,7 +242,8 @@ angular.module('app.waterflow')
         //set the connectedDirection so that the nextElement is connected to the path.
         next["connectedDirection"] = opposite(outputDirection);
         return next;
-    };
+    }
+
     opposite = function(int){
         return int >= 2 ? int-2 : int+2;
     }
@@ -234,64 +251,73 @@ angular.module('app.waterflow')
     var columnCount = 5;
     $scope.images = []; 
     $scope.loadImages = function() {
-        //creates andomized board
-        // for(var i = 0; i < columnCount; i++) {
-        //     $scope.images.push([]);
-        //     for(var j = 0; j<rowCount; j++){
-        //         if(i == 0 && j == 0){
-        //             loader({tubeID: startTube.id, idX: i, idY:j, rotation: 0, src:startTube.src, inputDirection: 0, outputDirection:startTube.outputDirection, connectedDirection:0,});
-        //         }else if(i == 4 && j == 4){
-        //             loader({tubeID: endTube.id, idX: i, idY:j, rotation: 0, src:endTube.src, outputDirection: 3, inputDirection:endTube.inputDirection, connectedDirection:-1,});
-        //         }
-        //         else{
-        //             var currentTube = pickRandomObjectProperty(tubeVariants);    
-        //             loader({
-        //             tubeID: currentTube.id,
-        //             idX: j, 
-        //             idY: i, 
-        //             rotation: 0, 
-        //             src: currentTube.src, 
-        //             inputDirection: currentTube.inputDirection, 
-        //             outputDirection: currentTube.outputDirection,
-        //             connectedDirection:-1,
-        //             animationStep: 0,
-        //             spriteCount: currentTube.spriteCount,
-        //             });
+        if(createNewBoards){
+            //makes the tubeVariants array again, to avoid start and endtubes randomly placed on board
+            tubeVariants = [];
+            tubeVariants.push(UpDownTube, UpRightTube, UpLeftTube);
+        //creates randomized board
+            for(var i = 0; i < columnCount; i++) {  
+                $scope.images.push([]);
+                for(var j = 0; j<rowCount; j++){
+                    if(i == 0 && j == 0){
+                        loader({tubeID: startTube.id, idX: i, idY:j, rotation: 0, src:startTube.src, inputDirection: 0, outputDirection:startTube.outputDirection, connectedDirection:0,});
+                    }else if(i == 4 && j == 4){
+                        loader({tubeID: endTube.id, idX: i, idY:j, rotation: 0, src:endTube.src, outputDirection: 3, inputDirection:endTube.inputDirection, connectedDirection:-1,});
+                    }
+                    else{
+                        var currentTube = pickRandomObjectProperty(tubeVariants);    
+                        loader({
+                        tubeID: currentTube.id,
+                        idX: j, 
+                        idY: i, 
+                        rotation: 0, 
+                        src: currentTube.src, 
+                        inputDirection: currentTube.inputDirection, 
+                        outputDirection: currentTube.outputDirection,
+                        connectedDirection:-1,
+                        animationStep: 0,
+                        spriteCount: currentTube.spriteCount,
+                        });
+                    }
+                }
+             }
+         }
 
-                    
-        //         }
-        //     }
-        //  }
-        for(var i = 0; i < columnCount; i++) {
-             $scope.images.push([]);
-        }
+        if(!createNewBoards){
+            for(var i = 0; i < columnCount; i++) {
+                 $scope.images.push([]);
+            }
 
-        if(numberOfWins === 0)
-           loadLevelOne();
-        else if(numberOfWins === 1){
-           loadLevelTwo();
-        }
-        else if(numberOfWins === 2){
-           loadLevelThree();
+            if(numberOfWins === 0){
+               loadLevelOne();
+            }
+            else if(numberOfWins === 1){
+               loadLevelTwo();
+            }
+            else if(numberOfWins === 2){
+               loadLevelThree();
+            }
         }
       // // prints code for board
-        // for(var i = 0; i < columnCount; i++) {
-        //     for(var j = 0; j<rowCount; j++){
-        //         console.log(
-        //         "loader({tubeID: "+ $scope.images[i][j]["tubeID"]+ ","+
-        //         "idX: "+ $scope.images[i][j]["idX"]+","+
-        //         "idY: "+ $scope.images[i][j]["idY"]+","+
-        //         "rotation: "+ $scope.images[i][j]["rotation"]+","+
-        //         "src: "+ $scope.images[i][j]["src"]+","+
-        //         "inputDirection: "+ $scope.images[i][j]["inputDirection"]+","+
-        //         "outputDirection: "+ $scope.images[i][j]["outputDirection"]+","+
-        //         "connectedDirection: "+ $scope.images[i][j]["connectedDirection"]+","+
-        //         "animationStep: "+ $scope.images[i][j]["animationStep"]+","+
-        //         "spriteCount: "+ $scope.images[i][j]["spriteCount"]+","+
-        //         "});"
-        //         );
-        //     }
-        // }
+        if(createNewBoards){
+            for(var i = 0; i < columnCount; i++) {
+                for(var j = 0; j<rowCount; j++){
+                    console.log(
+                    "loader({tubeID: "+ $scope.images[i][j]["tubeID"]+ ","+
+                    "idX: "+ $scope.images[i][j]["idX"]+","+
+                    "idY: "+ $scope.images[i][j]["idY"]+","+
+                    "rotation: "+ $scope.images[i][j]["rotation"]+","+
+                    "src: "+ $scope.images[i][j]["src"]+","+
+                    "inputDirection: "+ $scope.images[i][j]["inputDirection"]+","+
+                    "outputDirection: "+ $scope.images[i][j]["outputDirection"]+","+
+                    "connectedDirection: "+ $scope.images[i][j]["connectedDirection"]+","+
+                    "animationStep: "+ $scope.images[i][j]["animationStep"]+","+
+                    "spriteCount: "+ $scope.images[i][j]["spriteCount"]+","+
+                    "});"
+                    );
+                }
+            }
+        }
     }
 
     function loadLevelOne(){
@@ -320,7 +346,7 @@ angular.module('app.waterflow')
         loader({tubeID: 1,idX: 1,idY: 4,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 2,idX: 2,idY: 4,rotation: 0,src: "img/tubeUpLeft.png" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 1,idX: 3,idY: 4,rotation: 0,src: "img/tubeUpRight.png" ,inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
-        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube_end.png" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
+        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube_end.jpg" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
     }
     function loadLevelTwo(){
         changeLevelNumerator();
@@ -348,7 +374,7 @@ angular.module('app.waterflow')
         loader({tubeID: 1,idX: 1,idY: 4,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 1,idX: 2,idY: 4,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 0,idX: 3,idY: 4,rotation: 0,src: "img/tubeUpDown.png",inputDirection: 0,outputDirection: 2,connectedDirection: -1,animationStep: 0,spriteCount: 3,});
-        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube_end.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
+        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube_end.jpg" ,inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
     }
     function loadLevelThree(){
 
@@ -376,12 +402,14 @@ angular.module('app.waterflow')
         loader({tubeID: 2,idX: 1,idY: 4,rotation: 0,src: "img/tubeUpLeft.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 1,idX: 2,idY: 4,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
         loader({tubeID: 1,idX: 3,idY: 4,rotation: 0,src: "img/tubeUpRight.png",inputDirection: 0,outputDirection: 1,connectedDirection: -1,animationStep: 0,spriteCount: 1,});
-        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube_end.png",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined,spriteCount: undefined,});
+        loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube_end.jpg",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined, spriteCount: undefined,});
         changeLevelNumerator();
     }
     function loader (element){
-        //if(!element["src"] === "img/tube_.png")
+        if(element["src"] !== startTube.src && element["src"] !== endTube.src){
             element["src"] = tubeVariants[element["tubeID"]].src;
+            setRotation(element);
+        }
         $scope.images[element["idY"]].push(element);
     }
     function pickRandomObjectProperty(obj){
@@ -394,7 +422,6 @@ angular.module('app.waterflow')
         }
         return obj[result];
     }
-    function generateBoard(){
-    }
 });
+
 

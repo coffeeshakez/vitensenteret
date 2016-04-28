@@ -108,19 +108,19 @@ angular.module('app.overview')
         scope: $scope,
         buttons: [
           {
+            text: '<b>Avbryt</b>',
+            type: 'button-assertive',
+            onTap: function (e) {
+                return false;
+            }
+          },
+          {
             text: '<b>Start!</b>',
             type: 'button-positive',
             onTap: function (e) {
                 $state.go("index."+minigame.game);
             }
           },
-          {
-            text: '<b>Avbryt</b>',
-            type: 'button-positive',
-            onTap: function (e) {
-                return false;
-            }
-          }
         ]
       };
     }

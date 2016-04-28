@@ -23,6 +23,7 @@ angular.module('app', [
   'app.quiz',
   'app.memory',
   'app.reward',
+  'app.shortest',
   'app.sound',
   'app.colors',
   'app.map',

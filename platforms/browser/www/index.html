@@ -2,10 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline'; media-src *;">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="js/plugins/ng-sortable.js"></script>
+    <script src="js/plugins/sortable.js"></script>
+
+    <script src="lib/angular-local-storage/angular-local-storage.min.js"></script>
+
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -30,7 +36,7 @@
     -->
 
   </head>
-  <body ng-app="app" animation="slide-left-right-ios7">
+  <body ng-app="app" animation="slide-left-right-ios7" class="platform-browser platform-cordova platform-webview">
   <div>
     <div>
         <ion-nav-bar class="bar-energized">

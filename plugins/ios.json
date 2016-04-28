@@ -8,22 +8,22 @@
     },
     "installed_plugins": {
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.xviten593575"
+            "PACKAGE_NAME": "com.ionicframework.viten838753"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.xviten593575"
+            "PACKAGE_NAME": "com.ionicframework.viten838753"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.xviten593575"
+            "PACKAGE_NAME": "com.ionicframework.viten838753"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.xviten593575"
+            "PACKAGE_NAME": "com.ionicframework.viten838753"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.xviten593575"
+            "PACKAGE_NAME": "com.ionicframework.viten838753"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.xviten593575"
+            "PACKAGE_NAME": "com.ionicframework.viten838753"
         }
     },
     "dependent_plugins": {}
