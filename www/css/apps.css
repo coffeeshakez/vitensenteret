@@ -148,11 +148,21 @@ h4.giant-text {
   font-size: 1em;
 }
 
-/*Periodic end*/
+/*Periodic start*/
 
 img{
 	display: block;
 	margin:auto;
+}
+
+.flexyWrap{
+    list-style: none;
+    margin:0;
+    padding: 0;
+    display: -webkit-flex; /* NEW */
+    display: flex;
+    -webkit-flex-wrap: wrap; /* NEW */
+    flex-wrap: wrap;
 }
 
 .picture{
@@ -449,8 +459,9 @@ select{
 }
 
 .center-margin{
-  margin-left: auto;
-  margin-right: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+    margin: auto;
 }
 
 .part-box{
@@ -722,6 +733,10 @@ select{
 @keyframes reward {from { transform: scale(0) rotate(0deg);} to { transform: scale(3) rotate(720deg);}}
 
 /* Overview screen - start */
+
+.overviewCard{
+ margin: 5px;
+}
 
 .minigame-icon {
   font-size: 13vmin;
