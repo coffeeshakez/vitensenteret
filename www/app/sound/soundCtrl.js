@@ -1,5 +1,5 @@
 angular.module('app.sound')
-.controller('soundCtrl', function($scope, $rootScope, $stateParams, $ionicPopup, $state) {
+.controller('soundCtrl', function($scope, $rootScope, $stateParams,$ionicPlatform, $ionicPopup, $state) {
 
     // var src = "../../sound/Ready-Sangen.mp3";
     // var media = new Audio(src);
@@ -45,7 +45,20 @@ pentaTwo
         {value:5 , selected:'neq'}
     ];
 
+// DETTE FUNKET IKKE
+    $ionicPlatform.ready(function() {
+        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+        // for form inputs)
+        if(window.cordova && window.cordova.plugins.Keyboard) {
 
+            //Change this to false to return accessory bar
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
+        }
+        if(window.StatusBar) {
+            // org.apache.cordova.statusbar required
+            StatusBar.styleDefault();
+        }
+    });
 
 
 

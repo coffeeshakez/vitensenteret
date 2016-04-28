@@ -2,15 +2,15 @@ angular.module('app.periodic')
 .controller('periodicCtrl', function($scope, $rootScope, $stateParams, $ionicPopup) {
 
     $scope.buttons = [
-        {name: "O", correct: false, index:0},
+        {name: "Sn", correct: false, index:0},
         {name: "Fe", correct: false, index:1},
         {name: "Ag", correct: false, index:2},
         {name: "Au", correct: false, index:3},
         {name: "Cu", correct: false, index:4},
         {name: "Li", correct: false, index:5},
-        {name: "H", correct: false, index:6},
+        {name: "S", correct: false, index:6},
         {name: "C", correct: false, index:7},
-        {name: "Pb", correct: false, index:8},
+        {name: "Ca", correct: false, index:8},
     ];
 
        $scope.visible = true;
@@ -20,6 +20,10 @@ angular.module('app.periodic')
         {name:"battery", url: "./img/battery.jpg", index:5},
         {name:"gold", url: "./img/gold.jpg", index:3},
         {name:"diamond", url: "./img/diamond.jpg", index:7},
+        {name:"onion", url: "./img/onion.jpg", index:6},
+        {name:"tinn", url: "./img/tinn.jpg", index:0},
+        {name:"kalsium", url: "./img/kalsium.jpg", index:8}
+
     ]; 
 
     $scope.onInitialize=function(){
@@ -62,6 +66,10 @@ angular.module('app.periodic')
         }
     }
 
+    function winning(){
+        $rootScope.winGame("periodic");
+    }
+
     function showPopup(isCorrect, answer)  {
         $scope.data = {};
 
@@ -78,7 +86,7 @@ angular.module('app.periodic')
                         type: 'button-positive',
                         onTap: function(e) {
                             if(isCorrect == true && urlAndArray.length==0){
-                                $rootScope.winGame("periodic");
+                                winning();
                                 return;
                             }
                             initNextElement();
