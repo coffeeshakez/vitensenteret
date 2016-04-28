@@ -6,7 +6,8 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('app', [
-  'ionic', 
+  'ionic',
+  'LocalStorageModule',
   'app.controllers', 
   'app.routes', 
   'app.services', 
@@ -14,14 +15,24 @@ angular.module('app', [
   'app.chooseLanguage',
   'app.welcomeScreen',
   'app.example',
-  'app.main',
+  'app.waterflow',
+  'app.parts',
+  'app.overview',
   'app.periodic',
   'app.quiz',
+  'app.memory',
+  'app.reward',
+  'app.shortest',
   'app.sound',
+  'app.colors',
+  'app.map',
   
 
   //'app.myapp',
   ])
+.config(['localStorageServiceProvider', function(localStorageServiceProvider){
+  localStorageServiceProvider.setPrefix('viten');
+}])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

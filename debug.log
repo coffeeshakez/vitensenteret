@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 [0409/130324:ERROR:crash_report_database_win.cc(412)] unexpected header
 [0409/132437:ERROR:crash_report_database_win.cc(412)] unexpected header
@@ -22,3 +23,5 @@
 [0411/143604:ERROR:crash_report_database_win.cc(412)] unexpected header
 [0411/150213:ERROR:crash_report_database_win.cc(412)] unexpected header
 
+=======
+>>>>>>> 22029166838a1760498fe02045cfc648ad74b17f
