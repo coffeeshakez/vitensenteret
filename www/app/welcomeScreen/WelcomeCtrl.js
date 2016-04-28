@@ -1,20 +1,21 @@
 angular.module('app.welcomeScreen', ["ionic"])
-.controller('WelcomeCtrl', function($scope, $ionicPopup, $state){
+.controller('WelcomeCtrl', function($scope, $ionicPopup, $state, $translate ){
+
+    $translate(['WELCOME_POPUP_TITLE', 'WELCOME_TEXT', 'WELCOME_POPUP_CANCEL', 'WELCOME_POPUP_CONTINUE']).then(function (translations) {
+        $scope.translations = translations;
+    });
 
     $scope.showPopup = function() {
 
-        // An elaborate, custom popup
+
+
         var myPopup = $ionicPopup.show({
-            title: 'Informasjon',
-            subTitle:   "Hei, Rob og Otto her! " +
-                        "Vi ønsker å adoptere en robot og trenger derfor din hjelp. " +
-                        "Rundt omkring i utstillingen er det mange robotdeler, men de er dessverre låst inne." +
-                        "For å robotdelene fri må du løse diverse oppgaver og spill ved hjelp av smarttelefonen din og utstilling." +
-                        "Klarer du å lage den kuleste roboten?",
+            title: $scope.translations.WELCOME_POPUP_TITLE,
+            subTitle: $scope.translations.WELCOME_TEXT,
             scope: $scope,
             buttons: [
-                { text: 'Avbryt' },
-                { text: '<b>Kom i gang!</b>',
+                { text: $scope.translations.WELCOME_POPUP_CANCEL },
+                { text: $scope.translations.WELCOME_POPUP_CONTINUE,
                     type: 'button-positive',
                     onTap: function() {
                         $state.go("index.overview");
@@ -22,11 +23,5 @@ angular.module('app.welcomeScreen', ["ionic"])
                 }
             ]
         });
-
-        myPopup.then(function(res) {
-            console.log('Tapped!', res);
-        });
-
     };
-
 });

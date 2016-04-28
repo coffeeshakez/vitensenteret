@@ -2,8 +2,8 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="row">
             <div class="card col-100">
-                <div class="item item-divider">Bygg RobOtto!</div>
-                <div class="ttem item-body">Utforsk vitensenteret, løs gåter og finn robotdeler til å bygge din helt egen robot!</div>
+                <div class="item item-divider" translate>APP_NAME</div>
+                <div class="ttem item-body" translate>OVERVIEW_MAINCARD_TEXT</div>
             </div>
         </div>
 
@@ -15,7 +15,7 @@
                         <i class="icon over-check" ng-class="minigame.collected ? 'ion-checkmark-round balanced' : 'hidden'"></i>
                     </div>
                     <div class="text-center minigame-name">
-                        {{minigame.name}}
+                        <span translate>{{minigame.name}}</span>
                     </div>
                 </div>
             </div>
