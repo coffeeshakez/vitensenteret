@@ -342,20 +342,35 @@ select{
 
 /*Shortest path -start*/
 
-#verticalNumbers{
-    float:left;
-    color: white;
-    position: absolute;
-    width: 9%;
-    height:49vh;
-    min-height:275px;
-    margin:auto:
-    font-size: 200%;
+/*#verticalNumbers{*/
+    /*float:left;*/
+    /*color: white;*/
+    /*position: absolute;*/
+    /*width: 9%;*/
+    /*height:49vh;*/
+    /*min-height:275px;*/
+    /*margin:auto:*/
+    /*font-size: 200%;*/
+/*}*/
+
+
+/*#verticalNumbers>div{*/
+    /*height: 6.3vh;*/
+    /*min-height:35px;*/
+/*}*/
+
+.verticalNumber{
+    padding-top: 25%;
+    height: 5.5vh;
+    margin-top: 4px;
+    min-height: 30px;
+    font-size: 150%;
+
 }
 
-#verticalNumbers>div{
-    height: 6.3vh;
-    min-height:35px;
+#verticalNumbersList{
+    float:left;
+    width: 9%;
 }
 
 #shortestListDiv{
