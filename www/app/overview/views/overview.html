@@ -2,8 +2,8 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="row">
             <div class="card col-100">
-                <div class="item item-divider" >{{trans}}</div>
-                <div class="ttem item-body" translate>OVERVIEW_MAINCARD_TEXT</div>
+                <div class="item item-divider">{{trans.OVERVIEW_MAINCARD_TITLE}}</div>
+                <div class="ttem item-body">{{trans.OVERVIEW_MAINCARD_TEXT}}</div>
             </div>
         </div>
 
@@ -15,7 +15,7 @@
                         <i class="icon over-check" ng-class="minigame.collected ? 'ion-checkmark-round balanced' : 'hidden'"></i>
                     </div>
                     <div class="text-center minigame-name">
-                        <span translate>{{minigame.name}}</span>
+                        <span>{{trans[minigame.name]}}</span>
                     </div>
                 </div>
             </div>

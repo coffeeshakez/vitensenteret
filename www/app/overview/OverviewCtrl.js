@@ -12,7 +12,8 @@ angular.module('app.overview')
         $rootScope.language = languageLocal;
         console.log("Stored language is: "+$rootScope.language);
     }
-    console.log(english);
+    console.log($rootScope.language);
+
     $rootScope.trans = english;
     if ($rootScope.language == "no"){
         $rootScope.trans = norwegian;
