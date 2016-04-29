@@ -16,20 +16,27 @@ angular.module('app.parts')
     
     $scope.partClasses = function(part){
         if(part){
-            var collected = part.collected ? 'part-collected' : 'part-not-collected';
-            var type = part.type;
-            var variant = type+part.variant;
-            return type + " " + variant + " " + collected;
+            if(part.collected){
+                var collected = 'part-collected';
+                var type = part.type;
+                var variant = type+part.variant;
+                return type + " " + variant + " " + collected;
+            }
+            else {
+                return 'part-not-collected';
+            }
+            
         }
         return "";
     }
 
-    $scope.partClick = function(part){
-        if (part.variant >= part.variants.length){
+    $scope.partClick = function(part, dir){
+        part.variant += dir;
+        if (part.variant > part.variants[part.variants.length -1]){
             part.variant = part.variants[0];
         }
-        else{
-            part.variant += 1;
+        else if (part.variant < part.variants[0]){
+            part.variant = part.variants[part.variants.length-1];
         }
     }
 

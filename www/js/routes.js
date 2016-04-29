@@ -80,6 +80,17 @@ angular.module('app.routes', [])
       data: {pageTitle: 'Memory game'}
     })
 
+  .state('index.shortest', {
+      url: "/shortest",
+      views: {
+        'shortest': {
+          templateUrl: "app/shortest/views/shortest.html",
+          controller: 'ShortestCtrl'
+        }
+      },
+      data: {pageTitle: 'Shortest'}
+    })
+
     .state('index.sound', {
         url: "/sound",
         views: {
@@ -90,7 +101,6 @@ angular.module('app.routes', [])
         },
         data: {pageTitle: 'Sound'}
       })
-
 
     .state('index.periodic', {
         url: "/periodic",
@@ -157,8 +167,6 @@ angular.module('app.routes', [])
       },
       data: {pageTitle: 'Example'}
     })
-
 $urlRouterProvider.otherwise('/index/overview')
-
-
+  
 });
