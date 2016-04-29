@@ -1,8 +1,7 @@
 <ion-view title="Quiz">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 
-    <div ng-show="finished" class="card">Gratulerer, du er ferdig med quizen, og fikk en robotdel!</div>
-    <h4 ng-show="qCount" class="textAllignCenter" style="color:white">Spørsmål {{ qNum + 1 }} av {{ totalQ }}</h4>
+    <h4 ng-show="qCount" class="textAllignCenter" style="color:white">{{trans.QUIZ_QUESTION}} {{ qNum + 1 }} {{trans.QUIZ_OF}} {{ totalQ }}</h4>
 
         <div ng-show="qCard" class="card" id="qCard">
             <div class="item item-text-wrap" id="question">

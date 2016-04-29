@@ -32,7 +32,23 @@ var norwegian = {
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS": "Du har samlet ",
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO": " deler",
     "YOUR_ROBOT_GENERATE_BUTTON": "Generer din robot",
-    "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Slett din robot og start spillet på nytt"
+    "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Slett din robot og start spillet på nytt",
+    COLORS_TITLE: "Lås opp kombinasjonslåsen!",
+    COLORS_DESC: "Finn fargekombinasjonen som genererer fargen under",
+    COLORS_UNLOCK: "Lås opp",
+    MEMORY_DESC: "Trykk på knappene i samme rekkefølge som de blinker",
+    MEMORY_RETRY: "Prøv på nytt",
+    QUIZ_QUESTION: "Spørsmål",
+    QUIZ_OF: "Av",
+    REWARD_FINISHED1: "Du fullførte nettopp",
+    REWARD_FINISHED2: "og har dermed vunnet",
+    REWARD_FINISHED3: "til din robot!",
+    REWARD_CONTINUE: "Fortsett",
+    SHORTEST_DESC: "Finn korteste vei fra Oslo til Trondheim. Dra byene til riktig plassering.",
+    CHECK: "Sjekk om det er riktig!",
+    SOUND_DESC: "Plasser rørene så de lager samme lyd som spilles av",
+    SOUND_PLAY: "Spill av lyden!",
+    WATER_DESC: "Koble rørene sammen slik at de danner en sti til turbinen"
 };
 
 var english = {
@@ -68,7 +84,25 @@ var english = {
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS": "You have collected  ",
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO": " parts",
     "YOUR_ROBOT_GENERATE_BUTTON": "Generate your robot",
-    "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Delete your robot and start over again"
+    "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Delete your robot and start over again",
+
+    COLORS_TITLE: "Open the combination lock!",
+    COLORS_DESC: "Find the color combination which matches the color below",
+    COLORS_UNLOCK: "Unlock",
+    MEMORY_DESC: "Press the buttons in the same order they blink",
+    MEMORY_RETRY: "Try again",
+    QUIZ_QUESTION: "Question",
+    QUIZ_OF: "of",
+    REWARD_FINISHED1: "Your have just finished the",
+    REWARD_FINISHED2: "and won",
+    REWARD_FINISHED3: "for your robot!",
+    REWARD_CONTINUE: "Continue",
+    SHORTEST_DESC: "Find the shortest path from Oslo to Trondheim. Drag the cities to their correct position",
+    CHECK: "Test if it is correct!",
+    SOUND_DESC: "Place the pipes in a way that makes the same sound as played in the sound.",
+    SOUND_PLAY: "Play the melody!",
+    WATER_DESC: "Connect the pipes so water can get to the turbine!"
+
 };
 
 

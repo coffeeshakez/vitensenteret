@@ -1,5 +1,5 @@
 angular.module('app.overview')
-.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService, $ionicPopup, $translate) {
+.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService, $ionicPopup) {
 
 
     var minigamesLocal = localStorageService.get('minigames');
@@ -88,8 +88,8 @@ angular.module('app.overview')
 
     function gamePopup(minigame) {
       return {
-        title: $scope.translations[minigame.name],
-        subTitle: $scope.translations[minigame.story],
+        title: $rootScope.trans[minigame.name],
+        subTitle: $rootScope.trans[minigame.story],
         scope: $scope,
         buttons: [
           {
