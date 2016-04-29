@@ -12,28 +12,12 @@ angular.module('app.overview')
         $rootScope.language = languageLocal;
         console.log("Stored language is: "+$rootScope.language);
     }
+    console.log(english);
+    $rootScope.trans = english;
+    if ($rootScope.language == "no"){
+        $rootScope.trans = norwegian;
+    }
 
-    $translate.preferredLanguage($rootScope.language);
-    $translate.use($rootScope.language);
-
-    $translate(["OVERVIEW_QUIZ_BUTTON",
-    "OVERVIEW_ELEMENTS_BUTTON",
-    "OVERVIEW_COLOR_BUTTON",
-    "OVERVIEW_MELODY_BUTTON",
-    "OVERVIEW_WATER_BUTTON",
-    "OVERVIEW_SIMON_SAYS_BUTTON",
-    "OVERVIEW_SHORTEST_PATH_BUTTON",
-    "OVERVIEW_POPUP_START_BUTTON",
-    "OVERVIEW_POPUP_CANCEL_BUTTON",
-    "QUIZ_INTRO_POPUP",
-    "ELEMENTS_INTRO_POPUP",
-    "COLOR_INTRO_POPUP",
-    "MELODY_INTRO_POPUP",
-    "WATER_INTRO_POPUP",
-    "SIMON_SAYS_INTRO_POPUP",
-    "SHORTEST_PATH_INTRO_POPUP"]).then(function(translations){
-        $scope.translations = translations;
-    });
 
     
     $scope.$watch('minigames', function () {
