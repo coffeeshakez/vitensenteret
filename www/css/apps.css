@@ -707,12 +707,11 @@ select{
 }
 
 .customPadding{
-  padding-top:15px;
-
+  padding-top:3%;
 }
 
 .hover-image:hover{
-  border-radius: 10px;
+  border-radius: 10%;
   background-color: rgba(32,32,32, 0.6) ;
 }
 
@@ -725,7 +724,11 @@ select{
     border-style: dashed;
 }
 
+.customBottomPadding{
+    padding-bottom:2%; 
+}
 .waterflowButton{
+    display: block;
     margin:auto;
     height: 80%;
     width: 95%;
