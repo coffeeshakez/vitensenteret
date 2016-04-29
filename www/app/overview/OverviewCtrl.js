@@ -53,6 +53,7 @@ angular.module('app.overview')
         "waterflow": {name: "OVERVIEW_WATER_BUTTON",    game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "WATER_INTRO_POPUP"},
         "memory":    {name: "OVERVIEW_SIMON_SAYS_BUTTON",   game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false, story: "SIMON_SAYS_INTRO_POPUP"},
         "shortest":  {name: "OVERVIEW_SHORTEST_PATH_BUTTON", game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP"},
+        "beacon":    {name: "OVERVIEW_SHORTEST_PATH_BUTTON", game: "beacon",  icon: "ion-bluetooth",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP"},
 
     };
 
