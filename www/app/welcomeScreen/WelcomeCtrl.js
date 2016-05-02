@@ -1,5 +1,5 @@
 angular.module('app.welcomeScreen', ["ionic"])
-.controller('WelcomeCtrl', function($scope, $ionicPopup, $state, $translate ){
+.controller('WelcomeCtrl', function($scope, $ionicPopup, $state, $translate, $rootScope ){
 
     $translate(['WELCOME_POPUP_TITLE', 'WELCOME_TEXT', 'WELCOME_POPUP_CANCEL', 'WELCOME_POPUP_CONTINUE']).then(function (translations) {
         $scope.translations = translations;
@@ -18,6 +18,7 @@ angular.module('app.welcomeScreen', ["ionic"])
                 { text: $scope.translations.WELCOME_POPUP_CONTINUE,
                     type: 'button-positive',
                     onTap: function() {
+                        console.log($rootScope.trans);
                         $state.go("index.overview");
                     }
                 }
