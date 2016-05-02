@@ -45,8 +45,8 @@ angular.module('app.overview')
 
 
     $rootScope.minigames = minigamesLocal || {
-        "quiz":      {name: "OVERVIEW_QUIZ_BUTTON",           game: "quiz",      icon: "ion-help",              part: "head",   collected: false, story: "QUIZ_INTRO_POPUP"            found: false },
-        "periodic":  {name: "OVERVIEW_ELEMENTS_BUTTON",       game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false, story: "ELEMENTS_INTRO_POPUP"        found: false },
+        "quiz":      {name: "OVERVIEW_QUIZ_BUTTON",           game: "quiz",      icon: "ion-help",              part: "head",   collected: false, story: "QUIZ_INTRO_POPUP"            found: true },
+        "periodic":  {name: "OVERVIEW_ELEMENTS_BUTTON",       game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false, story: "ELEMENTS_INTRO_POPUP"        found: true },
         "colors":    {name: "OVERVIEW_COLOR_BUTTON",          game: "colors",    icon: "ion-lock-combination",  part: "head",   collected: false, story: "COLOR_INTRO_POPUP"           found: false },
         "sound":     {name: "OVERVIEW_MELODY_BUTTON",         game: "sound",     icon: "ion-music-note",        part: "head",   collected: false, story: "MELODY_INTRO_POPUP"          found: false },
         "waterflow": {name: "OVERVIEW_WATER_BUTTON",          game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "WATER_INTRO_POPUP"           found: false },
@@ -88,7 +88,7 @@ angular.module('app.overview')
     
     $scope.minigameClasses = function(minigame){
         var collected = minigame.collected ? 'part-collected' : 'part-not-collected';
-        var icon = minigame.icon;
+        var icon = minigame.collected || $rootScope.beaconsActive ? minigame.icon : "";
         return icon + " " + collected;
     }
 

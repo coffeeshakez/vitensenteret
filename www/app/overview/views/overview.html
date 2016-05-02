@@ -12,7 +12,9 @@
             <div class="col-33 center-margin" ng-repeat="minigame in minigames">
                 <div class="card small overviewCard" ng-click="minigameStart(minigame)">
                     <div class="item minigames item-text-wrap part-box vertical-wrapper">
-                        <a href class="sprite icon minigame-icon" ng-class="minigameClasses(minigame)"></a>
+                        <a href class="sprite icon minigame-icon" ng-class="minigameClasses(minigame)">
+                            <h1 class="giant-text" ng-show="!minigame.found">?</h1>
+                        </a>
                         <i class="icon over-check" ng-class="minigame.collected ? 'ion-checkmark-round balanced' : 'hidden'"></i>
                     </div>
                     <div class="text-center minigame-name">
