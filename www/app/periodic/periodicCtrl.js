@@ -1,5 +1,5 @@
 angular.module('app.periodic')
-.controller('periodicCtrl', function($scope, $rootScope, $stateParams, $ionicPopup, $translate) {
+.controller('periodicCtrl', function($scope, $rootScope, $stateParams, $ionicPopup) {
 
     // $scope.buttons = [
     //     {name: "Tinn", abbr: "Sn", index:0, correct: false, description: "Tinn er etter gull, kobber og sølv det lengst kjente og brukte metallet. Tinn finnes som hvit, skinnende og bløtt metall, med smeltepunkt på 231,9 ˚C.Siden tinn er et bløtt metall med lavt smeltepunkt er det lett å forme og velegnet til en rekke formål. På Vitensenteret kan du støype egne figurer av tinn."},
