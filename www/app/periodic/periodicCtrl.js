@@ -14,31 +14,16 @@ angular.module('app.periodic')
     // ];
 
 
-    // $translate.preferredLanguage($rootScope.language);
-    // $translate.use($rootScope.language);
-
-    $translate(["PERIODIC_SN_DESCRIPTION",
-        "PERIODIC_FE_DESCRIPTION",
-        "PERIODIC_NA_DESCRIPTION",
-        "PERIODIC_AU_DESCRIPTION",
-        "PERIODIC_AL_DESCRIPTION",
-        "PERIODIC_LI_DESCRIPTION",
-        "PERIODIC_S_DESCRIPTION",
-        "PERIODIC_C_DESCRIPTION",
-        "PERIODIC_CA_DESCRIPTION"]).then(function(translations){
-        $scope.translations = translations;
-    });
-
     $scope.buttons = [
-        {name: "Tinn", abbr: "Sn", index:0, correct: false, description:"PERIODIC_SN_DESCRIPTION"},
-        {name: "Jern", abbr: "Fe", index:1, correct: false, description:"PERIODIC_FE_DESCRIPTION"},
-        {name: "Natrium", abbr: "Na", index:2,correct: false, description:"PERIODIC_NA_DESCRIPTION"},
-        {name: "Gull", abbr: "Au", index:3, correct: false, description:"PERIODIC_AU_DESCRIPTION"},
-        {name: "Aluminim", abbr: "Al", index:4, correct: false, description:"PERIODIC_AL_DESCRIPTION"},
-        {name: "Litium", abbr: "Li", index:5, correct: false, description:"PERIODIC_LI_DESCRIPTION"},
-        {name: "Svovel", abbr: "S", index:6, correct: false, description:"PERIODIC_S_DESCRIPTION"},
-        {name: "Karbon", abbr: "C", index:7, correct: false, description:"PERIODIC_C_DESCRIPTION"},
-        {name: "Kalsium", abbr: "Ca", index:8, correct: false, description:"PERIODIC_CA_DESCRIPTION"}
+        {name: "PERIODIC_SN", abbr: "Sn", index:0, correct: false, description:"PERIODIC_SN_DESCRIPTION"},
+        {name: "PERIODIC_FE", abbr: "Fe", index:1, correct: false, description:"PERIODIC_FE_DESCRIPTION"},
+        {name: "PERIODIC_NA", abbr: "Na", index:2,correct: false, description:"PERIODIC_NA_DESCRIPTION"},
+        {name: "PERIODIC_AU", abbr: "Au", index:3, correct: false, description:"PERIODIC_AU_DESCRIPTION"},
+        {name: "PERIODIC_AL", abbr: "Al", index:4, correct: false, description:"PERIODIC_AL_DESCRIPTION"},
+        {name: "PERIODIC_LI", abbr: "Li", index:5, correct: false, description:"PERIODIC_LI_DESCRIPTION"},
+        {name: "PERIODIC_S", abbr: "S", index:6, correct: false, description:"PERIODIC_S_DESCRIPTION"},
+        {name: "PERIODIC_C", abbr: "C", index:7, correct: false, description:"PERIODIC_C_DESCRIPTION"},
+        {name: "PERIODIC_CA", abbr: "Ca", index:8, correct: false, description:"PERIODIC_CA_DESCRIPTION"}
     ];
 
 
@@ -102,20 +87,18 @@ angular.module('app.periodic')
 
     function showPopup(isCorrect, answer)  {
         $scope.data = {};
-
-        var description = $scope.buttons[answer.index].description;
-        console.log(description);
+        
 
 
         if(isCorrect==true){
             var pop = {
-                title: "RIKTIG!", 
-                subTitle:"Du svarte " + $scope.buttons[answer.index].name + ". \n" + $scope.translations[description] ,
+                title: $rootScope.trans["PERIODIC_FEEDBACK_CORRECT"],
+                subTitle:$rootScope.trans["PERIODIC_ANSWER"] + $rootScope.trans[answer.name] + '. <br>' + $rootScope.trans[answer.description] ,
                 //    $scope.buttons[answer.index].description,
                 scope: $scope,
                 buttons: [
                     {
-                        text: '<b>Neste spørsmål</b>',
+                        text: '<b>'+$rootScope.trans["PERIODIC_NEXT"]+'/b>',
                         type: 'button-positive',
                         onTap: function(e) {
                             if(isCorrect == true && urlAndArray.length==0){
@@ -131,12 +114,12 @@ angular.module('app.periodic')
 
          else{
             var pop = {
-                title: 'FEIL!', 
-                subTitle:"Du svarte " + $scope.buttons[answer.index].name + ". \n" + $scope.translations[description],
+                title: $rootScope.trans["PERIODIC_FEEDBACK_INCORRECT"],
+                subTitle:$rootScope.trans["PERIODIC_ANSWER"] + $rootScope.trans[answer.name] + '.<br>' + $rootScope.trans[answer.description] ,
                 scope: $scope,
                 buttons: [
                         {
-                            text: '<b>Neste spørsmål</b>',
+                            text: '<b>'+$rootScope.trans["PERIODIC_NEXT"]+'</b>',
                             type: 'button-positive',
                             onTap: function(e) {
                                 initNextElement();

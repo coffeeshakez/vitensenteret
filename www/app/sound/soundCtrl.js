@@ -6,6 +6,7 @@ angular.module('app.sound')
     var sangen = document.getElementById("song");
     var viewInsert = document.getElementById("soundView");
     var taskNumber = 0;
+    
 
 /*
 triangle-1
@@ -147,16 +148,17 @@ pentaTwo
             }
 
             else {
-                var feedback1 = "Dette var ikke helt riktig, du hadde rør";
-                var feedback2 = " på posisjon";
-                var feedback3 = "";
-                var feedback4 = " riktig";
+                var feedback1 = $rootScope.trans["PERIODIC_FEEDBACK1"];
+                var feedback2 = $rootScope.trans["PERIODIC_FEEDBACK2"];
+                var feedback3 = $rootScope.trans["PERIODIC_FEEDBACK3"];
+                var feedback4 = $rootScope.trans["PERIODIC_FEEDBACK4"];
 
-                for (var i = correctArray.length - 1; i >= 0; i--) {
+
+                for (var i = correctArray.length- 1; i >= 0; i--) {
                     if (feedback3.length == 2 && correctArray[i] == 1) {
-                        feedback3 = (i + 1) + " og " + feedback3;
-                        feedback1 += "ene ";
-                        feedback2 += "ene ";
+                        feedback3 = (i + 1) + $rootScope.trans["PERIODIC_FEEDBACK5"] + feedback3;
+                        feedback1 += $rootScope.trans["PERIODIC_FEEDBACK6"];;
+                        feedback2 += $rootScope.trans["PERIODIC_FEEDBACK6"];;
                     }
                     else if (feedback3.length == 0 && correctArray[i] == 1) {
                         feedback3 = " " + (i + 1) + feedback3;
@@ -169,13 +171,13 @@ pentaTwo
                 }
 
                 if (feedback3.length == 0) {
-                    feedback1 = "Dette var ikke riktig. Du har dessverre ingen rør på riktig posisjon."
+                    feedback1 = $rootScope.trans["PERIODIC_FEEDBACK7"];
                     feedback2 = "";
                     feedback3 = "";
                     feedback4 = "";
                 }
                 else if (feedback3.length == 2) {
-                    feedback1 += "et "
+                    feedback1 += $rootScope.trans["PERIODIC_FEEDBACK8"];
                 }
                 var pop = {
                     title: "FEIL",
