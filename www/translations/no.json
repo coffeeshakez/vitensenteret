@@ -31,5 +31,15 @@
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS": "Du har samlet ",
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO": " deler",
     "YOUR_ROBOT_GENERATE_BUTTON": "Generer din robot",
-    "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Slett din robot og start spillet på nytt"
+    "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Slett din robot og start spillet på nytt",
+    "PERIODIC_SN_DESCRIPTION":"Tinn er etter gull, kobber og sølv det lengst kjente og brukte metallet. Tinn finnes som hvit, skinnende og bløtt metall, med smeltepunkt på 231,9 ˚C. Siden tinn er et bløtt metall med lavt smeltepunkt er det lett å forme og velegnet til en rekke formål. På Vitensenteret kan du støype egne figurer av tinn.",
+    "PERIODIC_FE_DESCRIPTION":"Jern ruster lett og reagerer lett med andre stoffer. Likevel brukes jern mye da det finnes i store mengder og er lett å fremstille.Som regel tilsetter man andre metaller for å gi det bedre egenskaper.",
+    "PERIODIC_NA_DESCRIPTION":"Natrium er det ene av de to grunnstoffene i vanlig salt, NaCl. Natrium er viktig for overføring av elektriske signaler i nervene våre, men vi bør ikke ha for mye av det.",
+    "PERIODIC_AU_DESCRIPTION":"Rent gull er veldig bløtt. Derfor legeres det ofte med kobber, platina eller sølv for at det skal bli hardere. Gull er veldig lett å bearbeide, for eksempel kan 1 g gull trekkes til en 3 km lang tråd!",
+    "PERIODIC_AL_DESCRIPTION":"Som metall er aluminium veldig allsidig fordi det er lett, ikke ruster; enkelt kan gjøres hardt. Brukes blant annet i bildeler, dørhåndtak, tuber, vinduskarmer, i ledninger og ikke minst til aluminiumsfolie.",
+    "PERIODIC_LI_DESCRIPTION":"Dette lette metallet er mest kjent fra oppladbare batterier. Energien i batteriet kommer av at litiummetall gjerne vil gi fra seg et elektron, og når vi lader det opp setter vi elektronet tilbake.",
+    "PERIODIC_S_DESCRIPTION":"Slam i elver som lukter som råtne egg, har sin stank fra forbindelser som inneholder svovel. Den sterke lukten i løk kommer også fra svovelholdige stoffer. Svovel finnes også i naturen som gult pulver. ",
+    "PERIODIC_C_DESCRIPTION":"Rent karbon finnes i form av grafitt, diamant og noen nanostrukturer. Grafitt er det mørkegrå ”blyet” i blyanter. Alt levende er basert på kjemien til karbon.",
+    "PERIODIC_CA_DESCRIPTION":"Marmor, kritt og kalkstein er alle laget av kalsiumforbindelsen kalsiumkarbonat, CaCO3. Kalkstein brukes også som små partikler i tyggis og tannpasta. Mesteparten av all kalsium i kroppen finnes i beinstrukturen."
+
 }
