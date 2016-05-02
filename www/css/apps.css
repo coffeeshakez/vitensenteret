@@ -747,6 +747,11 @@ select{
   opacity: 0.9;
 }
 
+.minigame-hidden{
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .minigame-icon.part-collected {
     color: slategrey;
 }

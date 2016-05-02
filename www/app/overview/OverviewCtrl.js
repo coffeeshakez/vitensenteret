@@ -2,6 +2,7 @@ angular.module('app.overview')
 .controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService, $ionicPopup, $translate, $interval, $timeout) {
 
 
+
     var minigamesLocal = localStorageService.get('minigames');
     var partsLocal = localStorageService.get('parts');
     var languageLocal = localStorageService.get('language');
@@ -18,28 +19,12 @@ angular.module('app.overview')
         $rootScope.language = languageLocal;
         console.log("Stored language is: "+$rootScope.language);
     }
+    console.log($rootScope.language);
 
-    $translate.preferredLanguage($rootScope.language);
-    $translate.use($rootScope.language);
-
-    $translate(["OVERVIEW_QUIZ_BUTTON",
-    "OVERVIEW_ELEMENTS_BUTTON",
-    "OVERVIEW_COLOR_BUTTON",
-    "OVERVIEW_MELODY_BUTTON",
-    "OVERVIEW_WATER_BUTTON",
-    "OVERVIEW_SIMON_SAYS_BUTTON",
-    "OVERVIEW_SHORTEST_PATH_BUTTON",
-    "OVERVIEW_POPUP_START_BUTTON",
-    "OVERVIEW_POPUP_CANCEL_BUTTON",
-    "QUIZ_INTRO_POPUP",
-    "ELEMENTS_INTRO_POPUP",
-    "COLOR_INTRO_POPUP",
-    "MELODY_INTRO_POPUP",
-    "WATER_INTRO_POPUP",
-    "SIMON_SAYS_INTRO_POPUP",
-    "SHORTEST_PATH_INTRO_POPUP"]).then(function(translations){
-        $scope.translations = translations;
-    });
+    $rootScope.trans = english;
+    if ($rootScope.language == "no"){
+        $rootScope.trans = norwegian;
+    }
     
     $scope.$watch('minigames', function () {
       localStorageService.set('minigames', $scope.minigames);
@@ -51,8 +36,10 @@ angular.module('app.overview')
 
 
     $rootScope.minigames = minigamesLocal || {
-        "quiz":      {name: "OVERVIEW_QUIZ_BUTTON",           game: "quiz",      icon: "ion-help",              part: "head",   collected: false, story: "QUIZ_INTRO_POPUP",            found: false },
-        "periodic":  {name: "OVERVIEW_ELEMENTS_BUTTON",       game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false, story: "ELEMENTS_INTRO_POPUP",        found: false },
+
+        "quiz":      {name: "OVERVIEW_QUIZ_BUTTON",           game: "quiz",      icon: "ion-chatbubble-working",part: "head",   collected: false, story: "QUIZ_INTRO_POPUP",            found: true },
+        "periodic":  {name: "OVERVIEW_ELEMENTS_BUTTON",       game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false, story: "ELEMENTS_INTRO_POPUP",        found: true },
+
         "colors":    {name: "OVERVIEW_COLOR_BUTTON",          game: "colors",    icon: "ion-lock-combination",  part: "head",   collected: false, story: "COLOR_INTRO_POPUP",           found: false },
         "sound":     {name: "OVERVIEW_MELODY_BUTTON",         game: "sound",     icon: "ion-music-note",        part: "head",   collected: false, story: "MELODY_INTRO_POPUP",          found: false },
         "waterflow": {name: "OVERVIEW_WATER_BUTTON",          game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "WATER_INTRO_POPUP",           found: false },
@@ -94,7 +81,7 @@ angular.module('app.overview')
     
     $scope.minigameClasses = function(minigame){
         var collected = minigame.collected ? 'part-collected' : 'part-not-collected';
-        var icon = minigame.icon;
+        var icon = minigame.collected || $rootScope.beaconsActive  || minigame.found ? minigame.icon : "ion-help";
         return icon + " " + collected;
     }
 
@@ -111,8 +98,8 @@ angular.module('app.overview')
     function gamePopup(minigame) {
 
       return {
-        title: $scope.translations[minigame.name],
-        subTitle: $scope.translations[minigame.story],
+        title: $rootScope.trans[minigame.name],
+        subTitle: $rootScope.trans[minigame.story],
         scope: $scope,
         buttons: [
           {
