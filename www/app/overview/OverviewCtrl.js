@@ -52,7 +52,7 @@ angular.module('app.overview')
         "sound":     {name: "OVERVIEW_MELODY_BUTTON",  game: "sound",     icon: "ion-music-note",        part: "head",   collected: false, story: "MELODY_INTRO_POPUP"},
         "waterflow": {name: "OVERVIEW_WATER_BUTTON",    game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "WATER_INTRO_POPUP"},
         "memory":    {name: "OVERVIEW_SIMON_SAYS_BUTTON",   game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false, story: "SIMON_SAYS_INTRO_POPUP"},
-        "shortest":  {name: "OVERVIEW_SHORTEST_PATH_BUTTON", game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP"},
+        "shortest":  {name: "OVERVIEW_SHORTEST_PATH_BUTTON", game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP"}
 
     };
 
@@ -60,7 +60,7 @@ angular.module('app.overview')
         "head": {name: "Hode",  desc: "et hode",  type: "head", variants: [1, 2, 3],      variant: 3, collected: false},
         "arms":  {name: "Armer", desc: "to armer", type: "arms", variants: [1, 2, 3],      variant: 1, collected: false},
         "legs":  {name: "Bein",  desc: "bein",     type: "legs", variants: [1, 2, 3, 4],   variant: 1, collected: false},
-        "body": {name: "Overkropp", desc: "en overkropp", type: "body", variants: [1, 2], variant: 2, collected: false},
+        "body": {name: "Overkropp", desc: "en overkropp", type: "body", variants: [1, 2], variant: 2, collected: false}
     };
 
     $rootScope.winGame = function(game){
@@ -71,13 +71,11 @@ angular.module('app.overview')
         $state.go("index.reward", {"game": wonGame.name, "part": wonGame.part});
         return true;
     }
-
     $rootScope.resetGame = function(){
         localStorageService.clearAll();
         console.log("Cleared local-storage");
         document.location = "index.html";
     }
-
     $scope.collectedMinigamesCount = function(){
         var count = 0;
         angular.forEach($scope.minigames, function(minigame){
@@ -85,18 +83,15 @@ angular.module('app.overview')
         });
         return count; 
     }
-    
     $scope.minigameClasses = function(minigame){
         var collected = minigame.collected ? 'part-collected' : 'part-not-collected';
         var icon = minigame.icon;
         return icon + " " + collected;
     }
-
     $scope.minigameStart = function(minigame){
         var popup = gamePopup(minigame);
         var myPopup = $ionicPopup.show(popup);
     }
-
     $scope.minigameToggle = function(minigame){
         minigame.collected ^= true;
     }
