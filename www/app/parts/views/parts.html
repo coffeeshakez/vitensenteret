@@ -2,7 +2,7 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="row">
             <div class="list card col-50">
-                <div class="item item-divider" translate>YOUR_ROBOT_TOP_LEFT</div>
+                <div class="item item-divider">{{trans.YOUR_ROBOT_TOP_LEFT}}</div>
                 <div class="item item-body item-robot">
                     <div class="row">
                         <div class="col-100 part-robot"><!-- head -->
@@ -28,14 +28,14 @@
             </div>
             <div class="col-50 vertical-wrapper">
                 <div class="vertical-align">
-                    <h3 class="giant-text" translate>
-                        YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS
+                    <h3 class="giant-text">
+                        {{trans.YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS}}
                     </h3>
                     <h1 class="giant-text">
                         {{collectedPartsCount()}}/{{getLength(parts)}}
                     </h1>
-                    <h2 class="giant-text" translate>
-                        YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO
+                    <h2 class="giant-text">
+                        {{trans.YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO}}
                     </h2>
                 </div>
             </div>
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <btn ng-disabled="collectedPartsCount() != parts.length" class="button button-balanced button-block" translate>YOUR_ROBOT_GENERATE_BUTTON</btn>
-        <btn class="button button-assertive button-block" ng-click="resetGame()" translate>YOUR_ROBOT_DELETE_ROBOT_BUTTON</btn>
+        <btn ng-disabled="collectedPartsCount() != parts.length" class="button button-balanced button-block">{{trans.YOUR_ROBOT_GENERATE_BUTTON}}</btn>
+        <btn class="button button-assertive button-block" ng-click="resetGame()">{{trans.YOUR_ROBOT_DELETE_ROBOT_BUTTON}}</btn>
     </ion-content>
 </ion-view>

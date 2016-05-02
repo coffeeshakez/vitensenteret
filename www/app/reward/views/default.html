@@ -2,14 +2,14 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="list card">
             <div class="item item-body">
-                Du fullførte nettopp {{gameFinished}} og har dermed vunnet {{robotPart}} til din robot! {{test}}
+                {{trans.FINISHED1}} {{gameFinished}} {{trans.FINISHED2}} {{robotPart}} {{trans.FINISHED3}}
             </div>
         </div>
 
         <div class="{{robotPartImage}}" id="robotPartReward">
         </div>
         <div>
-            <button class="button button-bar button-balanced" id="continueFromReward" ng-click="goToMain()">Fortsett</button>
+            <button class="button button-bar button-balanced" id="continueFromReward" ng-click="goToMain()">{{trans.CONTINUE}}</button>
         </div>
 
     </ion-content>
