@@ -86,6 +86,7 @@ var norwegian = {
     SOUND_RETRY:"Prøv igjen.",
     SOUND_NEXT:"Neste oppgave.",
     SOUND_FEEDBACK_CORRECT:"Du svarte riktig!",
+    SOUND_PRIZE:"Ta i mot din premie!",
 }
 
 
