@@ -10,8 +10,6 @@
     <script src="js/plugins/sortable.js"></script>
 
     <script src="lib/angular-local-storage/angular-local-storage.min.js"></script>
-    <script src="lib/angular-translate/angular-translate.min.js"></script>
-    <script src="lib/angular-translate/angular-translate-loader-static-files.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -40,7 +38,7 @@
   <div>
     <div>
         <ion-nav-bar class="bar-energized">
-            <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>
+            <ion-nav-back-button class="button-icon icon ion-ios-arrow-back" ng-show="backButton">Back</ion-nav-back-button>
         </ion-nav-bar>
         <ion-nav-view></ion-nav-view>
     </div>
