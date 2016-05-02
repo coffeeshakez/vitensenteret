@@ -157,6 +157,17 @@ angular.module('app.routes', [])
     data: {pageTitle: 'Welcome'}
   })
 
+   .state('index.beacon', {
+      url: "/beacon",
+      views: {
+        'beacon': {
+          templateUrl: "app/beacon/views/beacon.html",
+          controller: 'beaconCtrl'
+        }
+      },
+      data: {pageTitle: 'Beacon'}
+    })
+
   .state('index.example', {
       url: "/example",
       views: {

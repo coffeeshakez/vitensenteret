@@ -1,14 +1,14 @@
 9<ion-view title="Lyd" data-ng-init="initSound()">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 
-    <p class="texts text-center">Plasser rørene så de lager samme lyd som spilles av</p>
+    <p class="texts text-center">{{trans.SOUND_DESC}}</p>
 
     <audio id="song">
     	<source id = "songSource" ng-src="{{currentStage.sound}}" type="audio/wav">
     		Your browser does not support
     </audio>
 
-   <button id="soundPlayBtn" class="button button-block button-balanced" ng-click="playImitate()"> Spill av lyden! </button>
+   <button id="soundPlayBtn" class="button button-block button-balanced" ng-click="playImitate()"> {{trans.SOUND_PLAY}} </button>
 
    <div id = "soundView">
      <div id='ratioDiv'>
@@ -22,7 +22,7 @@
    </div>
 
    
-  <button id="soundTestCorrect" class="button button-block button-balanced" ng-click="soundCheckCorrect()"> Sjekk om det er riktig! </button>
+  <button id="soundTestCorrect" class="button button-block button-balanced" ng-click="soundCheckCorrect()"> {{trans.CHECK}} </button>
 
 
     </ion-content>

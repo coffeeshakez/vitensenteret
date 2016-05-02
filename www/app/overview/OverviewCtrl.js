@@ -1,5 +1,5 @@
 angular.module('app.overview')
-.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService, $ionicPopup, $translate) {
+.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService, $ionicPopup) {
 
 
     var minigamesLocal = localStorageService.get('minigames');
@@ -12,28 +12,13 @@ angular.module('app.overview')
         $rootScope.language = languageLocal;
         console.log("Stored language is: "+$rootScope.language);
     }
+    console.log($rootScope.language);
 
-    $translate.preferredLanguage($rootScope.language);
-    $translate.use($rootScope.language);
+    $rootScope.trans = english;
+    if ($rootScope.language == "no"){
+        $rootScope.trans = norwegian;
+    }
 
-    $translate(["OVERVIEW_QUIZ_BUTTON",
-    "OVERVIEW_ELEMENTS_BUTTON",
-    "OVERVIEW_COLOR_BUTTON",
-    "OVERVIEW_MELODY_BUTTON",
-    "OVERVIEW_WATER_BUTTON",
-    "OVERVIEW_SIMON_SAYS_BUTTON",
-    "OVERVIEW_SHORTEST_PATH_BUTTON",
-    "OVERVIEW_POPUP_START_BUTTON",
-    "OVERVIEW_POPUP_CANCEL_BUTTON",
-    "QUIZ_INTRO_POPUP",
-    "ELEMENTS_INTRO_POPUP",
-    "COLOR_INTRO_POPUP",
-    "MELODY_INTRO_POPUP",
-    "WATER_INTRO_POPUP",
-    "SIMON_SAYS_INTRO_POPUP",
-    "SHORTEST_PATH_INTRO_POPUP"]).then(function(translations){
-        $scope.translations = translations;
-    });
 
     
     $scope.$watch('minigames', function () {
@@ -52,7 +37,8 @@ angular.module('app.overview')
         "sound":     {name: "OVERVIEW_MELODY_BUTTON",  game: "sound",     icon: "ion-music-note",        part: "head",   collected: false, story: "MELODY_INTRO_POPUP"},
         "waterflow": {name: "OVERVIEW_WATER_BUTTON",    game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "WATER_INTRO_POPUP"},
         "memory":    {name: "OVERVIEW_SIMON_SAYS_BUTTON",   game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false, story: "SIMON_SAYS_INTRO_POPUP"},
-        "shortest":  {name: "OVERVIEW_SHORTEST_PATH_BUTTON", game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP"}
+        "shortest":  {name: "OVERVIEW_SHORTEST_PATH_BUTTON", game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP"},
+        "beacon":    {name: "OVERVIEW_SHORTEST_PATH_BUTTON", game: "beacon",  icon: "ion-bluetooth",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP"},
 
     };
 
@@ -60,7 +46,7 @@ angular.module('app.overview')
         "head": {name: "Hode",  desc: "et hode",  type: "head", variants: [1, 2, 3],      variant: 3, collected: false},
         "arms":  {name: "Armer", desc: "to armer", type: "arms", variants: [1, 2, 3],      variant: 1, collected: false},
         "legs":  {name: "Bein",  desc: "bein",     type: "legs", variants: [1, 2, 3, 4],   variant: 1, collected: false},
-        "body": {name: "Overkropp", desc: "en overkropp", type: "body", variants: [1, 2], variant: 2, collected: false}
+        "body": {name: "Overkropp", desc: "en overkropp", type: "body", variants: [1, 2], variant: 2, collected: false},
     };
 
     $rootScope.winGame = function(game){
@@ -98,8 +84,8 @@ angular.module('app.overview')
 
     function gamePopup(minigame) {
       return {
-        title: $scope.translations[minigame.name],
-        subTitle: $scope.translations[minigame.story],
+        title: $rootScope.trans[minigame.name],
+        subTitle: $rootScope.trans[minigame.story],
         scope: $scope,
         buttons: [
           {
