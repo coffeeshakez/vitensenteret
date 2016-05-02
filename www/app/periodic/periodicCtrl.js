@@ -132,7 +132,7 @@ angular.module('app.periodic')
          else{
             var pop = {
                 title: 'FEIL!', 
-                subTitle:"Du svarte " + $scope.buttons[answer.index].name + ". \n" + $scope.buttons[answer.index].description,
+                subTitle:"Du svarte " + $scope.buttons[answer.index].name + ". \n" + $scope.translations[description],
                 scope: $scope,
                 buttons: [
                         {
