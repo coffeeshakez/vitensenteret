@@ -6,6 +6,7 @@ angular.module('app.sound')
     var sangen = document.getElementById("song");
     var viewInsert = document.getElementById("soundView");
     var taskNumber = 0;
+
     
 
 /*
@@ -109,12 +110,12 @@ pentaTwo
             if (bool == true) {
                 if (taskNumber == 3) {
                     var pop = {
-                        title: "RIKTIG!",
-                        subTitle: "Du svarte riktig!",
+                        itle: $rootScope.trans["PERIODIC_FEEDBACK_CORRECT"],
+                        subTitle: $rootScope.trans["SOUND_FEEDBACK_CORRECT"],
                         scope: $scope,
                         buttons: [
                             {
-                                text: '<b>Ta i mot din premie!</b>',
+                                text: '<b>'+$rootScope.trans["SOUND_PRIZE"] + '</b>',
                                 type: 'button-positive',
 
                                 onTap: function () {
@@ -129,12 +130,12 @@ pentaTwo
 
                 else {
                     var pop = {
-                        title: "RIKTIG!",
-                        subTitle: "Du svarte riktig!",
+                        title: $rootScope.trans["PERIODIC_FEEDBACK_CORRECT"],
+                        subTitle: $rootScope.trans["SOUND_FEEDBACK_CORRECT"],
                         scope: $scope,
                         buttons: [
                             {
-                                text: '<b>Neste oppgave</b>',
+                                text: '<b>'+ $rootScope["SOUND_NEXT"] +'</b>',
                                 type: 'button-positive',
 
                                 onTap: function () {
@@ -148,17 +149,16 @@ pentaTwo
             }
 
             else {
-                var feedback1 = $rootScope.trans["PERIODIC_FEEDBACK1"];
-                var feedback2 = $rootScope.trans["PERIODIC_FEEDBACK2"];
-                var feedback3 = $rootScope.trans["PERIODIC_FEEDBACK3"];
-                var feedback4 = $rootScope.trans["PERIODIC_FEEDBACK4"];
+                var feedback1 = $rootScope.trans["SOUND_FEEDBACK1"];
+                var feedback2 = $rootScope.trans["SOUND_FEEDBACK2"];
+                var feedback3 = $rootScope.trans["SOUND_FEEDBACK3"];
+                var feedback4 = $rootScope.trans["SOUND_FEEDBACK4"];
 
 
                 for (var i = correctArray.length- 1; i >= 0; i--) {
                     if (feedback3.length == 2 && correctArray[i] == 1) {
-                        feedback3 = (i + 1) + $rootScope.trans["PERIODIC_FEEDBACK5"] + feedback3;
-                        feedback1 += $rootScope.trans["PERIODIC_FEEDBACK6"];;
-                        feedback2 += $rootScope.trans["PERIODIC_FEEDBACK6"];;
+                        feedback3 = (i + 1) + $rootScope.trans["SOUND_FEEDBACK5"] + feedback3;
+                        feedback1 += $rootScope.trans["SOUND_FEEDBACK6"];;
                     }
                     else if (feedback3.length == 0 && correctArray[i] == 1) {
                         feedback3 = " " + (i + 1) + feedback3;
@@ -171,21 +171,21 @@ pentaTwo
                 }
 
                 if (feedback3.length == 0) {
-                    feedback1 = $rootScope.trans["PERIODIC_FEEDBACK7"];
+                    feedback1 = $rootScope.trans["SOUND_FEEDBACK7"];
                     feedback2 = "";
                     feedback3 = "";
                     feedback4 = "";
                 }
                 else if (feedback3.length == 2) {
-                    feedback1 += $rootScope.trans["PERIODIC_FEEDBACK8"];
+                    feedback1 += $rootScope.trans["SOUND_FEEDBACK8"];
                 }
                 var pop = {
-                    title: "FEIL",
+                    title: $rootScope.trans["PERIODIC_FEEDBACK_INCORRECT"],
                     subTitle: feedback1 + feedback2 + feedback3 + feedback4,
                     scope: $scope,
                     buttons: [
                         {
-                            text: '<b>Prøv igjen</b>',
+                            text: '<b>'+ $rootScope.trans["SOUND_RETRY"] +'</b>',
                             type: 'button-positive',
 
                             onTap: function () {
