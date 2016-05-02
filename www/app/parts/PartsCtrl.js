@@ -25,7 +25,6 @@ angular.module('app.parts')
             else {
                 return 'part-not-collected';
             }
-            
         }
         return "";
     }

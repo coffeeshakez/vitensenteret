@@ -1,17 +1,13 @@
 angular.module('app.beacon')
 .controller('beaconCtrl', function($scope, $state, $stateParams, $timeout, $interval) {
-    
-    console.log("inne i beaconController")
 	
 	$scope.message = "Default message";
 	var beacons = {};
-	$scope.test = "scanning for beacons";
 	$scope.foundBeacons = "Default Message";
 	var signalInterval;
 
 	function onDeviceReady()
 		{
-			
 			// Start tracking beacons!
 			$timeout(function()
 			{
@@ -98,7 +94,6 @@ angular.module('app.beacon')
 		}
 	}
 
-
 	function displayBeacons()
 		{
 			var html = '';
@@ -179,9 +174,6 @@ angular.module('app.beacon')
 		return result;
 	}
 
-
 	onDeviceReady();
 
-    
-    
 });
