@@ -1,10 +1,16 @@
 angular.module('app.overview')
-.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService, $ionicPopup, $translate) {
+.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService, $ionicPopup, $translate, $interval, $timeout) {
 
 
     var minigamesLocal = localStorageService.get('minigames');
     var partsLocal = localStorageService.get('parts');
     var languageLocal = localStorageService.get('language');
+
+    //Used for storing beacons that are in range
+    var beacons = {};
+
+    //Setting interval for updating the beacon list
+    var signalInterval;
 
     if(!languageLocal){
         $state.go("index.chooseLanguage");
@@ -45,13 +51,13 @@ angular.module('app.overview')
 
 
     $rootScope.minigames = minigamesLocal || {
-        "quiz":      {name: "OVERVIEW_QUIZ_BUTTON",           game: "quiz",      icon: "ion-help",              part: "head",   collected: false, story: "QUIZ_INTRO_POPUP"            found: false },
-        "periodic":  {name: "OVERVIEW_ELEMENTS_BUTTON",       game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false, story: "ELEMENTS_INTRO_POPUP"        found: false },
-        "colors":    {name: "OVERVIEW_COLOR_BUTTON",          game: "colors",    icon: "ion-lock-combination",  part: "head",   collected: false, story: "COLOR_INTRO_POPUP"           found: false },
-        "sound":     {name: "OVERVIEW_MELODY_BUTTON",         game: "sound",     icon: "ion-music-note",        part: "head",   collected: false, story: "MELODY_INTRO_POPUP"          found: false },
-        "waterflow": {name: "OVERVIEW_WATER_BUTTON",          game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "WATER_INTRO_POPUP"           found: false },
-        "memory":    {name: "OVERVIEW_SIMON_SAYS_BUTTON",     game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false, story: "SIMON_SAYS_INTRO_POPUP"      found: false },
-        "shortest":  {name: "OVERVIEW_SHORTEST_PATH_BUTTON",  game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP"   found: false },
+        "quiz":      {name: "OVERVIEW_QUIZ_BUTTON",           game: "quiz",      icon: "ion-help",              part: "head",   collected: false, story: "QUIZ_INTRO_POPUP",            found: false },
+        "periodic":  {name: "OVERVIEW_ELEMENTS_BUTTON",       game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false, story: "ELEMENTS_INTRO_POPUP",        found: false },
+        "colors":    {name: "OVERVIEW_COLOR_BUTTON",          game: "colors",    icon: "ion-lock-combination",  part: "head",   collected: false, story: "COLOR_INTRO_POPUP",           found: false },
+        "sound":     {name: "OVERVIEW_MELODY_BUTTON",         game: "sound",     icon: "ion-music-note",        part: "head",   collected: false, story: "MELODY_INTRO_POPUP",          found: false },
+        "waterflow": {name: "OVERVIEW_WATER_BUTTON",          game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "WATER_INTRO_POPUP",           found: false },
+        "memory":    {name: "OVERVIEW_SIMON_SAYS_BUTTON",     game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false, story: "SIMON_SAYS_INTRO_POPUP",      found: false },
+        "shortest":  {name: "OVERVIEW_SHORTEST_PATH_BUTTON",  game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP",   found: false },
         
 
     };
@@ -95,6 +101,7 @@ angular.module('app.overview')
     $scope.minigameStart = function(minigame){
         var popup = gamePopup(minigame);
         var myPopup = $ionicPopup.show(popup);
+        stopScan();
     }
 
     $scope.minigameToggle = function(minigame){
@@ -102,6 +109,7 @@ angular.module('app.overview')
     }
 
     function gamePopup(minigame) {
+
       return {
         title: $scope.translations[minigame.name],
         subTitle: $scope.translations[minigame.story],
@@ -124,4 +132,71 @@ angular.module('app.overview')
         ]
       };
     }
+
+    function onDeviceReady()
+        {
+            // Start tracking beacons!
+            $timeout(function()
+            {
+                startScan();
+            },
+            500);
+
+           
+        }
+
+    function startScan()
+        {
+            
+            console.log("scan in progress..")
+            evothings.eddystone.startScan(
+                function(beacon)
+                {
+
+                    // Update beacon data.
+                    beacon.timeStamp = Date.now();
+                    beacons[beacon.address] = beacon;
+
+                    console.log(beacon.name);
+                    console.log(beacon.rssi);
+
+                    // var beaconName = getBeaconName(beacon);
+                    miniGameName = beaconMap[beacon.name];
+                    console.log(miniGameName);
+                    console.log($rootScope.minigames[miniGameName]);
+
+                    $scope.minigameStart($rootScope.minigames[miniGameName]);
+
+                      
+                },
+                function(error)
+                {
+                    console.log("eddystone scan error: " + error);
+                    
+                });
+        }
+
+    function stopScan()
+    {
+        console.log("Scanning stops..") 
+        evothings.eddystone.stopScan();
+    }
+
+    function getBeaconName(beacon)
+    {
+        var name = beacon.name || 'no name';
+        return name;
+    }
+
+    function getBeaconRSSI(beacon)
+    {
+        return beacon.rssi 
+    }
+
+    var beaconMap = {"nRF5-Eddy" : "waterflow" };
+
+
+    //Start scanning for beacons when controller is started
+    onDeviceReady();
+
 });

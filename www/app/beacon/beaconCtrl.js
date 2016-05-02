@@ -174,6 +174,4 @@ angular.module('app.beacon')
 		return result;
 	}
 
-	onDeviceReady();
-
 });
