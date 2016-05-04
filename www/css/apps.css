@@ -34,8 +34,12 @@ body{
   display: none;
 }
 
-.flex-wrap{
-    flex-wrap: wrap;
+.card {
+    margin: 10px 10px;
+}
+
+.bar .title.title-left {
+  text-align: center;
 }
 
 .flex-wrap .card{
@@ -489,22 +493,26 @@ select{
   font-size: 1.3em;
   position: absolute;
   text-align: right;
-  padding: calc(50% - 14px) 8px;
+  padding: 29px 8%;
   right: 0;
   top: 0;
-  width: 50%;
+  width: 22%;
   height: 100%;
   opacity: 0.8;
   cursor: pointer;
+  background-color: rgba(0,0,0,0.1);
+  border-left: 1px solid rgba(0,0,0,0.16);
 }
 
 .part-list {
-  zoom: 0.7;
+  zoom: 1;
 }
 
 .changePart.left{
   text-align: left;
   left: 0;
+  border-right: 1px solid rgba(0,0,0,0.16);
+  border-left: none;
 }
 
 .part-not-collected{

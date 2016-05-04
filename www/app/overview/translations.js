@@ -87,6 +87,10 @@ var norwegian = {
     SOUND_NEXT:"Neste oppgave.",
     SOUND_FEEDBACK_CORRECT:"Du svarte riktig!",
     SOUND_PRIZE:"Ta i mot din premie!",
+
+    GAME_WON_TITLE: "Gratulerer!",
+    GAME_WON_TEXT: "Du har funnet alle delene. Etter at du har bygd og tilpasset roboten din slik du vil kan du trykke på den store grønne knappen for å få din premie!",
+    GAME_WON_BUTTON: "Lukk",
 }
 
 
@@ -163,7 +167,7 @@ var english = {
     PERIODIC_NA_DESCRIPTION:"Sodium is one of the two elements needed to create salt, NaCl. Sodium is very important for transmitting neural signals within our bodies, but we should not consume to much, as this can be very dangerous",
     PERIODIC_AU_DESCRIPTION:"Pure gold is very soft. This is why it is often found in alloys with other metals, such as copper, platinum, or silver, in order for it to be harder. Gold is very easy to work with. For instance, 1g og cold can be stretched into a 3km long string.",
     PERIODIC_AL_DESCRIPTION: "Aluminium is considered to be a very versatile metal because it is so light, and it does not corrode. It is used in cars, doorhandles, tubes, windowsills, wires and aluminium foil.",
-    PERIODIC_LI_DESCRIPTION:"This light metal i most commonly known for rechargeable batteries. The energy in the battery comes from the metal wanting to get rid of an electron. By recharging the battery we put the electrons back.",
+    PERIODIC_LI_DESCRIPTION:"This light metal is most commonly known for rechargeable batteries. The energy in the battery comes from the metal wanting to get rid of an electron. By recharging the battery we put the electrons back.",
     PERIODIC_S_DESCRIPTION:"Rivers tha ooze of rotten eggs have their stench from chemicals that contain sulfur. The strong smell in onions also comes from sulfur. Sulfur can also be found in nature in the form of powder.",
     PERIODIC_C_DESCRIPTION:"Pure carbon can be in the form of grafite, diamonds and some other nanostructures. Grafite is the part of the pencil that you write with. Carbon is essential to everything living.",
     PERIODIC_CA_DESCRIPTION:"Marble, chalk and limestone are made of the calcium alloy, calciumcarbonate, CaCO3. Limestone is also used as small particles in bubblegum and toothpaste. Most of all the calcium in the body is found in the skeleton.",
@@ -179,6 +183,11 @@ var english = {
     SOUND_NEXT:"Next task.",
     SOUND_FEEDBACK_CORRECT:"You answered correctly!",
     SOUND_PRIZE:"Accept your prize!",
+
+
+    GAME_WON_TITLE: "Congratulations!",
+    GAME_WON_TEXT: "You have collected all the parts. After you've customized your robot you can click the large green button to recieve your prize!",
+    GAME_WON_BUTTON: "Close",
 };
 
 
