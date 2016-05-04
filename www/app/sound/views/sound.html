@@ -13,10 +13,10 @@
    <div id = "soundView">
      <div id='ratioDiv'>
         <div id='selectorContainer'>
-            <img class='soundPhoto' ng-src='{{currentStage.image}}'> 
-            <select class='numberSelector'  id='{{currentStage.id}}-{{$index}}' ng-repeat="edge in currentStage.size">
-                <option value='{{option}}' id={{currentScope.id}}{{option}}  ng-repeat="option in [1,2,3,4,5]">{{option}}</option>
-            </select> 
+            <img class='soundPhoto' ng-src='{{currentStage.image}}'>
+            <select class='numberSelector'  id='{{currentStage.id}}-{{$index}}' ng-model = "currentStage.selected[$index]" ng-repeat="edge in currentStage.size">
+                <option value='{{option}}' id='{{currentStage.id}}{{edge}}{{$index}}' ng-repeat="option in [1, 2,3,4,5]">{{option}}</option>
+            </select>
         </div>
     </div>
    </div>

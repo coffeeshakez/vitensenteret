@@ -7,6 +7,8 @@ angular.module('app.sound')
     var viewInsert = document.getElementById("soundView");
     var taskNumber = 0;
 
+    
+
 /*
 triangle-1
 squareTwo
@@ -18,47 +20,35 @@ pentaTwo
             id: "triangle",
             size: [0,1,2],
             sound: "./sound/teleport.wav",
+            selected:[[1,2,3], [1,2,3], [1,2,3]]
         },
         "square": {
             image: "./img/square.svg",
             id: "square",
             size: [0,1,2,3],
             sound: "./sound/teleport.wav",
+            selected:[[1,2,3,4],[1,2,3,4,], [1,2,3,4], [1,2,3,4]]
         },
         "penta": {
             image: "./img/pentagon.svg",
             id: "penta",
             size: [0,1,2,3,4],
             sound: "./sound/teleport.wav",
+            selected:[[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]
         },
     };
 
-    $scope.filterCondition={
-        operator: 'eq'
-    }
-
-    $scope.operators = [
-        {value:1 , selected:'neq'},
-        {value:2 , selected:'neq'},
-        {value:3 , selected:'neq'},
-        {value:4 , selected:'neq'},
-        {value:5 , selected:'neq'}
-    ];
-
-// DETTE FUNKET IKKE
-    $ionicPlatform.ready(function() {
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
-        if(window.cordova && window.cordova.plugins.Keyboard) {
-
-            //Change this to false to return accessory bar
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
-        }
-        if(window.StatusBar) {
-            // org.apache.cordova.statusbar required
-            StatusBar.styleDefault();
-        }
-    });
+    // $scope.filterCondition={
+    //     operator: 'eq'
+    // }
+    //
+    // $scope.operators = [
+    //     {value:1 , selected:'neq'},
+    //     {value:2 , selected:'neq'},
+    //     {value:3 , selected:'neq'},
+    //     {value:4 , selected:'neq'},
+    //     {value:5 , selected:'neq'}
+    // ];
 
 
 
@@ -69,18 +59,10 @@ pentaTwo
         sangen.play();
    };
 
-    //DETTE FUNKER IKKE
-    function setSelectors () {
-        console.log("meh");
-        // for (var i = 0; i < 3; i++) {
-            var myEl = document.getElementById("triangle1");
-            console.log(myEl);
-        // }
-    };
+
 
     $scope.initSound = function () {
         initNext();
-        setSelectors();
     }
 
 
@@ -100,13 +82,21 @@ pentaTwo
         function initNext() {
             if (taskNumber == 0) {
                 $scope.currentStage = $scope.stages["triangle"];
+                console.log($scope.currentStage.selected);
+                $scope.currentStage.selected = [1,2,3];
             }
             else if (taskNumber == 1) {
                 $scope.currentStage = $scope.stages["square"];
+                console.log($scope.currentStage.selected);
+                $scope.currentStage.selected = [1,2,3,4];
             }
             else if (taskNumber == 2) {
                 $scope.currentStage = $scope.stages["penta"];
+                console.log($scope.currentStage.selected);
+                $scope.currentStage.selected = [1,2,3,4,5];
             }
+
+
 
             taskNumber++;
 
@@ -120,12 +110,12 @@ pentaTwo
             if (bool == true) {
                 if (taskNumber == 3) {
                     var pop = {
-                        title: "RIKTIG!",
-                        subTitle: "Du svarte riktig!",
+                        itle: $rootScope.trans["PERIODIC_FEEDBACK_CORRECT"],
+                        subTitle: $rootScope.trans["SOUND_FEEDBACK_CORRECT"],
                         scope: $scope,
                         buttons: [
                             {
-                                text: '<b>Ta i mot din premie!</b>',
+                                text: '<b>'+$rootScope.trans["SOUND_PRIZE"] + '</b>',
                                 type: 'button-positive',
 
                                 onTap: function () {
@@ -140,12 +130,12 @@ pentaTwo
 
                 else {
                     var pop = {
-                        title: "RIKTIG!",
-                        subTitle: "Du svarte riktig!",
+                        title: $rootScope.trans["PERIODIC_FEEDBACK_CORRECT"],
+                        subTitle: $rootScope.trans["SOUND_FEEDBACK_CORRECT"],
                         scope: $scope,
                         buttons: [
                             {
-                                text: '<b>Neste oppgave</b>',
+                                text: '<b>'+ $rootScope["SOUND_NEXT"] +'</b>',
                                 type: 'button-positive',
 
                                 onTap: function () {
@@ -159,16 +149,16 @@ pentaTwo
             }
 
             else {
-                var feedback1 = "Dette var ikke helt riktig, du hadde rør";
-                var feedback2 = " på posisjon";
-                var feedback3 = "";
-                var feedback4 = " riktig";
+                var feedback1 = $rootScope.trans["SOUND_FEEDBACK1"];
+                var feedback2 = $rootScope.trans["SOUND_FEEDBACK2"];
+                var feedback3 = $rootScope.trans["SOUND_FEEDBACK3"];
+                var feedback4 = $rootScope.trans["SOUND_FEEDBACK4"];
 
-                for (var i = correctArray.length - 1; i >= 0; i--) {
+
+                for (var i = correctArray.length- 1; i >= 0; i--) {
                     if (feedback3.length == 2 && correctArray[i] == 1) {
-                        feedback3 = (i + 1) + " og " + feedback3;
-                        feedback1 += "ene ";
-                        feedback2 += "ene ";
+                        feedback3 = (i + 1) + $rootScope.trans["SOUND_FEEDBACK5"] + feedback3;
+                        feedback1 += $rootScope.trans["SOUND_FEEDBACK6"];;
                     }
                     else if (feedback3.length == 0 && correctArray[i] == 1) {
                         feedback3 = " " + (i + 1) + feedback3;
@@ -181,21 +171,21 @@ pentaTwo
                 }
 
                 if (feedback3.length == 0) {
-                    feedback1 = "Dette var ikke riktig. Du har dessverre ingen rør på riktig posisjon."
+                    feedback1 = $rootScope.trans["SOUND_FEEDBACK7"];
                     feedback2 = "";
                     feedback3 = "";
                     feedback4 = "";
                 }
                 else if (feedback3.length == 2) {
-                    feedback1 += "et "
+                    feedback1 += $rootScope.trans["SOUND_FEEDBACK8"];
                 }
                 var pop = {
-                    title: "FEIL",
+                    title: $rootScope.trans["PERIODIC_FEEDBACK_INCORRECT"],
                     subTitle: feedback1 + feedback2 + feedback3 + feedback4,
                     scope: $scope,
                     buttons: [
                         {
-                            text: '<b>Prøv igjen</b>',
+                            text: '<b>'+ $rootScope.trans["SOUND_RETRY"] +'</b>',
                             type: 'button-positive',
 
                             onTap: function () {

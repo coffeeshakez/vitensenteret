@@ -48,8 +48,47 @@ var norwegian = {
     CHECK: "Sjekk om det er riktig!",
     SOUND_DESC: "Plasser rørene så de lager samme lyd som spilles av",
     SOUND_PLAY: "Spill av lyden!",
-    WATER_DESC: "Koble rørene sammen slik at de danner en sti til turbinen"
-};
+    WATER_DESC: "Koble rørene sammen slik at de danner en sti til turbinen",
+
+    PERIODIC_ANSWER: "Du svarte ",
+    PERIODIC_NEXT: "Neste spørsmål",
+    PERIODIC_FEEDBACK_INCORRECT: "Feil!",
+    PERIODIC_FEEDBACK_CORRECT: "Riktig!",
+
+    PERIODIC_SN: "tinn",
+    PERIODIC_FE: "jern",
+    PERIODIC_NA: "natrium",
+    PERIODIC_AU: "gull",
+    PERIODIC_AL: "aluminium",
+    PERIODIC_LI: "litium",
+    PERIODIC_S: "svovel",
+    PERIODIC_C: "karbon",
+    PERIODIC_CA: "kalsium",
+
+    PERIODIC_SN_DESCRIPTION: "Tinn er etter gull, kobber og sølv det lengst kjente og brukte metallet. Tinn finnes som hvit, skinnende og bløtt metall, med smeltepunkt på 231,9 ˚C.Siden tinn er et bløtt metall med lavt smeltepunkt er det lett å forme og velegnet til en rekke formål. På Vitensenteret kan du støype egne figurer av tinn.",
+    PERIODIC_FE_DESCRIPTION: "Jern ruster lett og reagerer lett med andre stoffer. Likevel brukes jern mye da det finnes i store mengder og er lett å fremstille.Som regel tilsetter man andre metaller for å gi det bedre egenskaper.",
+    PERIODIC_NA_DESCRIPTION: "Natrium er det ene av de to grunnstoffene i vanlig salt, NaCl. Natrium er viktig for overføring av elektriske signaler i nervene våre, men vi bør ikke ha for mye av det.",
+    PERIODIC_AU_DESCRIPTION: "Rent gull er veldig bløtt. Derfor legeres det ofte med kobber, platina eller sølv for at det skal bli hardere. Gull er veldig lett å bearbeide, for eksempel kan 1 g gull trekkes til en 3 km lang tråd!",
+    PERIODIC_AL_DESCRIPTION: "Som metall er aluminium veldig allsidig fordi det er lett, ikke ruster; enkelt kan gjøres   hardt. Brukes blant annet i bildeler, dørhåndtak, tuber, vinduskarmer, i ledninger og ikke minst til aluminiumsfolie.",
+    PERIODIC_LI_DESCRIPTION: "Dette lette metallet er mest kjent fra oppladbare batterier. Energien i batteriet kommer av at litiummetall gjerne vil gi fra seg et elektron, og når vi lader det opp setter vi elektronet tilbake.",
+    PERIODIC_S_DESCRIPTION: "Slam i elver som lukter som råtne egg, har sin stank fra forbindelser som inneholder svovel. Den sterke lukten i løk kommer også fra svovelholdige stoffer. Svovel finnes også i naturen som gult pulver. ",
+    PERIODIC_C_DESCRIPTION: "Rent karbon finnes i form av grafitt, diamant og noen nanostrukturer. Grafitt er det mørkegrå ”blyet” i blyanter. Alt levende er basert på kjemien til karbon.",
+    PERIODIC_CA_DESCRIPTION: "Marmor, kritt og kalkstein er alle laget av kalsiumforbindelsen kalsiumkarbonat, CaCO3. Kalkstein brukes også som små partikler i tyggis og tannpasta. Mesteparten av all kalsium i kroppen finnes i beinstrukturen.",
+
+    SOUND_FEEDBACK1: "Dette var ikke helt riktig. Du hadde rør",
+    SOUND_FEEDBACK2: " på posisjon",
+    SOUND_FEEDBACK3: "",
+    SOUND_FEEDBACK4: " riktig.",
+    SOUND_FEEDBACK5: " og ",
+    SOUND_FEEDBACK6: "ene ",
+    SOUND_FEEDBACK7: "Dette var ikke riktig. Du har dessverre ingen rør på riktig posisjon.",
+    SOUND_FEEDBACK8: "et ",
+    SOUND_RETRY:"Prøv igjen.",
+    SOUND_NEXT:"Neste oppgave.",
+    SOUND_FEEDBACK_CORRECT:"Du svarte riktig!",
+    SOUND_PRIZE:"Ta i mot din premie!",
+}
+
 
 var english = {
     "APP_NAME": "Vitensenteret EN",
@@ -97,12 +136,49 @@ var english = {
     REWARD_FINISHED2: "and won",
     REWARD_FINISHED3: "for your robot!",
     REWARD_CONTINUE: "Continue",
-    SHORTEST_DESC: "Find the shortest path from Oslo to Trondheim. Drag the cities to their correct position",
+    SHORTEST_DESC: "Find the shortest path. \n Drag the cities to their correct position",
     CHECK: "Test if it is correct!",
     SOUND_DESC: "Place the pipes in a way that makes the same sound as played in the sound.",
     SOUND_PLAY: "Play the melody!",
-    WATER_DESC: "Connect the pipes so water can get to the turbine!"
+    WATER_DESC: "Connect the pipes so water can get to the turbine!",
 
+    PERIODIC_ANSWER: "You answered ",
+    PERIODIC_NEXT:"Next question",
+    PERIODIC_FEEDBACK_INCORRECT: "Wrong!",
+    PERIODIC_FEEDBACK_CORRECT: "Correct!",
+
+
+    PERIODIC_SN:"tin",
+    PERIODIC_FE:"iron",
+    PERIODIC_NA:"sodium",
+    PERIODIC_AU:"gold",
+    PERIODIC_AL:"aluminium",
+    PERIODIC_LI:"lithium",
+    PERIODIC_S:"sulfur",
+    PERIODIC_C:"carbon",
+    PERIODIC_CA:"calcium",
+
+    PERIODIC_SN_DESCRIPTION:"Tin is, after gold, copper and silver, the most commonly known and used metal. Tin is a white, shiny and soft metal that melts at 231,9˚C. Because tin is so soft it is easy to shape, here at the science center you can cast your own tin figures.",
+    PERIODIC_FE_DESCRIPTION:"Iron corrodes easily, and reacts with other elements. In spite of this iron is commonly used because there is a lot of it, and it is easy to mine. Usually there are other metals added to the iron to give it better properties.",
+    PERIODIC_NA_DESCRIPTION:"Sodium is one of the two elements needed to create salt, NaCl. Sodium is very important for transmitting neural signals within our bodies, but we should not consume to much, as this can be very dangerous",
+    PERIODIC_AU_DESCRIPTION:"Pure gold is very soft. This is why it is often found in alloys with other metals, such as copper, platinum, or silver, in order for it to be harder. Gold is very easy to work with. For instance, 1g og cold can be stretched into a 3km long string.",
+    PERIODIC_AL_DESCRIPTION: "Aluminium is considered to be a very versatile metal because it is so light, and it does not corrode. It is used in cars, doorhandles, tubes, windowsills, wires and aluminium foil.",
+    PERIODIC_LI_DESCRIPTION:"This light metal i most commonly known for rechargeable batteries. The energy in the battery comes from the metal wanting to get rid of an electron. By recharging the battery we put the electrons back.",
+    PERIODIC_S_DESCRIPTION:"Rivers tha ooze of rotten eggs have their stench from chemicals that contain sulfur. The strong smell in onions also comes from sulfur. Sulfur can also be found in nature in the form of powder.",
+    PERIODIC_C_DESCRIPTION:"Pure carbon can be in the form of grafite, diamonds and some other nanostructures. Grafite is the part of the pencil that you write with. Carbon is essential to everything living.",
+    PERIODIC_CA_DESCRIPTION:"Marble, chalk and limestone are made of the calcium alloy, calciumcarbonate, CaCO3. Limestone is also used as small particles in bubblegum and toothpaste. Most of all the calcium in the body is found in the skeleton.",
+
+    SOUND_FEEDBACK1:"This was not quite right, you had the pipe",
+    SOUND_FEEDBACK2:" in position",
+    SOUND_FEEDBACK3:"",
+    SOUND_FEEDBACK4:" correct.",
+    SOUND_FEEDBACK5:" and ",
+    SOUND_FEEDBACK6:"s ",
+    SOUND_FEEDBACK7:"This was incorrect. You do not have any pipes in the correct position,",
+    SOUND_RETRY:"Try again.",
+    SOUND_NEXT:"Next task.",
+    SOUND_FEEDBACK_CORRECT:"You answered correctly!",
+    SOUND_PRIZE:"Accept your prize!",
 };
 
 

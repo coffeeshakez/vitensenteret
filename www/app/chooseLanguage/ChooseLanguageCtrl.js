@@ -1,5 +1,5 @@
 angular.module('app.chooseLanguage')
-.controller('ChooseLanguageCtrl', function($scope, $state, $rootScope, localStorageService, $translate) {
+.controller('ChooseLanguageCtrl', function($scope, $state, $rootScope, localStorageService) {
 
     var languageLocal = localStorageService.get('language');
 
@@ -16,14 +16,21 @@ angular.module('app.chooseLanguage')
             first = true;
         }
         $rootScope.language = lang;
-        $translate.preferredLanguage(lang);
-        $translate.use(lang);
 
-        $translate('APP_NAME').then(function (headline) {
-            console.log("Translated: "+headline)
-        });
+        if ($rootScope.language === "no"){
+            console.log("Norwegian selected");
+            $rootScope.trans = norwegian;
+        }
+        else if ($rootScope.language === "en"){
+            console.log("English selected");
+            $rootScope.trans = english;
+        }
+        else{
+            $rootScope.trans = english;
+            console.log("English fallback.");
+        }
 
-        console.log("Changed language to: "+$rootScope.language);
+        console.log("Chose language: "+$rootScope.language);
         if(first){
             $state.go("index.welcomeScreen");
         }
