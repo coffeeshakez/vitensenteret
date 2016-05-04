@@ -11,7 +11,7 @@ angular.module('app.overview')
 
     //Setting interval for updating the beacon list
     var signalInterval;
-
+    $rootScope.beaconsActive = false;
     
 
 
@@ -37,7 +37,7 @@ angular.module('app.overview')
     }
     $scope.minigameClasses = function(minigame){
         var collected = minigame.collected ? 'part-collected' : 'part-not-collected';
-        var icon = minigame.collected || $rootScope.beaconsActive  || minigame.found ? minigame.icon : "ion-help";
+        var icon = minigame.collected || !$rootScope.beaconsActive  || minigame.found ? minigame.icon : "ion-help";
         return icon + " " + collected;
     }
     $scope.minigameStart = function(minigame){
