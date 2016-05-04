@@ -10,7 +10,8 @@
         <div class="row flexyWrap" >
             <!--class=flex-wrap-->
             <div class="col-33 center-margin" ng-repeat="minigame in minigames">
-                <div class="card small overviewCard" ng-click="minigameStart(minigame)">
+                <div class="card small overviewCard" ng-click="minigameStart(minigame)" 
+                ng-class="{'minigame-hidden' : !minigame.found && beaconsActive}">
                     <div class="item minigames item-text-wrap part-box vertical-wrapper">
                         <a href class="sprite icon minigame-icon" ng-class="minigameClasses(minigame)"></a>
                         <i class="icon over-check" ng-class="minigame.collected ? 'ion-checkmark-round balanced' : 'hidden'"></i>
