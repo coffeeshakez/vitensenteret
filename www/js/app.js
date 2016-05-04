@@ -80,6 +80,12 @@ angular.module('app', [
       localStorageService.set('parts', $rootScope.parts);
     }, true);
 
+    $rootScope.resetGame = function(){
+        localStorageService.clearAll();
+        console.log("Cleared local-storage");
+        document.location = "index.html";
+    }
+
 
     $rootScope.minigames = minigamesLocal || {
 
@@ -95,10 +101,10 @@ angular.module('app', [
     };
 
     $rootScope.parts = partsLocal || {
-        "head": {name: "Hode",  desc: "et hode",  type: "head", variants: [1, 2, 3],      variant: 3, collected: false, hue: 0, brightness: 1},
-        "arms": {name: "Armer", desc: "to armer", type: "arms", variants: [1, 2, 3],      variant: 1, collected: false, hue: 0, brightness: 1},
-        "legs": {name: "Bein",  desc: "bein",     type: "legs", variants: [1, 2, 3, 4],   variant: 1, collected: false, hue: 0, brightness: 1},
-        "body": {name: "Overkropp", desc: "en overkropp", type: "body", variants: [1, 2], variant: 2, collected: false, hue: 0, brightness: 1},
+        "head": {name: "Hode",  desc: "et hode",  type: "head", variants: [1, 2, 3],      variant: 3, collected: false, hue: 0, brightness: 1, editing: true},
+        "arms": {name: "Armer", desc: "to armer", type: "arms", variants: [1, 2, 3],      variant: 1, collected: false, hue: 0, brightness: 1, editing: false},
+        "body": {name: "Overkropp", desc: "en overkropp", type: "body", variants: [1, 2], variant: 2, collected: false, hue: 0, brightness: 1, editing: false},
+        "legs": {name: "Bein",  desc: "bein",     type: "legs", variants: [1, 2, 3, 4],   variant: 1, collected: false, hue: 0, brightness: 1, editing: false},
     };
 
     $rootScope.state = $state;

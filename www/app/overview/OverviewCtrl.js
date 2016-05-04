@@ -23,11 +23,7 @@ angular.module('app.overview')
         $state.go("index.reward", {"game": wonGame.name, "part": wonGame.part});
         return true;
     }
-    $rootScope.resetGame = function(){
-        localStorageService.clearAll();
-        console.log("Cleared local-storage");
-        document.location = "index.html";
-    }
+
     $scope.collectedMinigamesCount = function(){
         var count = 0;
         angular.forEach($scope.minigames, function(minigame){
@@ -35,16 +31,19 @@ angular.module('app.overview')
         });
         return count; 
     }
+    
     $scope.minigameClasses = function(minigame){
         var collected = minigame.collected ? 'part-collected' : 'part-not-collected';
         var icon = minigame.collected || !$rootScope.beaconsActive  || minigame.found ? minigame.icon : "ion-help";
         return icon + " " + collected;
     }
+    
     $scope.minigameStart = function(minigame){
         var popup = gamePopup(minigame);
         var myPopup = $ionicPopup.show(popup);
         stopScan();
     }
+    
     $scope.minigameToggle = function(minigame){
         minigame.collected ^= true;
     }

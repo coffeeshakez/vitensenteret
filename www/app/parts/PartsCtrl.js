@@ -2,6 +2,7 @@ angular.module('app.parts')
 .controller('PartsCtrl', function($scope, $rootScope, $stateParams, $ionicPopup) {
 
     $rootScope.hasWon = false;
+    $scope.editingPart = $rootScope.parts['head'];
 
     $scope.$on('$ionicView.enter', function() {
         //Runs every time view is changed to
@@ -42,6 +43,10 @@ angular.module('app.parts')
             return "-webkit-" + filter + " " + filter;
         }
         return "";
+    }
+
+    $scope.editPart = function(part){
+        part.editing ^= true;
     }
 
     $scope.partClick = function(part, dir){
