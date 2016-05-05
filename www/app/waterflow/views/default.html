@@ -1,7 +1,7 @@
     <ion-view title="waterflow">
     <ion-content ng-init="loadImages()" class="tube-grid">
     	<div class="card small centerdiv" >
-            <h5>Koble rørene sammen slik at de danner en sti til turbinen</h5>
+            <h5>{{trans.WATER_DESC}}</h5>
         </div>
 	    <div class="customPadding">
 	        <div class="row" ng-repeat="row in images">
@@ -16,7 +16,7 @@
 	        {{levelNumerator}}
 	    </div>
         <div class="centerdiv waterflowButton customPadding">
-		    <button class="button button-bar button-balanced" id="startButton" ng-click="testFlow();">Test koblingen!</button>
+		    <button class="button button-bar button-balanced" id="startButton" ng-click="testFlow();">{{trans.CHECK}}</button>
         </div>
     </ion-content>
 </ion-view>s

@@ -15,7 +15,7 @@ angular.module('app.reward')
 
   function setUp(){
     var part = $stateParams.part;
-    $scope.gameFinished = $stateParams.game;
+    $scope.gameFinished = $rootScope.trans[$stateParams.game];
     $scope.robotPart = $rootScope.parts[part].desc;
     $scope.robotPartImage = "sprite " + part + " " +  part + $rootScope.parts[part].variant;
 

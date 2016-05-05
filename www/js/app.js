@@ -8,7 +8,6 @@
 angular.module('app', [
   'ionic',
   'LocalStorageModule',
-  'pascalprecht.translate',
   'app.controllers', 
   'app.routes', 
   'app.services', 
@@ -33,37 +32,75 @@ angular.module('app', [
   //'app.myapp',
   ])
 
-.config(function ($translateProvider) {
-  $translateProvider.useStaticFilesLoader({
-      prefix: 'translations/',
-      suffix: '.json'
-  });
-
-  $translateProvider.registerAvailableLanguageKeys(['en', 'no'], {
-      'en-US': 'en',
-      'en-UK': 'en',
-      'no-nb': 'no',
-      'no-nn': 'no'
-  });
-
-  $translateProvider.fallbackLanguage('en');
-  $translateProvider.useSanitizeValueStrategy(null);
-})
-
 .config(['localStorageServiceProvider', function(localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('viten');
 }])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, $state, $stateParams, localStorageService) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
     if(window.StatusBar) {
-      // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    //START OWN CODE
+
+    var minigamesLocal = localStorageService.get('minigames');
+    var partsLocal = localStorageService.get('parts');
+    var languageLocal = localStorageService.get('language');
+
+    if(!languageLocal){
+        $state.go("index.chooseLanguage");
+    }else{
+        $rootScope.language = languageLocal;
+        console.log("Stored language is: "+$rootScope.language);
+    }
+
+    
+    if ($rootScope.language === "no"){
+        console.log("Norwegian selected");
+        $rootScope.trans = norwegian;
+    }
+    else if ($rootScope.language === "en"){
+        console.log("English selected");
+        $rootScope.trans = english;
+    }
+    else{
+        $rootScope.trans = english;
+        console.log("English fallback.");
+    }
+
+    $rootScope.$watch('minigames', function () {
+      localStorageService.set('minigames', $rootScope.minigames);
+    }, true);
+
+    $rootScope.$watch('parts', function () {
+      localStorageService.set('parts', $rootScope.parts);
+    }, true);
+
+
+    $rootScope.minigames = minigamesLocal || {
+
+        "quiz":      {name: "OVERVIEW_QUIZ_BUTTON",           game: "quiz",      icon: "ion-chatbubble-working",part: "head",   collected: false, story: "QUIZ_INTRO_POPUP",            found: true },
+        "periodic":  {name: "OVERVIEW_ELEMENTS_BUTTON",       game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false, story: "ELEMENTS_INTRO_POPUP",        found: false },
+        "colors":    {name: "OVERVIEW_COLOR_BUTTON",          game: "colors",    icon: "ion-lock-combination",  part: "head",   collected: false, story: "COLOR_INTRO_POPUP",           found: false },
+        "sound":     {name: "OVERVIEW_MELODY_BUTTON",         game: "sound",     icon: "ion-music-note",        part: "head",   collected: false, story: "MELODY_INTRO_POPUP",          found: false },
+        "waterflow": {name: "OVERVIEW_WATER_BUTTON",          game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "WATER_INTRO_POPUP",           found: false },
+        "memory":    {name: "OVERVIEW_SIMON_SAYS_BUTTON",     game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false, story: "SIMON_SAYS_INTRO_POPUP",      found: false },
+        "shortest":  {name: "OVERVIEW_SHORTEST_PATH_BUTTON",  game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP",   found: false },
+        
+
+    };
+
+    $rootScope.parts = partsLocal || {
+        "head": {name: "Hode",  desc: "et hode",  type: "head", variants: [1, 2, 3],      variant: 3, collected: false},
+        "arms": {name: "Armer", desc: "to armer", type: "arms", variants: [1, 2, 3],      variant: 1, collected: false},
+        "legs": {name: "Bein",  desc: "bein",     type: "legs", variants: [1, 2, 3, 4],   variant: 1, collected: false},
+        "body": {name: "Overkropp", desc: "en overkropp", type: "body", variants: [1, 2], variant: 2, collected: false},
+    };
+
+    $rootScope.state = $state;
   });
 })

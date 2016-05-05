@@ -36,6 +36,9 @@
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.ionicframework.viten838753"
         },
+        "cordova-plugin-eddystone": {
+            "PACKAGE_NAME": "com.ionicframework.viten838753"
+        },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.viten838753"
         },
@@ -46,5 +49,9 @@
             "PACKAGE_NAME": "com.ionicframework.viten838753"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-ble": {
+            "PACKAGE_NAME": "com.ionicframework.viten838753"
+        }
+    }
 }

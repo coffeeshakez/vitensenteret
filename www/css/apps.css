@@ -42,6 +42,14 @@ body{
     margin: 10px;
 }
 
+.hide {
+    display: inherit !important;
+}
+
+.back-button {
+  border: none;
+}
+
 .vertical-wrapper {
     display: -webkit-box;
     display: -webkit-flex;
@@ -745,6 +753,11 @@ select{
 .minigames .over-check{
   font-size: 1.5em;
   opacity: 0.9;
+}
+
+.minigame-hidden{
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .minigame-icon.part-collected {
