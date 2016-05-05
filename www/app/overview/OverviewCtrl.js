@@ -6,12 +6,13 @@ angular.module('app.overview')
         //Runs every time view is changed to
         $rootScope.backButton = false;
     });
-        //Used for storing beacons that are in range
-    var beacons = {};
-
+        
     //Setting interval for updating the beacon list
     var signalInterval;
+    var beaconMap = {"nRF5-Eddy" : "waterflow" };
+    var beacons = {};
     $rootScope.beaconsActive = false;
+
 
     $rootScope.winGame = function(game){
         var wonGame = $rootScope.minigames[game];
@@ -66,6 +67,7 @@ angular.module('app.overview')
             onTap: function (e) {
                 $rootScope.backButton = true;
                 $state.go("index."+minigame.game);
+
             }
           },
         ]
@@ -74,15 +76,12 @@ angular.module('app.overview')
 
     function onDeviceReady()
         {
-
             // Start tracking beacons!
             $timeout(function()
             {
                 startScan();
             },
             500);
-
-           
         }
 
     function startScan()
@@ -92,7 +91,6 @@ angular.module('app.overview')
             evothings.eddystone.startScan(
                 function(beacon)
                 {
-                    
                     $rootScope.beaconsActive = true;
                     // Update beacon data.
                     beacon.timeStamp = Date.now();
@@ -107,17 +105,14 @@ angular.module('app.overview')
                     console.log($rootScope.minigames[miniGameName]);
 
                     $scope.minigameStart($rootScope.minigames[miniGameName]);
-
-
+                    $rootScope.minigames[miniGameName].found = true;
                 },
                 function(error)
                 {
                     console.log("eddystone scan error: " + error);
                     $rootScope.beaconsActive = false;
-                    
                 });
         }
-
 
     function stopScan()
     {
@@ -136,10 +131,6 @@ angular.module('app.overview')
         return beacon.rssi 
     }
 
-    var beaconMap = {"nRF5-Eddy" : "waterflow" };
-
-
-    //Start scanning for beacons when controller is started
     onDeviceReady();
 
 });
