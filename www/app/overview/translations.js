@@ -87,6 +87,9 @@ var norwegian = {
     SOUND_NEXT:"Neste oppgave.",
     SOUND_FEEDBACK_CORRECT:"Du svarte riktig!",
     SOUND_PRIZE:"Ta i mot din premie!",
+    
+    SHORTEST_POPUP_INCORRECT:"Du har dessverre ikke alle byene i riktig rekkefølge. De grønne står på riktig plass, men de røde er plassert feil",
+    SHORTEST_POPUP_CORRECT: "Du har alle byene i riktig rekkefølge!"
 }
 
 

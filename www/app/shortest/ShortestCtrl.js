@@ -54,12 +54,12 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootSco
         if(bool ==true) {
             var pop =
             {
-                title: "Gratulerer",
-                subTitle: "Du har funnet kortste vei fra Amsterdam til Trondheim",
+                title: $rootScope.trans["PERIODIC_FEEDBACK_CORRECT"],
+                subTitle: $rootScope.trans["SOUND_POPUP_INCORRECT"],
                 scope: $scope,
                 buttons: [
                     {
-                        text: '<b>Ta i mot din premie!</b>',
+                        text: '<b>'+$rootScope.trans["SOUND_PRIZE"]+'</b>',
                         type: 'button-positive',
                         onTap: function () {
                             winning();
@@ -71,12 +71,12 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootSco
         else if(bool == false){
             var pop =
             {
-                title: "Feil",
-                subTitle: "Du har dessverre ikke alle byene i riktig rekkefølge. De grønne står på riktig plass, men de røde er plassert feil",
+                title: $rootScope.trans["PERIODIC_FEEDBACK_INCORRECT"],
+                subTitle: $rootScope.trans["SOUND_POPUP_INCORRECT"],
                 scope: $scope,
                 buttons: [
                     {
-                        text: '<b>Prøv igjen</b>',
+                        text: '<b> '+$rootScope.trans["SOUND_RETRY"]+'</b>',
                         type: 'button-positive',
                         onTap: function () {
                         }
