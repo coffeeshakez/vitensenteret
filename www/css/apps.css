@@ -489,6 +489,10 @@ select{
   /*pointer-events: none;*/
 }
 
+.big-robot .sprite {
+  zoom: 3;
+}
+
 .changePart {
   font-size: 1.3em;
   position: absolute;
@@ -506,6 +510,10 @@ select{
 
 .part-list {
   zoom: 1;
+}
+
+.customize-parts-box{
+  border-top: 3px solid rgba(0,0,0,0.1);
 }
 
 .changePart.left{

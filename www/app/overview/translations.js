@@ -33,6 +33,9 @@ var norwegian = {
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO": " deler",
     "YOUR_ROBOT_GENERATE_BUTTON": "Generer din robot",
     "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Slett din robot og start spillet på nytt",
+    PARTS_HUE: "Farge",
+    PARTS_LIGHT: "Lyshet",
+    
     COLORS_TITLE: "Lås opp kombinasjonslåsen!",
     COLORS_DESC: "Finn fargekombinasjonen som genererer fargen under",
     COLORS_UNLOCK: "Lås opp",
@@ -128,6 +131,8 @@ var english = {
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO": " parts",
     "YOUR_ROBOT_GENERATE_BUTTON": "Generate your robot",
     "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Delete your robot and start over again",
+    PARTS_HUE: "Hue",
+    PARTS_LIGHT: "Light",
 
     COLORS_TITLE: "Open the combination lock!",
     COLORS_DESC: "Find the color combination which matches the color below",
