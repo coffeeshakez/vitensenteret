@@ -94,8 +94,50 @@ var norwegian = {
     GAME_WON_TITLE: "Gratulerer!",
     GAME_WON_TEXT: "Du har funnet alle delene. Etter at du har bygd og tilpasset roboten din slik du vil kan du trykke på den store grønne knappen for å få din premie!",
     GAME_WON_BUTTON: "Lukk",
-}
 
+
+    QUIZ_QUESTION1: "Hvem oppfant revolveren?",
+    QUIZ_ANSWER1: "Revolveren ble oppfunnet av Samuel Colt i USA 1880",
+
+    QUIZ_QUESTION2: "Hvem oppfant dynamitten?",
+    QUIZ_ANSWER2: "Dynamitten ble oppfunnet i 1867 av Alfred Nobel fra Sverige",
+
+    QUIZ_QUESTION3: "Hvem oppfant termometeret?",
+    QUIZ_ANSWER3: "Termometeret ble oppfunnet av Gallileo Galilei, Italia 1529",
+
+    QUIZ_QUESTION4: "Hvem oppfant sikkerhetsnålen?",
+    QUIZ_ANSWER4: "Sikkerhetsnålen ble oppfunnet av Walther Hunt, USA 1849",
+
+    QUIZ_QUESTION5: "Hvem oppfant elektromotoren?",
+    QUIZ_ANSWER5: "Elektromotoren ble oppfunnet av Michael Faraday, England 1821",
+
+    QUIZ_QUESTION6: "Hvem oppfant batteriet?",
+    QUIZ_ANSWER6: "Batteriet ble oppfunnet av Allessandro Volta, Italia 1800",
+
+    QUIZ_QUESTION7: "Hvem oppfant plasteret?",
+    QUIZ_ANSWER7: "Plasteret ble oppfunnet av Earle Dickson, USA 1920",
+
+    QUIZ_QUESTION8: "Hvem oppfant 'kattøyet'(refleksbrikken)?",
+    QUIZ_ANSWER8: "Kattøyet ble oppfunnet av percy Shaw i England 1934",
+
+    QUIZ_QUESTION9: "Hvem oppfant bindersen?",
+    QUIZ_ANSWER9: "Det første patent for en slags binders ble gitt Samuel B. Fay, USA i 1867",
+
+    QUIZ_QUESTION10: "Hvem oppfant fotografiet?",
+    QUIZ_ANSWER10: "Fotografiet ble oppfunnet av Joseph J. Nièpce, Frankrike 1816",
+
+    QUIZ_QUESTION11: "Hvem oppfant p-pillen?",
+    QUIZ_ANSWER11: "P-pillen ble oppfunnet av Gregory Pincus og John Rock, USA 1954",
+
+    QUIZ_CORRECT: "Riktig!",
+    QUIZ_WRONG: "Feil!",
+
+    QUIZ_FEEDBACK_CORRECT: "Helt riktig!",
+    QUIZ_FEEDBACK_WRONG: "Dette var desverre feil svar, prøv igjen",
+
+
+
+}
 
 var english = {
     "APP_NAME": "Vitensenteret EN",
