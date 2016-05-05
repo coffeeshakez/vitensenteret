@@ -12,8 +12,6 @@ angular.module('app.overview')
     //Setting interval for updating the beacon list
     var signalInterval;
     $rootScope.beaconsActive = false;
-    
-
 
     $rootScope.winGame = function(game){
         var wonGame = $rootScope.minigames[game];
@@ -77,6 +75,7 @@ angular.module('app.overview')
 
     function onDeviceReady()
         {
+
             // Start tracking beacons!
             $timeout(function()
             {
@@ -94,7 +93,8 @@ angular.module('app.overview')
             evothings.eddystone.startScan(
                 function(beacon)
                 {
-
+                    
+                    $rootScope.beaconsActive = true;
                     // Update beacon data.
                     beacon.timeStamp = Date.now();
                     beacons[beacon.address] = beacon;
@@ -109,14 +109,16 @@ angular.module('app.overview')
 
                     $scope.minigameStart($rootScope.minigames[miniGameName]);
 
-                      
+
                 },
                 function(error)
                 {
                     console.log("eddystone scan error: " + error);
+                    $rootScope.beaconsActive = false;
                     
                 });
         }
+
 
     function stopScan()
     {
