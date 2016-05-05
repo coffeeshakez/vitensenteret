@@ -3,32 +3,83 @@ angular.module('app.quiz')
 
       $scope.questions = [
         {
-          question: "Hvem oppfant revolveren?",
+          question: $rootScope.trans[QUIZ_QUESTION1],
           alternatives: ["Elisha H. Collier", "John Evans", "Samuel Colt", "George W. Bush"],
-          correct: 0,
-          answeredCorrectly: false,
-        },
-
-        {
-          question: "Hvor mange fylker er det i Norge?",
-          alternatives: ["37", "25", "19", "1000"],
           correct: 2,
           answeredCorrectly: false,
         },
 
         {
-          question: "Hvor mange kopper sukker må du ha med deg på månetur?",
+          question:$rootScope.trans[QUIZ_QUESTION2],
+          alternatives: ["37", "Abraham Lincoln", "Alfred Nobel", "William Shakespeare"],
+          correct: 2,
+          answeredCorrectly: false,
+        },
+
+        {
+          question: $rootScope.trans[QUIZ_QUESTION3],
           alternatives: ["10", "20", "50", "100"],
           correct: 3,
           answeredCorrectly: false,
         },
 
         {
-         question: "Hvis du har 10 epler, og spiser 3 av de, hvor mange epler har du igjen?",
-          alternatives: ["Umulig", "7", "10", "Ingen av alternativene"],
+         question: $rootScope.trans[QUIZ_QUESTION4],
+          alternatives: [],
           correct: 1,
           answeredCorrectly: false,
         },
+
+        {
+        question: $rootScope.trans[QUIZ_QUESTION5],
+          alternatives: [],
+          correct: 1,
+          answeredCorrectly: false,
+        },
+
+        {
+        question: $rootScope.trans[QUIZ_QUESTION6],
+          alternatives: [],
+          correct: 1,
+          answeredCorrectly: false,
+        },
+
+        {
+        question: $rootScope.trans[QUIZ_QUESTION7],
+          alternatives: [],
+          correct: 1,
+          answeredCorrectly: false,
+        },
+
+        {
+        question: $rootScope.trans[QUIZ_QUESTION8],
+          alternatives: [],
+          correct: 1,
+          answeredCorrectly: false,
+        },
+
+        {
+        question: $rootScope.trans[QUIZ_QUESTION9],
+          alternatives: [],
+          correct: 1,
+          answeredCorrectly: false,
+        },
+
+        {
+        question: $rootScope.trans[QUIZ_QUESTION10],
+          alternatives: [],
+          correct: 1,
+          answeredCorrectly: false,
+        },
+
+        {
+        question: $rootScope.trans[QUIZ_QUESTION11],
+          alternatives: [],
+          correct: 1,
+          answeredCorrectly: false,
+        },
+
+
       ];
 
   $scope.totalQ = $scope.questions.length;
