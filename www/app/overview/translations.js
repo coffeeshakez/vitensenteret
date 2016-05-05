@@ -22,9 +22,9 @@ var norwegian = {
     "OVERVIEW_POPUP_START_BUTTON": "Start",
     "OVERVIEW_POPUP_CANCEL_BUTTON": "Avbryt",
     "QUIZ_INTRO_POPUP": "En liten Europa-måneboer lurer på hvordan jordens historie er. Kun du hjelpe den?",
-    "ELEMENTS_INTRO_POPUP": "En gal vitenskapsmann prøver å lage en tidsmaskin, men vet ikke hvordan han skal lage ingrediensene. Kan du hjelpe han?",
-    "COLOR_INTRO_POPUP": "Du finner en låst kiste med en rar kombinasjonslås som har forskjellige farger. Klarer du å låse den opp?",
-    "MELODY_INTRO_POPUP": "En liten fulg har mistet moren sin. Kan du hjelpe den å svare på moren sin fuglesang?",
+    "ELEMENTS_INTRO_POPUP": "<small>En gal vitenskapsmann prøver å lage en tidsmaskin, men vet ikke hvordan han skal lage ingrediensene. Kan du hjelpe han?</small>Bruk veggen med grunnstoffer for å gjette hva hvert element er lagd av.",
+    "COLOR_INTRO_POPUP": "<small>Du finner en låst kiste med en rar kombinasjonslås som har forskjellige farger. Klarer du å låse den opp?</small> Bruk fargekombinasjons apparatet på lys-hemsen for å teste farger.",
+    "MELODY_INTRO_POPUP": "<small>En liten fulg har mistet moren sin. Kan du hjelpe den å svare på moren sin fuglesang?</small> Bruk rørene og den roterende pinnen i sanse-rommet for å lage melodien.",
     "WATER_INTRO_POPUP": "Det spruter vann i alle retninger ut av vannkraftverket. Kan du få rørene på plass igjen så det genererer strøm igjen?",
     "SIMON_SAYS_INTRO_POPUP": "Du møter på et glemsk orakel som har mistet hukommelsen sin. Kan du hjelpe henne med å huske kombinasjonen til orakel-skapet hennes?",
     "SHORTEST_PATH_INTRO_POPUP": "Du møter på en handelsmann som skal reise gjennom hele Europa. Kan du hjelpe han med å finne den korteste veien?",
@@ -33,6 +33,9 @@ var norwegian = {
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO": " deler",
     "YOUR_ROBOT_GENERATE_BUTTON": "Generer din robot",
     "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Slett din robot og start spillet på nytt",
+    PARTS_HUE: "Farge",
+    PARTS_LIGHT: "Lyshet",
+
     COLORS_TITLE: "Lås opp kombinasjonslåsen!",
     COLORS_DESC: "Finn fargekombinasjonen som genererer fargen under",
     COLORS_UNLOCK: "Lås opp",
@@ -87,6 +90,10 @@ var norwegian = {
     SOUND_NEXT:"Neste oppgave.",
     SOUND_FEEDBACK_CORRECT:"Du svarte riktig!",
     SOUND_PRIZE:"Ta i mot din premie!",
+
+    GAME_WON_TITLE: "Gratulerer!",
+    GAME_WON_TEXT: "Du har funnet alle delene. Etter at du har bygd og tilpasset roboten din slik du vil kan du trykke på den store grønne knappen for å få din premie!",
+    GAME_WON_BUTTON: "Lukk",
 
 
     QUIZ_QUESTION1: "Hvem oppfant revolveren?",
@@ -166,6 +173,8 @@ var english = {
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO": " parts",
     "YOUR_ROBOT_GENERATE_BUTTON": "Generate your robot",
     "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Delete your robot and start over again",
+    PARTS_HUE: "Hue",
+    PARTS_LIGHT: "Light",
 
     COLORS_TITLE: "Open the combination lock!",
     COLORS_DESC: "Find the color combination which matches the color below",
@@ -205,7 +214,7 @@ var english = {
     PERIODIC_NA_DESCRIPTION:"Sodium is one of the two elements needed to create salt, NaCl. Sodium is very important for transmitting neural signals within our bodies, but we should not consume to much, as this can be very dangerous",
     PERIODIC_AU_DESCRIPTION:"Pure gold is very soft. This is why it is often found in alloys with other metals, such as copper, platinum, or silver, in order for it to be harder. Gold is very easy to work with. For instance, 1g og cold can be stretched into a 3km long string.",
     PERIODIC_AL_DESCRIPTION: "Aluminium is considered to be a very versatile metal because it is so light, and it does not corrode. It is used in cars, doorhandles, tubes, windowsills, wires and aluminium foil.",
-    PERIODIC_LI_DESCRIPTION:"This light metal i most commonly known for rechargeable batteries. The energy in the battery comes from the metal wanting to get rid of an electron. By recharging the battery we put the electrons back.",
+    PERIODIC_LI_DESCRIPTION:"This light metal is most commonly known for rechargeable batteries. The energy in the battery comes from the metal wanting to get rid of an electron. By recharging the battery we put the electrons back.",
     PERIODIC_S_DESCRIPTION:"Rivers tha ooze of rotten eggs have their stench from chemicals that contain sulfur. The strong smell in onions also comes from sulfur. Sulfur can also be found in nature in the form of powder.",
     PERIODIC_C_DESCRIPTION:"Pure carbon can be in the form of grafite, diamonds and some other nanostructures. Grafite is the part of the pencil that you write with. Carbon is essential to everything living.",
     PERIODIC_CA_DESCRIPTION:"Marble, chalk and limestone are made of the calcium alloy, calciumcarbonate, CaCO3. Limestone is also used as small particles in bubblegum and toothpaste. Most of all the calcium in the body is found in the skeleton.",
@@ -221,6 +230,11 @@ var english = {
     SOUND_NEXT:"Next task.",
     SOUND_FEEDBACK_CORRECT:"You answered correctly!",
     SOUND_PRIZE:"Accept your prize!",
+
+
+    GAME_WON_TITLE: "Congratulations!",
+    GAME_WON_TEXT: "You have collected all the parts. After you've customized your robot you can click the large green button to recieve your prize!",
+    GAME_WON_BUTTON: "Close",
 };
 
 
