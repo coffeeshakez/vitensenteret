@@ -9,6 +9,8 @@ angular.module('app.overview')
         
     //Setting interval for updating the beacon list
     var signalInterval;
+
+    //Maps beacon names to respective game. Is used to start games when beacon signal is in range.
     var beaconMap = {"nRF5-Eddy" : "waterflow" };
     var beacons = {};
     $rootScope.beaconsActive = false;
@@ -86,7 +88,6 @@ angular.module('app.overview')
 
     function startScan()
         {
-            
             console.log("scan in progress..")
             evothings.eddystone.startScan(
                 function(beacon)
