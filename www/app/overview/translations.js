@@ -22,9 +22,9 @@ var norwegian = {
     "OVERVIEW_POPUP_START_BUTTON": "Start",
     "OVERVIEW_POPUP_CANCEL_BUTTON": "Avbryt",
     "QUIZ_INTRO_POPUP": "En liten Europa-måneboer lurer på hvordan jordens historie er. Kun du hjelpe den?",
-    "ELEMENTS_INTRO_POPUP": "En gal vitenskapsmann prøver å lage en tidsmaskin, men vet ikke hvordan han skal lage ingrediensene. Kan du hjelpe han?",
-    "COLOR_INTRO_POPUP": "Du finner en låst kiste med en rar kombinasjonslås som har forskjellige farger. Klarer du å låse den opp?",
-    "MELODY_INTRO_POPUP": "En liten fulg har mistet moren sin. Kan du hjelpe den å svare på moren sin fuglesang?",
+    "ELEMENTS_INTRO_POPUP": "<small>En gal vitenskapsmann prøver å lage en tidsmaskin, men vet ikke hvordan han skal lage ingrediensene. Kan du hjelpe han?</small>Bruk veggen med grunnstoffer for å gjette hva hvert element er lagd av.",
+    "COLOR_INTRO_POPUP": "<small>Du finner en låst kiste med en rar kombinasjonslås som har forskjellige farger. Klarer du å låse den opp?</small> Bruk fargekombinasjons apparatet på lys-hemsen for å teste farger.",
+    "MELODY_INTRO_POPUP": "<small>En liten fulg har mistet moren sin. Kan du hjelpe den å svare på moren sin fuglesang?</small> Bruk rørene og den roterende pinnen i sanse-rommet for å lage melodien.",
     "WATER_INTRO_POPUP": "Det spruter vann i alle retninger ut av vannkraftverket. Kan du få rørene på plass igjen så det genererer strøm igjen?",
     "SIMON_SAYS_INTRO_POPUP": "Du møter på et glemsk orakel som har mistet hukommelsen sin. Kan du hjelpe henne med å huske kombinasjonen til orakel-skapet hennes?",
     "SHORTEST_PATH_INTRO_POPUP": "Du møter på en handelsmann som skal reise gjennom hele Europa. Kan du hjelpe han med å finne den korteste veien?",
@@ -35,7 +35,7 @@ var norwegian = {
     "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Slett din robot og start spillet på nytt",
     PARTS_HUE: "Farge",
     PARTS_LIGHT: "Lyshet",
-    
+
     COLORS_TITLE: "Lås opp kombinasjonslåsen!",
     COLORS_DESC: "Finn fargekombinasjonen som genererer fargen under",
     COLORS_UNLOCK: "Lås opp",
