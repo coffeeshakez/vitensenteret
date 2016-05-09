@@ -258,7 +258,7 @@ var english = {
     FINISH_ROBOT_NAME: "Robot's name",
     FINISH_PLAYER_NAME: "Your name",
     FINISH_SEND: "Upload",
-    FINISH_DESC: "Name your awesome robot and upload it to the secret robot world!"
+    FINISH_DESC: "Name your awesome robot and upload it to the secret robot world!",
 
 
     QUIZ_QUESTION1: "Who invented the revolver?",

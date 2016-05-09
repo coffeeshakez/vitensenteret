@@ -1,8 +1,18 @@
 angular.module('app.finish')
-.controller('finishCtrl', function($scope, $rootScope, $stateParams) {
+.controller('finishCtrl', function($scope, $rootScope, $http, $stateParams) {
     $scope.robot = {};
+    var server_url = "http://localhost/viten_site/"
     
     $scope.sendRobot = function(){
+        var data = {
+            "robot_name": $scope.robot.robot_name,
+            "player_name": $scope.robot.player_name,
+            "robot": JSON.stringify($rootScope.parts),
+        };
+
+        $http.post(server_url, data).success(function(data, status) {
+            console.log(data, status);
+        });
         
     }
 
