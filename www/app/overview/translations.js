@@ -94,6 +94,10 @@ var norwegian = {
     GAME_WON_TITLE: "Gratulerer!",
     GAME_WON_TEXT: "Du har funnet alle delene. Etter at du har bygd og tilpasset roboten din slik du vil kan du trykke på den store grønne knappen for å få din premie!",
     GAME_WON_BUTTON: "Lukk",
+    GAME_EMPTY_TITLE: "Hei!",
+    GAME_EMPTY_TEXT: "Du har ingen robotdeler enda, men det er her de dukker opp når du finner dem. Du kan trykke på roboten din for å se den stor, eller på en robotdel for å farge den.",
+    GAME_EMPTY_BUTTON: "Close",
+
 
 
     QUIZ_QUESTION1: "Hvem oppfant revolveren?",
@@ -235,6 +239,9 @@ var english = {
     GAME_WON_TITLE: "Congratulations!",
     GAME_WON_TEXT: "You have collected all the parts. After you've customized your robot you can click the large green button to recieve your prize!",
     GAME_WON_BUTTON: "Close",
+    GAME_EMPTY_TITLE: "Hey!",
+    GAME_EMPTY_TEXT: "You don't have any robot parts yet, but this is where you will see them after you've found some. You can tap the robot to view it larger, or tap a part to customize it.",
+    GAME_EMPTY_BUTTON: "Close",
 };
 
 

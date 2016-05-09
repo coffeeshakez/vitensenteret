@@ -1,10 +1,11 @@
 angular.module('app.overview')
 .controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService, $ionicPopup, $interval, $timeout) {
 
-
+    console.log("Overview first run")
     $scope.$on('$ionicView.enter', function() {
         //Runs every time view is changed to
         $rootScope.backButton = false;
+        console.log("Entered overview")
     });
         //Used for storing beacons that are in range
     var beacons = {};

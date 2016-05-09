@@ -47,6 +47,9 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.viten838753"
+        },
+        "cordova-plugin-ble": {
+            "PACKAGE_NAME": "com.ionicframework.viten838753"
         }
     },
     "dependent_plugins": {

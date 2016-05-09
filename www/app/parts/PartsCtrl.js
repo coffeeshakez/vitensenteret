@@ -2,11 +2,13 @@ angular.module('app.parts')
 .controller('PartsCtrl', function($scope, $rootScope, $stateParams, $ionicPopup) {
 
     $rootScope.hasWon = false;
+    $scope.firstView = false;
     $scope.editingPart = $rootScope.parts['head'];
 
     $scope.$on('$ionicView.enter', function() {
         //Runs every time view is changed to
         $scope.checkWon();
+        $scope.checkEmpty();
     });
 
     $scope.collectedPartsCount = function(){
@@ -95,6 +97,28 @@ angular.module('app.parts')
                   scope: $scope,
                   buttons: [
                     { text: $rootScope.trans.GAME_WON_BUTTON,
+                      type: 'button-positive',
+                      onTap: function() {
+                        return false;
+                      }
+                    }
+                  ]
+                });
+            }
+        }
+    }
+
+    $scope.checkEmpty = function(){
+        if($scope.collectedPartsCount() == 0){
+            if(!$scope.firstView){
+                $scope.firstView = true;
+
+                $ionicPopup.show({
+                  title: $rootScope.trans.GAME_EMPTY_TITLE,
+                  subTitle: $rootScope.trans.GAME_EMPTY_TEXT,
+                  scope: $scope,
+                  buttons: [
+                    { text: $rootScope.trans.GAME_EMPTY_BUTTON,
                       type: 'button-positive',
                       onTap: function() {
                         return false;
