@@ -35,6 +35,7 @@ var norwegian = {
     "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Slett din robot og start spillet på nytt",
     PARTS_HUE: "Farge",
     PARTS_LIGHT: "Lyshet",
+    "WATER_LEVEL_ENUMERATOR":"Nivå ",
 
     COLORS_TITLE: "Lås opp kombinasjonslåsen!",
     COLORS_DESC: "Finn fargekombinasjonen som genererer fargen under",
@@ -68,6 +69,13 @@ var norwegian = {
     PERIODIC_C: "karbon",
     PERIODIC_CA: "kalsium",
 
+    "WATER_INCORRECT_PATH_TITLE": "Vann-stien fungerer ikke",
+    "WATER_INCORRECT_PATH_DESC": "Prøv igjen",
+    "WATER_CORRECT_PATH_TITLE":"Gratulerer!",
+    "WATER_CORRECT_PATH_DESC": "Du klarte det!",
+    "WATER_NEXT_LEVEL":"Neste nivå",
+    "WATER_COMPLETED_DESC": "Du har fullført spillet",  
+    "WATER_COMPLETED_NEXT":"Videre",
     PERIODIC_SN_DESCRIPTION: "Tinn er etter gull, kobber og sølv det lengst kjente og brukte metallet. Tinn finnes som hvit, skinnende og bløtt metall, med smeltepunkt på 231,9 ˚C.Siden tinn er et bløtt metall med lavt smeltepunkt er det lett å forme og velegnet til en rekke formål. På Vitensenteret kan du støype egne figurer av tinn.",
     PERIODIC_FE_DESCRIPTION: "Jern ruster lett og reagerer lett med andre stoffer. Likevel brukes jern mye da det finnes i store mengder og er lett å fremstille.Som regel tilsetter man andre metaller for å gi det bedre egenskaper.",
     PERIODIC_NA_DESCRIPTION: "Natrium er det ene av de to grunnstoffene i vanlig salt, NaCl. Natrium er viktig for overføring av elektriske signaler i nervene våre, men vi bør ikke ha for mye av det.",
@@ -134,9 +142,6 @@ var norwegian = {
 
     QUIZ_FEEDBACK_CORRECT: "Helt riktig!",
     QUIZ_FEEDBACK_WRONG: "Dette var desverre feil svar, prøv igjen",
-
-
-
 }
 
 var english = {
@@ -175,6 +180,15 @@ var english = {
     "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Delete your robot and start over again",
     PARTS_HUE: "Hue",
     PARTS_LIGHT: "Light",
+
+    "WATER_LEVEL_ENUMERATOR":"Level ",
+    "WATER_INCORRECT_PATH_TITLE": "The water-path does not work",
+    "WATER_INCORRECT_PATH_DESC": "Try again",
+    "WATER_CORRECT_PATH_TITLE":"Congratulations!",
+    "WATER_CORRECT_PATH_DESC": "You completed the level!",
+    "WATER_NEXT_LEVEL":"Next level",
+    "WATER_COMPLETED_DESC": "You have completed the game",
+    "WATER_COMPLETED_NEXT":"Next",
 
     COLORS_TITLE: "Open the combination lock!",
     COLORS_DESC: "Find the color combination which matches the color below",

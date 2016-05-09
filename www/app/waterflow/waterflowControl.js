@@ -1,5 +1,5 @@
 angular.module('app.waterflow')
-.controller('waterflowControl', function($scope, $rootScope, $ionicPopup) {
+.controller('waterflowControl', function($scope, $rootScope, $ionicPopup, $window) {
     var directions = {up:0, right:1, down:2, left:3};    
     var tubeVariants = [];
     var UpDownTube = {
@@ -7,7 +7,6 @@ angular.module('app.waterflow')
         src: "img/tubeUpDown.png",
         inputDirection: directions.up,
         outputDirection: directions.down,
-        animationSprites: ["img/tubeUpDown.png"],
         spriteCount: 3,
     };
     var UpRightTube= {
@@ -15,7 +14,6 @@ angular.module('app.waterflow')
         src: "img/tubeUpRight.png",
         inputDirection: directions.up,
         outputDirection: directions.right,
-        animationSprites: ["img/tubeUpRight.png"],
         spriteCount: 1,
     };
     var UpLeftTube= {
@@ -23,22 +21,19 @@ angular.module('app.waterflow')
         src: "img/tubeUpLeft.png",
         inputDirection: directions.up,
         outputDirection: directions.left,
-        animationSprites: ["img/tubeUpLeft.png"],
         spriteCount: 1,
     };
 
     var startTube = {
         id:3,
-        src: "img/tube_start.png",
+        src: "img/rsz_tube_start.png",
         outputDirection: directions.down,
-        animationSprites: ["img/tube_start.png"],
         spriteCount: 1,
     }
     var endTube = {
         id:4,
-        src: "img/tube_end.png",
+        src: "img/rsz_tube_end.png",
         inputDirection: directions.up,
-        animationSprites: ["img/tube_end.png"],
         spriteCount: 1,
     }
 
@@ -61,7 +56,6 @@ angular.module('app.waterflow')
         image["inputDirection"] = (image["inputDirection"]+1)%4;
         image.classname="rot"+(image["rotation"]);
     };
-
 
     var rand;
     setRotation = function(image){
@@ -93,11 +87,11 @@ angular.module('app.waterflow')
             //TODO: Add proper text to popups
             if(numberOfWins >= 3){
                 var myPopup = $ionicPopup.show({
-                    title: 'Gratulerer!',
-                    subTitle:   "Du har fullført spillet",
+                    title: $rootScope.trans.WATER_CORRECT_PATH_TITLE,
+                    subTitle: $rootScope.trans.WATER_COMPLETED_DESC,
                     scope: $scope,
                     buttons: [
-                        {   text: '<b>Videre!</b>',
+                        {   text: $rootScope.trans.WATER_COMPLETED_NEXT,
                             type: 'button-positive',
                             onTap: function(e) {
                                 numberOfWins = 0;
@@ -111,11 +105,11 @@ angular.module('app.waterflow')
             }
             else{
                 var myPopup = $ionicPopup.show({
-                    title: 'Gratulerer!',
-                    subTitle:  "Du klarte dette nivået!",
+                    title: $rootScope.trans.WATER_CORRECT_PATH_TITLE,
+                    subTitle: $rootScope.trans.WATER_CORRECT_PATH_DESC,
                     scope: $scope,
                     buttons: [
-                        {   text: 'Neste nivå',
+                        {   text: $rootScope.trans.WATER_NEXT_LEVEL,
                             type: 'button-positive',
                             onTap: function(e){
                                 reset();
@@ -128,8 +122,8 @@ angular.module('app.waterflow')
 
         }else{
             var myPopup = $ionicPopup.show({
-                title: createNewBoards ? "Copy-paste is in the console log":'Vann-stien fungerer ikke',
-                subTitle:  createNewBoards ? "Generer nytt board": "Prøv igjen",
+                title: createNewBoards ? "Copy-paste is in the console log":$rootScope.trans.WATER_INCORRECT_PATH_TITLE,
+                subTitle:  createNewBoards ? "Generer nytt board": $rootScope.trans.WATER_INCORRECT_PATH_DESC,
                 scope: $scope,
                 buttons: [
                     {   text: 'Ok', 
@@ -171,31 +165,20 @@ angular.module('app.waterflow')
                 showPopup(result);
                 return result;
             }
-
             //get next element. The function nextElement will return false if there is no such thing
             else{
                 currentElement = nextElement(currentElement);
-                //insert animation logic on currentElement here
-                animationQue.push(currentElement);
-                //Infinate loop check was used for testing.
-                iterationCount+=1;
-                if(iterationCount > 100){
-                    console.log("infinate loop reached");
-                    result = false;
-                }
             }
-        //The tube path does not lead to end node.
         }
-        console.log("While loop exited nextElement returned false");
         showPopup(result);
         return result;
     }
 
   
 
-    $scope.levelNumerator = "Nivå " + (numberOfWins+1) + "/3";
+    $scope.levelNumerator = ""+(numberOfWins+1) + "/3";
     function changeLevelNumerator(){
-        $scope.levelNumerator = "Nivå " + (numberOfWins+1) + "/3";
+        $scope.levelNumerator = ""+(numberOfWins+1) + "/3";
     }
 
 
