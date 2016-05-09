@@ -1,28 +1,28 @@
 9<ion-view title="Lyd" data-ng-init="initSound()">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 
-    <p class="texts text-center">Plasser rørene så de lager samme lyd som spilles av</p>
+    <p class="texts text-center">{{trans.SOUND_DESC}}</p>
 
     <audio id="song">
     	<source id = "songSource" ng-src="{{currentStage.sound}}" type="audio/wav">
     		Your browser does not support
     </audio>
 
-   <button id="soundPlayBtn" class="button button-block button-balanced" ng-click="playImitate()"> Spill av lyden! </button>
+   <button id="soundPlayBtn" class="button button-block button-balanced" ng-click="playImitate()"> {{trans.SOUND_PLAY}} </button>
 
    <div id = "soundView">
      <div id='ratioDiv'>
         <div id='selectorContainer'>
-            <img class='soundPhoto' ng-src='{{currentStage.image}}'> 
-            <select class='numberSelector'  id='{{currentStage.id}}-{{$index}}' ng-repeat="edge in currentStage.size">
-                <option value='{{option}}' id={{currentScope.id}}{{option}}  ng-repeat="option in [1,2,3,4,5]">{{option}}</option>
-            </select> 
+            <img class='soundPhoto' ng-src='{{currentStage.image}}'>
+            <select class='numberSelector'  id='{{currentStage.id}}-{{$index}}' ng-model = "currentStage.selected[$index]" ng-repeat="edge in currentStage.size">
+                <option value='{{option}}' id='{{currentStage.id}}{{edge}}{{$index}}' ng-repeat="option in [1, 2,3,4,5]">{{option}}</option>
+            </select>
         </div>
     </div>
    </div>
 
    
-  <button id="soundTestCorrect" class="button button-block button-balanced" ng-click="soundCheckCorrect()"> Sjekk om det er riktig! </button>
+  <button id="soundTestCorrect" class="button button-block button-balanced" ng-click="soundCheckCorrect()"> {{trans.CHECK}} </button>
 
 
     </ion-content>

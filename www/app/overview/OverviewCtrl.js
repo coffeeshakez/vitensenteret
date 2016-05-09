@@ -1,67 +1,17 @@
 angular.module('app.overview')
-.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService, $ionicPopup, $translate) {
+.controller('OverviewCtrl', function($scope, $rootScope, $state, $stateParams, localStorageService, $ionicPopup, $interval, $timeout) {
 
 
-    var minigamesLocal = localStorageService.get('minigames');
-    var partsLocal = localStorageService.get('parts');
-    var languageLocal = localStorageService.get('language');
-
-    if(!languageLocal){
-        $state.go("index.chooseLanguage");
-    }else{
-        $rootScope.language = languageLocal;
-        console.log("Stored language is: "+$rootScope.language);
-    }
-
-    $translate.preferredLanguage($rootScope.language);
-    $translate.use($rootScope.language);
-
-    $translate(["OVERVIEW_QUIZ_BUTTON",
-    "OVERVIEW_ELEMENTS_BUTTON",
-    "OVERVIEW_COLOR_BUTTON",
-    "OVERVIEW_MELODY_BUTTON",
-    "OVERVIEW_WATER_BUTTON",
-    "OVERVIEW_SIMON_SAYS_BUTTON",
-    "OVERVIEW_SHORTEST_PATH_BUTTON",
-    "OVERVIEW_POPUP_START_BUTTON",
-    "OVERVIEW_POPUP_CANCEL_BUTTON",
-    "QUIZ_INTRO_POPUP",
-    "ELEMENTS_INTRO_POPUP",
-    "COLOR_INTRO_POPUP",
-    "MELODY_INTRO_POPUP",
-    "WATER_INTRO_POPUP",
-    "SIMON_SAYS_INTRO_POPUP",
-    "SHORTEST_PATH_INTRO_POPUP"]).then(function(translations){
-        $scope.translations = translations;
+    $scope.$on('$ionicView.enter', function() {
+        //Runs every time view is changed to
+        $rootScope.backButton = false;
     });
+        //Used for storing beacons that are in range
+    var beacons = {};
 
-    
-    $scope.$watch('minigames', function () {
-      localStorageService.set('minigames', $scope.minigames);
-    }, true);
-
-    $scope.$watch('parts', function () {
-      localStorageService.set('parts', $scope.parts);
-    }, true);
-
-
-    $rootScope.minigames = minigamesLocal || {
-        "quiz":      {name: "OVERVIEW_QUIZ_BUTTON",           game: "quiz",      icon: "ion-help",              part: "head",   collected: false, story: "QUIZ_INTRO_POPUP"},
-        "periodic":  {name: "OVERVIEW_ELEMENTS_BUTTON",   game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false, story: "ELEMENTS_INTRO_POPUP"},
-        "colors":    {name: "OVERVIEW_COLOR_BUTTON",       game: "colors",    icon: "ion-lock-combination",  part: "head",   collected: false, story: "COLOR_INTRO_POPUP"},
-        "sound":     {name: "OVERVIEW_MELODY_BUTTON",  game: "sound",     icon: "ion-music-note",        part: "head",   collected: false, story: "MELODY_INTRO_POPUP"},
-        "waterflow": {name: "OVERVIEW_WATER_BUTTON",    game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "WATER_INTRO_POPUP"},
-        "memory":    {name: "OVERVIEW_SIMON_SAYS_BUTTON",   game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false, story: "SIMON_SAYS_INTRO_POPUP"},
-        "shortest":  {name: "OVERVIEW_SHORTEST_PATH_BUTTON", game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP"},
-
-    };
-
-    $rootScope.parts = partsLocal || {
-        "head": {name: "Hode",  desc: "et hode",  type: "head", variants: [1, 2, 3],      variant: 3, collected: false},
-        "arms":  {name: "Armer", desc: "to armer", type: "arms", variants: [1, 2, 3],      variant: 1, collected: false},
-        "legs":  {name: "Bein",  desc: "bein",     type: "legs", variants: [1, 2, 3, 4],   variant: 1, collected: false},
-        "body": {name: "Overkropp", desc: "en overkropp", type: "body", variants: [1, 2], variant: 2, collected: false},
-    };
+    //Setting interval for updating the beacon list
+    var signalInterval;
+    $rootScope.beaconsActive = false;
 
     $rootScope.winGame = function(game){
         var wonGame = $rootScope.minigames[game];
@@ -70,12 +20,6 @@ angular.module('app.overview')
         wonGame.collected = true;
         $state.go("index.reward", {"game": wonGame.name, "part": wonGame.part});
         return true;
-    }
-
-    $rootScope.resetGame = function(){
-        localStorageService.clearAll();
-        console.log("Cleared local-storage");
-        document.location = "index.html";
     }
 
     $scope.collectedMinigamesCount = function(){
@@ -88,23 +32,25 @@ angular.module('app.overview')
     
     $scope.minigameClasses = function(minigame){
         var collected = minigame.collected ? 'part-collected' : 'part-not-collected';
-        var icon = minigame.icon;
+        var icon = minigame.collected || !$rootScope.beaconsActive  || minigame.found ? minigame.icon : "ion-help";
         return icon + " " + collected;
     }
-
+    
     $scope.minigameStart = function(minigame){
         var popup = gamePopup(minigame);
         var myPopup = $ionicPopup.show(popup);
+        stopScan();
     }
-
+    
     $scope.minigameToggle = function(minigame){
         minigame.collected ^= true;
     }
 
     function gamePopup(minigame) {
+
       return {
-        title: $scope.translations[minigame.name],
-        subTitle: $scope.translations[minigame.story],
+        title: $rootScope.trans[minigame.name],
+        subTitle: $rootScope.trans[minigame.story],
         scope: $scope,
         buttons: [
           {
@@ -118,10 +64,82 @@ angular.module('app.overview')
             text: '<b>Start!</b>',
             type: 'button-positive',
             onTap: function (e) {
+                $rootScope.backButton = true;
                 $state.go("index."+minigame.game);
             }
           },
         ]
       };
     }
+
+    function onDeviceReady()
+        {
+
+            // Start tracking beacons!
+            $timeout(function()
+            {
+                startScan();
+            },
+            500);
+
+           
+        }
+
+    function startScan()
+        {
+            
+            console.log("scan in progress..")
+            evothings.eddystone.startScan(
+                function(beacon)
+                {
+                    
+                    $rootScope.beaconsActive = true;
+                    // Update beacon data.
+                    beacon.timeStamp = Date.now();
+                    beacons[beacon.address] = beacon;
+
+                    console.log(beacon.name);
+                    console.log(beacon.rssi);
+
+                    // var beaconName = getBeaconName(beacon);
+                    miniGameName = beaconMap[beacon.name];
+                    console.log(miniGameName);
+                    console.log($rootScope.minigames[miniGameName]);
+
+                    $scope.minigameStart($rootScope.minigames[miniGameName]);
+
+
+                },
+                function(error)
+                {
+                    console.log("eddystone scan error: " + error);
+                    $rootScope.beaconsActive = false;
+                    
+                });
+        }
+
+
+    function stopScan()
+    {
+        console.log("Scanning stops..") 
+        evothings.eddystone.stopScan();
+    }
+
+    function getBeaconName(beacon)
+    {
+        var name = beacon.name || 'no name';
+        return name;
+    }
+
+    function getBeaconRSSI(beacon)
+    {
+        return beacon.rssi 
+    }
+
+    var beaconMap = {"nRF5-Eddy" : "waterflow" };
+
+
+    //Start scanning for beacons when controller is started
+    onDeviceReady();
+
 });

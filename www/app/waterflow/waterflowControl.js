@@ -87,11 +87,11 @@ angular.module('app.waterflow')
             //TODO: Add proper text to popups
             if(numberOfWins >= 3){
                 var myPopup = $ionicPopup.show({
-                    title: 'Gratulerer!',
-                    subTitle:   "Du har fullført spillet",
+                    title: $rootScope.trans.WATER_CORRECT_PATH_TITLE,
+                    subTitle: $rootScope.trans.WATER_COMPLETED_DESC,
                     scope: $scope,
                     buttons: [
-                        {   text: '<b>Videre!</b>',
+                        {   text: $rootScope.trans.WATER_COMPLETED_NEXT,
                             type: 'button-positive',
                             onTap: function(e) {
                                 numberOfWins = 0;
@@ -105,11 +105,11 @@ angular.module('app.waterflow')
             }
             else{
                 var myPopup = $ionicPopup.show({
-                    title: 'Gratulerer!',
-                    subTitle:  "Du klarte dette nivået!",
+                    title: $rootScope.trans.WATER_CORRECT_PATH_TITLE,
+                    subTitle: $rootScope.trans.WATER_CORRECT_PATH_DESC,
                     scope: $scope,
                     buttons: [
-                        {   text: 'Neste nivå',
+                        {   text: $rootScope.trans.WATER_NEXT_LEVEL,
                             type: 'button-positive',
                             onTap: function(e){
                                 reset();
@@ -122,8 +122,8 @@ angular.module('app.waterflow')
 
         }else{
             var myPopup = $ionicPopup.show({
-                title: createNewBoards ? "Copy-paste is in the console log":'Vann-stien fungerer ikke',
-                subTitle:  createNewBoards ? "Generer nytt board": "Prøv igjen",
+                title: createNewBoards ? "Copy-paste is in the console log":$rootScope.trans.WATER_INCORRECT_PATH_TITLE,
+                subTitle:  createNewBoards ? "Generer nytt board": $rootScope.trans.WATER_INCORRECT_PATH_DESC,
                 scope: $scope,
                 buttons: [
                     {   text: 'Ok', 
@@ -176,9 +176,9 @@ angular.module('app.waterflow')
 
   
 
-    $scope.levelNumerator = "Nivå " + (numberOfWins+1) + "/3";
+    $scope.levelNumerator = ""+(numberOfWins+1) + "/3";
     function changeLevelNumerator(){
-        $scope.levelNumerator = "Nivå " + (numberOfWins+1) + "/3";
+        $scope.levelNumerator = ""+(numberOfWins+1) + "/3";
     }
 
 
@@ -233,17 +233,7 @@ angular.module('app.waterflow')
     var rowCount = 5;
     var columnCount = 5;
     $scope.images = []; 
-    var width= $window.innerWidth;
-    var height = $window.innerHeight;
-    var ratio = 0;
     $scope.loadImages = function() {
-        ratio = height/width;
-        if(ratio < 1.42){
-            $scope.aspectRatioManager="aspectRatioTooLow";
-        }else{
-            $scope.aspectRatioManager="aspectRatioOk";
-        }
-        console.log(width+" "+height+" "+ratio);
         if(createNewBoards){
             //makes the tubeVariants array again, to avoid start and endtubes randomly placed on board
             tubeVariants = [];
@@ -403,13 +393,6 @@ angular.module('app.waterflow')
             element["src"] = tubeVariants[element["tubeID"]].src;
             setRotation(element);
         }
-
-        if(ratio < 1.42){
-        }else{
-            $scope.aspectRatioManager="aspectRatioOk";
-        }
-
-
         $scope.images[element["idY"]].push(element);
     }
     function pickRandomObjectProperty(obj){
