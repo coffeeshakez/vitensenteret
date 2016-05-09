@@ -1,24 +1,26 @@
     <ion-view title="waterflow">
     <ion-content ng-init="loadImages()" class="tube-grid">
-    	<div class="card small centerdiv" >
-            <h5>Koble rørene sammen slik at de danner en sti til turbinen</h5>
+		<div class="customPadding2">
+		  	<div class="card small centerdiv infoTextWater" >
+		  			<h5 class="infoTextWater">Koble rørene sammen slik at de danner en sti til turbinen</h5>
+		    </div>
         </div>
-	    <div class="customPadding">
+	    <div class="{{aspectRatioManager}} my-container">
 	        <div class="row" ng-repeat="row in images">
-	            <div class="col col-20 no-padding no-margin" ng-repeat="image in row">
+	            <div class="col col-20 no-padding no-margin" ng-repeat="image in row" width={{gridWidth}}>
 	            	<div class="hover-image">
 		                <img src="{{image.src}}" title="{{image}}" ng-click="rotateImage(image)" width="100%" height="100%" class="{{image.classname}}"/>
 	                </div>
 	            </div>  
         	</div>
         </div>
-	    <div id="levelNumerator" class="textAllignCenter">
+	    <div id="waterLevelNumerator" class="textAllignCenter customPadding2">
 	        {{levelNumerator}}
 	    </div>
 	    <div>
-	        <div class="centerdiv waterflowButton customPadding">
-			    <button class="button button-bar button-balanced" height="200%" id="startButton" ng-click="testFlow();">Test koblingen!</button>
+	        <div class="centerdiv customPadding" id="waterflowButton">
+			    <button class="button button-bar button-balanced waterFontSize waterflowStartButton" id="startButton" ng-click="testFlow();">Test koblingen!</button>
 	        </div>
         <div>
     </ion-content>
-</ion-view>s
+</ion-view>

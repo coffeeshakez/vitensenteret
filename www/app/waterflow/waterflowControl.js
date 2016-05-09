@@ -1,5 +1,5 @@
 angular.module('app.waterflow')
-.controller('waterflowControl', function($scope, $rootScope, $ionicPopup) {
+.controller('waterflowControl', function($scope, $rootScope, $ionicPopup, $window) {
     var directions = {up:0, right:1, down:2, left:3};    
     var tubeVariants = [];
     var UpDownTube = {
@@ -7,7 +7,6 @@ angular.module('app.waterflow')
         src: "img/tubeUpDown.png",
         inputDirection: directions.up,
         outputDirection: directions.down,
-        animationSprites: ["img/tubeUpDown.png"],
         spriteCount: 3,
     };
     var UpRightTube= {
@@ -15,7 +14,6 @@ angular.module('app.waterflow')
         src: "img/tubeUpRight.png",
         inputDirection: directions.up,
         outputDirection: directions.right,
-        animationSprites: ["img/tubeUpRight.png"],
         spriteCount: 1,
     };
     var UpLeftTube= {
@@ -23,22 +21,19 @@ angular.module('app.waterflow')
         src: "img/tubeUpLeft.png",
         inputDirection: directions.up,
         outputDirection: directions.left,
-        animationSprites: ["img/tubeUpLeft.png"],
         spriteCount: 1,
     };
 
     var startTube = {
         id:3,
-        src: "img/tube_start.png",
+        src: "img/rsz_tube_start.png",
         outputDirection: directions.down,
-        animationSprites: ["img/tube_start.png"],
         spriteCount: 1,
     }
     var endTube = {
         id:4,
-        src: "img/tube_end.png",
+        src: "img/rsz_tube_end.png",
         inputDirection: directions.up,
-        animationSprites: ["img/tube_end.png"],
         spriteCount: 1,
     }
 
@@ -61,7 +56,6 @@ angular.module('app.waterflow')
         image["inputDirection"] = (image["inputDirection"]+1)%4;
         image.classname="rot"+(image["rotation"]);
     };
-
 
     var rand;
     setRotation = function(image){
@@ -171,22 +165,11 @@ angular.module('app.waterflow')
                 showPopup(result);
                 return result;
             }
-
             //get next element. The function nextElement will return false if there is no such thing
             else{
                 currentElement = nextElement(currentElement);
-                //insert animation logic on currentElement here
-                animationQue.push(currentElement);
-                //Infinate loop check was used for testing.
-                iterationCount+=1;
-                if(iterationCount > 100){
-                    console.log("infinate loop reached");
-                    result = false;
-                }
             }
-        //The tube path does not lead to end node.
         }
-        console.log("While loop exited nextElement returned false");
         showPopup(result);
         return result;
     }
@@ -250,7 +233,17 @@ angular.module('app.waterflow')
     var rowCount = 5;
     var columnCount = 5;
     $scope.images = []; 
+    var width= $window.innerWidth;
+    var height = $window.innerHeight;
+    var ratio = 0;
     $scope.loadImages = function() {
+        ratio = height/width;
+        if(ratio < 1.42){
+            $scope.aspectRatioManager="aspectRatioTooLow";
+        }else{
+            $scope.aspectRatioManager="aspectRatioOk";
+        }
+        console.log(width+" "+height+" "+ratio);
         if(createNewBoards){
             //makes the tubeVariants array again, to avoid start and endtubes randomly placed on board
             tubeVariants = [];
@@ -410,6 +403,13 @@ angular.module('app.waterflow')
             element["src"] = tubeVariants[element["tubeID"]].src;
             setRotation(element);
         }
+
+        if(ratio < 1.42){
+        }else{
+            $scope.aspectRatioManager="aspectRatioOk";
+        }
+
+
         $scope.images[element["idY"]].push(element);
     }
     function pickRandomObjectProperty(obj){
