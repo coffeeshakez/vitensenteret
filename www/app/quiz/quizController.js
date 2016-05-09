@@ -3,78 +3,78 @@ angular.module('app.quiz')
 
       $scope.questions = [
         {
-          question: $rootScope.trans[QUIZ_QUESTION1],
+          question: $rootScope.trans["QUIZ_QUESTION1"],
           alternatives: ["Elisha H. Collier", "John Evans", "Samuel Colt", "George W. Bush"],
           correct: 2,
           answeredCorrectly: false,
         },
 
         {
-          question:$rootScope.trans[QUIZ_QUESTION2],
-          alternatives: ["37", "Abraham Lincoln", "Alfred Nobel", "William Shakespeare"],
+          question:$rootScope.trans["QUIZ_QUESTION2"],
+          alternatives: ["Allessandro Volta", "Samuel Colt", "Alfred Nobel", "Percy Shaw"],
           correct: 2,
           answeredCorrectly: false,
         },
 
         {
-          question: $rootScope.trans[QUIZ_QUESTION3],
-          alternatives: ["10", "20", "50", "100"],
+          question: $rootScope.trans["QUIZ_QUESTION3"],
+          alternatives: ["Earle Dickson", "Joseph J. Nièpce", "Gregory Pincus", "Gallileo Galilei"],
           correct: 3,
           answeredCorrectly: false,
         },
 
         {
-         question: $rootScope.trans[QUIZ_QUESTION4],
-          alternatives: [],
+         question: $rootScope.trans["QUIZ_QUESTION4"],
+          alternatives: ["Samuel Colt", "Walther Hunt", "Gregory Pincus & John Rock", "Samuel B. Fay"],
           correct: 1,
           answeredCorrectly: false,
         },
 
         {
-        question: $rootScope.trans[QUIZ_QUESTION5],
-          alternatives: [],
+        question: $rootScope.trans["QUIZ_QUESTION5"],
+          alternatives: ["Michael Faraday", "Walther Hunt", "Gallileo Gallielei", "Percy Shaw"],
+          correct: 0,
+          answeredCorrectly: false,
+        },
+
+        {
+        question: $rootScope.trans["QUIZ_QUESTION6"],
+          alternatives: ["Samuel Colt", "Alfred Nobel", "Joseph J. Nièpce", "Allessandro Volta"],
+          correct: 3,
+          answeredCorrectly: false,
+        },
+
+        {
+        question: $rootScope.trans["QUIZ_QUESTION7"],
+          alternatives: ["Samuel B. Fay", "Samuel Colt", "Earle Dickson", "Gregory Pincus & John Rock"],
+          correct: 2,
+          answeredCorrectly: false,
+        },
+
+        {
+        question: $rootScope.trans["QUIZ_QUESTION8"],
+          alternatives: ["Alfred Nobel", "Percy Shaw", "Samuel Colt", "Walther Hunt"],
           correct: 1,
           answeredCorrectly: false,
         },
 
         {
-        question: $rootScope.trans[QUIZ_QUESTION6],
-          alternatives: [],
+        question: $rootScope.trans["QUIZ_QUESTION9"],
+          alternatives: ["Samuel B. Fay", "Joseph J. Nièpce", "Percy Shaw", "Michael Faraday"],
+          correct: 0,
+          answeredCorrectly: false,
+        },
+
+        {
+        question: $rootScope.trans["QUIZ_QUESTION10"],
+          alternatives: ["Samuel B. Fay", "Joseph J. Nièpce", "Percy Shaw", "Earle Dickson"],
           correct: 1,
           answeredCorrectly: false,
         },
 
         {
-        question: $rootScope.trans[QUIZ_QUESTION7],
-          alternatives: [],
-          correct: 1,
-          answeredCorrectly: false,
-        },
-
-        {
-        question: $rootScope.trans[QUIZ_QUESTION8],
-          alternatives: [],
-          correct: 1,
-          answeredCorrectly: false,
-        },
-
-        {
-        question: $rootScope.trans[QUIZ_QUESTION9],
-          alternatives: [],
-          correct: 1,
-          answeredCorrectly: false,
-        },
-
-        {
-        question: $rootScope.trans[QUIZ_QUESTION10],
-          alternatives: [],
-          correct: 1,
-          answeredCorrectly: false,
-        },
-
-        {
-        question: $rootScope.trans[QUIZ_QUESTION11],
-          alternatives: [],
+        question: $rootScope.trans["QUIZ_QUESTION11"],
+          alternatives: ["Percy Shaw", "Gregory Pincus & John Rock", "Earle Dickson", "Alfred Nobel"],
           correct: 1,
           answeredCorrectly: false,
         },
@@ -102,13 +102,13 @@ angular.module('app.quiz')
     if(answer == $scope.ask.alternatives[$scope.ask.correct])
     {
       console.log("Riktig");
-      var pop = preparePopup("Riktig", "Hurra, du svarte riktig")
+      var pop = preparePopup($rootScope.trans["QUIZ_CORRECT"], $rootScope.trans["QUIZ_FEEDBACK_CORRECT"]);
       $scope.questions[$scope.qNum].answeredCorrectly = true;
 
     }
     else
     {
-      var pop = preparePopup("Feil", "Dette var vel ikke helt riktig, vel?")
+      var pop = preparePopup($rootScope.trans["QUIZ_WRONG"], $rootScope.trans["QUIZ_FEEDBACK_WRONG"]);
     }
 
     var myPopup = $ionicPopup.show(pop);
@@ -118,7 +118,7 @@ angular.module('app.quiz')
   }
 
 function isFinished(){
-  console.log("isfinished kjører");
+  
   for(key in $scope.questions){
     var item = $scope.questions[key];
 
@@ -129,6 +129,7 @@ function isFinished(){
   }
   return true;
 }
+
 function preparePopup(title, subTitle) {
   var pop =
   {
@@ -165,12 +166,5 @@ function askNextQuestion(){
   else{
     $scope.ask = $scope.questions[$scope.qNum];
   }
-}
-
-function showFinishedScreen(){
-  $scope.qCount = false;
-  $scope.qCard = false;
-  $scope.qAlt = false;
-  $scope.finished = true;
 }
 });

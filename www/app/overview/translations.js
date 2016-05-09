@@ -35,6 +35,7 @@ var norwegian = {
     "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Slett din robot og start spillet på nytt",
     PARTS_HUE: "Farge",
     PARTS_LIGHT: "Lyshet",
+    "WATER_LEVEL_ENUMERATOR":"Nivå ",
 
     COLORS_TITLE: "Lås opp kombinasjonslåsen!",
     COLORS_DESC: "Finn fargekombinasjonen som genererer fargen under",
@@ -68,6 +69,13 @@ var norwegian = {
     PERIODIC_C: "karbon",
     PERIODIC_CA: "kalsium",
 
+    "WATER_INCORRECT_PATH_TITLE": "Vann-stien fungerer ikke",
+    "WATER_INCORRECT_PATH_DESC": "Prøv igjen",
+    "WATER_CORRECT_PATH_TITLE":"Gratulerer!",
+    "WATER_CORRECT_PATH_DESC": "Du klarte det!",
+    "WATER_NEXT_LEVEL":"Neste nivå",
+    "WATER_COMPLETED_DESC": "Du har fullført spillet",  
+    "WATER_COMPLETED_NEXT":"Videre",
     PERIODIC_SN_DESCRIPTION: "Tinn er etter gull, kobber og sølv det lengst kjente og brukte metallet. Tinn finnes som hvit, skinnende og bløtt metall, med smeltepunkt på 231,9 ˚C.Siden tinn er et bløtt metall med lavt smeltepunkt er det lett å forme og velegnet til en rekke formål. På Vitensenteret kan du støype egne figurer av tinn.",
     PERIODIC_FE_DESCRIPTION: "Jern ruster lett og reagerer lett med andre stoffer. Likevel brukes jern mye da det finnes i store mengder og er lett å fremstille.Som regel tilsetter man andre metaller for å gi det bedre egenskaper.",
     PERIODIC_NA_DESCRIPTION: "Natrium er det ene av de to grunnstoffene i vanlig salt, NaCl. Natrium er viktig for overføring av elektriske signaler i nervene våre, men vi bør ikke ha for mye av det.",
@@ -123,7 +131,7 @@ var norwegian = {
     QUIZ_ANSWER7: "Plasteret ble oppfunnet av Earle Dickson, USA 1920",
 
     QUIZ_QUESTION8: "Hvem oppfant 'kattøyet'(refleksbrikken)?",
-    QUIZ_ANSWER8: "Kattøyet ble oppfunnet av percy Shaw i England 1934",
+    QUIZ_ANSWER8: "Kattøyet ble oppfunnet av Percy Shaw i England 1934",
 
     QUIZ_QUESTION9: "Hvem oppfant bindersen?",
     QUIZ_ANSWER9: "Det første patent for en slags binders ble gitt Samuel B. Fay, USA i 1867",
@@ -134,14 +142,11 @@ var norwegian = {
     QUIZ_QUESTION11: "Hvem oppfant p-pillen?",
     QUIZ_ANSWER11: "P-pillen ble oppfunnet av Gregory Pincus og John Rock, USA 1954",
 
-    QUIZ_CORRECT: "Riktig!",
-    QUIZ_WRONG: "Feil!",
+    QUIZ_CORRECT: "Riktig",
+    QUIZ_WRONG: "Feil",
 
     QUIZ_FEEDBACK_CORRECT: "Helt riktig!",
     QUIZ_FEEDBACK_WRONG: "Dette var desverre feil svar, prøv igjen",
-
-
-
 }
 
 var english = {
@@ -180,6 +185,15 @@ var english = {
     "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Delete your robot and start over again",
     PARTS_HUE: "Hue",
     PARTS_LIGHT: "Light",
+
+    "WATER_LEVEL_ENUMERATOR":"Level ",
+    "WATER_INCORRECT_PATH_TITLE": "The water-path does not work",
+    "WATER_INCORRECT_PATH_DESC": "Try again",
+    "WATER_CORRECT_PATH_TITLE":"Congratulations!",
+    "WATER_CORRECT_PATH_DESC": "You completed the level!",
+    "WATER_NEXT_LEVEL":"Next level",
+    "WATER_COMPLETED_DESC": "You have completed the game",
+    "WATER_COMPLETED_NEXT":"Next",
 
     COLORS_TITLE: "Open the combination lock!",
     COLORS_DESC: "Find the color combination which matches the color below",
@@ -245,6 +259,46 @@ var english = {
     FINISH_PLAYER_NAME: "Your name",
     FINISH_SEND: "Upload",
     FINISH_DESC: "Name your awesome robot and upload it to the secret robot world!"
+
+
+    QUIZ_QUESTION1: "Who invented the revolver?",
+    QUIZ_ANSWER1: "Revolveren ble oppfunnet av Samuel Colt i USA 1880",
+
+    QUIZ_QUESTION2: "Who invented the dynamite?",
+    QUIZ_ANSWER2: "Dynamitten ble oppfunnet i 1867 av Alfred Nobel fra Sverige",
+
+    QUIZ_QUESTION3: "Who invented the thermometer?",
+    QUIZ_ANSWER3: "Termometeret ble oppfunnet av Gallileo Galilei, Italia 1529",
+
+    QUIZ_QUESTION4: "Who invented the safety pin?",
+    QUIZ_ANSWER4: "Sikkerhetsnålen ble oppfunnet av Walther Hunt, USA 1849",
+
+    QUIZ_QUESTION5: "Who invented the electric motor?",
+    QUIZ_ANSWER5: "Elektromotoren ble oppfunnet av Michael Faraday, England 1821",
+
+    QUIZ_QUESTION6: "Who invented the battery?",
+    QUIZ_ANSWER6: "Batteriet ble oppfunnet av Allessandro Volta, Italia 1800",
+
+    QUIZ_QUESTION7: "Who invented the adhesive plaster?",
+    QUIZ_ANSWER7: "Plasteret ble oppfunnet av Earle Dickson, USA 1920",
+
+    QUIZ_QUESTION8: "Who invented the reflector?",
+    QUIZ_ANSWER8: "Kattøyet ble oppfunnet av Percy Shaw i England 1934",
+
+    QUIZ_QUESTION9: "Who invented the paper clip?",
+    QUIZ_ANSWER9: "Det første patent for en slags binders ble gitt Samuel B. Fay, USA i 1867",
+
+    QUIZ_QUESTION10: "Who invented the photography?",
+    QUIZ_ANSWER10: "Fotografiet ble oppfunnet av Joseph J. Nièpce, Frankrike 1816",
+
+    QUIZ_QUESTION11: "Who invented the birth control pill?",
+    QUIZ_ANSWER11: "P-pillen ble oppfunnet av Gregory Pincus og John Rock, USA 1954",
+
+    QUIZ_CORRECT: "Correct",
+    QUIZ_WRONG: "Wrong",
+
+    QUIZ_FEEDBACK_CORRECT: "This is correct!",
+    QUIZ_FEEDBACK_WRONG: "This was wrong, try again!",
 };
 
 

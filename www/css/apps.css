@@ -834,12 +834,16 @@ select{
 }
 
 .customPadding{
-  padding-top:15px;
-
+  padding-top:3%;
 }
 
+.customPadding2{
+  padding-top:2%;
+}
+
+
 .hover-image:hover{
-  border-radius: 10px;
+  border-radius: 10%;
   background-color: rgba(32,32,32, 0.6) ;
 }
 
@@ -852,9 +856,32 @@ select{
     border-style: dashed;
 }
 
-.waterflowButton{
-    margin:auto;
-    height: 80%;
-    width: 95%;
+.customBottomPadding{
+    padding-bottom:2%; 
+}
+#waterflowButton{
+  display: block;
+  margin:auto;
+  width: 95%;
+}
+
+.aspectRatioTooLow{
+  display: flex;
+  flex-direction: column;
+}
+
+.waterFontSize{
+  font-size:4vh;
+}
+.infoTextWater{
+  font-size: 3vh;
+}
+.waterflowStartButton{
+  height:7vh;
+}
+
+#waterLevelNumerator{
+    color: #ffffff;
+    font-size:4vw;
 }
 /*color lock end*/
