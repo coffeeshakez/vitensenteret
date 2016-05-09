@@ -27,6 +27,7 @@ angular.module('app', [
   'app.colors',
   'app.map',
   'app.beacon',
+  'app.finish',
   
 
   //'app.myapp',

@@ -168,6 +168,17 @@ angular.module('app.routes', [])
       data: {pageTitle: 'Beacon'}
     })
 
+   .state('index.finish', {
+      url: "/finish",
+      views: {
+        'finish': {
+          templateUrl: "app/finish/views/finish.html",
+          controller: 'finishCtrl'
+        }
+      },
+      data: {pageTitle: 'Beacon'}
+    })
+
   .state('index.example', {
       url: "/example",
       views: {

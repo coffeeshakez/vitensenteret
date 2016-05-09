@@ -95,6 +95,11 @@ var norwegian = {
     GAME_WON_TEXT: "Du har funnet alle delene. Etter at du har bygd og tilpasset roboten din slik du vil kan du trykke på den store grønne knappen for å få din premie!",
     GAME_WON_BUTTON: "Lukk",
 
+    FINISH_ROBOT_NAME: "Roboten sitt navn",
+    FINISH_PLAYER_NAME: "Ditt navn",
+    FINISH_SEND: "Last opp",
+    FINISH_DESC: "Navngi roboten din og send den til en hemmelig robotverden!"
+
 
     QUIZ_QUESTION1: "Hvem oppfant revolveren?",
     QUIZ_ANSWER1: "Revolveren ble oppfunnet av Samuel Colt i USA 1880",
@@ -235,6 +240,11 @@ var english = {
     GAME_WON_TITLE: "Congratulations!",
     GAME_WON_TEXT: "You have collected all the parts. After you've customized your robot you can click the large green button to recieve your prize!",
     GAME_WON_BUTTON: "Close",
+
+    FINISH_ROBOT_NAME: "Robot's name",
+    FINISH_PLAYER_NAME: "Your name",
+    FINISH_SEND: "Upload",
+    FINISH_DESC: "Name your awesome robot and upload it to the secret robot world!"
 };
 
 
