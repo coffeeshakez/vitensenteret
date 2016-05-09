@@ -31,7 +31,7 @@ var norwegian = {
     "YOUR_ROBOT_TOP_LEFT": "Din robot",
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS": "Du har samlet ",
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO": " deler",
-    "YOUR_ROBOT_GENERATE_BUTTON": "Generer din robot",
+    "YOUR_ROBOT_GENERATE_BUTTON": "Ferdig!",
     "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Slett din robot og start spillet på nytt",
     PARTS_HUE: "Farge",
     PARTS_LIGHT: "Lyshet",
@@ -98,7 +98,7 @@ var norwegian = {
     FINISH_ROBOT_NAME: "Roboten sitt navn",
     FINISH_PLAYER_NAME: "Ditt navn",
     FINISH_SEND: "Last opp",
-    FINISH_DESC: "Navngi roboten din og send den til en hemmelig robotverden!"
+    FINISH_DESC: "Navngi roboten din og send den til en hemmelig robotverden!",
 
 
     QUIZ_QUESTION1: "Hvem oppfant revolveren?",
@@ -176,7 +176,7 @@ var english = {
     "YOUR_ROBOT_TOP_LEFT": "Your robot",
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS": "You have collected  ",
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO": " parts",
-    "YOUR_ROBOT_GENERATE_BUTTON": "Generate your robot",
+    "YOUR_ROBOT_GENERATE_BUTTON": "Finish!",
     "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Delete your robot and start over again",
     PARTS_HUE: "Hue",
     PARTS_LIGHT: "Light",
