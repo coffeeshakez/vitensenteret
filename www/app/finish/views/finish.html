@@ -8,11 +8,11 @@
         <div class="card list">
           <label class="item item-input item-stacked-label">
             <span class="input-label">{{trans.FINISH_ROBOT_NAME}}</span>
-            <input type="text" maxlength="15" ng-model="robot.robot_name" placeholder="{{trans.FINISH_ROBOT_NAME}}" autocorrect="false">
+            <input type="text" maxlength="15" ng-model="game.robot.robot_name" placeholder="{{trans.FINISH_ROBOT_NAME}}" autocorrect="false">
           </label>
           <label class="item item-input item-stacked-label">
             <span class="input-label">{{trans.FINISH_PLAYER_NAME}}</span>
-            <input type="text" maxlength="40" ng-model="robot.player_name" placeholder="{{trans.FINISH_PLAYER_NAME}}" autocorrect="false">
+            <input type="text" maxlength="40" ng-model="game.robot.player_name" placeholder="{{trans.FINISH_PLAYER_NAME}}" autocorrect="false">
           </label>
         </div>
 
@@ -42,6 +42,6 @@
         </div>
 
 
-        <btn class="button button-balanced button-block" ng-click="sendRobot()">{{trans.FINISH_SEND}} {{robot.name}}</btn>
+        <btn class="button button-balanced button-block" ng-click="sendRobot()">{{trans.FINISH_SEND}} {{game.robot.robot_name}}</btn>
     </ion-content>
 </ion-view>
