@@ -459,94 +459,6 @@ select{
 }
 
 
-/* Parts screen - start */
-
-.item-robot {
-  min-height: 175px;
-}
-
-.item-body .row {
-  padding: 0;
-  padding-bottom: 2px;
-}
-
-.center-margin{
-  padding-left: 5px;
-  padding-right: 5px;
-    margin: auto;
-}
-
-.part-box{
-  height: 80px;
-  padding: 10px 0;
-}
-
-.over-check{
-  font-size: 2em;
-  position: absolute;
-  right: 10%;
-  bottom: 5%;
-  /*pointer-events: none;*/
-}
-
-.big-robot .sprite {
-  zoom: 3;
-}
-
-.changePart {
-  font-size: 1.3em;
-  position: absolute;
-  text-align: right;
-  padding: 29px 8%;
-  right: 0;
-  top: 0;
-  width: 22%;
-  height: 100%;
-  opacity: 0.8;
-  cursor: pointer;
-  background-color: rgba(0,0,0,0.1);
-  border-left: 1px solid rgba(0,0,0,0.16);
-}
-
-.part-list {
-  zoom: 1;
-}
-
-.customize-parts-box{
-  border-top: 3px solid rgba(0,0,0,0.1);
-}
-
-.changePart.left{
-  text-align: left;
-  left: 0;
-  border-right: 1px solid rgba(0,0,0,0.16);
-  border-left: none;
-}
-
-.part-not-collected{
-  -webkit-filter: contrast(0) brightness(1.4);
-  text-decoration: none;
-}
-
-.part-robot{
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.part-robot .sprite{
-  zoom: 0.1;
-}
-.part-robot .body-container .sprite.body{
-  left: -50%;
-  position: relative;
-}
-
-.part-robot .body-container{
-  left: 50%;
-  position: absolute;
-}
-
 .memory-button{
     transition: opacity 0.2s ease-in-out, box-shadow 0.1s ease-in-out;
     border-color: rgba(0, 0, 0, 0.18) !important;
@@ -626,6 +538,92 @@ select{
 }
 
 
+/* Parts screen - start */
+
+.item-robot {
+  min-height: 175px;
+}
+
+.item-body .row {
+  padding: 0;
+  padding-bottom: 2px;
+}
+
+.center-margin{
+  padding-left: 5px;
+  padding-right: 5px;
+    margin: auto;
+}
+
+.part-box{
+  height: 80px;
+  padding: 10px 0;
+}
+
+.over-check{
+  font-size: 2em;
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+  /*pointer-events: none;*/
+}
+
+.big-robot .sprite {
+  zoom: 0.3 !important;
+}
+
+.changePart {
+  font-size: 1.3em;
+  position: absolute;
+  text-align: right;
+  padding: 29px 8%;
+  right: 0;
+  top: 0;
+  width: 22%;
+  height: 100%;
+  opacity: 0.8;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.1);
+  border-left: 1px solid rgba(0,0,0,0.16);
+}
+
+.part-list {
+  zoom: 0.3;
+}
+
+.item-robot .part-robot {
+    display: flex;
+}
+
+.leg-row {
+  display: block !important;
+}
+
+.customize-parts-box{
+  border-top: 3px solid rgba(0,0,0,0.1);
+}
+
+.changePart.left{
+  text-align: left;
+  left: 0;
+  border-right: 1px solid rgba(0,0,0,0.16);
+  border-left: none;
+}
+
+.part-not-collected{
+  -webkit-filter: contrast(0) brightness(1.4);
+  text-decoration: none;
+}
+
+.part-robot{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.part-robot .sprite{
+  zoom: 0.1;
+}
 
 .part-robot .part-not-collected {
   display: none;
@@ -637,9 +635,42 @@ select{
   margin-left: auto;
 }
 
+.sprite.arms.right {
+  margin-left: -120px;
+}
+
+.sprite.arms.left {
+  margin-right: -10px;
+}
+
+.sprite.arms.arms2.left {
+  transform: rotate(-30deg);
+}
+
+.sprite.arms.arms3.left {
+   transform: rotate(-18deg);
+} 
+
+.item-robot .sprite.arms{
+      margin-top: 417px;
+}
+
+.item-robot .sprite.legs{
+  margin-top: -40px;
+}
+
+.item-robot .sprite.arms.left{
+  margin-top: 580px;
+  margin-right: -40px;
+}
+
+.upper-col {
+  margin-left: -6px;
+}
+
 .sprite.head.head1 {
   background: url('../img/robots.png') no-repeat -309px -1px;
-  width: 564px;
+  width: 565px;
   height: 325px;
 }
 
@@ -659,11 +690,12 @@ select{
   background: url('../img/robots.png') no-repeat -4207px -11px;
   width: 458px;
   height: 326px;
+  margin-bottom: 30px;
 }
 
 .sprite.body.body1 {
   background: url('../img/robots.png') no-repeat -289px -339px;
-  width: 604px;
+  width: 605px;
   height: 649px;
 }
 
@@ -723,7 +755,7 @@ select{
 
 .sprite.arms.arms4 {
   background: url('../img/robots.png') no-repeat -3573px -724px;
-  width: 315px;
+  width: 340px;
   height: 271px;
 }
 
@@ -746,9 +778,9 @@ select{
 }
 
 .sprite.legs.legs3 {
-  background: url('../img/robots.png') no-repeat -2678px -1022px;
+  background: url('../img/robots.png') no-repeat -2678px -1065px;
   width: 910px;
-  height: 589px;
+  height: 577px;
 }
 
 .sprite.legs.legs4 {
@@ -789,7 +821,7 @@ select{
     margin-top: 18vh;
     margin-bottom: 18vh;
     animation: reward 1s;
-    transform: scale(3) rotate(720deg);
+    transform: scale(0.3) rotate(720deg);
 }
 
 @keyframes reward {from { transform: scale(0) rotate(0deg);} to { transform: scale(3) rotate(720deg);}}
