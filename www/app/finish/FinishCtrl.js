@@ -1,11 +1,11 @@
 angular.module('app.finish')
 .controller('finishCtrl', function($scope, $rootScope, $http, $state, $stateParams) {
     $rootScope.robot = {};
-    var server_url = "http://localhost/vitensenteret_server/";
+    var server_url = "http://u7961371.isphuset.no/vitenloypa_server/";
     
     $scope.sendRobot = function(){
 
-        if($rootScope.game.hasFinished){
+        if($rootScope.game.hasFinished && !$rootScope.devMode){
             console.log("already finished")
             return;
         }
@@ -20,6 +20,7 @@ angular.module('app.finish')
         function successCallback(response) {
             console.log("Success:", response);
             $rootScope.game.hasFinished = true;
+            window.open(server_url, '_system');
             $state.go("index.parts")
             //popup->robot
         }, 

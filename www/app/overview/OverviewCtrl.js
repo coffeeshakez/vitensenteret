@@ -90,6 +90,7 @@ angular.module('app.overview')
         {
             if(typeof evothings === 'undefined' || evothings === null){
                 console.log("No cordova. Dev-mode.")
+                $rootScope.devMode = true;
                 return false;
             }
             console.log("scan in progress..")
