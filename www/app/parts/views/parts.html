@@ -1,30 +1,26 @@
 <ion-view title="Vitensenteret">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <btn ng-show="hasWon" class="button button-balanced button-block">{{trans.YOUR_ROBOT_GENERATE_BUTTON}}</btn>
+        <btn ng-show="hasWon && !game.hasFinished" ui-sref="index.finish" class="button button-balanced button-block">{{trans.YOUR_ROBOT_GENERATE_BUTTON}}</btn>
         <div class="row">
             <div class="list card col-50" ng-class="bigRobot ? 'col-100 big-robot' : 'col-50'" ng-click="bigRobot = !bigRobot">
-                <div class="item item-divider">{{trans.YOUR_ROBOT_TOP_LEFT}}</div>
+                <div class="item item-divider">
+                    <span ng-show="!game.hasFinished">{{trans.YOUR_ROBOT_TOP_LEFT}}</span>
+                    <span ng-show="game.hasFinished">{{game.robot.robot_name}}</span>
+                </div>
                 <div class="item item-body item-robot">
-                    <div class="row">
-                        <div class="col-100 part-robot"><!-- head -->
-                            <a class="sprite" ng-class="partClasses(parts['head'])"  style="{{partStyles(parts['head'])}}"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-100 part-robot">
-                            <!-- body -->
-                            <div ng-class="parts['arms'].collected? 'body-container' : ''">
-                                <a class="sprite" ng-class="partClasses(parts['body'])"  style="{{partStyles(parts['body'])}}"></a>
-                            </div>
-                            <!-- arms -->
-                            <a class="sprite" ng-class="partClasses(parts['arms'])"  style="{{partStyles(parts['arms'])}}"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-100 part-robot"><!-- legs -->
-                            <a class="sprite" ng-class="partClasses(parts['legs'])"  style="{{partStyles(parts['legs'])}}"></a>
-                        </div>
-                    </div>
+<div class="row leg-row">
+    <div class="col-100 part-robot upper-col">
+        <a class="sprite left" ng-class="partClasses(parts['arms'])"  style="{{partStyles(parts['arms'])}}"></a>
+        <div class="robot-arms">
+            <a class="sprite" ng-class="partClasses(parts['head'])"  style="{{partStyles(parts['head'])}}"></a>
+            <a class="sprite" ng-class="partClasses(parts['body'])"  style="{{partStyles(parts['body'])}}"></a>
+        </div>
+        <a class="sprite right" ng-class="partClasses(parts['arms'])"  style="{{partStyles(parts['arms'])}}"></a>
+    </div>
+    <div class="col-100 part-robot">
+        <a class="sprite" ng-class="partClasses(parts['legs'])"  style="{{partStyles(parts['legs'])}}"></a>
+    </div>
+</div>
                 </div>
             </div>
             <div class="col-50 vertical-wrapper">

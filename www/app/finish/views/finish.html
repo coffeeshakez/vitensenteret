@@ -1,0 +1,40 @@
+<ion-view title="Vitensenteret">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+
+        <div class="card">
+            <div class="item item-body">{{trans.FINISH_DESC}}</div>
+        </div>
+
+        <div class="card list">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">{{trans.FINISH_ROBOT_NAME}}</span>
+            <input type="text" maxlength="15" ng-model="game.robot.robot_name" placeholder="{{trans.FINISH_ROBOT_NAME}}" autocorrect="false">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">{{trans.FINISH_PLAYER_NAME}}</span>
+            <input type="text" maxlength="40" ng-model="game.robot.player_name" placeholder="{{trans.FINISH_PLAYER_NAME}}" autocorrect="false">
+          </label>
+        </div>
+
+        <div class="list card col-100 big-robot">
+            <div class="item item-body item-robot">
+                <div class="row leg-row">
+                    <div class="col-100 part-robot upper-col">
+                        <a class="sprite left" ng-class="partClasses(parts['arms'])"  style="{{partStyles(parts['arms'])}}"></a>
+                        <div class="robot-arms">
+                            <a class="sprite" ng-class="partClasses(parts['head'])"  style="{{partStyles(parts['head'])}}"></a>
+                            <a class="sprite" ng-class="partClasses(parts['body'])"  style="{{partStyles(parts['body'])}}"></a>
+                        </div>
+                        <a class="sprite right" ng-class="partClasses(parts['arms'])"  style="{{partStyles(parts['arms'])}}"></a>
+                    </div>
+                    <div class="col-100 part-robot">
+                        <a class="sprite" ng-class="partClasses(parts['legs'])"  style="{{partStyles(parts['legs'])}}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <btn class="button button-balanced button-block" ng-click="sendRobot()">{{trans.FINISH_SEND}} {{game.robot.robot_name}}</btn>
+    </ion-content>
+</ion-view>
