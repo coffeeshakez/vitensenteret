@@ -31,6 +31,11 @@ angular.module('app.beacon')
 
 	function startScan()
 		{
+
+			if(!evothings){
+				console.log("No cordova. Dev-mode.")
+				return false;
+			}
 			
 			showMessage('Scan in progress.');
 			evothings.eddystone.startScan(

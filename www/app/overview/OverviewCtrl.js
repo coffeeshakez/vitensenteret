@@ -88,6 +88,11 @@ angular.module('app.overview')
 
     function startScan()
         {
+            if(typeof evothings === 'undefined' || evothings === null){
+                console.log("No cordova. Dev-mode.")
+                $rootScope.devMode = true;
+                return false;
+            }
             console.log("scan in progress..")
             evothings.eddystone.startScan(
                 function(beacon)
@@ -118,6 +123,10 @@ angular.module('app.overview')
     function stopScan()
     {
         console.log("Scanning stops..") 
+        if(typeof evothings === 'undefined' || evothings === null){
+            console.log("No cordova. Dev-mode.")
+            return false;
+        }
         evothings.eddystone.stopScan();
     }
 

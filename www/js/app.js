@@ -27,6 +27,7 @@ angular.module('app', [
   'app.colors',
   'app.map',
   'app.beacon',
+  'app.finish',
   
 
   //'app.myapp',
@@ -50,6 +51,7 @@ angular.module('app', [
     var minigamesLocal = localStorageService.get('minigames');
     var partsLocal = localStorageService.get('parts');
     var languageLocal = localStorageService.get('language');
+    var gameLocal = localStorageService.get('finished');
 
     if(!languageLocal){
         $state.go("index.chooseLanguage");
@@ -80,6 +82,10 @@ angular.module('app', [
       localStorageService.set('parts', $rootScope.parts);
     }, true);
 
+    $rootScope.$watch('game', function () {
+      localStorageService.set('game', $rootScope.game);
+    }, true);
+
     $rootScope.resetGame = function(){
         localStorageService.clearAll();
         console.log("Cleared local-storage");
@@ -91,7 +97,7 @@ angular.module('app', [
 
         "quiz":      {name: "OVERVIEW_QUIZ_BUTTON",           game: "quiz",      icon: "ion-chatbubble-working",part: "head",   collected: false, story: "QUIZ_INTRO_POPUP",            found: true },
         "periodic":  {name: "OVERVIEW_ELEMENTS_BUTTON",       game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false, story: "ELEMENTS_INTRO_POPUP",        found: false },
-        "colors":    {name: "OVERVIEW_COLOR_BUTTON",          game: "colors",    icon: "ion-lock-combination",  part: "head",   collected: false, story: "COLOR_INTRO_POPUP",           found: false },
+        "colors":    {name: "OVERVIEW_COLOR_BUTTON",          game: "colors",    icon: "ion-lock-combination",  part: "body",   collected: false, story: "COLOR_INTRO_POPUP",           found: false },
         "sound":     {name: "OVERVIEW_MELODY_BUTTON",         game: "sound",     icon: "ion-music-note",        part: "head",   collected: false, story: "MELODY_INTRO_POPUP",          found: false },
         "waterflow": {name: "OVERVIEW_WATER_BUTTON",          game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "WATER_INTRO_POPUP",           found: false },
         "memory":    {name: "OVERVIEW_SIMON_SAYS_BUTTON",     game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false, story: "SIMON_SAYS_INTRO_POPUP",      found: false },
@@ -101,10 +107,15 @@ angular.module('app', [
     };
 
     $rootScope.parts = partsLocal || {
-        "head": {name: "Hode",  desc: "et hode",  type: "head", variants: [1, 2, 3],      variant: 3, collected: false, hue: 0, brightness: 1, editing: true},
-        "arms": {name: "Armer", desc: "to armer", type: "arms", variants: [1, 2, 3],      variant: 1, collected: false, hue: 0, brightness: 1, editing: false},
-        "body": {name: "Overkropp", desc: "en overkropp", type: "body", variants: [1, 2], variant: 2, collected: false, hue: 0, brightness: 1, editing: false},
-        "legs": {name: "Bein",  desc: "bein",     type: "legs", variants: [1, 2, 3, 4],   variant: 1, collected: false, hue: 0, brightness: 1, editing: false},
+        "head": {name: "Hode",      desc: "et hode",      type: "head", variants: [1, 2, 3, 4], variant: 3, collected: false, hue: 0, brightness: 1, editing: true},
+        "arms": {name: "Armer",     desc: "to armer",     type: "arms", variants: [1, 2, 3, 4], variant: 1, collected: false, hue: 0, brightness: 1, editing: false},
+        "body": {name: "Overkropp", desc: "en overkropp", type: "body", variants: [1, 2, 3, 4], variant: 2, collected: false, hue: 0, brightness: 1, editing: false},
+        "legs": {name: "Bein",      desc: "bein",         type: "legs", variants: [1, 2, 3, 4], variant: 1, collected: false, hue: 0, brightness: 1, editing: false},
+    };
+
+    $rootScope.game = gameLocal || {
+      hasFinished: false,
+      robot: {}
     };
 
     $rootScope.state = $state;

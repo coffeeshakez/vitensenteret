@@ -3,6 +3,7 @@ angular.module('app.parts')
 
     $rootScope.hasWon = false;
     $scope.editingPart = $rootScope.parts['head'];
+    $rootScope.devMode = true;
 
     $scope.$on('$ionicView.enter', function() {
         //Runs every time view is changed to
@@ -60,7 +61,8 @@ angular.module('app.parts')
     }
 
     $scope.partToggle = function(part){
-        part.collected ^= true;
+        if($rootScope.devMode)
+            part.collected ^= true;
     }
 
     $scope.deleteRobotPop = function(){
