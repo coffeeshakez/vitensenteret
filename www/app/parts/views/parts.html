@@ -1,6 +1,6 @@
 <ion-view title="Vitensenteret">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <btn ng-show="hasWon && !game.hasFinished || devMode" ui-sref="index.finish" class="button button-balanced button-block">{{trans.YOUR_ROBOT_GENERATE_BUTTON}}</btn>
+        <btn ng-show="hasWon && !game.hasFinished" ui-sref="index.finish" class="button button-balanced button-block">{{trans.YOUR_ROBOT_GENERATE_BUTTON}}</btn>
         <div class="row">
             <div class="list card col-50" ng-class="bigRobot ? 'col-100 big-robot' : 'col-50'" ng-click="bigRobot = !bigRobot">
                 <div class="item item-divider">
