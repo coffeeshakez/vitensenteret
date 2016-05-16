@@ -30,7 +30,7 @@ angular.module('app.chooseLanguage')
             console.log("English fallback.");
         }
 
-        console.log("Chose language: "+$rootScope.language);
+        console.log("Chosen language: "+$rootScope.language);
         if(first){
             $state.go("index.welcomeScreen");
         }

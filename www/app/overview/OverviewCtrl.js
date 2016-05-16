@@ -6,13 +6,14 @@ angular.module('app.overview')
         //Runs every time view is changed to
         $rootScope.backButton = false;
     });
-        //Used for storing beacons that are in range
-    var beacons = {};
-
+        
     //Setting interval for updating the beacon list
     var signalInterval;
+
+    //Maps beacon names to respective game. Is used to start games when beacon signal is in range.
+    var beaconMap = {"nRF5-Eddy" : "waterflow" };
+    var beacons = {};
     $rootScope.beaconsActive = false;
-    
 
 
     $rootScope.winGame = function(game){
@@ -23,11 +24,7 @@ angular.module('app.overview')
         $state.go("index.reward", {"game": wonGame.name, "part": wonGame.part});
         return true;
     }
-    $rootScope.resetGame = function(){
-        localStorageService.clearAll();
-        console.log("Cleared local-storage");
-        document.location = "index.html";
-    }
+
     $scope.collectedMinigamesCount = function(){
         var count = 0;
         angular.forEach($scope.minigames, function(minigame){
@@ -35,16 +32,19 @@ angular.module('app.overview')
         });
         return count; 
     }
+    
     $scope.minigameClasses = function(minigame){
         var collected = minigame.collected ? 'part-collected' : 'part-not-collected';
         var icon = minigame.collected || !$rootScope.beaconsActive  || minigame.found ? minigame.icon : "ion-help";
         return icon + " " + collected;
     }
+    
     $scope.minigameStart = function(minigame){
         var popup = gamePopup(minigame);
         var myPopup = $ionicPopup.show(popup);
         stopScan();
     }
+    
     $scope.minigameToggle = function(minigame){
         minigame.collected ^= true;
     }
@@ -69,6 +69,7 @@ angular.module('app.overview')
             onTap: function (e) {
                 $rootScope.backButton = true;
                 $state.go("index."+minigame.game);
+
             }
           },
         ]
@@ -83,18 +84,15 @@ angular.module('app.overview')
                 startScan();
             },
             500);
-
-           
         }
 
     function startScan()
         {
-            
             console.log("scan in progress..")
             evothings.eddystone.startScan(
                 function(beacon)
                 {
-
+                    $rootScope.beaconsActive = true;
                     // Update beacon data.
                     beacon.timeStamp = Date.now();
                     beacons[beacon.address] = beacon;
@@ -108,13 +106,12 @@ angular.module('app.overview')
                     console.log($rootScope.minigames[miniGameName]);
 
                     $scope.minigameStart($rootScope.minigames[miniGameName]);
-
-                      
+                    $rootScope.minigames[miniGameName].found = true;
                 },
                 function(error)
                 {
                     console.log("eddystone scan error: " + error);
-                    
+                    $rootScope.beaconsActive = false;
                 });
         }
 
@@ -135,10 +132,6 @@ angular.module('app.overview')
         return beacon.rssi 
     }
 
-    var beaconMap = {"nRF5-Eddy" : "waterflow" };
-
-
-    //Start scanning for beacons when controller is started
     onDeviceReady();
 
 });
