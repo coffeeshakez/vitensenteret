@@ -11,7 +11,7 @@
 <div class="row leg-row">
     <div class="col-100 part-robot upper-col">
         <a class="sprite left" ng-class="partClasses(parts['arms'])"  style="{{partStyles(parts['arms'])}}"></a>
-        <div class="robot-arms">
+        <div class="robot-arms" ng-class="parts['arms'].collected? '' : 'center-margin'" >
             <a class="sprite" ng-class="partClasses(parts['head'])"  style="{{partStyles(parts['head'])}}"></a>
             <a class="sprite" ng-class="partClasses(parts['body'])"  style="{{partStyles(parts['body'])}}"></a>
         </div>
