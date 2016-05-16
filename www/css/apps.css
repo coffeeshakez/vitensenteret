@@ -821,10 +821,11 @@ select{
     margin-top: 18vh;
     margin-bottom: 18vh;
     animation: reward 1s;
-    transform: scale(0.3) rotate(720deg);
+    transform: rotate(720deg);
+    zoom: 0.3;
 }
 
-@keyframes reward {from { transform: scale(0) rotate(0deg);} to { transform: scale(3) rotate(720deg);}}
+@keyframes reward {from { transform: rotate(0deg); opacity: 0;} to { transform: rotate(720deg); opacity: 1;}}
 
 /* Overview screen - start */
 
