@@ -12,8 +12,11 @@
 
         <div id ="shortestListContainer">
             <div class="safeCity">Amsterdá</div>
-            <div id="verticalNumbers"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div>
+            <!--<div id="verticalNumbers"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div>-->
             <!--<p>1</p><br><p>2</p><br><p>3</p><br><p>4</p><br><p>5</p><br><p>6</p><br><p>7</p><br><p>8</p>-->
+            <ul id = verticalNumbersList>
+                <li class="verticalNumber" ng-repeat="option in [1,2,3,4,5,6,7,8]">{{option}}</li>
+            </ul>
             <ul id = "shortestList">
             <li class="shortestCity" ng-repeat="city in cities" value={{city.index}}>{{city.name}}</li>
             </ul>
