@@ -98,7 +98,7 @@ angular.module('app.periodic')
                 scope: $scope,
                 buttons: [
                     {
-                        text: '<b>'+$rootScope.trans["PERIODIC_NEXT"]+'/b>',
+                        text: '<b>'+$rootScope.trans["PERIODIC_NEXT"]+'</b>',
                         type: 'button-positive',
                         onTap: function(e) {
                             if(isCorrect == true && urlAndArray.length==0){

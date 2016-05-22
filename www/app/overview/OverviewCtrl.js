@@ -40,9 +40,15 @@ angular.module('app.overview')
     }
     
     $scope.minigameStart = function(minigame){
-        var popup = gamePopup(minigame);
-        var myPopup = $ionicPopup.show(popup);
-        stopScan();
+        if(!minigame.collected){
+            var popup = gamePopup(minigame);
+            var myPopup = $ionicPopup.show(popup);
+            stopScan();
+        }
+        else{
+            var popup = noGamePopup(minigame);
+            $ionicPopup.show(popup);
+        }
     }
     
     $scope.minigameToggle = function(minigame){
@@ -72,6 +78,24 @@ angular.module('app.overview')
 
             }
           },
+        ]
+      };
+    }
+
+    function noGamePopup(minigame) {
+
+      return {
+        title: $rootScope.trans[minigame.name],
+        subTitle: $rootScope.trans["OVERVIEW_ALREADY_WON"],
+        scope: $scope,
+        buttons: [
+          {
+            text: $rootScope.trans["OVERVIEW_POPUP_CANCEL_BUTTON"],
+            type: 'button-assertive',
+            onTap: function (e) {
+                return false;
+            }
+          }
         ]
       };
     }
