@@ -1,10 +1,5 @@
-// Ionic Starter App
+//Main angular file which loads all other modules, initializes providers and config.
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
 angular.module('app', [
   'ionic',
   'LocalStorageModule',
@@ -33,10 +28,12 @@ angular.module('app', [
   //'app.myapp',
   ])
 
+//config localstorage
 .config(['localStorageServiceProvider', function(localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('viten');
 }])
 
+//this function will run after Angular has initialized, before any other controllers.
 .run(function($ionicPlatform, $rootScope, $state, $stateParams, localStorageService) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -48,11 +45,14 @@ angular.module('app', [
 
     //START OWN CODE
 
+    //get variables from localstorage, if they exist
     var minigamesLocal = localStorageService.get('minigames');
     var partsLocal = localStorageService.get('parts');
     var languageLocal = localStorageService.get('language');
     var gameLocal = localStorageService.get('finished');
 
+
+    //set language from localstorage or set english as temporary language
     if(!languageLocal){
         $state.go("index.chooseLanguage");
     }else{
@@ -74,6 +74,8 @@ angular.module('app', [
         console.log("English fallback.");
     }
 
+
+    //sync important variables with localStorage
     $rootScope.$watch('minigames', function () {
       localStorageService.set('minigames', $rootScope.minigames);
     }, true);
@@ -86,6 +88,7 @@ angular.module('app', [
       localStorageService.set('game', $rootScope.game);
     }, true);
 
+    //resetGame will delete all locally stored data and refresh the application page, effectively starting the game from scratch
     $rootScope.resetGame = function(){
         localStorageService.clearAll();
         console.log("Cleared local-storage");
@@ -93,8 +96,8 @@ angular.module('app', [
     }
 
 
+    //Minigame state data. If there is no local data stored, it will use the initial data defined here. "name" is the shown name, "part" is the robot part which is won when completed, "collected" is if it has been completed, "found" is if it has been located by beacon.
     $rootScope.minigames = minigamesLocal || {
-
         "quiz":      {name: "OVERVIEW_QUIZ_BUTTON",           game: "quiz",      icon: "ion-chatbubble-working",part: "head",   collected: false, story: "QUIZ_INTRO_POPUP",            found: true },
         "periodic":  {name: "OVERVIEW_ELEMENTS_BUTTON",       game: "periodic",  icon: "ion-nuclear",           part: "body",   collected: false, story: "ELEMENTS_INTRO_POPUP",        found: false },
         "colors":    {name: "OVERVIEW_COLOR_BUTTON",          game: "colors",    icon: "ion-lock-combination",  part: "body",   collected: false, story: "COLOR_INTRO_POPUP",           found: false },
@@ -102,10 +105,9 @@ angular.module('app', [
         "waterflow": {name: "OVERVIEW_WATER_BUTTON",          game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "WATER_INTRO_POPUP",           found: false },
         "memory":    {name: "OVERVIEW_SIMON_SAYS_BUTTON",     game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false, story: "SIMON_SAYS_INTRO_POPUP",      found: false },
         "shortest":  {name: "OVERVIEW_SHORTEST_PATH_BUTTON",  game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP",   found: false },
-        
-
     };
 
+    //Player's robot part data. "type" and "variant" is connected to the css styles. "variant" is the currently selected robot variant.
     $rootScope.parts = partsLocal || {
         "head": {name: "Hode",      desc: "et hode",      type: "head", variants: [1, 2, 3, 4], variant: 3, collected: false, hue: 0, brightness: 1, editing: true},
         "arms": {name: "Armer",     desc: "to armer",     type: "arms", variants: [1, 2, 3, 4], variant: 1, collected: false, hue: 0, brightness: 1, editing: false},
@@ -113,11 +115,13 @@ angular.module('app', [
         "legs": {name: "Bein",      desc: "bein",         type: "legs", variants: [1, 2, 3, 4], variant: 1, collected: false, hue: 0, brightness: 1, editing: false},
     };
 
+    //Game state data
     $rootScope.game = gameLocal || {
       hasFinished: false,
       robot: {}
     };
 
+    //$state is the current page state, stored on rootScope so it can be used in views
     $rootScope.state = $state;
   });
 })

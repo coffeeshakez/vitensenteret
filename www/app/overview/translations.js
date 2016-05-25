@@ -1,3 +1,4 @@
+//Translations which will be concatenated into apps.js. To add a new language, create a new variable and put it in the "run" function in app.js
 
 var norwegian = {
     APP_NAME: "Vitensenteret NO",

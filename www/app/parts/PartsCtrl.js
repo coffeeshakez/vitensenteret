@@ -23,7 +23,7 @@ angular.module('app.parts')
         return Object.keys(obj).length;
     }
     
-    $scope.partClasses = function(part){
+    $rootScope.partClasses = function(part){
         if(part){
             if(part.collected){
                 var collected = 'part-collected';
@@ -38,7 +38,7 @@ angular.module('app.parts')
         return "";
     }
 
-    $scope.partStyles = function(part){
+    $rootScope.partStyles = function(part){
         if(part.collected){
             var filter = "filter: hue-rotate("+part.hue+"deg) brightness("+part.brightness+");";
             return "-webkit-" + filter + " " + filter;
