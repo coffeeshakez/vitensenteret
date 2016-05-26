@@ -29,15 +29,15 @@ angular.module('app.periodic')
 
     // Array that contains the url of all images and indexes in button-array
     var urlAndArray = [
-        {name:"tinn", url: "./img/tinn.jpg", index:0},
-        {name:"jern", url: "./img/Iron.jpg", index:1},
-        {name:"natrum", url: "./img/salt.jpg", index:2},
-        {name:"gull", url: "./img/gold.jpg", index:3},
-        {name:"aluminium", url: "./img/aluminum.jpg", index:4},
         {name:"litium", url: "./img/battery.jpg", index:5},
+        {name:"aluminium", url: "./img/aluminum.jpg", index:4},
+        {name:"tinn", url: "./img/tinn.jpg", index:0},
         {name:"svovel", url: "./img/onion.jpg", index:6},
+        {name:"gull", url: "./img/gold.jpg", index:3},
         {name:"karbon", url: "./img/diamond.jpg", index:7},
+        {name:"natrum", url: "./img/salt.jpg", index:2},
         {name:"kalsium", url: "./img/kalsium.jpg", index:8},
+        {name:"jern", url: "./img/Iron.jpg", index:1},
     ];
 
 

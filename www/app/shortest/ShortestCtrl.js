@@ -2,14 +2,14 @@ angular.module('app.shortest').
 controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootScope) {
 
     $scope.cities = [
-        {name: "Londen",  index:1},
-        {name: "Brußel",  index:0},
         {name: "Paris", index:2},
-        {name: "Strasborg", index:3},
-        {name: "Dresen", index:4},
+        {name: "Londen",  index:1},
         {name: "Erdfurt", index:5},
-        {name: "Háborg",index:6},
+        {name: "Brußel",  index:0},
         {name: "Copenhagen",index:7},
+        {name: "Dresen", index:4},
+        {name: "Háborg",index:6},
+        {name: "Strasborg", index:3},
     ]
 
 
@@ -55,7 +55,7 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootSco
             var pop =
             {
                 title: $rootScope.trans["PERIODIC_FEEDBACK_CORRECT"],
-                subTitle: $rootScope.trans["SOUND_POPUP_INCORRECT"],
+                subTitle: $rootScope.trans["SHORTEST_POPUP_CORRECT"],
                 scope: $scope,
                 buttons: [
                     {
@@ -72,7 +72,7 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootSco
             var pop =
             {
                 title: $rootScope.trans["PERIODIC_FEEDBACK_INCORRECT"],
-                subTitle: $rootScope.trans["SOUND_POPUP_INCORRECT"],
+                subTitle: $rootScope.trans["SHORTEST_POPUP_INCORRECT"],
                 scope: $scope,
                 buttons: [
                     {

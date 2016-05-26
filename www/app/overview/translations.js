@@ -49,7 +49,7 @@ var norwegian = {
     REWARD_FINISHED2: "og har dermed vunnet",
     REWARD_FINISHED3: "til din robot!",
     REWARD_CONTINUE: "Fortsett",
-    SHORTEST_DESC: "Finn korteste vei fra Oslo til Trondheim. Dra byene til riktig plassering.",
+    SHORTEST_DESC: "Finn korteste vei fra Amsterdam til Nidaros. Dra byene til riktig plassering.",
     CHECK: "Sjekk om det er riktig!",
     SOUND_DESC: "Plasser rørene så de lager samme lyd som spilles av",
     SOUND_PLAY: "Spill av lyden!",
