@@ -17,7 +17,7 @@ angular.module('app.reward')
     var part = $stateParams.part;
     $scope.gameFinished = $rootScope.trans[$stateParams.game];
     $scope.robotPart = $rootScope.parts[part].desc;
-    $scope.robotPartImage = "sprite " + part + " " +  part + $rootScope.parts[part].variant;
+    $scope.robotPartImage = "sprite " + part + " " +  part + getRandomInt(0, $rootScope.parts[part].variants.length);
 
   }
 
@@ -25,6 +25,8 @@ angular.module('app.reward')
     $state.go("index.parts");
   }
 
-
+  function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
 });

@@ -1,7 +1,7 @@
 angular.module('app.finish')
 .controller('finishCtrl', function($scope, $rootScope, $http, $state, $stateParams) {
     $rootScope.robot = {};
-    var server_url = "http://u7961371.isphuset.no/vitenloypa_server/";
+    var server_url = "http://viten.ntnu.no/robots/";
     
     $scope.sendRobot = function(){
 

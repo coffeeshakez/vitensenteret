@@ -880,10 +880,10 @@ select{
 }
 
 .popup-title {
-  font-size: 3vmax;
+  font-size: 27px;
 }
 .popup-sub-title {
-  font-size: 2.5vmax;
+    font-size: 20px;
 }
 
 /*  Overview screen - end *//* Main screen - end */
