@@ -2,14 +2,14 @@ angular.module('app.shortest').
 controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootScope) {
 
     $scope.cities = [
-        {name: "Londen",  index:1},
-        {name: "Brußel",  index:0},
         {name: "Paris", index:2},
-        {name: "Strasborg", index:3},
-        {name: "Dresen", index:4},
+        {name: "Londen",  index:1},
         {name: "Erdfurt", index:5},
-        {name: "Háborg",index:6},
+        {name: "Brußel",  index:0},
         {name: "Copenhagen",index:7},
+        {name: "Dresen", index:4},
+        {name: "Háborg",index:6},
+        {name: "Strasborg", index:3},
     ]
 
 
@@ -54,12 +54,12 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootSco
         if(bool ==true) {
             var pop =
             {
-                title: "Gratulerer",
-                subTitle: "Du har funnet kortste vei fra Amsterdam til Trondheim",
+                title: $rootScope.trans["PERIODIC_FEEDBACK_CORRECT"],
+                subTitle: $rootScope.trans["SHORTEST_POPUP_CORRECT"],
                 scope: $scope,
                 buttons: [
                     {
-                        text: '<b>Ta i mot din premie!</b>',
+                        text: '<b>'+$rootScope.trans["SOUND_PRIZE"]+'</b>',
                         type: 'button-positive',
                         onTap: function () {
                             winning();
@@ -71,12 +71,12 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootSco
         else if(bool == false){
             var pop =
             {
-                title: "Feil",
-                subTitle: "Du har dessverre ikke alle byene i riktig rekkefølge. De grønne står på riktig plass, men de røde er plassert feil",
+                title: $rootScope.trans["PERIODIC_FEEDBACK_INCORRECT"],
+                subTitle: $rootScope.trans["SHORTEST_POPUP_INCORRECT"],
                 scope: $scope,
                 buttons: [
                     {
-                        text: '<b>Prøv igjen</b>',
+                        text: '<b> '+$rootScope.trans["SOUND_RETRY"]+'</b>',
                         type: 'button-positive',
                         onTap: function () {
                         }

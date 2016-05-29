@@ -1,5 +1,5 @@
 angular.module('app.periodic')
-.controller('periodicCtrl', function($scope, $rootScope, $stateParams, $ionicPopup, $translate) {
+.controller('periodicCtrl', function($scope, $rootScope, $stateParams, $ionicPopup) {
 
     // $scope.buttons = [
     //     {name: "Tinn", abbr: "Sn", index:0, correct: false, description: "Tinn er etter gull, kobber og sølv det lengst kjente og brukte metallet. Tinn finnes som hvit, skinnende og bløtt metall, med smeltepunkt på 231,9 ˚C.Siden tinn er et bløtt metall med lavt smeltepunkt er det lett å forme og velegnet til en rekke formål. På Vitensenteret kan du støype egne figurer av tinn."},
@@ -14,45 +14,30 @@ angular.module('app.periodic')
     // ];
 
 
-    // $translate.preferredLanguage($rootScope.language);
-    // $translate.use($rootScope.language);
-
-    $translate(["PERIODIC_SN_DESCRIPTION",
-        "PERIODIC_FE_DESCRIPTION",
-        "PERIODIC_NA_DESCRIPTION",
-        "PERIODIC_AU_DESCRIPTION",
-        "PERIODIC_AL_DESCRIPTION",
-        "PERIODIC_LI_DESCRIPTION",
-        "PERIODIC_S_DESCRIPTION",
-        "PERIODIC_C_DESCRIPTION",
-        "PERIODIC_CA_DESCRIPTION"]).then(function(translations){
-        $scope.translations = translations;
-    });
-
     $scope.buttons = [
-        {name: "Tinn", abbr: "Sn", index:0, correct: false, description:"PERIODIC_SN_DESCRIPTION"},
-        {name: "Jern", abbr: "Fe", index:1, correct: false, description:"PERIODIC_FE_DESCRIPTION"},
-        {name: "Natrium", abbr: "Na", index:2,correct: false, description:"PERIODIC_NA_DESCRIPTION"},
-        {name: "Gull", abbr: "Au", index:3, correct: false, description:"PERIODIC_AU_DESCRIPTION"},
-        {name: "Aluminim", abbr: "Al", index:4, correct: false, description:"PERIODIC_AL_DESCRIPTION"},
-        {name: "Litium", abbr: "Li", index:5, correct: false, description:"PERIODIC_LI_DESCRIPTION"},
-        {name: "Svovel", abbr: "S", index:6, correct: false, description:"PERIODIC_S_DESCRIPTION"},
-        {name: "Karbon", abbr: "C", index:7, correct: false, description:"PERIODIC_C_DESCRIPTION"},
-        {name: "Kalsium", abbr: "Ca", index:8, correct: false, description:"PERIODIC_CA_DESCRIPTION"}
+        {name: "PERIODIC_SN", abbr: "Sn", index:0, correct: false, description:"PERIODIC_SN_DESCRIPTION"},
+        {name: "PERIODIC_FE", abbr: "Fe", index:1, correct: false, description:"PERIODIC_FE_DESCRIPTION"},
+        {name: "PERIODIC_NA", abbr: "Na", index:2,correct: false, description:"PERIODIC_NA_DESCRIPTION"},
+        {name: "PERIODIC_AU", abbr: "Au", index:3, correct: false, description:"PERIODIC_AU_DESCRIPTION"},
+        {name: "PERIODIC_AL", abbr: "Al", index:4, correct: false, description:"PERIODIC_AL_DESCRIPTION"},
+        {name: "PERIODIC_LI", abbr: "Li", index:5, correct: false, description:"PERIODIC_LI_DESCRIPTION"},
+        {name: "PERIODIC_S", abbr: "S", index:6, correct: false, description:"PERIODIC_S_DESCRIPTION"},
+        {name: "PERIODIC_C", abbr: "C", index:7, correct: false, description:"PERIODIC_C_DESCRIPTION"},
+        {name: "PERIODIC_CA", abbr: "Ca", index:8, correct: false, description:"PERIODIC_CA_DESCRIPTION"}
     ];
 
 
     // Array that contains the url of all images and indexes in button-array
     var urlAndArray = [
-        {name:"tinn", url: "./img/tinn.jpg", index:0},
-        {name:"jern", url: "./img/Iron.jpg", index:1},
-        {name:"natrum", url: "./img/salt.jpg", index:2},
-        {name:"gull", url: "./img/gold.jpg", index:3},
-        {name:"aluminium", url: "./img/aluminum.jpg", index:4},
         {name:"litium", url: "./img/battery.jpg", index:5},
+        {name:"aluminium", url: "./img/aluminum.jpg", index:4},
+        {name:"tinn", url: "./img/tinn.jpg", index:0},
         {name:"svovel", url: "./img/onion.jpg", index:6},
+        {name:"gull", url: "./img/gold.jpg", index:3},
         {name:"karbon", url: "./img/diamond.jpg", index:7},
+        {name:"natrium", url: "./img/salt.jpg", index:2},
         {name:"kalsium", url: "./img/kalsium.jpg", index:8},
+        {name:"jern", url: "./img/Iron.jpg", index:1},
     ];
 
 
@@ -62,22 +47,18 @@ angular.module('app.periodic')
         $scope.buttons[$scope.nextElement.index].correct=true;
     }
 
-    $scope.submitAnswer=function(answer){
-
+    $scope.submitAnswer=function(answer) {
         var isCorrect = answer.correct;
-
         showPopup(isCorrect, answer);
 
-        if(isCorrect){
-            $scope.nextElement.correct=false;
-            urlAndArray.pop();
-            
+        if (isCorrect) {
+            $scope.buttons[$scope.nextElement.index].correct = false;
         }
 
-        else{
-            var oldElement =  urlAndArray.pop();
+        else {
+            var oldElement = urlAndArray.pop();
             urlAndArray.unshift(oldElement);
-             $scope.buttons[answer.index].correct=false;
+            $scope.buttons[$scope.nextElement.index].correct = false;
         }
     }
     function initNextElement(){
@@ -85,37 +66,24 @@ angular.module('app.periodic')
         $scope.buttons[$scope.nextElement.index].correct=true;
     }
 
-
-
-    // function checkCorrect(answer){
-    //     if(answer.correct){
-    //         return(true);
-    //     }
-    //     else{
-    //         return (false);
-    //     }
-    // }
-
     function winning(){
         $rootScope.winGame("periodic");
     }
 
     function showPopup(isCorrect, answer)  {
         $scope.data = {};
-
-        var description = $scope.buttons[answer.index].description;
-        console.log(description);
+        
 
 
         if(isCorrect==true){
             var pop = {
-                title: "RIKTIG!", 
-                subTitle:"Du svarte " + $scope.buttons[answer.index].name + ". \n" + $scope.translations[description] ,
+                title: $rootScope.trans["PERIODIC_FEEDBACK_CORRECT"],
+                subTitle:$rootScope.trans["PERIODIC_ANSWER"] + $rootScope.trans[answer.name] + '. <br>' + $rootScope.trans[answer.description] ,
                 //    $scope.buttons[answer.index].description,
                 scope: $scope,
                 buttons: [
                     {
-                        text: '<b>Neste spørsmål</b>',
+                        text: '<b>'+$rootScope.trans["PERIODIC_NEXT"]+'</b>',
                         type: 'button-positive',
                         onTap: function(e) {
                             if(isCorrect == true && urlAndArray.length==0){
@@ -131,12 +99,12 @@ angular.module('app.periodic')
 
          else{
             var pop = {
-                title: 'FEIL!', 
-                subTitle:"Du svarte " + $scope.buttons[answer.index].name + ". \n" + $scope.buttons[answer.index].description,
+                title: $rootScope.trans["PERIODIC_FEEDBACK_INCORRECT"],
+                subTitle:$rootScope.trans["PERIODIC_ANSWER"] + $rootScope.trans[answer.name] + '.<br>' + $rootScope.trans[answer.description] ,
                 scope: $scope,
                 buttons: [
                         {
-                            text: '<b>Neste spørsmål</b>',
+                            text: '<b>'+$rootScope.trans["PERIODIC_NEXT"]+'</b>',
                             type: 'button-positive',
                             onTap: function(e) {
                                 initNextElement();

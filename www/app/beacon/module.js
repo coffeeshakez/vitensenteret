@@ -1,1 +1,2 @@
-angular.module('app.beacon', [])
+angular.module('app.beacon', []);
+

@@ -1,61 +1,64 @@
 <ion-view title="Vitensenteret">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <btn ng-show="hasWon && !game.hasFinished" ui-sref="index.finish" class="button button-balanced button-block">{{trans.YOUR_ROBOT_GENERATE_BUTTON}}</btn>
         <div class="row">
-            <div class="list card col-50">
-                <div class="item item-divider" translate>YOUR_ROBOT_TOP_LEFT</div>
+            <div class="list card col-50" ng-class="bigRobot ? 'col-100 big-robot' : 'col-50'" ng-click="bigRobot = !bigRobot">
+                <div class="item item-divider">
+                    <span ng-show="!game.hasFinished">{{trans.YOUR_ROBOT_TOP_LEFT}}</span>
+                    <span ng-show="game.hasFinished">{{game.robot.robot_name}}</span>
+                </div>
                 <div class="item item-body item-robot">
-                    <div class="row">
-                        <div class="col-100 part-robot"><!-- head -->
-                            <a class="sprite" ng-class="partClasses(parts['head'])"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-100 part-robot">
-                            <!-- body -->
-                            <div ng-class="parts['arms'].collected? 'body-container' : ''">
-                                <a class="sprite" ng-class="partClasses(parts['body'])"></a>
-                            </div>
-                            <!-- arms -->
-                            <a class="sprite" ng-class="partClasses(parts['arms'])"></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-100 part-robot"><!-- legs -->
-                            <a class="sprite" ng-class="partClasses(parts['legs'])"></a>
-                        </div>
-                    </div>
+<div class="row leg-row">
+    <div class="col-100 part-robot upper-col">
+        <a class="sprite left" ng-class="partClasses(parts['arms'])"  style="{{partStyles(parts['arms'])}}"></a>
+        <div class="robot-arms" ng-class="parts['arms'].collected? '' : 'center-margin'" >
+            <a class="sprite" ng-class="partClasses(parts['head'])"  style="{{partStyles(parts['head'])}}"></a>
+            <a class="sprite" ng-class="partClasses(parts['body'])"  style="{{partStyles(parts['body'])}}"></a>
+        </div>
+        <a class="sprite right" ng-class="partClasses(parts['arms'])"  style="{{partStyles(parts['arms'])}}"></a>
+    </div>
+    <div class="col-100 part-robot">
+        <a class="sprite" ng-class="partClasses(parts['legs'])"  style="{{partStyles(parts['legs'])}}"></a>
+    </div>
+</div>
                 </div>
             </div>
             <div class="col-50 vertical-wrapper">
-                <div class="vertical-align">
-                    <h3 class="giant-text" translate>
-                        YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS
+                <div class="vertical-align center-margin">
+                    <h3 class="giant-text">
+                        {{trans.YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS}}
                     </h3>
                     <h1 class="giant-text">
                         {{collectedPartsCount()}}/{{getLength(parts)}}
                     </h1>
-                    <h2 class="giant-text" translate>
-                        YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO
+                    <h2 class="giant-text">
+                        {{trans.YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO}}
                     </h2>
                 </div>
             </div>
         </div>
 
         <div class="row flexyWrap" >
-            <div class="col-33 center-margin" ng-repeat="part in parts">
+            <div class="col-100 center-margin" ng-repeat="part in parts">
                 <div class="card small overviewCard">
                     <div class="item item-text-wrap part-box vertical-wrapper">
-                        <a href class="sprite part-list" ng-class="partClasses(part)">
-                            <h1 class="giant-text" ng-show="!part.collected">?</h1>
+                        <a href class="sprite part-list" ng-click="editPart(part)" ng-class="partClasses(part)" style="{{partStyles(part)}}">
+                            <h1 class="giant-text" ng-show="!part.collected" ng-click="partToggle(part)">?</h1>
                         </a>
                         <i class="icon ion-chevron-left changePart left" ng-show="part.collected" ng-click="partClick(part, -1)"></i>
                         <i class="icon ion-chevron-right changePart" ng-show="part.collected" ng-click="partClick(part, 1)"></i>
-                    </div>    
+                    </div>
+                    <div class="customize-parts-box" ng-show="part.editing && part.collected">
+                        <ion-item class="range">{{trans.PARTS_HUE}}
+                            <input ng-model="part.hue" type="range" value="0" min="0" max="360">
+                        </ion-item>
+                        <ion-item class="range">{{trans.PARTS_LIGHT}}
+                            <input ng-model="part.brightness" type="range" value="1" min="0" max="2" step="0.1">
+                        </ion-item>
+                    </div> 
                 </div>
             </div>
         </div>
-
-        <btn ng-disabled="collectedPartsCount() != parts.length" class="button button-balanced button-block" translate>YOUR_ROBOT_GENERATE_BUTTON</btn>
-        <btn class="button button-assertive button-block" ng-click="resetGame()" translate>YOUR_ROBOT_DELETE_ROBOT_BUTTON</btn>
+        <btn class="button button-assertive button-block" ng-click="deleteRobotPop()">{{trans.YOUR_ROBOT_DELETE_ROBOT_BUTTON}}</btn>
     </ion-content>
 </ion-view>

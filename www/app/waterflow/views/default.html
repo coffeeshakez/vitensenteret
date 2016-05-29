@@ -1,22 +1,24 @@
     <ion-view title="waterflow">
     <ion-content ng-init="loadImages()" class="tube-grid">
+		<div class="customPadding2">
+		  	<div class="card small centerdiv infoTextWater" >
+		  			<h5 class="infoTextWater">{{trans.WATER_DESC}}</h5>
+		    </div>
     	<div class="card small centerdiv" >
-            <h5>Koble rørene sammen slik at de danner en sti til turbinen</h5>
         </div>
-	    <div class="customPadding">
+	    <div class="my-container">
 	        <div class="row" ng-repeat="row in images">
-	            <div class="col col-20 no-padding no-margin" ng-repeat="image in row">
+	            <div class="col col-20 no-padding no-margin" ng-repeat="image in row" width={{gridWidth}}>
 	            	<div class="hover-image">
-		                <img src="{{image.src}}" title="{{image}}" ng-click="rotateImage(image)" width="100%" class="{{image.classname}}"/>
+		                <img src="{{image.src}}" title="{{image}}" ng-click="rotateImage(image)" width="100%" height="100%" class="{{image.classname}}"/>
 	                </div>
 	            </div>  
         	</div>
         </div>
-	    <div id="levelNumerator" class="textAllignCenter">
-	        {{levelNumerator}}
+	    <div id="waterLevelNumerator" class="textAllignCenter customPadding2">{{trans.WATER_LEVEL_ENUMERATOR}} {{levelNumerator}}
 	    </div>
         <div class="centerdiv waterflowButton customPadding">
-		    <button class="button button-bar button-balanced" id="startButton" ng-click="testFlow();">Test koblingen!</button>
+		    <button class="button button-bar button-balanced" id="startButton" ng-click="testFlow();">{{trans.CHECK}}</button>
         </div>
     </ion-content>
-</ion-view>s
+</ion-view>

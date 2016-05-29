@@ -4,4 +4,8 @@ platforms/*
 .idea/*
 /www/js/apps.js
 debug.log
+<<<<<<< HEAD
 plugins/*
+=======
+plugins/*
+>>>>>>> 22029166838a1760498fe02045cfc648ad74b17f

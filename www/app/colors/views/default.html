@@ -1,9 +1,9 @@
 <ion-view title="Fargelås">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <div class="list card">
-            <div class="item item-divider">Lås opp kombinasjonslåsen!</div>
+            <div class="item item-divider">{{trans.COLORS_TITLE}}</div>
             <div class="item item-body">
-                Finn fargekombinasjonen som genererer fargen under
+                {{trans.COLORS_DESC}}
             </div>
         </div>
         <div class="list card lock-card">
@@ -30,6 +30,6 @@
         </div>
 
 
-        <btn ng-click="nextLock()" ng-disabled="!checkColors(slider.red, slider.green, slider.blue)" class="button button-balanced button-block">Lås opp</btn>
+        <btn ng-click="nextLock()" ng-disabled="!checkColors(slider.red, slider.green, slider.blue)" class="button button-balanced button-block">{{trans.COLORS_UNLOCK}}</btn>
     </ion-content>
 </ion-view>
