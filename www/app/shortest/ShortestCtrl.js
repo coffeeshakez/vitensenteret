@@ -1,6 +1,7 @@
 angular.module('app.shortest').
 controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootScope) {
 
+    //List of cities, used to generate list. Index is the index for correct order
     $scope.cities = [
         {name: "Paris", index:2},
         {name: "Londen",  index:1},
@@ -16,11 +17,13 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootSco
     var sortable;
     var el;
 
+    //creates drag and drop list
     $scope.createSortable = function(){
         el = document.getElementById('shortestList');
         sortable = Sortable.create(el);
     }
 
+    //Checks if the list is currently in the correct order, and sets the corresponding background color
     $scope.shortestCheckCorrect = function (){
         var numberOfCorrect = 0;
         console.log(sortable);
@@ -44,12 +47,13 @@ controller('ShortestCtrl', function($scope, $stateParams, $ionicPopup,  $rootSco
 
     }
 
+    //sends the user to receive their robot part
     function winning(){
         $rootScope.winGame("shortest");
     }
 
 
-
+//Generates and shows popup with feedback regarding the submitted answer.
     function showPopup(bool){
         if(bool ==true) {
             var pop =
