@@ -3,6 +3,7 @@ angular.module('app.finish')
     $rootScope.robot = {};
     var server_url = "http://viten.ntnu.no/robots/";
     
+    //submit robot and info to robot list server
     $scope.sendRobot = function(){
 
         if($rootScope.game.hasFinished && !$rootScope.devMode){
@@ -10,16 +11,20 @@ angular.module('app.finish')
             return;
         }
 
+        //prepare data for http post
         var data = {
             "robot_name": $rootScope.game.robot.robot_name,
             "player_name": $rootScope.game.robot.player_name,
             "robot": JSON.stringify($rootScope.parts),
         };
 
+        //post to server
         $http.post(server_url, data).then(
         function successCallback(response) {
             console.log("Success:", response);
             $rootScope.game.hasFinished = true;
+
+            //open robot list url
             window.open(server_url, '_system');
             $state.go("index.parts")
             //popup->robot
@@ -29,27 +34,5 @@ angular.module('app.finish')
         });
         
     }
-
-    $scope.partClasses = function(part){
-        if(part){
-            if(part.collected){
-                var collected = 'part-collected';
-                var type = part.type;
-                var variant = type+part.variant;
-                return type + " " + variant + " " + collected;
-            }
-            else {
-                return 'part-not-collected';
-            }
-        }
-        return "";
-    }
-
-    $scope.partStyles = function(part){
-        if(part.collected){
-            var filter = "filter: hue-rotate("+part.hue+"deg) brightness("+part.brightness+");";
-            return "-webkit-" + filter + " " + filter;
-        }
-        return "";
-    }
+    
 });
