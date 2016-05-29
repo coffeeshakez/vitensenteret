@@ -3,9 +3,7 @@
 
     <p class="texts text-center">{{trans.SOUND_DESC}}</p>
 
-    <audio id="song">
-    	<source id = "songSource" ng-src="{{currentStage.sound}}" type="audio/wav">
-    		Your browser does not support
+    <audio id="song" src="./sound/viten3.mp3">
     </audio>
 
    <button id="soundPlayBtn" class="button button-block button-balanced" ng-click="playImitate()"> {{trans.SOUND_PLAY}} </button>
