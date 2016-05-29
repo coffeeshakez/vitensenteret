@@ -11,16 +11,20 @@ angular.module('app.finish')
             return;
         }
 
+        //prepare data for http post
         var data = {
             "robot_name": $rootScope.game.robot.robot_name,
             "player_name": $rootScope.game.robot.player_name,
             "robot": JSON.stringify($rootScope.parts),
         };
 
+        //post to server
         $http.post(server_url, data).then(
         function successCallback(response) {
             console.log("Success:", response);
             $rootScope.game.hasFinished = true;
+
+            //open robot list url
             window.open(server_url, '_system');
             $state.go("index.parts")
             //popup->robot

@@ -1,15 +1,20 @@
 angular.module('app.chooseLanguage')
 .controller('ChooseLanguageCtrl', function($scope, $state, $rootScope, localStorageService) {
+    //controller for language selection
 
+    //try to get language from localstorage
     var languageLocal = localStorageService.get('language');
 
+    //check for changes to language and store in localstorage
     $scope.$watch('language', function () {
       localStorageService.set('language', $rootScope.language);
     }, true);
 
+    //if set locally set the global value to be that
     if(languageLocal)
         $rootScope.language = languageLocal;
 
+    //switch language to given language. only "en" and "no" allowed.
     $scope.switchTo = function(lang){
         var first = false;
         if(!languageLocal){

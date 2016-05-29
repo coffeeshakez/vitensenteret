@@ -1,5 +1,6 @@
 angular.module('app.reward')
 .controller('RewardCtrl', function($scope, $rootScope, $state, $stateParams) {
+  //Controller for the reward view, which is shown after the player has won a part.
 
   $scope.$on('$ionicView.enter', setUp);
   $scope.$on('$ionicView.leave', cleanUp);
@@ -7,12 +8,14 @@ angular.module('app.reward')
   $scope.gameFinished;
   $scope.robotPartImage;
 
+  //clean up variables on exit
   function cleanUp(){
     $scope.robotPart = "";
     $scope.gameFinished = "";
     $scope.robotPartImage = "";
   }
 
+  //get parts and names from given data
   function setUp(){
     var part = $stateParams.part;
     $scope.gameFinished = $rootScope.trans[$stateParams.game];
