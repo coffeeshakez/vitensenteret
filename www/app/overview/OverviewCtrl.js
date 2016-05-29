@@ -68,14 +68,14 @@ angular.module('app.overview')
         scope: $scope,
         buttons: [
           {
-            text: '<b>Avbryt</b>',
+            text: $rootScope.trans["OVERVIEW_POPUP_CANCEL_BUTTON"],
             type: 'button-assertive',
             onTap: function (e) {
                 return false;
             }
           },
           {
-            text: '<b>Start!</b>',
+            text: $rootScope.trans["OVERVIEW_POPUP_START_BUTTON"],
             type: 'button-positive',
             onTap: function (e) {
                 $rootScope.backButton = true;

@@ -75,16 +75,18 @@ angular.module('app.parts')
     //popup for restarting game
     $scope.deleteRobotPop = function(){
         $ionicPopup.show({
-          title: 'Sikker?',
+          title: '',
           scope: $scope,
           buttons: [
-            { text: '<b>Avbryt</b>',
-              type: 'button-positive',
-              onTap: function() {
+          { 
+            text: $rootScope.trans["OVERVIEW_POPUP_CANCEL_BUTTON"],
+            type: 'button-positive',
+            onTap: function (e) {
                 return false;
-              }
-            },
-            { text: '<b>SLETT</b>',
+            }
+          },
+          {
+            text: $rootScope.trans["YOUR_ROBOT_DELETE_CONFIRM"],
               type: 'button-assertive',
               onTap: function() {
                 $rootScope.resetGame();

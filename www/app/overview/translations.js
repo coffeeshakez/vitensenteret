@@ -35,6 +35,7 @@ var norwegian = {
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO": " deler",
     "YOUR_ROBOT_GENERATE_BUTTON": "Ferdig!",
     "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Slett din robot og start spillet på nytt",
+    "YOUR_ROBOT_DELETE_CONFIRM": "Slett!",
     PARTS_HUE: "Farge",
     PARTS_LIGHT: "Lyshet",
     "WATER_LEVEL_ENUMERATOR":"Nivå ",
@@ -189,6 +190,7 @@ var english = {
     "YOUR_ROBOT_NUMBER_OF_COLLECTED_PARTS_TWO": " parts",
     "YOUR_ROBOT_GENERATE_BUTTON": "Finish!",
     "YOUR_ROBOT_DELETE_ROBOT_BUTTON": "Delete your robot and start over again",
+    "YOUR_ROBOT_DELETE_CONFIRM": "Delete!",
     PARTS_HUE: "Hue",
     PARTS_LIGHT: "Light",
 
