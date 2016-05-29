@@ -6,7 +6,6 @@ angular.module('app.sound')
       'exampleScopeValueIneedForThisDirectiveGivenAsAttrOrInScope': '='
     },
     link: function(scope, elem, attrs){
-      //do controller stuff here, like changing elements and getting data
     },
     templateUrl: 'app/sound/views/sound.html'
   };

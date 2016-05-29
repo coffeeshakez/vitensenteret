@@ -88,7 +88,7 @@ var norwegian = {
     PERIODIC_CA_DESCRIPTION: "Marmor, kritt og kalkstein er alle laget av kalsiumforbindelsen kalsiumkarbonat, CaCO3. Kalkstein brukes også som små partikler i tyggis og tannpasta. Mesteparten av all kalsium i kroppen finnes i beinstrukturen.",
 
     SOUND_FEEDBACK1: "Dette var ikke helt riktig. Du hadde rør",
-    SOUND_FEEDBACK2: " på posisjon",
+    SOUND_FEEDBACK2: " på posisjon ",
     SOUND_FEEDBACK3: "",
     SOUND_FEEDBACK4: " riktig.",
     SOUND_FEEDBACK5: " og ",
