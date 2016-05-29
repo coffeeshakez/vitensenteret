@@ -74,14 +74,14 @@ angular.module('app.sound')
 
     }
 
-    //Generates and shows popup. Parameter are bool (correct answer), and an array( which pipes are correct)
-    function showPopup(bool, correctArray) {
+    //Generates and shows popup. Parameter are isCorrect (correct answer), and an array( which pipes are correct)
+    function showPopup(isCorrect, correctArray) {
         console.log(taskNumber);
 
 
         $scope.data = {};
 
-        if (bool == true) {
+        if (isCorrect) {
             if (taskNumber == 3) {
                 var pop = {
                     itle: $rootScope.trans["PERIODIC_FEEDBACK_CORRECT"],
