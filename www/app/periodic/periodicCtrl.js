@@ -66,17 +66,6 @@ angular.module('app.periodic')
         $scope.buttons[$scope.nextElement.index].correct=true;
     }
 
-
-
-    // function checkCorrect(answer){
-    //     if(answer.correct){
-    //         return(true);
-    //     }
-    //     else{
-    //         return (false);
-    //     }
-    // }
-
     function winning(){
         $rootScope.winGame("periodic");
     }
