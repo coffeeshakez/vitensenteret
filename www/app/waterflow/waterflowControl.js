@@ -1,7 +1,24 @@
 angular.module('app.waterflow')
 .controller('waterflowControl', function($scope, $rootScope, $ionicPopup, $window) {
+    //Controller for the waterflow game.
+
+    //legal directions
     var directions = {up:0, right:1, down:2, left:3};    
     var tubeVariants = [];
+    var rand;
+    var numberOfWins = 0;
+    var animationInterval = null;
+    var animationQue = []; 
+    var rowCount = 5;
+    var columnCount = 5;
+    $scope.images = []; 
+
+
+    //Set createNewBoards to true to create randomized boards. This is useful as the copy-paste date will be shown with console.log
+    //The copy-paste data can then be pasted directly into the loadLevelOne, loadLevelTwo and loadLevelThree functions 
+    var createNewBoards = false;
+
+    //definitions for all tube elements
     var UpDownTube = {
         id:0,
         src: "img/tubeUpDown.png",
@@ -38,27 +55,25 @@ angular.module('app.waterflow')
     }
 
 
-    /*
-        Set createNewBoards to true to create randomized boards. This is useful as the copy-paste date will be shown with console.log
-        The copy-paste data can then be pasted directly into the loadLevelOne, loadLevelTwo and loadLevelThree functions 
-    */
-    var createNewBoards = false;
+
     //remove start and endtube if you want randomized map //, startTube, endTube
     tubeVariants.push(UpDownTube, UpRightTube, UpLeftTube, startTube, endTube);
 
-    //triggered by ng-click on image. Takes an image object
+    //triggered by ng-click on image. Takes an html image object
     $scope.rotateImage = function(image){
+        //no rotation if start or end tube. 
         if(image["src"] === endTube.src || image["src"] === startTube.src){
             return;
-        }                              
+        }
+        //apply css rotation styles
         image["rotation"] = (image["rotation"]+90)% 360;
         image["outputDirection"] = (image["outputDirection"]+1)%4;
         image["inputDirection"] = (image["inputDirection"]+1)%4;
         image.classname="rot"+(image["rotation"]);
     };
 
-    var rand;
-    setRotation = function(image){
+    //set random rotation on tube. used to initialize the board
+    var setRandomRotation = function(image){
         if(image["src"] === endTube.src || image["src"] === startTube.src){
             return;
         }
@@ -74,8 +89,7 @@ angular.module('app.waterflow')
         $scope.loadImages();
     }
 
-
-    var numberOfWins = 0;
+    //display dynamic popup depending on how far along the player has come.
     function showPopup(result) {
         $scope.data = {};
 
@@ -83,8 +97,7 @@ angular.module('app.waterflow')
         if(result === true){
             numberOfWins+=1;
 
-
-            //TODO: Add proper text to popups
+            //check if player is done
             if(numberOfWins >= 3){
                 var myPopup = $ionicPopup.show({
                     title: $rootScope.trans.WATER_CORRECT_PATH_TITLE,
@@ -104,6 +117,7 @@ angular.module('app.waterflow')
                 });
             }
             else{
+                //next level popup
                 var myPopup = $ionicPopup.show({
                     title: $rootScope.trans.WATER_CORRECT_PATH_TITLE,
                     subTitle: $rootScope.trans.WATER_CORRECT_PATH_DESC,
@@ -121,6 +135,7 @@ angular.module('app.waterflow')
 
 
         }else{
+            //development data
             var myPopup = $ionicPopup.show({
                 title: createNewBoards ? "Copy-paste is in the console log":$rootScope.trans.WATER_INCORRECT_PATH_TITLE,
                 subTitle:  createNewBoards ? "Generer nytt board": $rootScope.trans.WATER_INCORRECT_PATH_DESC,
@@ -142,8 +157,7 @@ angular.module('app.waterflow')
         });
     };
 
-    var animationInterval = null;
-    var animationQue = []; 
+    //check if the current rotations of tubes will result in flow-through
     $scope.testFlow = function(){
         var start= $scope.images[0][0];
         console.log("running testFlow");
@@ -182,7 +196,7 @@ angular.module('app.waterflow')
     }
 
 
-
+    //function used in testflow to check flowthrough
     function nextElement(image){
         console.log(image);
         //log current image
@@ -227,13 +241,14 @@ angular.module('app.waterflow')
         return next;
     }
 
-    opposite = function(int){
+    var opposite = function(int){
         return int >= 2 ? int-2 : int+2;
     }
-    var rowCount = 5;
-    var columnCount = 5;
-    $scope.images = []; 
+
+    //initializes all tubes on start of each level
     $scope.loadImages = function() {
+
+        //if debug mode, print new random boards.
         if(createNewBoards){
             //makes the tubeVariants array again, to avoid start and endtubes randomly placed on board
             tubeVariants = [];
@@ -281,7 +296,7 @@ angular.module('app.waterflow')
                loadLevelThree();
             }
         }
-      // // prints code for board
+        // prints code for board
         if(createNewBoards){
             for(var i = 0; i < columnCount; i++) {
                 for(var j = 0; j<rowCount; j++){
@@ -303,6 +318,7 @@ angular.module('app.waterflow')
         }
     }
 
+    //stored list of all the levels.
     function loadLevelOne(){
         changeLevelNumerator();
         loader({tubeID: 3,idX: 0,idY: 0,rotation: 0,src: "img/tube_start.png",inputDirection: 0,outputDirection: 2,connectedDirection: 0,animationStep: undefined,spriteCount: undefined,});
@@ -388,13 +404,17 @@ angular.module('app.waterflow')
         loader({tubeID: 4,idX: 4,idY: 4,rotation: 0,src: "img/tube_end.jpg",inputDirection: 0,outputDirection: 3,connectedDirection: -1,animationStep: undefined, spriteCount: undefined,});
         changeLevelNumerator();
     }
+
+    //injects the image into the html
     function loader (element){
         if(element["src"] !== startTube.src && element["src"] !== endTube.src){
             element["src"] = tubeVariants[element["tubeID"]].src;
-            setRotation(element);
+            setRandomRotation(element);
         }
         $scope.images[element["idY"]].push(element);
     }
+
+    //random object selection helper function
     function pickRandomObjectProperty(obj){
         var result;
         var count = 0;
