@@ -35,7 +35,7 @@ angular.module('app.periodic')
         {name:"svovel", url: "./img/onion.jpg", index:6},
         {name:"gull", url: "./img/gold.jpg", index:3},
         {name:"karbon", url: "./img/diamond.jpg", index:7},
-        {name:"natrum", url: "./img/salt.jpg", index:2},
+        {name:"natrium", url: "./img/salt.jpg", index:2},
         {name:"kalsium", url: "./img/kalsium.jpg", index:8},
         {name:"jern", url: "./img/Iron.jpg", index:1},
     ];
@@ -47,22 +47,18 @@ angular.module('app.periodic')
         $scope.buttons[$scope.nextElement.index].correct=true;
     }
 
-    $scope.submitAnswer=function(answer){
-
+    $scope.submitAnswer=function(answer) {
         var isCorrect = answer.correct;
-
         showPopup(isCorrect, answer);
 
-        if(isCorrect){
-            $scope.nextElement.correct=false;
-            urlAndArray.pop();
-            
+        if (isCorrect) {
+            $scope.buttons[$scope.nextElement.index].correct = false;
         }
 
-        else{
-            var oldElement =  urlAndArray.pop();
+        else {
+            var oldElement = urlAndArray.pop();
             urlAndArray.unshift(oldElement);
-             $scope.buttons[answer.index].correct=false;
+            $scope.buttons[$scope.nextElement.index].correct = false;
         }
     }
     function initNextElement(){
