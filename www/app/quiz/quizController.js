@@ -1,6 +1,8 @@
 angular.module('app.quiz')
 .controller('quizController', function($scope, $rootScope, $stateParams, $ionicPopup) {
+  //controller for the quiz minigame
 
+      //definitions of quiz questions, with the question text defined in the app/overview/translations.js file
       $scope.questions = [
         {
           question: $rootScope.trans["QUIZ_QUESTION1"],
@@ -95,6 +97,7 @@ angular.module('app.quiz')
 
   };
 
+  //checks if given answer is correct
   $scope.checkAnswer = function(answer)
   {
 
@@ -117,6 +120,7 @@ angular.module('app.quiz')
       });
   }
 
+//Checks if the player has answered all questions correctly
 function isFinished(){
   
   for(key in $scope.questions){
@@ -130,6 +134,7 @@ function isFinished(){
   return true;
 }
 
+//popup for next question
 function preparePopup(title, subTitle) {
   var pop =
   {
@@ -149,6 +154,7 @@ function preparePopup(title, subTitle) {
   return pop;
 }
 
+//change data to next question's data
 function askNextQuestion(){
 
   if(isFinished()){
