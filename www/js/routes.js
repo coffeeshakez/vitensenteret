@@ -157,17 +157,6 @@ angular.module('app.routes', [])
     data: {pageTitle: 'Welcome'}
   })
 
-   .state('index.beacon', {
-      url: "/beacon",
-      views: {
-        'beacon': {
-          templateUrl: "app/beacon/views/beacon.html",
-          controller: 'beaconCtrl'
-        }
-      },
-      data: {pageTitle: 'Beacon'}
-    })
-
    .state('index.finish', {
       url: "/finish",
       views: {
@@ -176,7 +165,7 @@ angular.module('app.routes', [])
           controller: 'finishCtrl'
         }
       },
-      data: {pageTitle: 'Beacon'}
+      data: {pageTitle: 'Vitensenteret'}
     })
 
   .state('index.example', {

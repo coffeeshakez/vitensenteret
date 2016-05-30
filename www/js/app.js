@@ -21,7 +21,6 @@ angular.module('app', [
   'app.sound',
   'app.colors',
   'app.map',
-  'app.beacon',
   'app.finish',
   
 
