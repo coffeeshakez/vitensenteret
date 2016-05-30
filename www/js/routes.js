@@ -8,6 +8,7 @@ angular.module('app.routes', [])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+  //The main state, which shows the tabs. all other views inherit from this
   .state('index', {
     url: '/index',
     templateUrl: 'templates/tabsController.html',
@@ -178,6 +179,8 @@ angular.module('app.routes', [])
       },
       data: {pageTitle: 'Example'}
     })
+
+//default url. must be /index/overiview
 $urlRouterProvider.otherwise('/index/overview')
   
 });
