@@ -70,17 +70,6 @@ angular.module('app.routes', [])
     data: {pageTitle: 'Colors'}
   })
 
-  .state('index.memory', {
-      url: "/memory",
-      views: {
-        'memory': {
-          templateUrl: "app/memory/views/default.html",
-          controller: 'MemoryCtrl'
-        }
-      },
-      data: {pageTitle: 'Memory game'}
-    })
-
   .state('index.shortest', {
       url: "/shortest",
       views: {

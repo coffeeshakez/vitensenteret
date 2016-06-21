@@ -15,7 +15,6 @@ angular.module('app', [
   'app.overview',
   'app.periodic',
   'app.quiz',
-  'app.memory',
   'app.reward',
   'app.shortest',
   'app.sound',
@@ -102,7 +101,6 @@ angular.module('app', [
         "colors":    {name: "OVERVIEW_COLOR_BUTTON",          game: "colors",    icon: "ion-lock-combination",  part: "body",   collected: false, story: "COLOR_INTRO_POPUP",           found: false },
         "sound":     {name: "OVERVIEW_MELODY_BUTTON",         game: "sound",     icon: "ion-music-note",        part: "head",   collected: false, story: "MELODY_INTRO_POPUP",          found: false },
         "waterflow": {name: "OVERVIEW_WATER_BUTTON",          game: "waterflow", icon: "ion-waterdrop",         part: "arms",   collected: false, story: "WATER_INTRO_POPUP",           found: false },
-        "memory":    {name: "OVERVIEW_SIMON_SAYS_BUTTON",     game: "memory",    icon: "ion-load-b",            part: "arms",   collected: false, story: "SIMON_SAYS_INTRO_POPUP",      found: false },
         "shortest":  {name: "OVERVIEW_SHORTEST_PATH_BUTTON",  game: "shortest",  icon: "ion-map",               part: "legs",   collected: false, story: "SHORTEST_PATH_INTRO_POPUP",   found: false },
     };
 
